@@ -1,0 +1,11 @@
+{
+"resources":
+	[
+		{"name":"daisy","type":"img","url":"assets/480/daisy.png"}
+	],
+
+"groups":
+	[
+        {"name":"TestBitmap","keys":"daisy"}
+	]
+}
