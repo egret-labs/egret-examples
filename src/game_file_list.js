@@ -16,5 +16,7 @@ var game_file_list = [
     //Resource end
 	
     "GameApp.js",
-    "LoadingUI.js"
+    "LoadingUI.js",
+
+    "TestBitmap.js"
 ]

@@ -1,5 +1,5 @@
-/// <reference path="../../egret/src/jslib/DEBUG.d.ts" />
-/// <reference path="../../egret/src/jslib/Utils.d.ts" />
+/// <reference path="../../github/egret/src/jslib/DEBUG.d.ts" />
+/// <reference path="../../github/egret/src/jslib/Utils.d.ts" />
 /**
 * Copyright (c) Egret-Labs.org. Permission is hereby granted, free of charge,
 * to any person obtaining a copy of this software and associated documentation
@@ -39,7 +39,7 @@ declare module ns_egret {
     * @classdesc
     * @implements ns_egret.IHashObject
     */
-    class HashObject implements IHashObject {
+    class HashObject implements ns_egret.IHashObject {
         /**
         * @method ns_egret.HashObject#constructor
         * @class ns_egret.HashObject
@@ -62,7 +62,7 @@ declare module ns_egret {
     /**
     * 对象缓存复用工具类，可用于构建对象池，一段时间后会自动回收对象。
     */
-    class Recycler extends HashObject {
+    class Recycler extends ns_egret.HashObject {
         constructor(autoDisposeTime?: number);
         static _callBackList: any[];
         /**
@@ -152,7 +152,7 @@ declare module ns_egret {
     * @interface
     * @classdesc IEventDispatcher是egret的事件派发器接口，负责进行事件的发送和侦听。
     */
-    interface IEventDispatcher extends IHashObject {
+    interface IEventDispatcher extends ns_egret.IHashObject {
         /**
         * 添加事件侦听器
         * @param type 事件的类型。
@@ -189,7 +189,7 @@ declare module ns_egret {
         * @param arg 数据对象
         * @returns {*}
         */
-        dispatchEvent(event: Event): boolean;
+        dispatchEvent(event: ns_egret.Event): boolean;
         /**
         * 检查是否用此 EventDispatcher 对象或其任何始祖为指定事件类型注册了事件侦听器。将指定类型的事件调度给此
         * EventDispatcher 对象或其任一后代时，如果在事件流的任何阶段触发了事件侦听器，则此方法返回 true。
@@ -201,7 +201,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Event extends HashObject {
+    class Event extends ns_egret.HashObject {
         /**
         * @class ns_egret.Event
         * @classdesc
@@ -362,24 +362,24 @@ declare module ns_egret {
         public stopImmediatePropagation(): void;
         private isNew;
         public _reset(): void;
-        static _dispatchByTarget(EventClass: any, target: IEventDispatcher, type: string, props?: Object, bubbles?: boolean, cancelable?: boolean): boolean;
+        static _dispatchByTarget(EventClass: any, target: ns_egret.IEventDispatcher, type: string, props?: Object, bubbles?: boolean, cancelable?: boolean): boolean;
         static _getPropertyData(EventClass: any): any;
         /**
         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.Event.dispatchEvent
         */
-        static dispatchEvent(target: IEventDispatcher, type: string, bubbles?: boolean, data?: any): void;
+        static dispatchEvent(target: ns_egret.IEventDispatcher, type: string, bubbles?: boolean, data?: any): void;
     }
 }
 declare module ns_egret {
-    class IOErrorEvent extends Event {
+    class IOErrorEvent extends ns_egret.Event {
         static IO_ERROR: string;
         constructor(type: string, bubbles?: boolean, cancelable?: boolean);
         /**
         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.IOErrorEvent.dispathIOErrorEvent
         */
-        static dispatchIOErrorEvent(target: IEventDispatcher): void;
+        static dispatchIOErrorEvent(target: ns_egret.IEventDispatcher): void;
     }
 }
 declare module ns_egret {
@@ -392,13 +392,13 @@ declare module ns_egret {
     * @implements ns_egret.IEventDispatcher
     *
     */
-    class EventDispatcher extends HashObject implements IEventDispatcher {
+    class EventDispatcher extends ns_egret.HashObject implements ns_egret.IEventDispatcher {
         /**
         * EventDispatcher 类是可调度事件的所有类的基类。EventDispatcher 类实现 IEventDispatcher 接口
         * ，并且是 DisplayObject 类的基类。EventDispatcher 类允许显示列表上的任何对象都是一个事件目标，
         * 同样允许使用 IEventDispatcher 接口的方法。
         */
-        constructor(target?: IEventDispatcher);
+        constructor(target?: ns_egret.IEventDispatcher);
         /**
         * 事件抛出对象
         */
@@ -473,8 +473,8 @@ declare module ns_egret {
         * @param event {ns_egret.Event} 调度到事件流中的 Event 对象。如果正在重新分派事件，则会自动创建此事件的一个克隆。 在调度了事件后，其 _eventTarget 属性将无法更改，因此您必须创建此事件的一个新副本以能够重新调度。
         * @returns {boolean} 如果成功调度了事件，则值为 true。值 false 表示失败或对事件调用了 preventDefault()。
         */
-        public dispatchEvent(event: Event): boolean;
-        public _notifyListener(event: Event): boolean;
+        public dispatchEvent(event: ns_egret.Event): boolean;
+        public _notifyListener(event: ns_egret.Event): boolean;
         private static eventRecycler;
         /**
         * 派发一个包含了特定参数的事件到所有注册了特定类型侦听器的对象中。 这个方法使用了一个内部的事件对象池因避免重复的分配导致的额外开销。
@@ -493,7 +493,7 @@ declare module ns_egret {
     * Ticker是egret引擎的心跳控制器，是游戏唯一的时间处理入口。开发者务必不要使用setTimeout / setInterval 等方法，而是统一使用Ticker
     * @extends ns_egret.EventDispatcher
     */
-    class Ticker extends EventDispatcher {
+    class Ticker extends ns_egret.EventDispatcher {
         private _timeScale;
         private _paused;
         /**
@@ -510,7 +510,7 @@ declare module ns_egret {
         * @method ns_egret.Ticker#register
         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
         * @param thisObject {any} 帧回调函数的this对象
-        * @param priority {any} 事件优先级，开发者请勿传递 Number.MAX_VALUE 和 Number.MIN_VALUE
+        * @param priority {any} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
         * @stable A-
         */
         public register(listener: Function, thisObject: any, priority?: number): void;
@@ -562,7 +562,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class DeviceContext extends HashObject {
+    class DeviceContext extends ns_egret.HashObject {
         /**
         * @member ns_egret.DeviceContext#frameRate
         */
@@ -585,7 +585,7 @@ declare module ns_egret {
     * @class ns_egret.TouchContext
     * @classdesc TouchContext是egret的触摸Context
     */
-    class TouchContext extends HashObject {
+    class TouchContext extends ns_egret.HashObject {
         private _currentTouchTarget;
         public maxTouches: number;
         private touchDownTarget;
@@ -688,7 +688,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class URLRequest extends HashObject {
+    class URLRequest extends ns_egret.HashObject {
         /**
         * @method ns_egret.URLRequest#constructor
         * @param url {string}
@@ -728,13 +728,13 @@ declare module ns_egret {
     * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
     * @extends ns_egret.EventDispatcher
     */
-    class URLLoader extends EventDispatcher {
+    class URLLoader extends ns_egret.EventDispatcher {
         /**
         * @method ns_egret.URLLoader#constructor
         * @param request {URLRequest} 一个 URLRequest 对象，指定要下载的 URL。
         * 如果省略该参数，则不开始加载操作。如果已指定参数，则立即开始加载操作
         */
-        constructor(request?: URLRequest);
+        constructor(request?: ns_egret.URLRequest);
         /**
         * 控制是以文本 (URLLoaderDataFormat.TEXT)、原始二进制数据 (URLLoaderDataFormat.BINARY) 还是 URL 编码变量 (URLLoaderDataFormat.VARIABLES) 接收下载的数据。
         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
@@ -754,14 +754,14 @@ declare module ns_egret {
         * @member {any} ns_egret.URLLoader#data
         */
         public data: any;
-        public _request: URLRequest;
+        public _request: ns_egret.URLRequest;
         /**
         * 从指定的 URL 发送和加载数据。可以以文本、原始二进制数据或 URL 编码变量格式接收数据，这取决于为 dataFormat 属性所设置的值。
         * 请注意 dataFormat 属性的默认值为文本。如果想将数据发送至指定的 URL，则可以在 URLRequest 对象中设置 data 属性。
         * @method ns_egret.URLLoader#load
         * @param request {URLRequest}
         */
-        public load(request: URLRequest): void;
+        public load(request: ns_egret.URLRequest): void;
     }
 }
 declare module ns_egret {
@@ -770,9 +770,9 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class NetContext extends HashObject {
+    class NetContext extends ns_egret.HashObject {
         constructor();
-        public proceed(loader: URLLoader): void;
+        public proceed(loader: ns_egret.URLLoader): void;
     }
 }
 declare module ns_egret {
@@ -783,7 +783,7 @@ declare module ns_egret {
     * 在OpenGL / WebGL中，资源是一个提交GPU后获取的纹理id
     * Texture类封装了这些底层实现的细节，开发者只需要关心接口即可
     */
-    class Texture extends HashObject {
+    class Texture extends ns_egret.HashObject {
         constructor();
         public offsetX: number;
         public offsetY: number;
@@ -803,7 +803,7 @@ declare module ns_egret {
     * Point 对象表示二维坐标系统中的某个位置，其中 x 表示水平轴，y 表示垂直轴。
     * @extends ns_egret.HashObject
     */
-    class Point extends HashObject {
+    class Point extends ns_egret.HashObject {
         static identity: Point;
         /**
         * @method ns_egret.Point#constructor
@@ -836,7 +836,7 @@ declare module ns_egret {
     * 矩形类
     * @extends ns_egret.HashObject
     */
-    class Rectangle extends HashObject {
+    class Rectangle extends ns_egret.HashObject {
         constructor(x?: number, y?: number, width?: number, height?: number);
         /**
         * 矩形x坐标
@@ -915,7 +915,7 @@ declare module ns_egret {
     * 2D矩阵类，包括常见矩阵算法
     * @extends ns_egret.HashObject
     */
-    class Matrix extends HashObject {
+    class Matrix extends ns_egret.HashObject {
         public a: number;
         public b: number;
         public c: number;
@@ -984,7 +984,7 @@ declare module ns_egret {
         * @method ns_egret.Matrix#appendTransformFromDisplay
         * @param target {ns_egret.DisplayObjec}
         */
-        public appendTransformFromDisplay(target: DisplayObject): Matrix;
+        public appendTransformFromDisplay(target: ns_egret.DisplayObject): Matrix;
         /**
         * 矩阵旋转，以角度制为单位
         * @param angle
@@ -1032,7 +1032,7 @@ declare module ns_egret {
         * @returns {Point}
         * @stable C 该方法以后可能删除
         */
-        static transformCoords(matrix: Matrix, x: number, y: number): Point;
+        static transformCoords(matrix: Matrix, x: number, y: number): ns_egret.Point;
     }
 }
 /**
@@ -1064,7 +1064,7 @@ declare module ns_egret {
     * 如果开发者希望所有平台完全无差异，请使用BitmapText
     * @todo GitHub 为什么文本渲染存在差异以及如何规避
     */
-    class TextField extends DisplayObject {
+    class TextField extends ns_egret.DisplayObject {
         /**
         * 显示文本
         */
@@ -1128,11 +1128,11 @@ declare module ns_egret {
         * @see egret.DisplayObject.render
         * @param renderContext
         */
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
         /**
         * 测量显示对象坐标与大小
         */
-        public _measureBounds(): Rectangle;
+        public _measureBounds(): ns_egret.Rectangle;
         /**
         * @private
         * @param renderContext
@@ -1147,7 +1147,7 @@ declare module ns_egret {
         * @param y
         * @private
         */
-        public _drawTextLine(renderContext: RendererContext, text: any, y: any, maxWidth: any): void;
+        public _drawTextLine(renderContext: ns_egret.RendererContext, text: any, y: any, maxWidth: any): void;
     }
 }
 declare module ns_egret {
@@ -1206,7 +1206,7 @@ declare module ns_egret {
     * 这是一个抽象基类，制定主要的接口
     * @extends ns_egret.HashObject
     */
-    class RendererContext extends HashObject {
+    class RendererContext extends ns_egret.HashObject {
         /**
         * 渲染全部纹理的时间开销
         * @member ns_egret.RendererContext#renderCost
@@ -1248,13 +1248,13 @@ declare module ns_egret {
         * @param destWidth {any}
         * @param destHeigh {any}
         */
-        public drawImage(texture: Texture, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any): void;
+        public drawImage(texture: ns_egret.Texture, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any): void;
         /**
         * 变换Context的当前渲染矩阵
         * @method ns_egret.RendererContext#setTransform
         * @param matrix {ns_egret.Matri}
         */
-        public setTransform(matrix: Matrix): void;
+        public setTransform(matrix: ns_egret.Matrix): void;
         /**
         * @method ns_egret.RendererContext#save
         * @stable C 这个方法以后会和restore一起删除，移动到HTML5CanvasContext的具体实现中，而不是作为一个接口
@@ -1277,7 +1277,7 @@ declare module ns_egret {
         * @method ns_egret.RendererContext#setupFont
         * @param textField {TextField}
         */
-        public setupFont(textField: TextField): void;
+        public setupFont(textField: ns_egret.TextField): void;
         /**
         * 测量文本
         * @method ns_egret.RendererContext#measureText
@@ -1295,7 +1295,7 @@ declare module ns_egret {
         * @param y {number}
         * @param maxWidth {numbe}
         */
-        public drawText(textField: TextField, text: string, x: number, y: number, maxWidth: number): void;
+        public drawText(textField: ns_egret.TextField, text: string, x: number, y: number, maxWidth: number): void;
         /**
         * 矩形遮罩
         * @method ns_egret.RendererContext#clip
@@ -1341,7 +1341,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class SoundContext extends HashObject {
+    class SoundContext extends ns_egret.HashObject {
         /**
         * @method ns_egret.SoundContext.getInstance
         * @returns {SoundContext}
@@ -1439,94 +1439,129 @@ declare module ns_egret {
 }
 declare module ns_egret {
     /**
+    * @class ns_egret.DisplayObjectContainer
+    * @classdesc
     * DisplayObjectContainer 类是显示列表中显示对象容器。
     */
-    class DisplayObjectContainer extends DisplayObject {
+    class DisplayObjectContainer extends ns_egret.DisplayObject {
         constructor();
         public _touchChildren: boolean;
         /**
         * 指定此对象的子项以及子孙项是否接收鼠标/触摸事件
+        * @member {boolean} ns_egret.DisplayObjectContainer#touchChildren
         */
         public touchChildren : boolean;
-        public _children: DisplayObject[];
+        public _children: ns_egret.DisplayObject[];
+        /**
+        * @member {number} ns_egret.DisplayObjectContainer#numChildren
+        */
         public numChildren : number;
         /**
-        * 修改 容器内子元件的 层级
-        * @param child 容器的子元件
-        * @param index 新的层级 <0或者>=元件数量，都加入到最上层
+        * 修改容器内子元件的层级
+        * @method ns_egret.DisplayObjectContainer#setChildIndex
+        * @param child {ns_egret.DisplayObject} 容器的子元件
+        * @param index {number} 新的层级 <0或者>=元件数量，都加入到最上层
         */
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         private doSetChildIndex(child, index);
         /**
-        * @inheritDoc
+        * @method ns_egret.DisplayObjectContainer#addChild
+        * @param child {ns_egret.DisplayObject}
+        * @returns {ns_egret.DisplayObject}
         */
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * 将一个 DisplayObject 子实例添加到该 DisplayObjectContainer 实例中。
-        * todo:GitHub 显示列表
-        * @param child 子显示对象
-        * @param index 加载的顺序，默认为-1，加载到最前面
+        * @method ns_egret.DisplayObjectContainer#addChildAt
+        * @param child {ns_egret.DisplayObject} 子显示对象
+        * @param index {number} 加载的顺序，默认为-1，加载到最前面
+        * @returns {ns_egret.DisplayObject}
         */
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
-        public _doAddChild(child: DisplayObject, index: number, notifyListeners?: boolean): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
+        public _doAddChild(child: ns_egret.DisplayObject, index: number, notifyListeners?: boolean): ns_egret.DisplayObject;
         /**
         * 将一个 DisplayObject 子实例从 DisplayObjectContainer 实例中移除。
-        * @param child
+        * @method ns_egret.DisplayObjectContainer#removeChild
+        * @param child {ns_egret.DisplayObject}
+        * @returns {ns_egret.DisplayObject}
         */
-        public removeChild(child: DisplayObject): DisplayObject;
-        public removeChildAt(index: number): DisplayObject;
-        public _doRemoveChild(index: number, notifyListeners?: boolean): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
+        /**
+        * @method ns_egret.DisplayObjectContainer#removeChildAt
+        * @param index {number}
+        * @returns {ns_egret.DisplayObject}
+        */
+        public removeChildAt(index: number): ns_egret.DisplayObject;
+        public _doRemoveChild(index: number, notifyListeners?: boolean): ns_egret.DisplayObject;
         /**
         * 通过索引获取显示对象
-        * @param index
-        * @returns {*}
+        * @method ns_egret.DisplayObjectContainer#getChildAt
+        * @param index {number}
+        * @returns {ns_egret.DisplayObject}
         */
-        public getChildAt(index: number): DisplayObject;
+        public getChildAt(index: number): ns_egret.DisplayObject;
         /**
         *  确定指定显示对象是 DisplayObjectContainer 实例的子项还是该实例本身。搜索包括整个显示列表（其中包括此 DisplayObjectContainer 实例）。孙项、曾孙项等，每项都返回 true。
-        * @param child 要测试的子对象。
+        * @method ns_egret.DisplayObjectContainer#contains
+        * @param child {ns_egret.DisplayObject} 要测试的子对象。
+        * @returns {boolean}
         */
-        public contains(child: DisplayObject): boolean;
+        public contains(child: ns_egret.DisplayObject): boolean;
         /**
         * 根据子对象的name属性获取对象
-        * @param name
-        * @returns {null}
+        * @method ns_egret.DisplayObjectContainer#getChildByName
+        * @param name {string}
+        * @returns {ns_egret.DisplayObject}
         */
-        public getChildByName(name: string): DisplayObject;
+        public getChildByName(name: string): ns_egret.DisplayObject;
+        /**
+        * @method ns_egret.DisplayObjectContainer#swapChildrenAt
+        * @param index1 {number}
+        * @param index2 {number}
+        */
         public swapChildrenAt(index1: number, index2: number): void;
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        /**
+        * @method ns_egret.DisplayObjectContainer#swapChildren
+        * @param child1 {ns_egret.DisplayObject}
+        * @param child2 {ns_egret.DisplayObject}
+        */
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         private _swapChildrenAt(index1, index2);
         /**
         * 获得 容器内元件的层级
-        * @param child
-        * @returns -1不在容器内 >=0 在容器里
+        * @method ns_egret.DisplayObjectContainer#getChildIndex
+        * @param child {ns_egret.DisplayObject}
+        * @returns {number}
         */
-        public getChildIndex(child: DisplayObject): number;
+        public getChildIndex(child: ns_egret.DisplayObject): number;
         /**
         * 移除所有显示对象
+        * @method ns_egret.DisplayObjectContainer#removeChildren
         */
         public removeChildren(): void;
         public _updateTransform(): void;
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
         /**
         * @see egret.DisplayObject._measureBounds
         * @returns {null}
         * @private
         */
-        public _measureBounds(): Rectangle;
+        public _measureBounds(): ns_egret.Rectangle;
         /**
+        * @method ns_egret.DisplayObjectContainer#hitTest
         * @see egret.DisplayObject.hitTest
-        * @param x
-        * @param y
-        * @returns {DisplayObject}
+        * @param x {number}
+        * @param y {number}
+        * @param ignoreTouchEnabled {boolean}
+        * @returns {ns_egret.DisplayObject}
         */
-        public hitTest(x: number, y: number, ignoreTouchEnabled?: boolean): DisplayObject;
+        public hitTest(x: number, y: number, ignoreTouchEnabled?: boolean): ns_egret.DisplayObject;
         public _onAddToStage(): void;
         public _onRemoveFromStage(): void;
     }
 }
 declare module ns_egret {
-    class Stage extends DisplayObjectContainer {
+    class Stage extends ns_egret.DisplayObjectContainer {
         static _invalidateRenderFlag: boolean;
         /**
         * 调用 invalidate() 方法后，在显示列表下次呈现时，Egret 会向每个已注册侦听 render 事件的显示对象发送一个 render 事件。
@@ -1554,13 +1589,13 @@ declare module ns_egret {
         * @param y
         * @returns {DisplayObject}
         */
-        public hitTest(x: any, y: any): DisplayObject;
+        public hitTest(x: any, y: any): ns_egret.DisplayObject;
         /**
         * @see egret.DisplayObject.getBounds
         * @param resultRect {Rectangle} 可选参数，传入用于保存结果的Rectangle对象，避免重复创建对象。
         * @returns {Rectangle}
         */
-        public getBounds(resultRect?: Rectangle): Rectangle;
+        public getBounds(resultRect?: ns_egret.Rectangle): ns_egret.Rectangle;
         public _updateTransform(): void;
     }
 }
@@ -1571,38 +1606,38 @@ declare module ns_egret {
     * MainContext是游戏的核心跨平台接口，组合了多个功能Context，并是游戏启动的主入口
     * @extends ns_egret.EventDispatcher
     */
-    class MainContext extends EventDispatcher {
+    class MainContext extends ns_egret.EventDispatcher {
         constructor();
         /**
         * 渲染Context
         * @member ns_egret.MainContext#rendererContext
         */
-        public rendererContext: RendererContext;
+        public rendererContext: ns_egret.RendererContext;
         /**
         * 触摸Context
         * @member ns_egret.MainContext#touchContext
         */
-        public touchContext: TouchContext;
+        public touchContext: ns_egret.TouchContext;
         /**
         * 声音Context
         * @member ns_egret.MainContext#soundContext
         */
-        public soundContext: SoundContext;
+        public soundContext: ns_egret.SoundContext;
         /**
         * 网络Context
         * @member ns_egret.MainContext#netContext
         */
-        public netContext: NetContext;
+        public netContext: ns_egret.NetContext;
         /**
         * 设备divice
         * @member ns_egret.MainContext#deviceContext
         */
-        public deviceContext: DeviceContext;
+        public deviceContext: ns_egret.DeviceContext;
         /**
         * 舞台
         * @member ns_egret.MainContext#stage
         */
-        public stage: Stage;
+        public stage: ns_egret.Stage;
         /**
         * 游戏启动，开启主循环，参考Flash的滑动跑道模型
         * @method ns_egret.MainContext#run
@@ -1637,7 +1672,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class RenderFilter extends HashObject {
+    class RenderFilter extends ns_egret.HashObject {
         constructor();
         private static instance;
         /**
@@ -1645,14 +1680,14 @@ declare module ns_egret {
         * @returns {RenderFilter}
         */
         static getInstance(): RenderFilter;
-        public _drawAreaList: Rectangle[];
+        public _drawAreaList: ns_egret.Rectangle[];
         private _defaultDrawAreaList;
         private _originalData;
         /**
         * @method ns_egret.ns_egret#addDrawArea
         * @param area {ns_egret.Rectangle}
         */
-        public addDrawArea(area: Rectangle): void;
+        public addDrawArea(area: ns_egret.Rectangle): void;
         /**
         * @method ns_egret.ns_egret#clearDrawArea
         */
@@ -1677,7 +1712,7 @@ declare module ns_egret {
         * @method ns_egret.ns_egret#getDrawAreaList
         * @returns {Rectangle}
         */
-        public getDrawAreaList(): Rectangle[];
+        public getDrawAreaList(): ns_egret.Rectangle[];
     }
     /**
     * @class ns_egret.RenderData
@@ -1688,12 +1723,12 @@ declare module ns_egret {
         /**
         * @member ns_egret.RenderData#worldTransform
         */
-        worldTransform: Matrix;
+        worldTransform: ns_egret.Matrix;
         /**
         * @member ns_egret.RenderData#worldBounds
         */
-        worldBounds: Rectangle;
-        _texture_to_render: Texture;
+        worldBounds: ns_egret.Rectangle;
+        _texture_to_render: ns_egret.Texture;
     }
 }
 declare module ns_egret {
@@ -1702,7 +1737,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.RendererContext
     */
-    class HTML5CanvasRenderer extends RendererContext {
+    class HTML5CanvasRenderer extends ns_egret.RendererContext {
         private canvas;
         /**
         * @member ns_egret.HTML5CanvasRenderer#canvasContext
@@ -1720,23 +1755,23 @@ declare module ns_egret {
         constructor(canvas: any);
         public clearScreen(): void;
         public clearRect(x: number, y: number, w: number, h: number): void;
-        public drawImage(texture: Texture, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any): void;
-        public setTransform(matrix: Matrix): void;
+        public drawImage(texture: ns_egret.Texture, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any): void;
+        public setTransform(matrix: ns_egret.Matrix): void;
         public save(): void;
         public restore(): void;
-        public setAlpha(alpha: number, blendMode: BlendMode): void;
-        public setupFont(textField: TextField): void;
+        public setAlpha(alpha: number, blendMode: ns_egret.BlendMode): void;
+        public setupFont(textField: ns_egret.TextField): void;
         public measureText(text: any): number;
-        public drawText(textField: TextField, text: string, x: number, y: number, maxWidth: number): void;
+        public drawText(textField: ns_egret.TextField, text: string, x: number, y: number, maxWidth: number): void;
         public clip(x: any, y: any, w: any, h: any): void;
         public strokeRect(x: any, y: any, w: any, h: any, color: any): void;
     }
 }
 declare module ns_egret {
-    class RenderTexture extends Texture {
+    class RenderTexture extends ns_egret.Texture {
         private cacheCanvas;
         constructor();
-        public drawToTexture(displayObject: DisplayObject): void;
+        public drawToTexture(displayObject: ns_egret.DisplayObject): void;
     }
 }
 /**
@@ -1783,11 +1818,11 @@ declare module ns_egret {
     * getBounds();
     *
     */
-    class DisplayObject extends EventDispatcher implements RenderData {
+    class DisplayObject extends ns_egret.EventDispatcher implements ns_egret.RenderData {
         constructor();
         public name: string;
-        public _texture_to_render: Texture;
-        public _parent: DisplayObjectContainer;
+        public _texture_to_render: ns_egret.Texture;
+        public _parent: ns_egret.DisplayObjectContainer;
         /**
         * 11111
         * @event ns_egret.Event.event:ADDED_TO_STAGE
@@ -1797,11 +1832,11 @@ declare module ns_egret {
         * 表示包含此显示对象的 DisplayObjectContainer 对象
         * @member {ns_egret.DisplayObjectContainer} ns_egret.DisplayObject#parent
         */
-        public parent : DisplayObjectContainer;
+        public parent : ns_egret.DisplayObjectContainer;
         /**
         * 仅供框架内部调用。
         */
-        public _parentChanged(parent: DisplayObjectContainer): void;
+        public _parentChanged(parent: ns_egret.DisplayObjectContainer): void;
         public _x: number;
         /**
         * 表示 DisplayObject 实例相对于父级 DisplayObjectContainer 本地坐标的 x 坐标。
@@ -1896,13 +1931,13 @@ declare module ns_egret {
         * @default true
         */
         public touchEnabled : boolean;
-        public blendMode: BlendMode;
-        public _scrollRect: Rectangle;
+        public blendMode: ns_egret.BlendMode;
+        public _scrollRect: ns_egret.Rectangle;
         /**
         * 显示对象的滚动矩形范围。显示对象被裁切为矩形定义的大小，当您更改 scrollRect 对象的 x 和 y 属性时，它会在矩形内滚动。
         *  @member {ns_egret.Rectangle} ns_egret.DisplayObject#scrollRect
         */
-        public scrollRect : Rectangle;
+        public scrollRect : ns_egret.Rectangle;
         /**
         * 测量宽度
         * @returns {number}
@@ -1956,15 +1991,15 @@ declare module ns_egret {
         /**
         * 调用显示对象被指定的 mask 对象遮罩
         */
-        public mask: Rectangle;
-        public worldTransform: Matrix;
-        public worldBounds: Rectangle;
+        public mask: ns_egret.Rectangle;
+        public worldTransform: ns_egret.Matrix;
+        public worldBounds: ns_egret.Rectangle;
         public worldAlpha: number;
         /**
         * @private
         * @param renderContext
         */
-        public _draw(renderContext: RendererContext): void;
+        public _draw(renderContext: ns_egret.RendererContext): void;
         private drawCacheTexture(renderContext);
         /**
         * @private
@@ -1975,7 +2010,7 @@ declare module ns_egret {
         * @private
         * @param renderContext
         */
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
         private _cacheBounds;
         /**
         * 获取显示对象的测量边界
@@ -1983,14 +2018,14 @@ declare module ns_egret {
         * @param resultRect {Rectangle} 可选参数，传入用于保存结果的Rectangle对象，避免重复创建对象。
         * @returns {Rectangle}
         */
-        public getBounds(resultRect?: Rectangle): Rectangle;
+        public getBounds(resultRect?: ns_egret.Rectangle): ns_egret.Rectangle;
         private destroyCacheBounds();
         /**
         * @private
         * @returns {Matrix}
         */
         private static identityMatrixForGetConcatenated;
-        public _getConcatenatedMatrix(): Matrix;
+        public _getConcatenatedMatrix(): ns_egret.Matrix;
         /**
         * 将 point 对象从显示对象的（本地）坐标转换为舞台（全局）坐标。
         * @method ns_egret.DisplayObject#localToGlobal
@@ -1999,7 +2034,7 @@ declare module ns_egret {
         * @param resultPoint {Point} 可选参数，传入用于保存结果的Point对象，避免重复创建对象。
         * @returns {ns_egret.Point}
         */
-        public localToGlobal(x?: number, y?: number, resultPoint?: Point): Point;
+        public localToGlobal(x?: number, y?: number, resultPoint?: ns_egret.Point): ns_egret.Point;
         /**
         * 将指定舞台坐标（全局）转换为显示对象（本地）坐标。
         * @method ns_egret.DisplayObject#globalToLocal
@@ -2008,7 +2043,7 @@ declare module ns_egret {
         * @param resultPoint {Point} 可选参数，传入用于保存结果的Point对象，避免重复创建对象。
         * @returns {ns_egret.Point}
         */
-        public globalToLocal(x?: number, y?: number, resultPoint?: Point): Point;
+        public globalToLocal(x?: number, y?: number, resultPoint?: ns_egret.Point): ns_egret.Point;
         /**
         * 检测指定坐标是否在显示对象内
         * @method ns_egret.DisplayObject#hitTest
@@ -2018,34 +2053,34 @@ declare module ns_egret {
         * @returns {*}
         */
         public hitTest(x: number, y: number, ignoreTouchEnabled?: boolean): DisplayObject;
-        public _getMatrix(): Matrix;
+        public _getMatrix(): ns_egret.Matrix;
         /**
         * 测量显示对象坐标，这个方法需要子类重写
         * @returns {ns_egret.Rectangle}
         * @private
         */
-        public _measureBounds(): Rectangle;
-        public _getOffsetPoint(): Point;
+        public _measureBounds(): ns_egret.Rectangle;
+        public _getOffsetPoint(): ns_egret.Point;
         public _onAddToStage(): void;
         public _onRemoveFromStage(): void;
-        public _stage: Stage;
+        public _stage: ns_egret.Stage;
         /**
         * 获取舞台对象。当该显示对象不在舞台上时，此属性返回 undefined
         * @returns {ns_egret.Stage}
         */
-        public stage : Stage;
+        public stage : ns_egret.Stage;
         static _enterFrameCallBackList: any[];
         static _renderCallBackList: any[];
         public addEventListener(type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number): void;
         public removeEventListener(type: string, listener: Function, thisObject: any, useCapture?: boolean): void;
-        public dispatchEvent(event: Event): boolean;
+        public dispatchEvent(event: ns_egret.Event): boolean;
         public willTrigger(type: string): boolean;
         public cacheAsBitmap(bool: boolean): void;
-        static getTransformBounds(bounds: Rectangle, mtx: Matrix): Rectangle;
+        static getTransformBounds(bounds: ns_egret.Rectangle, mtx: ns_egret.Matrix): ns_egret.Rectangle;
     }
 }
 declare module ns_egret {
-    class TouchEvent extends Event {
+    class TouchEvent extends ns_egret.Event {
         /**
         * 创建一个作为参数传递给事件侦听器的 Event 对象。
         * @class ns_egret.TouchEvent
@@ -2148,11 +2183,11 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.TouchEvent.dispathTouchEvent
         */
-        static dispatchTouchEvent(target: IEventDispatcher, type: string, touchPointID?: number, stageX?: number, stageY?: number, ctrlKey?: boolean, altKey?: boolean, shiftKey?: boolean, touchDown?: boolean): void;
+        static dispatchTouchEvent(target: ns_egret.IEventDispatcher, type: string, touchPointID?: number, stageX?: number, stageY?: number, ctrlKey?: boolean, altKey?: boolean, shiftKey?: boolean, touchDown?: boolean): void;
     }
 }
 declare module ns_egret {
-    class TimerEvent extends Event {
+    class TimerEvent extends ns_egret.Event {
         /**
         * 创建一个 Event 对象，其中包含有关 timer 事件的特定信息。
         * @class ns_egret.TimerEvent
@@ -2176,7 +2211,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.TimerEvent.dispathTimerEvent
         */
-        static dispatchTimerEvent(target: IEventDispatcher, type: string): void;
+        static dispatchTimerEvent(target: ns_egret.IEventDispatcher, type: string): void;
     }
 }
 /**
@@ -2320,7 +2355,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Timer extends EventDispatcher {
+    class Timer extends ns_egret.EventDispatcher {
         constructor(delay?: number, repeatCount?: number);
         public delay: number;
         public repeatCount: number;
@@ -2417,7 +2452,7 @@ declare module ns_egret {
     * @stable B 目前StageDelegate和HTML5有一定的耦合关系，之后会对其解耦，保证NativeApp的正确运行
     * @extends ns_egret.HashObject
     */
-    class StageDelegate extends HashObject {
+    class StageDelegate extends ns_egret.HashObject {
         private static instance;
         /**
         * @method ns_egret.StageDelegate.getInstance
@@ -2438,25 +2473,18 @@ declare module ns_egret {
         private _originalDesignHeight;
         public _scaleX: number;
         public _scaleY: number;
-        private _frame;
         private _resolutionPolicy;
         /**
         * @method ns_egret.StageDelegate#constructor
         */
         constructor();
         /**
-        * @method ns_egret.StageDelegate#setFrameSize
-        * @param width {any}
-        * @param heigh {any}
-        */
-        public setFrameSize(width: any, height: any): void;
-        /**
         * @method ns_egret.StageDelegate#setDesignSize
-        * @param width {any}
-        * @param height {any}
+        * @param width {number}
+        * @param height {{number}}
         * @param resolutionPolicy {any}
         */
-        public setDesignSize(width: any, height: any, resolutionPolicy: any): void;
+        public setDesignSize(width: number, height: number, resolutionPolicy: any): void;
         /**
         * @method ns_egret.StageDelegate#setResolutionPolicy
         * @param resolutionPolic {any}
@@ -2489,7 +2517,7 @@ declare module ns_egret {
         constructor(containerStg: any, contentStg: any);
         /**
         * @method ns_egret.ResolutionPolicy#init
-        * @param vie {any}
+        * @param view {any}
         */
         public init(view: any): void;
         /**
@@ -2501,12 +2529,12 @@ declare module ns_egret {
         public _apply(view: any, designedResolutionWidth: any, designedResolutionHeight: any): void;
         /**
         * @method ns_egret.ResolutionPolicy#setContainerStrategy
-        * @param containerSt {any}
+        * @param containerStg {any}
         */
         public setContainerStrategy(containerStg: any): void;
         /**
         * @method ns_egret.ResolutionPolicy#setContentStrategy
-        * @param contentSt {any}
+        * @param contentStg {any}
         */
         public setContentStrategy(contentStg: any): void;
     }
@@ -2675,7 +2703,7 @@ declare module ns_egret {
     * 同时，SpriteSheet可以很方便的进行素材整合，降低HTTP请求数量
     * todo: GitHub egret的SpriteSheet
     */
-    class SpriteSheet extends HashObject {
+    class SpriteSheet extends ns_egret.HashObject {
         private frames;
         constructor(data: any);
         /**
@@ -2720,37 +2748,46 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Bitmap extends DisplayObject {
+    /**
+    * @class ns_egret.Bitmap
+    * @classdesc
+    * Bitmap 类表示用于表示位图图像的显示对象。
+    * @extends ns_egret.DisplayObject
+    */
+    class Bitmap extends ns_egret.DisplayObject {
         /**
         * 全部Bitmap是否开启DEBUG模式
-        * @stable B 这个API以后可能会被移动到一个单独的负责各种DEBUG参数的枚举类中
+        * @member {boolean} ns_egret.Bitmap.debug
         */
         static debug: boolean;
         /**
         * 单个Bitmap是否开启DEBUG模式
-        * @stable B 这个API以后可能会被移动到一个单独的负责各种DEBUG参数的枚举类中
+        * @member {boolean} ns_egret.Bitmap#debug
         */
         public debug: boolean;
         /**
         * debug边框颜色，默认值为红色
+        * @member {number} ns_egret.Bitmap#debugColor
         */
         public debugColor: number;
         /**
         * 渲染采用的SpriteFrame，用来渲染纹理中的一部分
+        * @member {ns_egret.SpriteSheetFrame} ns_egret.Bitmap#spriteFrame
         */
-        public spriteFrame: SpriteSheetFrame;
+        public spriteFrame: ns_egret.SpriteSheetFrame;
         /**
         * 渲染纹理
+        * @member {ns_egret.Texture} ns_egret.Bitmap#texture
         */
-        public texture: Texture;
+        public texture: ns_egret.Texture;
         constructor();
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
         /**
         * @see egret.DisplayObject.measureBounds
-        * @returns {Rectangle}
+        * @returns {ns_egret.Rectangle}
         * @private
         */
-        public _measureBounds(): Rectangle;
+        public _measureBounds(): ns_egret.Rectangle;
     }
 }
 declare module ns_egret {
@@ -2758,7 +2795,7 @@ declare module ns_egret {
     * @class BitmapText
     * 位图字体采用了Bitmap+SpriteSheet的方式来渲染文字
     */
-    class BitmapText extends DisplayObjectContainer {
+    class BitmapText extends ns_egret.DisplayObjectContainer {
         /**
         * 设置文本
         */
@@ -2766,7 +2803,7 @@ declare module ns_egret {
         /**
         * 纹理对象
         */
-        public texture: Texture;
+        public texture: ns_egret.Texture;
         /**
         * SpriteFrame配置文件，通过egret的Node.js工具生成
         */
@@ -2774,8 +2811,8 @@ declare module ns_egret {
         private _bitmapPool;
         constructor();
         public _updateTransform(): void;
-        public _renderText(forMeasureContentSize?: boolean): Rectangle;
-        public _measureBounds(): Rectangle;
+        public _renderText(forMeasureContentSize?: boolean): ns_egret.Rectangle;
+        public _measureBounds(): ns_egret.Rectangle;
     }
 }
 declare module ns_egret {
@@ -2783,7 +2820,7 @@ declare module ns_egret {
         private renderContext;
         private canvasContext;
         private commandQueue;
-        constructor(renderContext: RendererContext);
+        constructor(renderContext: ns_egret.RendererContext);
         public beginFill(color: number, alpha: number): void;
         private _setStyle(colorStr);
         public drawRect(x: number, y: number, width: number, height: number): void;
@@ -2810,11 +2847,11 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Shape extends DisplayObject {
+    class Shape extends ns_egret.DisplayObject {
         constructor();
         private _graphics;
-        public graphics : Graphics;
-        public _render(renderContext: RendererContext): void;
+        public graphics : ns_egret.Graphics;
+        public _render(renderContext: ns_egret.RendererContext): void;
     }
     class ShapeRect extends Shape {
         private _color;
@@ -2841,7 +2878,7 @@ declare module ns_egret {
         * @param value
         */
         public height : number;
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
     }
 }
 declare module ns_egret {
@@ -2849,7 +2886,7 @@ declare module ns_egret {
     * 这个类是HTML5的WebWrapper的第一个版本
     * @stable C 目前只是实现需求，大部分API需要考虑重新设计
     */
-    class Browser extends HashObject {
+    class Browser extends ns_egret.HashObject {
         private static instance;
         private pfx;
         private type;
@@ -2873,7 +2910,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class StageText extends HashObject {
+    class StageText extends ns_egret.HashObject {
         private div;
         private inputElement;
         constructor();
@@ -2912,7 +2949,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class TextInput extends DisplayObject {
+    class TextInput extends ns_egret.DisplayObject {
         private _domInputSprite;
         private _edTxt;
         private _delegate;
@@ -2931,8 +2968,8 @@ declare module ns_egret {
         public getTextType(): string;
         private onMouseDownHandler(event);
         public _onRemoveFromStage(): void;
-        public _measureBounds(): Rectangle;
-        public hitTest(x: any, y: any, ignoreTouchEnabled?: boolean): DisplayObject;
+        public _measureBounds(): ns_egret.Rectangle;
+        public hitTest(x: any, y: any, ignoreTouchEnabled?: boolean): ns_egret.DisplayObject;
     }
     class TextInputDegelete {
         public editBoxEditingDidBegin(sender: any): void;
@@ -2945,9 +2982,9 @@ declare module ns_egret {
     /**
     * MovieClip是位图动画序列类，由FlashPro + egret插件生成配置文件
     */
-    class MovieClip extends DisplayObjectContainer {
+    class MovieClip extends ns_egret.DisplayObjectContainer {
         public data: any;
-        public texture: Texture;
+        public texture: ns_egret.Texture;
         private _frameData;
         private _resPool;
         private _currentFrameIndex;
@@ -2958,7 +2995,7 @@ declare module ns_egret {
         private _isPlaying;
         private _passTime;
         private _oneFrameTime;
-        constructor(data: any, texture: Texture);
+        constructor(data: any, texture: ns_egret.Texture);
         /**
         * 播放指定动画
         * @param frameName
@@ -3001,7 +3038,7 @@ declare module ns_egret {
     * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
     * @extends ns_egret.HashObject
     */
-    class URLVariables extends HashObject {
+    class URLVariables extends ns_egret.HashObject {
         /**
         * @method ns_egret.URLVariables#constructor
         * @param source {String} 包含名称/值对的 URL 编码的字符串。
@@ -3030,7 +3067,7 @@ declare module ns_egret {
     * 纹理的缓存和管理类
     * @class ns_egret.TextureCache
     */
-    class TextureCache extends HashObject {
+    class TextureCache extends ns_egret.HashObject {
         private static instance;
         static getInstance(): TextureCache;
         public prefix: string;
@@ -3042,7 +3079,7 @@ declare module ns_egret {
         * @param key
         * @param texture
         */
-        public addTexture(key: any, texture: Texture): void;
+        public addTexture(key: any, texture: ns_egret.Texture): void;
         /**
         * 删除纹理
         * @param key
@@ -3053,7 +3090,7 @@ declare module ns_egret {
         * @param key
         * @returns {*}
         */
-        public getTexture(key: string): Texture;
+        public getTexture(key: string): ns_egret.Texture;
         /**
         * 添加SpriteSheet
         * @param key
@@ -3109,7 +3146,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Scale9Bitmap extends DisplayObjectContainer {
+    class Scale9Bitmap extends ns_egret.DisplayObjectContainer {
         private texture;
         private _defaultPadding;
         private _top;
@@ -3127,8 +3164,8 @@ declare module ns_egret {
         private _bottomLeftBitmap;
         private _bottomMiddleBitmap;
         private _bottomRightBitmap;
-        public spriteFrame: SpriteSheetFrame;
-        constructor(texture: Texture);
+        public spriteFrame: ns_egret.SpriteSheetFrame;
+        constructor(texture: ns_egret.Texture);
         private _createBitmap();
         public setScaleGrid(top?: number, bottom?: number, left?: number, right?: number): void;
         public width : number;
@@ -3139,7 +3176,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class SAXParser extends HashObject {
+    class SAXParser extends ns_egret.HashObject {
         static _instance: SAXParser;
         static getInstance(): SAXParser;
         private _parser;
@@ -3187,7 +3224,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class Tween extends EventDispatcher {
+    class Tween extends ns_egret.EventDispatcher {
         static NONE: number;
         static LOOP: number;
         static REVERSE: number;
@@ -3367,7 +3404,7 @@ declare module ns_egret {
         public sourceImage: string;
         public imageWidth: number;
         public imageHeight: number;
-        public rectForGID(gid: any): Point;
+        public rectForGID(gid: any): ns_egret.Point;
     }
     class TMXObjectGroup {
         private _groupName;
@@ -3404,7 +3441,7 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class TMXLayer extends DisplayObjectContainer {
+    class TMXLayer extends ns_egret.DisplayObjectContainer {
         private _texture;
         private _layerWidth;
         private _layerHeight;
@@ -3418,14 +3455,14 @@ declare module ns_egret {
         private _opacity;
         private _minGID;
         private _maxGID;
-        static create(tilesetInfo: TMXTilesetInfo, layerInfo: TMXLayerInfo, mapInfo: TMXMapInfo): TMXLayer;
-        public initWithTilesetInfo(tilesetInfo: TMXTilesetInfo, layerInfo: TMXLayerInfo, mapInfo: TMXMapInfo): void;
+        static create(tilesetInfo: ns_egret.TMXTilesetInfo, layerInfo: ns_egret.TMXLayerInfo, mapInfo: ns_egret.TMXMapInfo): TMXLayer;
+        public initWithTilesetInfo(tilesetInfo: ns_egret.TMXTilesetInfo, layerInfo: ns_egret.TMXLayerInfo, mapInfo: ns_egret.TMXMapInfo): void;
         private calculateLayerOffset(x, y);
         public setupTiles(): void;
         private appendTileForGID(gid, x, y);
         private reusedTileWithRect(rect);
         private setupTileSprite(sprite, x, y, gid);
-        public getPositionAt(x: number, y: number): Point;
+        public getPositionAt(x: number, y: number): ns_egret.Point;
         private positionForIsoAt(x, y);
         private positionForOrthoAt(x, y);
         private positionForHexAt(x, y);
@@ -3440,15 +3477,15 @@ declare module ns_egret {
     }
 }
 declare module ns_egret {
-    class TMXTiledMap extends DisplayObjectContainer {
-        public mapInfo: TMXMapInfo;
+    class TMXTiledMap extends ns_egret.DisplayObjectContainer {
+        public mapInfo: ns_egret.TMXMapInfo;
         public viewPortWidth: number;
         static createWithFile(tmxFile: string): TMXTiledMap;
         public initWithTMXFile(tmxFile: string): void;
         private buildWithMapInfo(mapInfo);
         private parseLayer(layerInfo, mapInfo);
         private tilesetForLayer(layerInfo, mapInfo);
-        public getLayer(layerName: string): TMXLayer;
+        public getLayer(layerName: string): ns_egret.TMXLayer;
         public getObjectGroup(groupName: string): any;
         public propertiesForGID(value: any): any;
         public getProperty(propertyName: any): any;
@@ -3463,7 +3500,7 @@ declare module ns_egret {
     * 列表的集合类数据源对象接口
     * @extends ns_egret.IEventDispatcher
     */
-    interface ICollection extends IEventDispatcher {
+    interface ICollection extends ns_egret.IEventDispatcher {
         /**
         * 此集合中的项目数。0 表示不包含项目，而 -1 表示长度未知。
         * @member ns_egret.ICollection#length
@@ -3493,7 +3530,7 @@ declare module ns_egret {
     * 集合类型数据改变事件
     * @extends ns_egret.Event
     */
-    class CollectionEvent extends Event {
+    class CollectionEvent extends ns_egret.Event {
         /**
         * 集合类数据发生改变
         * @constant ns_egret.CollectionEvent.COLLECTION_CHANGE
@@ -3544,7 +3581,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.CollectionEvent.dispatchCollectionEvent
         */
-        static dispatchCollectionEvent(target: IEventDispatcher, type: string, kind?: string, location?: number, oldLocation?: number, items?: any[], oldItems?: any[]): void;
+        static dispatchCollectionEvent(target: ns_egret.IEventDispatcher, type: string, kind?: string, location?: number, oldLocation?: number, items?: any[], oldItems?: any[]): void;
     }
 }
 /**
@@ -3629,7 +3666,7 @@ declare module ns_egret {
     * @extends ns_egret.EventDispatcher
     * @implements ns_egret.ICollection
     */
-    class ArrayCollection extends EventDispatcher implements ICollection {
+    class ArrayCollection extends ns_egret.EventDispatcher implements ns_egret.ICollection {
         /**
         * 构造函数
         * @method ns_egret.ArrayCollection#constructor
@@ -3751,7 +3788,7 @@ declare module ns_egret {
     * Tree组件的集合类数据源对象接口
     * @extends ns_egret.ICollection
     */
-    interface ITreeCollection extends ICollection {
+    interface ITreeCollection extends ns_egret.ICollection {
         /**
         * 检查指定的节点是否含有子节点
         * @method ns_egret.ITreeCollection#hasChildren
@@ -3791,7 +3828,7 @@ declare module ns_egret {
     * @implements ns_egret.ICollection
     * @implements ns_egret.ITreeCollection
     */
-    class ObjectCollection extends EventDispatcher implements ICollection, ITreeCollection {
+    class ObjectCollection extends ns_egret.EventDispatcher implements ns_egret.ICollection, ns_egret.ITreeCollection {
         /**
         * 构造函数
         * @method ns_egret.ObjectCollection#constructor
@@ -3920,7 +3957,7 @@ declare module ns_egret {
     * 可布局元素接口
     * @extends ns_egret.IEventDispatcher
     */
-    interface ILayoutElement extends IEventDispatcher {
+    interface ILayoutElement extends ns_egret.IEventDispatcher {
         /**
         * 指定此组件是否包含在父容器的布局中。若为false，则父级容器在测量和布局阶段都忽略此组件。默认值为true。
         * 注意，visible属性与此属性不同，设置visible为false，父级容器仍会对其布局。
@@ -4069,7 +4106,7 @@ declare module ns_egret {
     * 可视元素接口
     * @extends ns_egret.ILayoutElement
     */ 
-    interface IVisualElement extends ILayoutElement {
+    interface IVisualElement extends ns_egret.ILayoutElement {
         /**
         * 此IVisualElement对象的所有者。<br/>
         * 0.默认情况下，owner指向parent属性的值。<br/>
@@ -4098,7 +4135,7 @@ declare module ns_egret {
         * 一般而言，非可视对象使用 owner 属性引用其所属对象。
         * @member ns_egret.IVisualElement#parent
         */
-        parent: DisplayObjectContainer;
+        parent: ns_egret.DisplayObjectContainer;
         /**
         * 控制此可视元素的可见性。如果为 true，则对象可见。
         * @member ns_egret.IVisualElement#visible
@@ -4158,7 +4195,7 @@ declare module ns_egret {
         * @throws RangeError 如果在子列表中不存在该索引位置。
         * @returns {IVisualElement}
         */ 
-        getElementAt(index: number): IVisualElement;
+        getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * 将可视元素添加到此容器中。
         * 如果添加的可视元素已有一个不同的容器作为父项，则该元素将会从其他容器中删除。
@@ -4166,7 +4203,7 @@ declare module ns_egret {
         * @param element {IVisualElement} 要添加为此容器的子项的可视元素。
         * @returns {IVisualElement}
         */ 
-        addElement(element: IVisualElement): IVisualElement;
+        addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * 将可视元素添加到此容器中。该元素将被添加到指定的索引位置。索引 0 代表显示列表中的第一个元素。
         * 如果添加的可视元素已有一个不同的容器作为父项，则该元素将会从其他容器中删除。
@@ -4176,7 +4213,7 @@ declare module ns_egret {
         * @throws RangeError 如果在子列表中不存在该索引位置。
         * @returns {IVisualElement}
         */ 
-        addElementAt(element: IVisualElement, index: number): IVisualElement;
+        addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * 从此容器的子列表中删除指定的可视元素。
         * 在该可视容器中，位于该元素之上的所有元素的索引位置都减少 1。
@@ -4184,7 +4221,7 @@ declare module ns_egret {
         * @param element {IVisualElement} 要从容器中删除的元素。
         * @returns {IVisualElement}
         */ 
-        removeElement(element: IVisualElement): IVisualElement;
+        removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * 从容器中的指定索引位置删除可视元素。
         * 在该可视容器中，位于该元素之上的所有元素的索引位置都减少 1。
@@ -4193,14 +4230,14 @@ declare module ns_egret {
         * @throws RangeError 如果在子列表中不存在该索引位置。
         * @returns {IVisualElement}
         */ 
-        removeElementAt(index: number): IVisualElement;
+        removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * 返回可视元素的索引位置。若不存在，则返回-1。
         * @method ns_egret.IContainer#getElementIndex
         * @param element {IVisualElement} 可视元素。
         * @returns {number}
         */ 
-        getElementIndex(element: IVisualElement): number;
+        getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * 在可视容器中更改现有可视元素的位置。
         * @method ns_egret.IContainer#setElementIndex
@@ -4208,7 +4245,7 @@ declare module ns_egret {
         * @param index {number} 元素的最终索引编号。
         * @throws RangeError 如果在子列表中不存在该索引位置。
         */ 
-        setElementIndex(element: IVisualElement, index: number): void;
+        setElementIndex(element: ns_egret.IVisualElement, index: number): void;
     }
 }
 declare module ns_egret {
@@ -4218,27 +4255,27 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.IEventDispatcher
     */
-    interface ISystemManager extends IEventDispatcher {
+    interface ISystemManager extends ns_egret.IEventDispatcher {
         /**
         * 弹出窗口层容器。
         * @member ns_egret.ISystemManager#popUpContainer
         */ 
-        popUpContainer: IContainer;
+        popUpContainer: ns_egret.IContainer;
         /**
         * 工具提示层容器。
         * @member ns_egret.ISystemManager#toolTipContainer
         */ 
-        toolTipContainer: IContainer;
+        toolTipContainer: ns_egret.IContainer;
         /**
         * 鼠标样式层容器。
         * @member ns_egret.ISystemManager#cursorContainer
         */ 
-        cursorContainer: IContainer;
+        cursorContainer: ns_egret.IContainer;
         /**
         * 舞台引用
         * @member ns_egret.ISystemManager#stage
         */ 
-        stage: Stage;
+        stage: ns_egret.Stage;
     }
 }
 declare module ns_egret {
@@ -4252,7 +4289,7 @@ declare module ns_egret {
         * 舞台引用，当第一个UIComponent添加到舞台时此属性被自动赋值
         * @member ns_egret.UIGlobals.stage
         */ 
-        static stage : Stage;
+        static stage : ns_egret.Stage;
         /**
         * 已经初始化完成标志
         */ 
@@ -4262,21 +4299,21 @@ declare module ns_egret {
         * @method ns_egret.UIGlobals._initlize
         * @param stage {Stage}
         */ 
-        static _initlize(stage: Stage): void;
+        static _initlize(stage: ns_egret.Stage): void;
         /**
         * 延迟渲染布局管理器
         * @member ns_egret.UIGlobals._layoutManager
         */ 
-        static _layoutManager: LayoutManager;
+        static _layoutManager: ns_egret.LayoutManager;
         /**
         * 系统管理器列表
         */ 
-        static _systemManager: ISystemManager;
+        static _systemManager: ns_egret.ISystemManager;
         /**
         * 顶级应用容器
         * @member ns_egret.UIGlobals.systemManager
         */
-        static systemManager : ISystemManager;
+        static systemManager : ns_egret.ISystemManager;
     }
 }
 declare module ns_egret {
@@ -4286,7 +4323,7 @@ declare module ns_egret {
     * UI事件
     * @extends ns_egret.Event
     */
-    class UIEvent extends Event {
+    class UIEvent extends ns_egret.Event {
         /**
         * @method ns_egret.UIEvent#constructor
         * @param type {string}
@@ -4363,7 +4400,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.UIEvent.dispatchUIEvent
         */
-        static dispatchUIEvent(target: IEventDispatcher, type: string): void;
+        static dispatchUIEvent(target: ns_egret.IEventDispatcher, type: string): void;
     }
 }
 declare module ns_egret {
@@ -4374,7 +4411,7 @@ declare module ns_egret {
     * 使用布局管理器的组件接口
     * @extends ns_egret.IEventDispatcher
     */
-    interface ILayoutManagerClient extends IEventDispatcher {
+    interface ILayoutManagerClient extends ns_egret.IEventDispatcher {
         /**
         * 验证组件的属性
         * @method ns_egret.ILayoutManagerClient#validateProperties
@@ -4410,7 +4447,7 @@ declare module ns_egret {
         * 父级显示对象
         * @member ns_egret.ILayoutManagerClient#parent
         */ 
-        parent: DisplayObjectContainer;
+        parent: ns_egret.DisplayObjectContainer;
     }
 }
 declare module ns_egret {
@@ -4441,33 +4478,33 @@ declare module ns_egret {
         * @method ns_egret.DepthQueue#insert
         * @param client {ILayoutManagerClient}
         */ 
-        public insert(client: ILayoutManagerClient): void;
+        public insert(client: ns_egret.ILayoutManagerClient): void;
         /**
         * 从队列尾弹出深度最大的一个对象
         * @method ns_egret.DepthQueue#pop
         * @returns {ILayoutManagerClient}
         */ 
-        public pop(): ILayoutManagerClient;
+        public pop(): ns_egret.ILayoutManagerClient;
         /**
         * 从队列首弹出深度最小的一个对象
         * @method ns_egret.DepthQueue#shift
         * @returns {ILayoutManagerClient}
         */ 
-        public shift(): ILayoutManagerClient;
+        public shift(): ns_egret.ILayoutManagerClient;
         /**
         * 移除大于等于指定组件层级的元素中最大的元素
         * @method ns_egret.DepthQueue#removeLargestChild
         * @param client {ILayoutManagerClient}
         * @returns {any}
         */
-        public removeLargestChild(client: ILayoutManagerClient): any;
+        public removeLargestChild(client: ns_egret.ILayoutManagerClient): any;
         /**
         * 移除大于等于指定组件层级的元素中最小的元素
         * @method ns_egret.DepthQueue#removeSmallestChild
         * @param client {ILayoutManagerClient}
         * @returns {any}
         */
-        public removeSmallestChild(client: ILayoutManagerClient): any;
+        public removeSmallestChild(client: ns_egret.ILayoutManagerClient): any;
         /**
         * 移除一个元素
         * @method ns_egret.DepthQueue#remove
@@ -4475,7 +4512,7 @@ declare module ns_egret {
         * @param level {number}
         * @returns {ILayoutManagerClient}
         */
-        public remove(client: ILayoutManagerClient, level?: number): ILayoutManagerClient;
+        public remove(client: ns_egret.ILayoutManagerClient, level?: number): ns_egret.ILayoutManagerClient;
         /**
         * 清空队列
         * @method ns_egret.DepthQueue#removeAll
@@ -4511,7 +4548,7 @@ declare module ns_egret {
     * 布局管理器
     * @extends ns_egret.EventDispatcher
     */
-    class LayoutManager extends EventDispatcher {
+    class LayoutManager extends ns_egret.EventDispatcher {
         /**
         * @method ns_egret.LayoutManager#constructor
         */
@@ -4529,7 +4566,7 @@ declare module ns_egret {
         * @method ns_egret.LayoutManager#invalidateProperties
         * @param client {ILayoutManagerClient}
         */ 
-        public invalidateProperties(client: ILayoutManagerClient): void;
+        public invalidateProperties(client: ns_egret.ILayoutManagerClient): void;
         /**
         * 使提交的属性生效
         */ 
@@ -4542,7 +4579,7 @@ declare module ns_egret {
         * @method ns_egret.LayoutManager#invalidateSize
         * @param client {ILayoutManagerClient}
         */ 
-        public invalidateSize(client: ILayoutManagerClient): void;
+        public invalidateSize(client: ns_egret.ILayoutManagerClient): void;
         /**
         * 测量属性
         */ 
@@ -4554,7 +4591,7 @@ declare module ns_egret {
         * @method ns_egret.LayoutManager#invalidateDisplayList
         * @param client {ILayoutManagerClient}
         */ 
-        public invalidateDisplayList(client: ILayoutManagerClient): void;
+        public invalidateDisplayList(client: ns_egret.ILayoutManagerClient): void;
         /**
         * 测量属性
         */ 
@@ -4583,7 +4620,7 @@ declare module ns_egret {
         * @param target {ILayoutManagerClient} 要立即应用属性的组件
         * @param skipDisplayList {boolean} 是否跳过更新显示列表阶段
         */ 
-        public validateClient(target: ILayoutManagerClient, skipDisplayList?: boolean): void;
+        public validateClient(target: ns_egret.ILayoutManagerClient, skipDisplayList?: boolean): void;
     }
 }
 /**
@@ -4642,7 +4679,7 @@ declare module ns_egret {
     * UI组件接口
     * @extends ns_egret.IVisualElement
     */ 
-    interface IUIComponent extends IVisualElement {
+    interface IUIComponent extends ns_egret.IVisualElement {
         /**
         * 组件是否可以接受用户交互。
         * @member ns_egret.IUIComponent#enabled
@@ -4680,7 +4717,7 @@ declare module ns_egret {
     * 移动事件
     * @extends ns_egret.Event
     */
-    class MoveEvent extends Event {
+    class MoveEvent extends ns_egret.Event {
         /**
         * @constant ns_egret.MoveEvent.MOVE
         */
@@ -4708,7 +4745,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.MoveEvent.dispatchMoveEvent
         */
-        static dispatchMoveEvent(target: IEventDispatcher, oldX?: number, oldY?: number): void;
+        static dispatchMoveEvent(target: ns_egret.IEventDispatcher, oldX?: number, oldY?: number): void;
     }
 }
 declare module ns_egret {
@@ -4718,7 +4755,7 @@ declare module ns_egret {
     * 对象的一个属性发生更改时传递到事件侦听器的事件
     * @extends ns_egret.Event
     */
-    class PropertyChangeEvent extends Event {
+    class PropertyChangeEvent extends ns_egret.Event {
         /**
         * 属性改变
         * @constant ns_egret.PropertyChangeEvent.PROPERTY_CHANGE
@@ -4766,7 +4803,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.PropertyChangeEvent.dispatchPropertyChangeEvent
         */
-        static dispatchPropertyChangeEvent(target: IEventDispatcher, kind?: string, property?: any, oldValue?: any, newValue?: any, source?: any): void;
+        static dispatchPropertyChangeEvent(target: ns_egret.IEventDispatcher, kind?: string, property?: any, oldValue?: any, newValue?: any, source?: any): void;
     }
 }
 /**
@@ -4812,7 +4849,7 @@ declare module ns_egret {
     * 尺寸改变事件
     * @extends ns_egret.Event
     */
-    class ResizeEvent extends Event {
+    class ResizeEvent extends ns_egret.Event {
         /**
         * @constant ns_egret.ResizeEvent.RESIZE
         */
@@ -4840,7 +4877,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.ResizeEvent.dispatchResizeEvent
         */
-        static dispatchResizeEvent(target: IEventDispatcher, oldWidth?: number, oldHeight?: number): void;
+        static dispatchResizeEvent(target: ns_egret.IEventDispatcher, oldWidth?: number, oldHeight?: number): void;
     }
 }
 declare module ns_egret {
@@ -4855,7 +4892,7 @@ declare module ns_egret {
     * @implements ns_egret.IInvalidating
     * @implements ns_egret.IVisualElement
     */
-    class UIComponent extends DisplayObjectContainer implements IUIComponent, ILayoutManagerClient, ILayoutElement, IInvalidating, IVisualElement {
+    class UIComponent extends ns_egret.DisplayObjectContainer implements ns_egret.IUIComponent, ns_egret.ILayoutManagerClient, ns_egret.ILayoutElement, ns_egret.IInvalidating, ns_egret.IVisualElement {
         /**
         * 构造函数
         * @method ns_egret.UIComponent#constructor
@@ -4926,40 +4963,40 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIComponent#addChildAt
         * @param child {DisplayObject}
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * 即将添加一个子项
         * @method ns_egret.UIComponent#_addingChild
         * @param child {DisplayObject}
         */ 
-        public _addingChild(child: DisplayObject): void;
+        public _addingChild(child: ns_egret.DisplayObject): void;
         /**
         * 已经添加一个子项
         */ 
-        public _childAdded(child: DisplayObject): void;
+        public _childAdded(child: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.UIComponent#removeChild
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIComponent#removeChildAt
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * 已经移除一个子项
         */
-        public _childRemoved(child: DisplayObject): void;
+        public _childRemoved(child: ns_egret.DisplayObject): void;
         /**
         * 检查属性失效标记并应用
         */ 
@@ -5392,7 +5429,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.HashObject
     */
-    class ClassFactory extends HashObject {
+    class ClassFactory extends ns_egret.HashObject {
         /**
         * @method ns_egret.ClassFactory#constructor
         * @class ns_egret.ClassFactory
@@ -5422,7 +5459,7 @@ declare module ns_egret {
     * 具有视图状态的组件接口
     * @extends ns_egret.IEventDispatcher
     */
-    interface IStateClient extends IEventDispatcher {
+    interface IStateClient extends ns_egret.IEventDispatcher {
         /**
         * 组件的当前视图状态。将其设置为 "" 或 null 可将组件重置回其基本状态。
         * @member ns_egret.IStateClient#currentState
@@ -5455,19 +5492,19 @@ declare module ns_egret {
         * @method ns_egret.IOverride#initialize
         * @param parent {IStateClient}
         */ 
-        initialize(parent: IStateClient): void;
+        initialize(parent: ns_egret.IStateClient): void;
         /**
         * 应用覆盖。将保留原始值，以便以后可以在 remove() 方法中恢复该值。
         * @method ns_egret.IOverride#apply
         * @param parent {IContainer}
         */ 
-        apply(parent: IContainer): void;
+        apply(parent: ns_egret.IContainer): void;
         /**
         * 删除覆盖。在 apply() 方法中记住的值将被恢复。
         * @method ns_egret.IOverride#remove
         * @param parent {IContainer}
         */ 
-        remove(parent: IContainer): void;
+        remove(parent: ns_egret.IContainer): void;
     }
 }
 declare module ns_egret {
@@ -5478,7 +5515,7 @@ declare module ns_egret {
     * @extends ns_egret.HashObject
     * @implements ns_egret.IOverride
     */ 
-    class OverrideBase extends HashObject implements IOverride {
+    class OverrideBase extends ns_egret.HashObject implements ns_egret.IOverride {
         /**
         * @method ns_egret.OverrideBase#constructor
         */
@@ -5487,17 +5524,17 @@ declare module ns_egret {
         * @method ns_egret.OverrideBase#initialize
         * @param parent {IStateClient}
         */
-        public initialize(parent: IStateClient): void;
+        public initialize(parent: ns_egret.IStateClient): void;
         /**
         * @method ns_egret.OverrideBase#apply
         * @param parent {IContainer}
         */
-        public apply(parent: IContainer): void;
+        public apply(parent: ns_egret.IContainer): void;
         /**
         * @method ns_egret.OverrideBase#remove
         * @param parent {IContainer}
         */
-        public remove(parent: IContainer): void;
+        public remove(parent: ns_egret.IContainer): void;
         /**
         * 从对象初始化，这是一个便利方法
         * @method ns_egret.OverrideBase#initializeFromObject
@@ -5551,7 +5588,7 @@ declare module ns_egret {
     * 默认的ISkinAdapter接口实现
     * @implements ns_egret.ISkinAdapter
     */
-    class DefaultSkinAdapter implements ISkinAdapter {
+    class DefaultSkinAdapter implements ns_egret.ISkinAdapter {
         /**
         * 构造函数
         * @method ns_egret.DefaultSkinAdapter#constructor
@@ -5574,7 +5611,7 @@ declare module ns_egret {
     * 皮肤简单布局类。当SkinnableComponent的皮肤不是ISkinPartHost对象时启用。以提供子项的简单布局。
     * @extends ns_egret.HashObject
     */
-    class SkinBasicLayout extends HashObject {
+    class SkinBasicLayout extends ns_egret.HashObject {
         /**
         * @method ns_egret.SkinBasicLayout#constructor
         */
@@ -5584,7 +5621,7 @@ declare module ns_egret {
         * 目标布局对象
         * @member ns_egret.SkinBasicLayout#target
         */
-        public target : SkinnableComponent;
+        public target : ns_egret.SkinnableComponent;
         /**
         * 测量组件尺寸大小
         * @method ns_egret.SkinBasicLayout#measure
@@ -5611,7 +5648,7 @@ declare module ns_egret {
         * 主机组件引用,仅当皮肤被应用后才会对此属性赋值
         * @member ns_egret.ISkin#hostComponent
         */ 
-        hostComponent: SkinnableComponent;
+        hostComponent: ns_egret.SkinnableComponent;
     }
 }
 declare module ns_egret {
@@ -5621,7 +5658,7 @@ declare module ns_egret {
     * 皮肤组件附加移除事件
     * @extends ns_egret.Event
     */
-    class SkinPartEvent extends Event {
+    class SkinPartEvent extends ns_egret.Event {
         /**
         * 附加皮肤公共子部件
         * @constant ns_egret.SkinPartEvent.PART_ADDED
@@ -5655,7 +5692,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.SkinPartEvent.dispatchSkinPartEvent
         */
-        static dispatchSkinPartEvent(target: IEventDispatcher, type: string, partName?: string, instance?: any): void;
+        static dispatchSkinPartEvent(target: ns_egret.IEventDispatcher, type: string, partName?: string, instance?: any): void;
     }
 }
 declare module ns_egret {
@@ -5669,7 +5706,7 @@ declare module ns_egret {
     * 请覆盖partAdded()和partRemoved()方法
     * @extends ns_egret.SkinnableComponent
     */
-    class SkinnableComponent extends UIComponent {
+    class SkinnableComponent extends ns_egret.UIComponent {
         /**
         * 构造函数
         * @method ns_egret.SkinnableComponent#constructor
@@ -5822,12 +5859,12 @@ declare module ns_egret {
         * 添加对象到显示列表，此接口仅框架内部使用,
         * 如果需要管理子项，若有，请使用容器的addElementAt()方法,非法使用有可能造成无法自动布局。
         */
-        public _addToDisplayList(child: DisplayObject, index?: number): void;
+        public _addToDisplayList(child: ns_egret.DisplayObject, index?: number): void;
         /**
         * 从显示列表移除对象,此接口仅框架内部使用,
         * 如果需要管理子项，若有，请使用容器的removeElement()方法,非法使用有可能造成无法自动布局。
         */
-        public _removeFromDisplayList(child: DisplayObject): DisplayObject;
+        public _removeFromDisplayList(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         private static errorStr;
         /**
         * @method ns_egret.SkinnableComponent#addChild
@@ -5835,7 +5872,7 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.SkinnableComponent#addChildAt
         * @deprecated
@@ -5843,35 +5880,35 @@ declare module ns_egret {
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.SkinnableComponent#removeChild
         * @deprecated
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.SkinnableComponent#removeChildAt
         * @deprecated
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.SkinnableComponent#setChildIndex
         * @deprecated
         * @param child {DisplayObject}
         * @param index {number}
         */
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         /**
         * @method ns_egret.SkinnableComponent#swapChildren
         * @deprecated
         * @param child1 {DisplayObject}
         * @param child2 {DisplayObject}
         */
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.SkinnableComponent#swapChildrenAt
         * @deprecated
@@ -5888,7 +5925,7 @@ declare module ns_egret {
     * 添加显示元素
     * @extends ns_egret.OverrideBase
     */ 
-    class AddItems extends OverrideBase {
+    class AddItems extends ns_egret.OverrideBase {
         /**
         * 添加父级容器的底层
         * @constant ns_egret.AddItems.FIRST
@@ -5938,17 +5975,17 @@ declare module ns_egret {
         * @method ns_egret.AddItems#initialize
         * @param parent {IStateClient}
         */
-        public initialize(parent: IStateClient): void;
+        public initialize(parent: ns_egret.IStateClient): void;
         /**
         * @method ns_egret.AddItems#apply
         * @param parent {IContainer}
         */
-        public apply(parent: IContainer): void;
+        public apply(parent: ns_egret.IContainer): void;
         /**
         * @method ns_egret.AddItems#remove
         * @param parent {IContainer}
         */
-        public remove(parent: IContainer): void;
+        public remove(parent: ns_egret.IContainer): void;
     }
 }
 declare module ns_egret {
@@ -5958,7 +5995,7 @@ declare module ns_egret {
     * 设置属性
     * @extends ns_egret.OverrideBase
     */ 
-    class SetProperty extends OverrideBase {
+    class SetProperty extends ns_egret.OverrideBase {
         /**
         * 构造函数
         * @method ns_egret.SetProperty#constructor
@@ -5987,12 +6024,12 @@ declare module ns_egret {
         * @method ns_egret.SetProperty#apply
         * @param parent {IContainer}
         */
-        public apply(parent: IContainer): void;
+        public apply(parent: ns_egret.IContainer): void;
         /**
         * @method ns_egret.SetProperty#remove
         * @param parent {IContainer}
         */
-        public remove(parent: IContainer): void;
+        public remove(parent: ns_egret.IContainer): void;
         /**
         * 设置属性值
         */ 
@@ -6010,7 +6047,7 @@ declare module ns_egret {
     * State 类定义视图状态，即组件的特定视图。
     * @extends ns_egret.HashObject
     */
-    class State extends HashObject {
+    class State extends ns_egret.HashObject {
         /**
         * @method ns_egret.State#constructor
         * @param properties {any}
@@ -6041,7 +6078,7 @@ declare module ns_egret {
         * @method ns_egret.State#initialize
         * @param parent {IStateClient}
         */ 
-        public initialize(parent: IStateClient): void;
+        public initialize(parent: ns_egret.IStateClient): void;
     }
 }
 /**
@@ -6091,7 +6128,7 @@ declare module ns_egret {
     * 默认的IAssetAdapter接口实现
     * @implements ns_egret.IAssetAdapter
     */
-    class DefaultAssetAdapter implements IAssetAdapter {
+    class DefaultAssetAdapter implements ns_egret.IAssetAdapter {
         /**
         * 构造函数
         * @method ns_egret.DefaultSkinAdapter#constructor
@@ -6120,7 +6157,7 @@ declare module ns_egret {
     * @extends ns_egret.UIComponent
     * @implements ns_egret.ISkinnableClient
     */
-    class UIAsset extends UIComponent {
+    class UIAsset extends ns_egret.UIComponent {
         /**
         * @method ns_egret.UIAsset#constructor
         */
@@ -6168,13 +6205,13 @@ declare module ns_egret {
         * @param unscaledHeight {number}
         */
         public updateDisplayList(unscaledWidth: number, unscaledHeight: number): void;
-        public _render(renderContext: RendererContext): void;
+        public _render(renderContext: ns_egret.RendererContext): void;
         /**
         * @see egret.DisplayObject.measureBounds
         * @returns {Rectangle}
         * @private
         */
-        public _measureBounds(): Rectangle;
+        public _measureBounds(): ns_egret.Rectangle;
         private static errorStr;
         /**
         * @method ns_egret.UIAsset#addChild
@@ -6182,7 +6219,7 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIAsset#addChildAt
         * @deprecated
@@ -6190,35 +6227,35 @@ declare module ns_egret {
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIAsset#removeChild
         * @deprecated
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIAsset#removeChildAt
         * @deprecated
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.UIAsset#setChildIndex
         * @deprecated
         * @param child {DisplayObject}
         * @param index {number}
         */ 
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         /**
         * @method ns_egret.UIAsset#swapChildren
         * @deprecated
         * @param child1 {DisplayObject}
         * @param child2 {DisplayObject}
         */ 
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.UIAsset#swapChildrenAt
         * @deprecated
@@ -6236,7 +6273,7 @@ declare module ns_egret {
     * 简单文本显示控件接口。
     * @extends ns_egret.IUIComponent
     */
-    interface IDisplayText extends IUIComponent {
+    interface IDisplayText extends ns_egret.IUIComponent {
         /**
         * 此文本组件所显示的文本。
         * @member ns_egret.IDisplayText#text
@@ -6251,7 +6288,7 @@ declare module ns_egret {
     * 按钮组件基类
     * @extends ns_egret.SkinnableComponent
     */ 
-    class ButtonBase extends SkinnableComponent {
+    class ButtonBase extends ns_egret.SkinnableComponent {
         /**
         * 构造函数
         * @method ns_egret.ButtonBase#constructor
@@ -6269,7 +6306,7 @@ declare module ns_egret {
         * [SkinPart]按钮上的文本标签
         * @member ns_egret.ButtonBase#labelDisplay
         */
-        public labelDisplay: IDisplayText;
+        public labelDisplay: ns_egret.IDisplayText;
         private _autoRepeat;
         /**
         * 指定在用户按住鼠标按键时是否重复分派 buttonDown 事件。
@@ -6360,7 +6397,7 @@ declare module ns_egret {
         * @method ns_egret.ButtonBase#mouseEventHandler
         * @param event {Event}
         */ 
-        public mouseEventHandler(event: Event): void;
+        public mouseEventHandler(event: ns_egret.Event): void;
         /**
         * 按钮弹起事件
         * @method ns_egret.ButtonBase#buttonReleased
@@ -6371,7 +6408,7 @@ declare module ns_egret {
         * @method ns_egret.ButtonBase#clickHandler
         * @param event {TouchEvent}
         */ 
-        public clickHandler(event: TouchEvent): void;
+        public clickHandler(event: ns_egret.TouchEvent): void;
         /**
         * 舞台上鼠标弹起事件
         */ 
@@ -6404,7 +6441,7 @@ declare module ns_egret {
     * 切换按钮组件基类
     * @extends ns_egret.ButtonBase
     */ 
-    class ToggleButtonBase extends ButtonBase {
+    class ToggleButtonBase extends ns_egret.ButtonBase {
         /**
         * @method ns_egret.ToggleButtonBase#constructor
         */
@@ -6439,7 +6476,7 @@ declare module ns_egret {
     * @extends ns_egret.UIComponent
     * @implements ns_egret.IDisplayText
     */ 
-    class TextBase extends UIComponent implements IDisplayText {
+    class TextBase extends ns_egret.UIComponent implements ns_egret.IDisplayText {
         /**
         * @method ns_egret.TextBase#constructor
         */
@@ -6457,7 +6494,7 @@ declare module ns_egret {
         /**
         * 呈示此文本的内部 TextField
         */ 
-        public _textField: TextField;
+        public _textField: ns_egret.TextField;
         private fontFamilyChanged;
         private _fontFamily;
         /**
@@ -6557,7 +6594,7 @@ declare module ns_egret {
     * 支持视区的组件接口
     * @extends ns_egret.IVisualElement
     */ 
-    interface IViewport extends IVisualElement {
+    interface IViewport extends ns_egret.IVisualElement {
         /**
         * 视域的内容的宽度。
         * 如果 clipAndEnabledScrolling 为 true， 则视域的 contentWidth 为水平滚动定义限制，
@@ -6598,7 +6635,7 @@ declare module ns_egret {
     * 容器布局基类
     * @extends ns_egret.EventDispatcher
     */
-    class LayoutBase extends EventDispatcher {
+    class LayoutBase extends ns_egret.EventDispatcher {
         /**
         * @method ns_egret.LayoutBase#constructor
         */
@@ -6608,7 +6645,7 @@ declare module ns_egret {
         * 目标容器
         * @member ns_egret.LayoutBase#target
         */ 
-        public target : GroupBase;
+        public target : ns_egret.GroupBase;
         private _useVirtualLayout;
         /**
         * 若要配置容器使用虚拟布局，请为与容器关联的布局的 useVirtualLayout 属性设置为 true。
@@ -6623,7 +6660,7 @@ declare module ns_egret {
         * 由虚拟布局所使用，以估计尚未滚动到视图中的布局元素的大小。
         * @member ns_egret.LayoutBase#typicalLayoutRect
         */
-        public typicalLayoutRect : Rectangle;
+        public typicalLayoutRect : ns_egret.Rectangle;
         /**
         * 滚动条位置改变
         * @method ns_egret.LayoutBase#scrollPositionChanged
@@ -6669,7 +6706,7 @@ declare module ns_egret {
     * 基本布局
     * @extends ns_egret.LayoutBase
     */
-    class BasicLayout extends LayoutBase {
+    class BasicLayout extends ns_egret.LayoutBase {
         /**
         * @method ns_egret.BasicLayout#constructor
         */
@@ -6690,25 +6727,25 @@ declare module ns_egret {
         * @param scrollRect {Rectangle}
         * @returns {Rectangle}
         */
-        public getElementBoundsLeftOfScrollRect(scrollRect: Rectangle): Rectangle;
+        public getElementBoundsLeftOfScrollRect(scrollRect: ns_egret.Rectangle): ns_egret.Rectangle;
         /**
         * @method ns_egret.BasicLayout#getElementBoundsRightOfScrollRect
         * @param scrollRect {Rectangle}
         * @returns {Rectangle}
         */
-        public getElementBoundsRightOfScrollRect(scrollRect: Rectangle): Rectangle;
+        public getElementBoundsRightOfScrollRect(scrollRect: ns_egret.Rectangle): ns_egret.Rectangle;
         /**
         * @method ns_egret.BasicLayout#getElementBoundsAboveScrollRect
         * @param scrollRect {Rectangle}
         * @returns {Rectangle}
         */
-        public getElementBoundsAboveScrollRect(scrollRect: Rectangle): Rectangle;
+        public getElementBoundsAboveScrollRect(scrollRect: ns_egret.Rectangle): ns_egret.Rectangle;
         /**
         * @method ns_egret.BasicLayout#getElementBoundsBelowScrollRect
         * @param scrollRect {Rectangle}
         * @returns {Rectangle}
         */
-        public getElementBoundsBelowScrollRect(scrollRect: Rectangle): Rectangle;
+        public getElementBoundsBelowScrollRect(scrollRect: ns_egret.Rectangle): ns_egret.Rectangle;
         /**
         * @method ns_egret.BasicLayout#measure
         */
@@ -6729,7 +6766,7 @@ declare module ns_egret {
     * @extends ns_egret.UIComponent
     * @implements ns_egret.IViewport
     */
-    class GroupBase extends UIComponent implements IViewport {
+    class GroupBase extends ns_egret.UIComponent implements ns_egret.IViewport {
         /**
         * @method ns_egret.GroupBase#constructor
         */
@@ -6759,13 +6796,13 @@ declare module ns_egret {
         * @param height {number}
         */
         public setContentSize(width: number, height: number): void;
-        public _layout: LayoutBase;
+        public _layout: ns_egret.LayoutBase;
         /**
         * 此容器的布局对象
         * @member ns_egret.GroupBase#layout
         */
-        public layout : LayoutBase;
-        public _setLayout(value: LayoutBase): void;
+        public layout : ns_egret.LayoutBase;
+        public _setLayout(value: ns_egret.LayoutBase): void;
         private _clipAndEnableScrolling;
         /**
         * 如果为 true，指定将子代剪切到视区的边界。如果为 false，则容器子代会从容器边界扩展过去，而不管组件的大小规范。默认false
@@ -6848,14 +6885,14 @@ declare module ns_egret {
         * @throws RangeError 如果在子列表中不存在该索引位置。
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * 返回可视元素的索引位置。若不存在，则返回-1。
         * @method ns_egret.GroupBase#getElementIndex
         * @param element {IVisualElement} 可视元素。
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * 返回在容器可视区域内的布局元素索引列表,此方法忽略不是布局元素的普通的显示对象
         * @method ns_egret.GroupBase#getElementIndicesInView
@@ -6876,7 +6913,7 @@ declare module ns_egret {
         * @param index {number} 要检索的元素的索引。
         * @returns {IVisualElement}
         */
-        public getVirtualElementAt(index: number): IVisualElement;
+        public getVirtualElementAt(index: number): ns_egret.IVisualElement;
     }
 }
 declare module ns_egret {
@@ -6887,7 +6924,7 @@ declare module ns_egret {
     * 列表类组件的项呈示器接口
     * @extends ns_egret.ILayoutElement
     */
-    interface IItemRenderer extends ILayoutElement {
+    interface IItemRenderer extends ns_egret.ILayoutElement {
         /**
         * 要呈示或编辑的数据。
         * @member ns_egret.IItemRenderer#data
@@ -6918,7 +6955,7 @@ declare module ns_egret {
     * @extends ns_egret.ButtonBase
     * @implements ns_egret.IItemRenderer
     */
-    class ItemRenderer extends ButtonBase implements IItemRenderer {
+    class ItemRenderer extends ns_egret.ButtonBase implements ns_egret.IItemRenderer {
         /**
         * @method ns_egret.ItemRenderer#constructor
         */
@@ -6964,7 +7001,7 @@ declare module ns_egret {
     * 树状列表组件的项呈示器接口
     * @extends ns_egret.IItemRenderer
     */
-    interface ITreeItemRenderer extends IItemRenderer {
+    interface ITreeItemRenderer extends ns_egret.IItemRenderer {
         /**
         * 图标的皮肤名
         * @member ns_egret.ITreeItemRenderer#iconSkinName
@@ -6995,7 +7032,7 @@ declare module ns_egret {
     * 可设置外观的组件接口
     * @extends ns_egret.IVisualElement
     */
-    interface ISkinnableClient extends IVisualElement {
+    interface ISkinnableClient extends ns_egret.IVisualElement {
         /**
         * 皮肤标识符。可以为Class,String,或DisplayObject实例等任意类型。
         * 具体规则由项目注入的ISkinAdapter决定，皮肤适配器将在运行时解析此标识符，然后返回皮肤对象给组件。
@@ -7011,7 +7048,7 @@ declare module ns_egret {
     * Tree事件
     * @extends ns_egret.Event
     */
-    class TreeEvent extends Event {
+    class TreeEvent extends ns_egret.Event {
         /**
         * 节点关闭,注意：只有通过交互操作引起的节点关闭才会抛出此事件。
         * @constant ns_egret.TreeEvent.ITEM_CLOSE
@@ -7036,7 +7073,7 @@ declare module ns_egret {
         * @param item {any}
         * @param itemRenderer {ITreeItemRenderer}
         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean, itemIndex?: number, item?: any, itemRenderer?: ITreeItemRenderer);
+        constructor(type: string, bubbles?: boolean, cancelable?: boolean, itemIndex?: number, item?: any, itemRenderer?: ns_egret.ITreeItemRenderer);
         /**
         * 触发鼠标事件的项呈示器数据源项。
         * @member ns_egret.TreeEvent#item
@@ -7046,7 +7083,7 @@ declare module ns_egret {
         * 触发鼠标事件的项呈示器。
         * @member ns_egret.TreeEvent#itemRenderer
         */ 
-        public itemRenderer: ITreeItemRenderer;
+        public itemRenderer: ns_egret.ITreeItemRenderer;
         /**
         * 触发鼠标事件的项索引
         * @member ns_egret.TreeEvent#itemIndex
@@ -7061,7 +7098,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.TreeEvent.dispatchTreeEvent
         */
-        static dispatchTreeEvent(target: IEventDispatcher, type: string, itemIndex?: number, item?: any, itemRenderer?: ITreeItemRenderer, opening?: boolean): void;
+        static dispatchTreeEvent(target: ns_egret.IEventDispatcher, type: string, itemIndex?: number, item?: any, itemRenderer?: ns_egret.ITreeItemRenderer, opening?: boolean): void;
     }
 }
 declare module ns_egret {
@@ -7072,7 +7109,7 @@ declare module ns_egret {
     * @extends ns_egret.ItemRenderer
     * @implements ns_egret.ITreeItemRenderer
     */
-    class TreeItemRenderer extends ItemRenderer implements ITreeItemRenderer {
+    class TreeItemRenderer extends ns_egret.ItemRenderer implements ns_egret.ITreeItemRenderer {
         /**
         * 构造函数
         * @method ns_egret.TreeItemRenderer#constructor
@@ -7083,17 +7120,17 @@ declare module ns_egret {
         * [SkinPart]图标显示对象
         * @member ns_egret.TreeItemRenderer#iconDisplay
         */
-        public iconDisplay: ISkinnableClient;
+        public iconDisplay: ns_egret.ISkinnableClient;
         /**
         * [SkinPart]子节点开启按钮
         * @member ns_egret.TreeItemRenderer#disclosureButton
         */
-        public disclosureButton: ToggleButtonBase;
+        public disclosureButton: ns_egret.ToggleButtonBase;
         /**
         * [SkinPart]用于调整缩进值的容器对象。
         * @member ns_egret.TreeItemRenderer#contentGroup
         */
-        public contentGroup: DisplayObject;
+        public contentGroup: ns_egret.DisplayObject;
         private _indentation;
         /**
         * 子节点相对父节点的缩进值，以像素为单位。默认17。
@@ -7137,7 +7174,7 @@ declare module ns_egret {
         * @method ns_egret.TreeItemRenderer#disclosureButton_mouseDownHandler
         * @param event {TouchEvent}
         */ 
-        public disclosureButton_mouseDownHandler(event: TouchEvent): void;
+        public disclosureButton_mouseDownHandler(event: ns_egret.TouchEvent): void;
     }
 }
 declare module ns_egret {
@@ -7322,7 +7359,7 @@ declare module ns_egret {
     * 范围选取组件,该组件包含一个值和这个值所允许的最大最小约束范围。
     * @extends ns_egret.SkinnableComponent
     */ 
-    class Range extends SkinnableComponent {
+    class Range extends ns_egret.SkinnableComponent {
         /**
         * 构造函数
         * @method ns_egret.Range#constructor
@@ -7423,7 +7460,7 @@ declare module ns_egret {
     * 按钮控件
     * @extends ns_egret.ButtonBase
     */ 
-    class Button extends ButtonBase {
+    class Button extends ns_egret.ButtonBase {
         /**
         * @method ns_egret.Button#constructor
         */
@@ -7437,7 +7474,7 @@ declare module ns_egret {
     * 从TrackBase组件分派的事件。
     * @extends ns_egret.Event
     */ 
-    class TrackBaseEvent extends Event {
+    class TrackBaseEvent extends ns_egret.Event {
         /**
         * 正在拖拽滑块
         * @constant ns_egret.TrackBaseEvent.THUMB_DRAG
@@ -7465,7 +7502,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.TrackBaseEvent.dispatchTrackBaseEvent
         */
-        static dispatchTrackBaseEvent(target: IEventDispatcher, type: string): void;
+        static dispatchTrackBaseEvent(target: ns_egret.IEventDispatcher, type: string): void;
     }
 }
 declare module ns_egret {
@@ -7475,7 +7512,7 @@ declare module ns_egret {
     * TrackBase类是具有一个轨道和一个或多个滑块按钮的组件的一个基类，如 Slider 和 ScrollBar。
     * @extends ns_egret.Range
     */ 
-    class TrackBase extends Range {
+    class TrackBase extends ns_egret.Range {
         /**
         * @method ns_egret.TrackBase#constructor
         */
@@ -7495,12 +7532,12 @@ declare module ns_egret {
         * [SkinPart]实体滑块组件
         * @member ns_egret.TrackBase#thumb
         */ 
-        public thumb: Button;
+        public thumb: ns_egret.Button;
         /**
         * [SkinPart]实体轨道组件
         * @member ns_egret.TrackBase#track
         */
-        public track: Button;
+        public track: ns_egret.Button;
         /**
         * 最大有效值
         * @member ns_egret.TrackBase#maximum
@@ -7593,7 +7630,7 @@ declare module ns_egret {
         * @method ns_egret.TrackBase#thumb_mouseDownHandler
         * @param event {TouchEvent}
         */ 
-        public thumb_mouseDownHandler(event: TouchEvent): void;
+        public thumb_mouseDownHandler(event: ns_egret.TouchEvent): void;
         /**
         * 当鼠标拖动thumb时，需要更新value的标记。
         */ 
@@ -7614,19 +7651,19 @@ declare module ns_egret {
         * @method ns_egret.TrackBase#stage_mouseMoveHandler
         * @param event {TouchEvent}
         */ 
-        public stage_mouseMoveHandler(event: TouchEvent): void;
+        public stage_mouseMoveHandler(event: ns_egret.TouchEvent): void;
         /**
         * 鼠标弹起事件
         * @method ns_egret.TrackBase#stage_mouseUpHandler
         * @param event {Event}
         */ 
-        public stage_mouseUpHandler(event: Event): void;
+        public stage_mouseUpHandler(event: ns_egret.Event): void;
         /**
         * 轨道被按下事件
         * @method ns_egret.TrackBase#track_mouseDownHandler
         * @param event {TouchEvent}
         */ 
-        public track_mouseDownHandler(event: TouchEvent): void;
+        public track_mouseDownHandler(event: ns_egret.TouchEvent): void;
         private mouseDownTarget;
         /**
         * 当在组件上按下鼠标时记录被按下的子显示对象
@@ -7645,7 +7682,7 @@ declare module ns_egret {
     * 滑块控件基类
     * @extends ns_egret.TrackBase
     */
-    class SliderBase extends TrackBase {
+    class SliderBase extends ns_egret.TrackBase {
         /**
         * 构造函数
         * @method ns_egret.SliderBase#constructor
@@ -7655,7 +7692,7 @@ declare module ns_egret {
         * [SkinPart]轨道高亮显示对象
         * @member ns_egret.SliderBase#trackHighlight
         */ 
-        public trackHighlight: DisplayObject;
+        public trackHighlight: ns_egret.DisplayObject;
         private _showTrackHighlight;
         /**
         * 是否启用轨道高亮效果。默认值为true。
@@ -7699,7 +7736,7 @@ declare module ns_egret {
         * @method ns_egret.SliderBase#thumb_mouseDownHandler
         * @param event {TouchEvent}
         */
-        public thumb_mouseDownHandler(event: TouchEvent): void;
+        public thumb_mouseDownHandler(event: ns_egret.TouchEvent): void;
         private _liveDragging;
         /**
         * 如果为 true，则将在沿着轨道拖动滑块时，而不是在释放滑块按钮时，提交此滑块的值。
@@ -7714,12 +7751,12 @@ declare module ns_egret {
         * @method ns_egret.SliderBase#stage_mouseUpHandler
         * @param event {Event}
         */
-        public stage_mouseUpHandler(event: Event): void;
+        public stage_mouseUpHandler(event: ns_egret.Event): void;
         /**
         * @method ns_egret.SliderBase#track_mouseDownHandler
         * @param event {TouchEvent}
         */
-        public track_mouseDownHandler(event: TouchEvent): void;
+        public track_mouseDownHandler(event: ns_egret.TouchEvent): void;
         /**
         * @method ns_egret.SliderBase#partAdded
         * @param partName {string}
@@ -7735,7 +7772,7 @@ declare module ns_egret {
     * 一行或多行不可编辑的文本控件
     * @extends ns_egret.TextBase
     */
-    class Label extends TextBase {
+    class Label extends ns_egret.TextBase {
         /**
         * @method ns_egret.Label#constructor
         */
@@ -7812,7 +7849,7 @@ declare module ns_egret {
     * 矩形绘图元素。矩形的角可以是圆角,此组件可响应鼠标事件。
     * @extends ns_egret.UIComponent
     */
-    class Rect extends UIComponent {
+    class Rect extends ns_egret.UIComponent {
         /**
         * 构造函数
         * @method ns_egret.Rect#constructor
@@ -7868,7 +7905,7 @@ declare module ns_egret {
     * 切换按钮
     * @extends ns_egret.ToggleButtonBase
     */ 
-    class ToggleButton extends ToggleButtonBase {
+    class ToggleButton extends ns_egret.ToggleButtonBase {
         /**
         * 构造函数
         * @method ns_egret.ToggleButton#constructor
@@ -7883,7 +7920,7 @@ declare module ns_egret {
     * 复选框
     * @extends ns_egret.ToggleButtonBase
     */ 
-    class CheckBox extends ToggleButtonBase {
+    class CheckBox extends ns_egret.ToggleButtonBase {
         /**
         * 构造函数
         * @method ns_egret.CheckBox#constructor
@@ -7898,7 +7935,7 @@ declare module ns_egret {
     * 单选按钮
     * @extends ns_egret.ToggleButtonBase
     */
-    class RadioButton extends ToggleButtonBase {
+    class RadioButton extends ns_egret.ToggleButtonBase {
         /**
         * 构造函数
         * @method ns_egret.RadioButton#constructor
@@ -7913,7 +7950,7 @@ declare module ns_egret {
         * 所属的RadioButtonGroup
         * @member ns_egret.RadioButton#_radioButtonGroup
         */ 
-        public _radioButtonGroup: RadioButtonGroup;
+        public _radioButtonGroup: ns_egret.RadioButtonGroup;
         /**
         * @member ns_egret.RadioButton#enabled
         */
@@ -7931,7 +7968,7 @@ declare module ns_egret {
         * 若不设置此属性，则根据groupName属性自动创建一个唯一的RadioButtonGroup。
         * @member ns_egret.RadioButton#group
         */ 
-        public group : RadioButtonGroup;
+        public group : ns_egret.RadioButtonGroup;
         private groupChanged;
         private _groupName;
         /**
@@ -7980,7 +8017,7 @@ declare module ns_egret {
     * @extends ns_egret.IVisualElement
     * @extends ns_egret.IContainer
     */ 
-    interface IVisualElementContainer extends IVisualElement, IContainer {
+    interface IVisualElementContainer extends ns_egret.IVisualElement, ns_egret.IContainer {
         /**
         * 从容器中删除所有可视元素。
         * @method ns_egret.IVisualElementContainer#removeAllElements
@@ -7992,7 +8029,7 @@ declare module ns_egret {
         * @param element1 {IVisualElement} 第一个可视元素。
         * @param element2 {IVisualElement} 第二个可视元素。
         */ 
-        swapElements(element1: IVisualElement, element2: IVisualElement): void;
+        swapElements(element1: ns_egret.IVisualElement, element2: ns_egret.IVisualElement): void;
         /**
         * 交换容器中位于两个指定索引位置的可视元素。所有其他可视元素仍位于相同的索引位置。
         * @method ns_egret.IVisualElementContainer#swapElementsAt
@@ -8010,7 +8047,7 @@ declare module ns_egret {
     * 单选按钮组
     * @extends ns_egret.EventDispatcher
     */
-    class RadioButtonGroup extends EventDispatcher {
+    class RadioButtonGroup extends ns_egret.EventDispatcher {
         /**
         * 构造函数
         * @method ns_egret.RadioButtonGroup#constructor
@@ -8048,26 +8085,26 @@ declare module ns_egret {
         * 当前被选中的单选按钮引用,注意，此属性仅当目标RadioButton在显示列表时有效。
         * @member ns_egret.RadioButtonGroup#selection
         */ 
-        public selection : RadioButton;
+        public selection : ns_egret.RadioButton;
         /**
         * 获取指定索引的单选按钮
         * @method ns_egret.RadioButtonGroup#getRadioButtonAt
         * @param index {number} 单选按钮的索引
         * @returns {RadioButton}
         */ 
-        public getRadioButtonAt(index: number): RadioButton;
+        public getRadioButtonAt(index: number): ns_egret.RadioButton;
         /**
         * 添加单选按钮到组内
         * @method ns_egret.RadioButtonGroup#_addInstance
         * @param instance {RadioButton}
         */
-        public _addInstance(instance: RadioButton): void;
+        public _addInstance(instance: ns_egret.RadioButton): void;
         /**
         * 从组里移除单选按钮
         * @method ns_egret.RadioButtonGroup#_removeInstance
         * @param instance {RadioButton}
         */ 
-        public _removeInstance(instance: RadioButton): void;
+        public _removeInstance(instance: ns_egret.RadioButton): void;
         /**
         * 执行从组里移除单选按钮
         */ 
@@ -8078,7 +8115,7 @@ declare module ns_egret {
         * @param value {RadioButton}
         * @param fireChange {boolean}
         */ 
-        public _setSelection(value: RadioButton, fireChange?: boolean): void;
+        public _setSelection(value: ns_egret.RadioButton, fireChange?: boolean): void;
         /**
         * 改变选中项
         */ 
@@ -8104,7 +8141,7 @@ declare module ns_egret {
     * Group添加或移除元素时分派的事件。
     * @extends ns_egret.Event
     */ 
-    class ElementExistenceEvent extends Event {
+    class ElementExistenceEvent extends ns_egret.Event {
         /**
         * 元素添加
         * @constant ns_egret.ElementExistenceEvent.ELEMENT_ADD
@@ -8118,7 +8155,7 @@ declare module ns_egret {
         /**
         * @member ns_egret.ElementExistenceEvent#constructor
         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean, element?: IVisualElement, index?: number);
+        constructor(type: string, bubbles?: boolean, cancelable?: boolean, element?: ns_egret.IVisualElement, index?: number);
         /**
         * 指向已添加或删除元素的位置的索引。
         * @member ns_egret.ElementExistenceEvent#index
@@ -8128,12 +8165,12 @@ declare module ns_egret {
         * 对已添加或删除的视觉元素的引用。
         * @member ns_egret.ElementExistenceEvent#element
         */ 
-        public element: IVisualElement;
+        public element: ns_egret.IVisualElement;
         /**
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.ElementExistenceEvent.dispatchElementExistenceEvent
         */
-        static dispatchElementExistenceEvent(target: IEventDispatcher, type: string, element?: IVisualElement, index?: number): void;
+        static dispatchElementExistenceEvent(target: ns_egret.IEventDispatcher, type: string, element?: ns_egret.IVisualElement, index?: number): void;
     }
 }
 declare module ns_egret {
@@ -8144,7 +8181,7 @@ declare module ns_egret {
     * @extends ns_egret.GroupBase
     * @implements ns_egret.IVisualElementContainer
     */
-    class Group extends GroupBase implements IVisualElementContainer {
+    class Group extends ns_egret.GroupBase implements ns_egret.IVisualElementContainer {
         /**
         * @method ns_egret.Group#constructor
         */
@@ -8184,33 +8221,33 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         private checkForRangeError(index, addingElement?);
         /**
         * @method ns_egret.Group#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Group#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Group#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Group#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Group#removeAllElements
         */
@@ -8220,19 +8257,19 @@ declare module ns_egret {
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @method ns_egret.Group#setElementIndex
         * @param element {IVisualElement}
         * @param index {number}
         */
-        public setElementIndex(element: IVisualElement, index: number): void;
+        public setElementIndex(element: ns_egret.IVisualElement, index: number): void;
         /**
         * @method ns_egret.Group#swapElements
         * @param element1 {IVisualElement}
         * @param element2 {IVisualElement}
         */
-        public swapElements(element1: IVisualElement, element2: IVisualElement): void;
+        public swapElements(element1: ns_egret.IVisualElement, element2: ns_egret.IVisualElement): void;
         /**
         * @method ns_egret.Group#swapElementsAt
         * @param index1 {number}
@@ -8246,7 +8283,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementAdded(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementAdded(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         /**
         * 从容器移除一个显示元素
         * @method ns_egret.Group#_elementRemoved
@@ -8254,11 +8291,11 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementRemoved(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementRemoved(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         /**
         * 添加对象到显示列表
         */ 
-        public _addToDisplayList(child: DisplayObject, index?: number): void;
+        public _addToDisplayList(child: ns_egret.DisplayObject, index?: number): void;
         private static errorStr;
         /**
         * @method ns_egret.Group#addChild
@@ -8266,7 +8303,7 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Group#addChildAt
         * @deprecated
@@ -8274,35 +8311,35 @@ declare module ns_egret {
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Group#removeChild
         * @deprecated
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Group#removeChildAt
         * @deprecated
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Group#setChildIndex
         * @deprecated
         * @param child {DisplayObject}
         * @param index {number}
         */ 
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         /**
         * @method ns_egret.Group#swapChildren
         * @deprecated
         * @param child1 {DisplayObject}
         * @param child2 {DisplayObject}
         */ 
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.Group#swapChildrenAt
         * @deprecated
@@ -8329,7 +8366,7 @@ declare module ns_egret {
         * 当前可见的子元素。
         * @member ns_egret.IViewStack#selectedChild
         */
-        selectedChild: IVisualElement;
+        selectedChild: ns_egret.IVisualElement;
     }
 }
 declare module ns_egret {
@@ -8341,7 +8378,7 @@ declare module ns_egret {
     * @implements ns_egret.IViewStack
     * @implements ns_egret.ICollection
     */
-    class ViewStack extends Group implements IViewStack, ICollection {
+    class ViewStack extends ns_egret.Group implements ns_egret.IViewStack, ns_egret.ICollection {
         /**
         * 构造函数
         * @method ns_egret.ViewStack#constructor
@@ -8351,7 +8388,7 @@ declare module ns_egret {
         * 此容器的布局对象为只读,默认限制为BasicLayout。
         * @member ns_egret.ViewStack#layout
         */ 
-        public layout : LayoutBase;
+        public layout : ns_egret.LayoutBase;
         private _createAllChildren;
         /**
         * 是否立即初始化化所有子项。false表示当子项第一次被显示时再初始化它。默认值false。
@@ -8362,7 +8399,7 @@ declare module ns_egret {
         /**
         * @member ns_egret.ViewStack#selectedChild
         */ 
-        public selectedChild : IVisualElement;
+        public selectedChild : ns_egret.IVisualElement;
         /**
         * 未设置缓存选中项的值
         */
@@ -8391,7 +8428,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementAdded(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementAdded(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         /**
         * 从容器移除一个显示元素
         * @method ns_egret.ViewStack#_elementRemoved
@@ -8399,7 +8436,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementRemoved(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementRemoved(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         /**
         * 子项显示列表顺序发生改变。
         */ 
@@ -8438,7 +8475,7 @@ declare module ns_egret {
     * 视图状态改变事件
     * @extends ns_egret.Event
     */ 
-    class StateChangeEvent extends Event {
+    class StateChangeEvent extends ns_egret.Event {
         /**
         * 当前视图状态已经改变
         * @constant ns_egret.StateChangeEvent.CURRENT_STATE_CHANGE
@@ -8472,7 +8509,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.StateChangeEvent.dispatchStateChangeEvent
         */
-        static dispatchStateChangeEvent(target: IEventDispatcher, type: string, oldState?: string, newState?: string): void;
+        static dispatchStateChangeEvent(target: ns_egret.IEventDispatcher, type: string, oldState?: string, newState?: string): void;
     }
 }
 declare module ns_egret {
@@ -8486,7 +8523,7 @@ declare module ns_egret {
     * @implements ns_egret.ISkin
     * @implements ns_egret.IContainer
     */
-    class Skin extends EventDispatcher implements IStateClient, ISkin, IContainer {
+    class Skin extends ns_egret.EventDispatcher implements ns_egret.IStateClient, ns_egret.ISkin, ns_egret.IContainer {
         /**
         * 构造函数
         * @method ns_egret.Skin#constructor
@@ -8536,8 +8573,8 @@ declare module ns_egret {
         /**
         * @inheritDoc
         */
-        public hostComponent : SkinnableComponent;
-        public _setHostComponent(value: SkinnableComponent): void;
+        public hostComponent : ns_egret.SkinnableComponent;
+        public _setHostComponent(value: ns_egret.SkinnableComponent): void;
         private _elementsContent;
         /**
         * 返回子元素列表
@@ -8557,45 +8594,45 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         private checkForRangeError(index, addingElement?);
         /**
         * @method ns_egret.Skin#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Skin#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Skin#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Skin#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Skin#getElementIndex
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @method ns_egret.Skin#setElementIndex
         * @param element {IVisualElement}
         * @param index {number}
         */
-        public setElementIndex(element: IVisualElement, index: number): void;
+        public setElementIndex(element: ns_egret.IVisualElement, index: number): void;
         /**
         * 添加一个显示元素到容器
         * @method ns_egret.Skin#_elementAdded
@@ -8603,7 +8640,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementAdded(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementAdded(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         /**
         * 从容器移除一个显示元素
         * @method ns_egret.Skin#_elementRemoved
@@ -8611,7 +8648,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */ 
-        public _elementRemoved(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementRemoved(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         private _states;
         /**
         * 为此组件定义的视图状态。
@@ -8685,7 +8722,7 @@ declare module ns_egret {
         * @param data {any}
         * @returns {IItemRenderer}
         */ 
-        updateRenderer(renderer: IItemRenderer, itemIndex: number, data: any): IItemRenderer;
+        updateRenderer(renderer: ns_egret.IItemRenderer, itemIndex: number, data: any): ns_egret.IItemRenderer;
     }
 }
 declare module ns_egret {
@@ -8697,7 +8734,7 @@ declare module ns_egret {
     * @class ns_egret.IFactory
     * @extends ns_egret.IHashObject
     */
-    interface IFactory extends IHashObject {
+    interface IFactory extends ns_egret.IHashObject {
         /**
         * 创建某一类（由实现 IFactory 的类确定）的实例。
         * @method ns_egret.IFactory#newInstance
@@ -8713,7 +8750,7 @@ declare module ns_egret {
     * 在DataGroup添加或删除项呈示器时分派的事件。
     * @extends ns_egret.Event
     */ 
-    class RendererExistenceEvent extends Event {
+    class RendererExistenceEvent extends ns_egret.Event {
         /**
         * 添加了项呈示器
         * @constant ns_egret.RendererExistenceEvent.RENDERER_ADD
@@ -8733,7 +8770,7 @@ declare module ns_egret {
         * @param index {number}
         * @param data {any}
         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean, renderer?: IItemRenderer, index?: number, data?: any);
+        constructor(type: string, bubbles?: boolean, cancelable?: boolean, renderer?: ns_egret.IItemRenderer, index?: number, data?: any);
         /**
         * 呈示器的数据项目。
         * @member ns_egret.RendererExistenceEvent#data
@@ -8748,12 +8785,12 @@ declare module ns_egret {
         * 对已添加或删除的项呈示器的引用。
         * @member ns_egret.RendererExistenceEvent#renderer
         */ 
-        public renderer: IItemRenderer;
+        public renderer: ns_egret.IItemRenderer;
         /**
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.RendererExistenceEvent.dispatchRendererExistenceEvent
         */
-        static dispatchRendererExistenceEvent(target: IEventDispatcher, type: string, renderer?: IItemRenderer, index?: number, data?: any): void;
+        static dispatchRendererExistenceEvent(target: ns_egret.IEventDispatcher, type: string, renderer?: ns_egret.IItemRenderer, index?: number, data?: any): void;
     }
 }
 declare module ns_egret {
@@ -8763,7 +8800,7 @@ declare module ns_egret {
     * 垂直布局
     * @extends ns_egret.LayoutBase
     */
-    class VerticalLayout extends LayoutBase {
+    class VerticalLayout extends ns_egret.LayoutBase {
         /**
         * @method ns_egret.VerticalLayout#constructor
         */
@@ -8925,7 +8962,7 @@ declare module ns_egret {
     * 将数据项目转换为可视元素以进行显示。
     * @extends ns_egret.GroupBase
     */
-    class DataGroup extends GroupBase {
+    class DataGroup extends ns_egret.GroupBase {
         /**
         * 构造函数
         * @method ns_egret.DataGroup#constructor
@@ -8935,11 +8972,11 @@ declare module ns_egret {
         * @method ns_egret.DataGroup.defaultRendererFactory
         * @param ClassFactory {any}
         */
-        static defaultRendererFactory: ClassFactory;
+        static defaultRendererFactory: ns_egret.ClassFactory;
         /**
         * 项呈示器的主机组件
         */
-        public _rendererOwner: IItemRendererOwner;
+        public _rendererOwner: ns_egret.IItemRendererOwner;
         private useVirtualLayoutChanged;
         /**
         * @member ns_egret.DataGroup#layout
@@ -8947,7 +8984,7 @@ declare module ns_egret {
         /**
         * @inheritDoc
         */
-        public layout : LayoutBase;
+        public layout : ns_egret.LayoutBase;
         /**
         * 是否使用虚拟布局标记改变
         */ 
@@ -8967,7 +9004,7 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getVirtualElementAt(index: number): IVisualElement;
+        public getVirtualElementAt(index: number): ns_egret.IVisualElement;
         private rendererToClassMap;
         private freeRenderers;
         /**
@@ -9022,7 +9059,7 @@ declare module ns_egret {
         * 列表数据源，请使用实现了ICollection接口的数据类型，例如ArrayCollection
         * @member ns_egret.DataGroup#dataProvider
         */
-        public dataProvider : ICollection;
+        public dataProvider : ns_egret.ICollection;
         /**
         * 移除数据源监听
         */ 
@@ -9081,7 +9118,7 @@ declare module ns_egret {
         * rendererClass获取顺序：itemRendererFunction > itemRenderer > 默认ItemRenerer。
         * @member ns_egret.DataGroup#itemRenderer
         */
-        public itemRenderer : IFactory;
+        public itemRenderer : ns_egret.IFactory;
         private itemRendererSkinNameChange;
         private _itemRendererSkinName;
         /**
@@ -9177,7 +9214,7 @@ declare module ns_egret {
         * @param data {any}
         * @returns {IItemRenderer}
         */ 
-        public updateRenderer(renderer: IItemRenderer, itemIndex: number, data: any): IItemRenderer;
+        public updateRenderer(renderer: ns_egret.IItemRenderer, itemIndex: number, data: any): ns_egret.IItemRenderer;
         /**
         * 返回可在项呈示器中显示的 String。
         * 若DataGroup被作为SkinnableDataContainer的皮肤组件,此方法将不会执行，被SkinnableDataContainer.itemToLabel()所替代。
@@ -9191,13 +9228,13 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.DataGroup#getElementIndex
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @member ns_egret.DataGroup#numElements
         */
@@ -9209,7 +9246,7 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.DataGroup#addChildAt
         * @deprecated
@@ -9217,35 +9254,35 @@ declare module ns_egret {
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.DataGroup#removeChild
         * @deprecated
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */ 
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.DataGroup#removeChildAt
         * @deprecated
         * @param index {number}
         * @returns {DisplayObject}
         */ 
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.DataGroup#setChildIndex
         * @deprecated
         * @param child {DisplayObject}
         * @param index {number}
         */ 
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         /**
         * @method ns_egret.DataGroup#swapChildren
         * @deprecated
         * @param child1 {DisplayObject}
         * @param child2 {DisplayObject}
         */ 
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.DataGroup#swapChildrenAt
         * @deprecated
@@ -9263,7 +9300,7 @@ declare module ns_egret {
     * @extends ns_egret.SkinnableComponent
     * @implements ns_egret.IVisualElementContainer
     */
-    class SkinnableContainer extends SkinnableComponent implements IVisualElementContainer {
+    class SkinnableContainer extends ns_egret.SkinnableComponent implements ns_egret.IVisualElementContainer {
         /**
         * @method ns_egret.SkinnableContainer#constructor
         */
@@ -9272,16 +9309,16 @@ declare module ns_egret {
         * [SkinPart]实体容器
         * @member ns_egret.SkinnableContainer#contentGroup
         */
-        public contentGroup: Group;
+        public contentGroup: ns_egret.Group;
         /**
         * 实体容器实例化之前缓存子对象的容器
         */
-        public _placeHolderGroup: Group;
+        public _placeHolderGroup: ns_egret.Group;
         public a: any;
         /**
         * 获取当前的实体容器
         */
-        public _getCurrentContentGroup(): Group;
+        public _getCurrentContentGroup(): ns_egret.Group;
         /**
         * 设置容器子对象数组 。数组包含要添加到容器的子项列表，之前的已存在于容器中的子项列表被全部移除后添加列表里的每一项到容器。
         * 设置该属性时会对您输入的数组进行一次浅复制操作，所以您之后对该数组的操作不会影响到添加到容器的子项列表数量。
@@ -9296,32 +9333,32 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SkinnableContainer#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SkinnableContainer#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SkinnableContainer#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SkinnableContainer#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SkinnableContainer#removeAllElements
         */
@@ -9331,19 +9368,19 @@ declare module ns_egret {
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @method ns_egret.SkinnableContainer#setElementIndex
         * @param element {IVisualElement}
         * @param index {number}
         */
-        public setElementIndex(element: IVisualElement, index: number): void;
+        public setElementIndex(element: ns_egret.IVisualElement, index: number): void;
         /**
         * @method ns_egret.SkinnableContainer#swapElements
         * @param element1 {IVisualElement}
         * @param element2 {IVisualElement}
         */
-        public swapElements(element1: IVisualElement, element2: IVisualElement): void;
+        public swapElements(element1: ns_egret.IVisualElement, element2: ns_egret.IVisualElement): void;
         /**
         * @method ns_egret.SkinnableContainer#swapElementsAt
         * @param index1 {number}
@@ -9358,7 +9395,7 @@ declare module ns_egret {
         * 此容器的布局对象
         * @member ns_egret.SkinnableContainer#layout
         */
-        public layout : LayoutBase;
+        public layout : ns_egret.LayoutBase;
         /**
         * @method ns_egret.SkinnableContainer#partAdded
         * @param partName {string}
@@ -9376,13 +9413,13 @@ declare module ns_egret {
         * @method ns_egret.SkinnableContainer#_contentGroup_elementAddedHandler
         * @param event {ElementExistenceEvent}
         */
-        public _contentGroup_elementAddedHandler(event: ElementExistenceEvent): void;
+        public _contentGroup_elementAddedHandler(event: ns_egret.ElementExistenceEvent): void;
         /**
         * 容器移除元素事件
         * @method ns_egret.SkinnableContainer#_contentGroup_elementRemovedHandler
         * @param event {ElementExistenceEvent}
         */
-        public _contentGroup_elementRemovedHandler(event: ElementExistenceEvent): void;
+        public _contentGroup_elementRemovedHandler(event: ns_egret.ElementExistenceEvent): void;
     }
 }
 declare module ns_egret {
@@ -9393,7 +9430,7 @@ declare module ns_egret {
     * @extends ns_egret.SkinnableComponent
     * @implements ns_egret.IItemRendererOwner
     */
-    class SkinnableDataContainer extends SkinnableComponent implements IItemRendererOwner {
+    class SkinnableDataContainer extends ns_egret.SkinnableComponent implements ns_egret.IItemRendererOwner {
         /**
         * 构造函数
         * @method ns_egret.SkinnableDataContainer#constructor
@@ -9406,7 +9443,7 @@ declare module ns_egret {
         * @param data {any}
         * @returns {IItemRenderer}
         */
-        public updateRenderer(renderer: IItemRenderer, itemIndex: number, data: any): IItemRenderer;
+        public updateRenderer(renderer: ns_egret.IItemRenderer, itemIndex: number, data: any): ns_egret.IItemRenderer;
         /**
         * 返回可在项呈示器中显示的 String
         * @method ns_egret.SkinnableDataContainer#itemToLabel
@@ -9418,7 +9455,7 @@ declare module ns_egret {
         * [SkinPart]数据项目容器实体
         * @member ns_egret.SkinnableDataContainer#dataGroup
         */ 
-        public dataGroup: DataGroup;
+        public dataGroup: ns_egret.DataGroup;
         /**
         * dataGroup发生改变时传递的参数
         */ 
@@ -9427,9 +9464,9 @@ declare module ns_egret {
         * 列表数据源，请使用实现了ICollection接口的数据类型，例如ArrayCollection
         * @member ns_egret.SkinnableDataContainer#dataProvider
         */ 
-        public dataProvider : ICollection;
-        public _getDataProvider(): ICollection;
-        public _setDataProvider(value: ICollection): void;
+        public dataProvider : ns_egret.ICollection;
+        public _getDataProvider(): ns_egret.ICollection;
+        public _setDataProvider(value: ns_egret.ICollection): void;
         /**
         * 用于数据项目的项呈示器。该类必须实现 IItemRenderer 接口。 <br/>
         * rendererClass获取顺序：itemRendererFunction > itemRenderer > 默认ItemRenerer。
@@ -9454,8 +9491,8 @@ declare module ns_egret {
         * 布局对象
         * @member ns_egret.SkinnableDataContainer#layout
         */ 
-        public layout : LayoutBase;
-        public _setLayout(value: LayoutBase): void;
+        public layout : ns_egret.LayoutBase;
+        public _setLayout(value: ns_egret.LayoutBase): void;
         /**
         * @method ns_egret.SkinnableDataContainer#partAdded
         * @param partName {string}
@@ -9494,7 +9531,7 @@ declare module ns_egret {
     * 索引改变事件
     * @extends ns_egret.Event
     */ 
-    class IndexChangeEvent extends Event {
+    class IndexChangeEvent extends ns_egret.Event {
         /**
         * 指示索引已更改
         * @constant ns_egret.IndexChangeEvent.CHANGE
@@ -9528,7 +9565,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.IndexChangeEvent.dispatchIndexChangeEvent
         */
-        static dispatchIndexChangeEvent(target: IEventDispatcher, type: string, oldIndex?: number, newIndex?: number, cancelable?: boolean): boolean;
+        static dispatchIndexChangeEvent(target: ns_egret.IEventDispatcher, type: string, oldIndex?: number, newIndex?: number, cancelable?: boolean): boolean;
     }
 }
 declare module ns_egret {
@@ -9538,7 +9575,7 @@ declare module ns_egret {
     * 列表事件
     * @extends ns_egret.TouchEvent
     */ 
-    class ListEvent extends TouchEvent {
+    class ListEvent extends ns_egret.TouchEvent {
         /**
         * 指示用户执行了将鼠标指针从控件中某个项呈示器上移开的操作
         * @constant ns_egret.ListEvent.ITEM_ROLL_OUT
@@ -9570,7 +9607,7 @@ declare module ns_egret {
         * @param item {any}
         * @param itemRenderer {IItemRenderer}
         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean, touchPointID?: number, stageX?: number, stageY?: number, ctrlKey?: boolean, altKey?: boolean, shiftKey?: boolean, buttonDown?: boolean, itemIndex?: number, item?: any, itemRenderer?: IItemRenderer);
+        constructor(type: string, bubbles?: boolean, cancelable?: boolean, touchPointID?: number, stageX?: number, stageY?: number, ctrlKey?: boolean, altKey?: boolean, shiftKey?: boolean, buttonDown?: boolean, itemIndex?: number, item?: any, itemRenderer?: ns_egret.IItemRenderer);
         /**
         * 触发鼠标事件的项呈示器数据源项。
         * @member ns_egret.ListEvent#item
@@ -9580,7 +9617,7 @@ declare module ns_egret {
         * 触发鼠标事件的项呈示器。
         * @member ns_egret.ListEvent#itemRenderer
         */ 
-        public itemRenderer: IItemRenderer;
+        public itemRenderer: ns_egret.IItemRenderer;
         /**
         * 触发鼠标事件的项索引
         * @member ns_egret.ListEvent#itemIndex
@@ -9590,7 +9627,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.ListEvent.dispatchListEvent
         */
-        static dispatchListEvent(target: IEventDispatcher, type: string, touchEvent?: TouchEvent, itemIndex?: number, item?: any, itemRenderer?: IItemRenderer): void;
+        static dispatchListEvent(target: ns_egret.IEventDispatcher, type: string, touchEvent?: ns_egret.TouchEvent, itemIndex?: number, item?: any, itemRenderer?: ns_egret.IItemRenderer): void;
     }
 }
 declare module ns_egret {
@@ -9600,7 +9637,7 @@ declare module ns_egret {
     * 支持选择内容的所有组件的基类。
     * @extends ns_egret.SkinnableDataContainer
     */
-    class ListBase extends SkinnableDataContainer {
+    class ListBase extends ns_egret.SkinnableDataContainer {
         /**
         * 未选中任何项时的索引值
         * @constant ns_egret.ListBase.NO_SELECTION
@@ -9634,7 +9671,7 @@ declare module ns_egret {
         /**
         * @inheritDoc
         */
-        public layout : LayoutBase;
+        public layout : ns_egret.LayoutBase;
         private _labelField;
         private labelFieldOrFunctionChanged;
         /**
@@ -9743,7 +9780,7 @@ declare module ns_egret {
         * @param data {any}
         * @returns {IItemRenderer}
         */
-        public updateRenderer(renderer: IItemRenderer, itemIndex: number, data: any): IItemRenderer;
+        public updateRenderer(renderer: ns_egret.IItemRenderer, itemIndex: number, data: any): ns_egret.IItemRenderer;
         /**
         * @method ns_egret.ListBase#itemToLabel
         * @param item {any}
@@ -9793,13 +9830,13 @@ declare module ns_egret {
         * @method ns_egret.ListBase#dataGroup_rendererAddHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererAddHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererAddHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * 项呈示器被移除
         * @method ns_egret.ListBase#dataGroup_rendererRemoveHandler
         * @param event {RendererExistenceEvent}
         */ 
-        public dataGroup_rendererRemoveHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererRemoveHandler(event: ns_egret.RendererExistenceEvent): void;
         private static TYPE_MAP;
         /**
         * 项呈示器鼠标事件
@@ -9812,13 +9849,13 @@ declare module ns_egret {
         * @param type {string} 事件名称
         * @param itemRenderer {IItemRenderer} 关联的条目渲染器实例
         */ 
-        public _dispatchListEvent(touchEvent: TouchEvent, type: string, itemRenderer: IItemRenderer): void;
+        public _dispatchListEvent(touchEvent: ns_egret.TouchEvent, type: string, itemRenderer: ns_egret.IItemRenderer): void;
         /**
         * 数据源发生改变
         * @method ns_egret.ListBase#dataProvider_collectionChangeHandler
         * @param event {CollectionEvent}
         */
-        public dataProvider_collectionChangeHandler(event: CollectionEvent): void;
+        public dataProvider_collectionChangeHandler(event: ns_egret.CollectionEvent): void;
     }
 }
 declare module ns_egret {
@@ -9828,7 +9865,7 @@ declare module ns_egret {
     * 带有标题，内容区域的面板组件
     * @extends ns_egret.SkinnableContainer
     */ 
-    class Panel extends SkinnableContainer {
+    class Panel extends ns_egret.SkinnableContainer {
         /**
         * 构造函数
         * @method ns_egret.Panel#constructor
@@ -9838,7 +9875,7 @@ declare module ns_egret {
         * [SkinPart]标题显示对象
         * @member ns_egret.Panel#titleDisplay
         */
-        public titleDisplay: IDisplayText;
+        public titleDisplay: ns_egret.IDisplayText;
         private _title;
         /**
         * 标题内容改变
@@ -9864,7 +9901,7 @@ declare module ns_egret {
     * 窗口关闭事件
     * @extends ns_egret.Event
     */ 
-    class CloseEvent extends Event {
+    class CloseEvent extends ns_egret.Event {
         /**
         * @constant ns_egret.CloseEvent.CLOSE
         */
@@ -9887,7 +9924,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.CloseEvent.dispatchCloseEvent
         */
-        static dispatchCloseEvent(target: IEventDispatcher, type: string, detail?: any): void;
+        static dispatchCloseEvent(target: ns_egret.IEventDispatcher, type: string, detail?: any): void;
     }
 }
 declare module ns_egret {
@@ -9897,7 +9934,7 @@ declare module ns_egret {
     * 弹出管理器事件
     * @extends ns_egret.Event
     */
-    class PopUpEvent extends Event {
+    class PopUpEvent extends ns_egret.Event {
         /**
         * 添加一个弹出框，在执行完添加之后抛出。
         * @constant ns_egret.PopUpEvent.ADD_POPUP
@@ -9922,12 +9959,12 @@ declare module ns_egret {
         * @param popUp {IVisualElement}
         * @param modal {boolean}
         */ 
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean, popUp?: IVisualElement, modal?: boolean);
+        constructor(type: string, bubbles?: boolean, cancelable?: boolean, popUp?: ns_egret.IVisualElement, modal?: boolean);
         /**
         * 弹出框对象
         * @member ns_egret.PopUpEvent#popUp
         */ 
-        public popUp: IVisualElement;
+        public popUp: ns_egret.IVisualElement;
         /**
         * 弹出窗口是否为模态，此属性仅在事件类型为ADD_POPUP时有效。
         * @member ns_egret.PopUpEvent#modal
@@ -9937,7 +9974,7 @@ declare module ns_egret {
         * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
         * @method ns_egret.PopUpEvent.dispatchPopUpEvent
         */
-        static dispatchPopUpEvent(target: IEventDispatcher, type: string, popUp?: IVisualElement, modal?: boolean): void;
+        static dispatchPopUpEvent(target: ns_egret.IEventDispatcher, type: string, popUp?: ns_egret.IVisualElement, modal?: boolean): void;
     }
 }
 declare module ns_egret {
@@ -9950,7 +9987,7 @@ declare module ns_egret {
     * 注入自定义的弹出框管理器类。
     * @extends ns_egret.IEventDispatcher
     */
-    interface IPopUpManager extends IEventDispatcher {
+    interface IPopUpManager extends ns_egret.IEventDispatcher {
         /**
         * 模态遮罩的填充颜色
         * @member ns_egret.IPopUpManager#modalColor
@@ -9968,25 +10005,25 @@ declare module ns_egret {
         * @param modal? {boolean} 是否启用模态。即禁用弹出窗口所在层以下的鼠标事件。默认false。
         * @param center? {boolean} 是否居中窗口。等效于在外部调用centerPopUp()来居中。默认true。
         */ 
-        addPopUp(popUp: IVisualElement, modal?: boolean, center?: boolean): void;
+        addPopUp(popUp: ns_egret.IVisualElement, modal?: boolean, center?: boolean): void;
         /**
         * 移除由addPopUp()方法弹出的窗口。
         * @method ns_egret.IPopUpManager#removePopUp
         * @param popUp {IVisualElement} 要移除的窗口
         */ 
-        removePopUp(popUp: IVisualElement): void;
+        removePopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口居中显示
         * @method ns_egret.IPopUpManager#centerPopUp
         * @param popUp {IVisualElement} 要居中显示的窗口
         */
-        centerPopUp(popUp: IVisualElement): void;
+        centerPopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口的层级调至最前
         * @method ns_egret.IPopUpManager#bringToFront
         * @param popUp {IVisualElement} 要最前显示的窗口
         */ 
-        bringToFront(popUp: IVisualElement): void;
+        bringToFront(popUp: ns_egret.IVisualElement): void;
         /**
         * 已经弹出的窗口列表
         * @member ns_egret.IPopUpManager#popUpList
@@ -10002,7 +10039,7 @@ declare module ns_egret {
     * @extends ns_egret.EventDispatcher
     * @implements ns_egret.IPopUpManager
     */
-    class PopUpManagerImpl extends EventDispatcher implements IPopUpManager {
+    class PopUpManagerImpl extends ns_egret.EventDispatcher implements ns_egret.IPopUpManager {
         /**
         * 构造函数
         * @method ns_egret.PopUpManagerImpl#constructor
@@ -10030,7 +10067,7 @@ declare module ns_egret {
         * @param modal {boolean} 是否启用模态。即禁用弹出窗口所在层以下的鼠标事件。默认false。
         * @param center {boolean} 是否居中窗口。等效于在外部调用centerPopUp()来居中。默认true。
         */
-        public addPopUp(popUp: IVisualElement, modal?: boolean, center?: boolean): void;
+        public addPopUp(popUp: ns_egret.IVisualElement, modal?: boolean, center?: boolean): void;
         /**
         * 从舞台移除
         */
@@ -10063,19 +10100,19 @@ declare module ns_egret {
         * @method ns_egret.PopUpManagerImpl#removePopUp
         * @param popUp {IVisualElement} 要移除的窗口
         */
-        public removePopUp(popUp: IVisualElement): void;
+        public removePopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口居中显示
         * @method ns_egret.PopUpManagerImpl#centerPopUp
         * @param popUp {IVisualElement} 要居中显示的窗口
         */
-        public centerPopUp(popUp: IVisualElement): void;
+        public centerPopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口的层级调至最前
         * @method ns_egret.PopUpManagerImpl#bringToFront
         * @param popUp {IVisualElement} 要最前显示的窗口
         */
-        public bringToFront(popUp: IVisualElement): void;
+        public bringToFront(popUp: ns_egret.IVisualElement): void;
     }
 }
 declare module ns_egret {
@@ -10115,25 +10152,25 @@ declare module ns_egret {
         * @param modal {boolean} 是否启用模态。即禁用弹出窗口所在层以下的鼠标事件。默认false。
         * @param center {boolean} 是否居中窗口。等效于在外部调用centerPopUp()来居中。默认true。
         */ 
-        static addPopUp(popUp: IVisualElement, modal?: boolean, center?: boolean): void;
+        static addPopUp(popUp: ns_egret.IVisualElement, modal?: boolean, center?: boolean): void;
         /**
         * 移除由addPopUp()方法弹出的窗口。
         * @method ns_egret.PopUpManager.removePopUp
         * @param popUp {IVisualElement} 要移除的窗口
         */ 
-        static removePopUp(popUp: IVisualElement): void;
+        static removePopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口居中显示
         * @method ns_egret.PopUpManager.centerPopUp
         * @param popUp {IVisualElement} 要居中显示的窗口
         */
-        static centerPopUp(popUp: IVisualElement): void;
+        static centerPopUp(popUp: ns_egret.IVisualElement): void;
         /**
         * 将指定窗口的层级调至最前
         * @method ns_egret.PopUpManager.bringToFront
         * @param popUp {IVisualElement} 要最前显示的窗口
         */ 
-        static bringToFront(popUp: IVisualElement): void;
+        static bringToFront(popUp: ns_egret.IVisualElement): void;
         /**
         * 已经弹出的窗口列表
         * @member ns_egret.PopUpManager.popUpList
@@ -10175,7 +10212,7 @@ declare module ns_egret {
         * @param element {IVisualElement} 要调整相对位置属性的对象
         * @param parent {DisplayObjectContainer} element的父级容器。若不设置，则取element.parent的值。若两者的值都为空，则放弃调整。
         */ 
-        static adjustRelativeByXY(element: IVisualElement, parent?: DisplayObjectContainer): void;
+        static adjustRelativeByXY(element: ns_egret.IVisualElement, parent?: ns_egret.DisplayObjectContainer): void;
     }
 }
 declare module ns_egret {
@@ -10185,7 +10222,7 @@ declare module ns_egret {
     * 可移动窗口组件。注意，此窗口必须使用PopUpManager.addPopUp()弹出之后才能移动。
     * @extends ns_egret.Panel
     */
-    class TitleWindow extends Panel {
+    class TitleWindow extends ns_egret.Panel {
         /**
         * @method ns_egret.TitleWindow#constructor
         */
@@ -10198,12 +10235,12 @@ declare module ns_egret {
         * [SkinPart]关闭按钮
         * @member ns_egret.TitleWindow#closeButton
         */ 
-        public closeButton: Button;
+        public closeButton: ns_egret.Button;
         /**
         * [SkinPart]可移动区域
         * @member ns_egret.TitleWindow#moveArea
         */ 
-        public moveArea: DisplayObject;
+        public moveArea: ns_egret.DisplayObject;
         private _showCloseButton;
         /**
         * 是否显示关闭按钮,默认true。
@@ -10234,7 +10271,7 @@ declare module ns_egret {
         * @method ns_egret.TitleWindow#closeButton_clickHandler
         * @param event {TouchEvent}
         */
-        public closeButton_clickHandler(event: TouchEvent): void;
+        public closeButton_clickHandler(event: ns_egret.TouchEvent): void;
         /**
         * 鼠标按下时的偏移量
         */ 
@@ -10245,19 +10282,19 @@ declare module ns_egret {
         * @method ns_egret.TitleWindow#moveArea_mouseDownHandler
         * @param event {TouchEvent}
         */ 
-        public moveArea_mouseDownHandler(event: TouchEvent): void;
+        public moveArea_mouseDownHandler(event: ns_egret.TouchEvent): void;
         /**
         * 鼠标拖拽时的移动事件
         * @method ns_egret.TitleWindow#moveArea_mouseMoveHandler
         * @param event {TouchEvent}
         */ 
-        public moveArea_mouseMoveHandler(event: TouchEvent): void;
+        public moveArea_mouseMoveHandler(event: ns_egret.TouchEvent): void;
         /**
         * 鼠标在舞台上弹起事件
         * @method ns_egret.TitleWindow#moveArea_mouseUpHandler
         * @param event {Event}
         */ 
-        public moveArea_mouseUpHandler(event: Event): void;
+        public moveArea_mouseUpHandler(event: ns_egret.Event): void;
         /**
         * 调整窗口位置，使其可以在舞台中被点中
         */ 
@@ -10271,7 +10308,7 @@ declare module ns_egret {
     * 弹出对话框，可能包含消息、标题、按钮（“确定”、“取消”、“是”和“否”的任意组合)。
     * @extends ns_egret.TitleWindow
     */
-    class Alert extends TitleWindow {
+    class Alert extends ns_egret.TitleWindow {
         /**
         * 当对话框关闭时，closeEvent.detail的值若等于此属性,表示被点击的按钮为firstButton。
         * @constant ns_egret.Alert.FIRST_BUTTON
@@ -10336,22 +10373,22 @@ declare module ns_egret {
         * @method ns_egret.Alert#closeButton_clickHandler
         * @param event {TouchEvent}
         */
-        public closeButton_clickHandler(event: TouchEvent): void;
+        public closeButton_clickHandler(event: ns_egret.TouchEvent): void;
         /**
         * [SkinPart]文本内容显示对象
         * @member ns_egret.Alert#contentDisplay
         */ 
-        public contentDisplay: IDisplayText;
+        public contentDisplay: ns_egret.IDisplayText;
         /**
         * [SkinPart]第一个按钮，通常是"确定"。
         * @member ns_egret.Alert#firstButton
         */ 
-        public firstButton: Button;
+        public firstButton: ns_egret.Button;
         /**
         * [SkinPart]第二个按钮，通常是"取消"。
         * @member ns_egret.Alert#secondButton
         */ 
-        public secondButton: Button;
+        public secondButton: ns_egret.Button;
         /**
         * @method ns_egret.Alert#partAdded
         * @param partName {string}
@@ -10419,7 +10456,7 @@ declare module ns_egret {
     * 进度条控件。
     * @extends ns_egret.Range
     */
-    class ProgressBar extends Range {
+    class ProgressBar extends ns_egret.Range {
         /**
         * @method ns_egret.ProgressBar#constructor
         */
@@ -10428,17 +10465,17 @@ declare module ns_egret {
         * [SkinPart]进度高亮显示对象。
         * @member ns_egret.ProgressBar#thumb
         */
-        public thumb: DisplayObject;
+        public thumb: ns_egret.DisplayObject;
         /**
         * [SkinPart]轨道显示对象，用于确定thumb要覆盖的区域。
         * @member ns_egret.ProgressBar#track
         */
-        public track: DisplayObject;
+        public track: ns_egret.DisplayObject;
         /**
         * [SkinPart]进度条文本
         * @member ns_egret.ProgressBar#labelDisplay
         */
-        public labelDisplay: Label;
+        public labelDisplay: ns_egret.Label;
         private _labelFunction;
         /**
         * 进度条文本格式化回调函数。示例：labelFunction(value:Number,maximum:Number):String;
@@ -10530,7 +10567,7 @@ declare module ns_egret {
     * 水平滑块控件
     * @extends ns_egret.SliderBase
     */ 
-    class HSlider extends SliderBase {
+    class HSlider extends ns_egret.SliderBase {
         /**
         * 构造函数
         * @method ns_egret.HSlider#constructor
@@ -10556,7 +10593,7 @@ declare module ns_egret {
     * 垂直滑块控件
     * @extends ns_egret.SliderBase
     */
-    class VSlider extends SliderBase {
+    class VSlider extends ns_egret.SliderBase {
         /**
         * 构造函数
         * @method ns_egret.VSlider#constructor
@@ -10582,7 +10619,7 @@ declare module ns_egret {
     * 列表组件
     * @extends ns_egret.ListBase
     */
-    class List extends ListBase {
+    class List extends ns_egret.ListBase {
         /**
         * @method ns_egret.List#constructor
         */
@@ -10648,12 +10685,12 @@ declare module ns_egret {
         * @method ns_egret.List#dataGroup_rendererAddHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererAddHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererAddHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * @method ns_egret.List#dataGroup_rendererRemoveHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererRemoveHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererRemoveHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * 是否捕获ItemRenderer以便在MouseUp时抛出ItemClick事件
         */
@@ -10664,7 +10701,7 @@ declare module ns_egret {
         * @method ns_egret.List#item_mouseDownHandler
         * @param event {TouchEvent}
         */
-        public item_mouseDownHandler(event: TouchEvent): void;
+        public item_mouseDownHandler(event: ns_egret.TouchEvent): void;
         /**
         * 计算当前的选中项列表
         */
@@ -10686,7 +10723,7 @@ declare module ns_egret {
     * PopUpAnchor组件用于定位布局中的弹出控件或下拉控件
     * @extends ns_egret.UIComponent
     */ 
-    class PopUpAnchor extends UIComponent {
+    class PopUpAnchor extends ns_egret.UIComponent {
         /**
         * 构造函数
         * @method ns_egret.PopUpAnchor#constructor
@@ -10723,7 +10760,7 @@ declare module ns_egret {
         * 要弹出或移除的目标显示对象。
         * @member ns_egret.PopUpAnchor#popUp
         */ 
-        public popUp : IVisualElement;
+        public popUp : ns_egret.IVisualElement;
         private _popUpPosition;
         /**
         * popUp相对于PopUpAnchor的弹出位置。请使用PopUpPosition里定义的常量。默认值TOP_LEFT。
@@ -10820,7 +10857,7 @@ declare module ns_egret {
     * 用于处理因用户交互而打开和关闭下拉列表的操作的控制器
     * @extends ns_egret.EventDispatcher
     */ 
-    class DropDownController extends EventDispatcher {
+    class DropDownController extends ns_egret.EventDispatcher {
         /**
         * 构造函数
         * @method ns_egret.DropDownController#constructor
@@ -10835,19 +10872,19 @@ declare module ns_egret {
         * 下拉按钮实例
         * @member ns_egret.DropDownController#openButton
         */ 
-        public openButton : ButtonBase;
+        public openButton : ns_egret.ButtonBase;
         /**
         * 要考虑作为下拉列表的点击区域的一部分的显示对象列表。
         * 在包含项列出的任何组件内进行鼠标单击不会自动关闭下拉列表。
         * @member ns_egret.DropDownController#hitAreaAdditions
         */ 
-        public hitAreaAdditions: DisplayObject[];
+        public hitAreaAdditions: ns_egret.DisplayObject[];
         private _dropDown;
         /**
         * 下拉区域显示对象
         * @member ns_egret.DropDownController#dropDown
         */ 
-        public dropDown : DisplayObject;
+        public dropDown : ns_egret.DisplayObject;
         private _isOpen;
         /**
         * 下拉列表已经打开的标志
@@ -10916,13 +10953,13 @@ declare module ns_egret {
         * @method ns_egret.DropDownController#_openButton_buttonDownHandler
         * @param event {Event}
         */ 
-        public _openButton_buttonDownHandler(event: Event): void;
+        public _openButton_buttonDownHandler(event: ns_egret.Event): void;
         /**
         * openButton上鼠标经过事件
         * @method ns_egret.DropDownController#_openButton_rollOverHandler
         * @param event {TouchEvent}
         */ 
-        public _openButton_rollOverHandler(event: TouchEvent): void;
+        public _openButton_rollOverHandler(event: ns_egret.TouchEvent): void;
         /**
         * openButton上鼠标移出事件
         */ 
@@ -10936,31 +10973,31 @@ declare module ns_egret {
         * @method ns_egret.DropDownController#stage_mouseDownHandler
         * @param event {Event}
         */ 
-        public stage_mouseDownHandler(event: Event): void;
+        public stage_mouseDownHandler(event: ns_egret.Event): void;
         /**
         * 舞台上鼠标移动事件
         * @method ns_egret.DropDownController#stage_mouseMoveHandler
         * @param event {Event}
         */ 
-        public stage_mouseMoveHandler(event: Event): void;
+        public stage_mouseMoveHandler(event: ns_egret.Event): void;
         /**
         * 舞台上鼠标弹起事件
         * @method ns_egret.DropDownController#stage_mouseUpHandler_noRollOverOpenDelay
         * @param event {Event}
         */ 
-        public stage_mouseUpHandler_noRollOverOpenDelay(event: Event): void;
+        public stage_mouseUpHandler_noRollOverOpenDelay(event: ns_egret.Event): void;
         /**
         * 舞台上鼠标弹起事件
         * @method ns_egret.DropDownController#stage_mouseUpHandler
         * @param event {Event}
         */ 
-        public stage_mouseUpHandler(event: Event): void;
+        public stage_mouseUpHandler(event: ns_egret.Event): void;
         /**
         * 舞台尺寸改变事件
         * @method ns_egret.DropDownController#stage_resizeHandler
         * @param event {Event}
         */ 
-        public stage_resizeHandler(event: Event): void;
+        public stage_resizeHandler(event: ns_egret.Event): void;
         /**
         * 舞台上鼠标滚轮事件
         */ 
@@ -10974,7 +11011,7 @@ declare module ns_egret {
     * 下拉列表控件基类
     * @extends ns_egret.List
     */ 
-    class DropDownListBase extends List {
+    class DropDownListBase extends ns_egret.List {
         /**
         * 构造函数
         * @method ns_egret.DropDownListBase#constructor
@@ -10984,12 +11021,12 @@ declare module ns_egret {
         * [SkinPart]下拉区域显示对象
         * @member ns_egret.DropDownListBase#dropDown
         */ 
-        public dropDown: DisplayObject;
+        public dropDown: ns_egret.DisplayObject;
         /**
         * [SkinPart]下拉触发按钮
         * @member ns_egret.DropDownListBase#openButton
         */ 
-        public openButton: ButtonBase;
+        public openButton: ns_egret.ButtonBase;
         /**
         * @constant ns_egret.DropDownListBase.PAGE_SIZE
         */
@@ -11001,7 +11038,7 @@ declare module ns_egret {
         /**
         * @inheritDoc
         */
-        public _setDataProvider(value: ICollection): void;
+        public _setDataProvider(value: ns_egret.ICollection): void;
         /**
         * @inheritDoc
         */
@@ -11015,7 +11052,7 @@ declare module ns_egret {
         * 下拉控制器
         * @member ns_egret.DropDownListBase#dropDownController
         */ 
-        public dropDownController : DropDownController;
+        public dropDownController : ns_egret.DropDownController;
         /**
         * 下拉列表是否已经已打开
         * @member ns_egret.DropDownListBase#isDropDownOpen
@@ -11083,30 +11120,30 @@ declare module ns_egret {
         * @method ns_egret.DropDownListBase#dataProvider_collectionChangeHandler
         * @param event {CollectionEvent}
         */
-        public dataProvider_collectionChangeHandler(event: CollectionEvent): void;
+        public dataProvider_collectionChangeHandler(event: ns_egret.CollectionEvent): void;
         /**
         * @method ns_egret.DropDownListBase#item_mouseDownHandler
         * @param event {TouchEvent}
         */
-        public item_mouseDownHandler(event: TouchEvent): void;
+        public item_mouseDownHandler(event: ns_egret.TouchEvent): void;
         /**
         * 控制器抛出打开列表事件
         * @method ns_egret.DropDownListBase#_dropDownController_openHandler
         * @param event {UIEvent}
         */ 
-        public _dropDownController_openHandler(event: UIEvent): void;
+        public _dropDownController_openHandler(event: ns_egret.UIEvent): void;
         /**
         * 打开列表后组件一次失效验证全部完成
         * @method ns_egret.DropDownListBase#_open_updateCompleteHandler
         * @param event {UIEvent}
         */ 
-        public _open_updateCompleteHandler(event: UIEvent): void;
+        public _open_updateCompleteHandler(event: ns_egret.UIEvent): void;
         /**
         * 控制器抛出关闭列表事件
         * @method ns_egret.DropDownListBase#dropDownController_closeHandler
         * @param event {UIEvent}
         */ 
-        public dropDownController_closeHandler(event: UIEvent): void;
+        public dropDownController_closeHandler(event: ns_egret.UIEvent): void;
         /**
         * 关闭列表后组件一次失效验证全部完成
         */ 
@@ -11120,7 +11157,7 @@ declare module ns_egret {
     * 树状列表组件
     * @extends ns_egret.List
     */
-    class Tree extends List {
+    class Tree extends ns_egret.List {
         /**
         * 构造函数
         * @method ns_egret.Tree#constructor
@@ -11137,7 +11174,7 @@ declare module ns_egret {
         * @param data {any}
         * @returns {IItemRenderer}
         */
-        public updateRenderer(renderer: IItemRenderer, itemIndex: number, data: any): IItemRenderer;
+        public updateRenderer(renderer: ns_egret.IItemRenderer, itemIndex: number, data: any): ns_egret.IItemRenderer;
         /**
         * 根据数据项返回项呈示器中图标的skinName属性值
         * @method ns_egret.Tree#itemToIcon
@@ -11149,7 +11186,7 @@ declare module ns_egret {
         * @method ns_egret.Tree#dataGroup_rendererAddHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererAddHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererAddHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * 节点即将打开
         */ 
@@ -11158,7 +11195,7 @@ declare module ns_egret {
         * @method ns_egret.Tree#dataGroup_rendererRemoveHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererRemoveHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererRemoveHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * 图标字段或函数改变标志
         */ 
@@ -11195,7 +11232,7 @@ declare module ns_egret {
         * @method ns_egret.Tree#dataProvider_collectionChangeHandler
         * @param event {CollectionEvent}
         */
-        public dataProvider_collectionChangeHandler(event: CollectionEvent): void;
+        public dataProvider_collectionChangeHandler(event: ns_egret.CollectionEvent): void;
         /**
         * @method ns_egret.Tree#commitProperties
         */
@@ -11214,7 +11251,7 @@ declare module ns_egret {
     * @see org.flexlite.domUI.components.ComboBox
     * @extends ns_egret.DropDownListBase
     */ 
-    class DropDownList extends DropDownListBase {
+    class DropDownList extends ns_egret.DropDownListBase {
         /**
         * 构造函数
         * @method ns_egret.DropDownList#constructor
@@ -11224,7 +11261,7 @@ declare module ns_egret {
         * [SkinPart]选中项文本
         * @member ns_egret.DropDownList#labelDisplay
         */ 
-        public labelDisplay: IDisplayText;
+        public labelDisplay: ns_egret.IDisplayText;
         private _prompt;
         /**
         * 当没有选中项时在DropDownList上要显示的字符串。<p/>
@@ -11253,7 +11290,7 @@ declare module ns_egret {
     * @extends ns_egret.ToggleButtonBase
     * @implements ns_egret.IItemRenderer
     */ 
-    class TabBarButton extends ToggleButtonBase implements IItemRenderer {
+    class TabBarButton extends ns_egret.ToggleButtonBase implements ns_egret.IItemRenderer {
         /**
         * @method ns_egret.TabBarButton#constructor
         */
@@ -11292,7 +11329,7 @@ declare module ns_egret {
     * 选项卡组件
     * @extends ns_egret.ListBase
     */ 
-    class TabBar extends ListBase {
+    class TabBar extends ns_egret.ListBase {
         /**
         * 构造函数
         * @method ns_egret.TabBar#constructor
@@ -11310,7 +11347,7 @@ declare module ns_egret {
         /**
         * @inheritDoc
         */
-        public _setDataProvider(value: ICollection): void;
+        public _setDataProvider(value: ns_egret.ICollection): void;
         /**
         * 鼠标点击的选中项改变
         */ 
@@ -11327,12 +11364,12 @@ declare module ns_egret {
         * @method ns_egret.TabBar#dataGroup_rendererAddHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererAddHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererAddHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * @method ns_egret.TabBar#dataGroup_rendererRemoveHandler
         * @param event {RendererExistenceEvent}
         */
-        public dataGroup_rendererRemoveHandler(event: RendererExistenceEvent): void;
+        public dataGroup_rendererRemoveHandler(event: ns_egret.RendererExistenceEvent): void;
         /**
         * 鼠标在条目上按下
         */ 
@@ -11347,7 +11384,7 @@ declare module ns_egret {
     * @extends ns_egret.UIComponent
     * @implements ns_egret.IVisualElementContainer
     */ 
-    class Scroller extends UIComponent implements IVisualElementContainer {
+    class Scroller extends ns_egret.UIComponent implements ns_egret.IVisualElementContainer {
         /**
         * 构造函数
         * @method ns_egret.Scroller#constructor
@@ -11380,7 +11417,7 @@ declare module ns_egret {
         * 要滚动的视域组件。
         * @member ns_egret.Scroller#viewport
         */
-        public viewport : IViewport;
+        public viewport : ns_egret.IViewport;
         /**
         * 安装并初始化视域组件
         */
@@ -11465,19 +11502,19 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Scroller#getElementIndex
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @method ns_egret.Scroller#containsElement
         * @param element {IVisualElement}
         * @returns {boolean}
         */
-        public containsElement(element: IVisualElement): boolean;
+        public containsElement(element: ns_egret.IVisualElement): boolean;
         private throwNotSupportedError();
         /**
         * @method ns_egret.Scroller#addElement
@@ -11485,7 +11522,7 @@ declare module ns_egret {
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Scroller#addElementAt
         * @deprecated
@@ -11493,21 +11530,21 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Scroller#removeElement
         * @deprecated
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Scroller#removeElementAt
         * @deprecated
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.Scroller#removeAllElements
         * @deprecated
@@ -11519,14 +11556,14 @@ declare module ns_egret {
         * @param element {IVisualElement}
         * @param index {number}
         */
-        public setElementIndex(element: IVisualElement, index: number): void;
+        public setElementIndex(element: ns_egret.IVisualElement, index: number): void;
         /**
         * @method ns_egret.Scroller#swapElements
         * @deprecated
         * @param element1 {IVisualElement}
         * @param element2 {IVisualElement}
         */
-        public swapElements(element1: IVisualElement, element2: IVisualElement): void;
+        public swapElements(element1: ns_egret.IVisualElement, element2: ns_egret.IVisualElement): void;
         /**
         * @method ns_egret.Scroller#swapElementsAt
         * @deprecated
@@ -11540,7 +11577,7 @@ declare module ns_egret {
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public addChild(child: DisplayObject): DisplayObject;
+        public addChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Scroller#addChildAt
         * @deprecated
@@ -11548,35 +11585,35 @@ declare module ns_egret {
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public addChildAt(child: DisplayObject, index: number): DisplayObject;
+        public addChildAt(child: ns_egret.DisplayObject, index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Scroller#removeChild
         * @deprecated
         * @param child {DisplayObject}
         * @returns {DisplayObject}
         */
-        public removeChild(child: DisplayObject): DisplayObject;
+        public removeChild(child: ns_egret.DisplayObject): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Scroller#removeChildAt
         * @deprecated
         * @param index {number}
         * @returns {DisplayObject}
         */
-        public removeChildAt(index: number): DisplayObject;
+        public removeChildAt(index: number): ns_egret.DisplayObject;
         /**
         * @method ns_egret.Scroller#setChildIndex
         * @deprecated
         * @param child {DisplayObject}
         * @param index {number}
         */
-        public setChildIndex(child: DisplayObject, index: number): void;
+        public setChildIndex(child: ns_egret.DisplayObject, index: number): void;
         /**
         * @method ns_egret.Scroller#swapChildren
         * @deprecated
         * @param child1 {DisplayObject}
         * @param child2 {DisplayObject}
         */
-        public swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        public swapChildren(child1: ns_egret.DisplayObject, child2: ns_egret.DisplayObject): void;
         /**
         * @method ns_egret.Scroller#swapChildrenAt
         * @deprecated
@@ -11711,7 +11748,7 @@ declare module ns_egret {
     * 水平布局
     * @extends ns_egret.LayoutBase
     */
-    class HorizontalLayout extends LayoutBase {
+    class HorizontalLayout extends ns_egret.LayoutBase {
         /**
         * @method ns_egret.HorizontalLayout#constructor
         */
@@ -11872,7 +11909,7 @@ declare module ns_egret {
     * 格子布局
     * @extends ns_egret.LayoutBase
     */
-    class TileLayout extends LayoutBase {
+    class TileLayout extends ns_egret.LayoutBase {
         /**
         * 构造函数
         * @method ns_egret.TileLayout#constructor
@@ -12114,7 +12151,7 @@ declare module ns_egret {
     * SystemManager的虚拟子容器
     * @implements ns_egret.IContainer
     */
-    class SystemContainer implements IContainer {
+    class SystemContainer implements ns_egret.IContainer {
         /**
         * 构造函数
         * @method ns_egret.SystemContainer#constructor
@@ -12122,7 +12159,7 @@ declare module ns_egret {
         * @param lowerBoundReference {string}
         * @param upperBoundReference {strin}
         */ 
-        constructor(owner: ISystemManager, lowerBoundReference: string, upperBoundReference: string);
+        constructor(owner: ns_egret.ISystemManager, lowerBoundReference: string, upperBoundReference: string);
         /**
         * 实体容器
         */ 
@@ -12150,44 +12187,44 @@ declare module ns_egret {
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public getElementAt(index: number): IVisualElement;
+        public getElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemContainer#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemContainer#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemContainer#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemContainer#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemContainer#getElementIndex
         * @param element {IVisualElement}
         * @returns {number}
         */
-        public getElementIndex(element: IVisualElement): number;
+        public getElementIndex(element: ns_egret.IVisualElement): number;
         /**
         * @method ns_egret.SystemContainer#setElementIndex
         * @param element {IVisualElement}
         * @param index {number}
         */
-        public setElementIndex(element: IVisualElement, index: number): void;
+        public setElementIndex(element: ns_egret.IVisualElement, index: number): void;
     }
 }
 declare module ns_egret {
@@ -12200,7 +12237,7 @@ declare module ns_egret {
     * @extends ns_egret.Group
     * @implements ns_egret.ISystemManager
     */ 
-    class SystemManager extends Group implements ISystemManager {
+    class SystemManager extends ns_egret.Group implements ns_egret.ISystemManager {
         /**
         * 构造函数
         * @method ns_egret.SystemManager#constructor
@@ -12282,25 +12319,25 @@ declare module ns_egret {
         * 布局对象,SystemManager只接受BasicLayout
         * @member ns_egret.SystemManager#layout
         */ 
-        public layout : LayoutBase;
+        public layout : ns_egret.LayoutBase;
         private _popUpContainer;
         /**
         * 弹出窗口层容器。
         * @member ns_egret.SystemManager#popUpContainer
         */ 
-        public popUpContainer : IContainer;
+        public popUpContainer : ns_egret.IContainer;
         private _toolTipContainer;
         /**
         * 工具提示层容器。
         * @member ns_egret.SystemManager#toolTipContainer
         */ 
-        public toolTipContainer : IContainer;
+        public toolTipContainer : ns_egret.IContainer;
         private _cursorContainer;
         /**
         * 鼠标样式层容器。
         * @member ns_egret.SystemManager#cursorContainer
         */ 
-        public cursorContainer : IContainer;
+        public cursorContainer : ns_egret.IContainer;
         private _noTopMostIndex;
         /**
         * 弹出窗口层的起始索引(包括)
@@ -12326,26 +12363,26 @@ declare module ns_egret {
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public addElement(element: IVisualElement): IVisualElement;
+        public addElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemManager#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public addElementAt(element: IVisualElement, index: number): IVisualElement;
+        public addElementAt(element: ns_egret.IVisualElement, index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemManager#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
-        public removeElement(element: IVisualElement): IVisualElement;
+        public removeElement(element: ns_egret.IVisualElement): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemManager#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
-        public removeElementAt(index: number): IVisualElement;
+        public removeElementAt(index: number): ns_egret.IVisualElement;
         /**
         * @method ns_egret.SystemManager#removeAllElements
         */
@@ -12356,7 +12393,7 @@ declare module ns_egret {
         * @param index {number}
         * @param notifyListeners {boolean}
         */
-        public _elementRemoved(element: IVisualElement, index: number, notifyListeners?: boolean): void;
+        public _elementRemoved(element: ns_egret.IVisualElement, index: number, notifyListeners?: boolean): void;
         private raw_getElementAt(index);
         private raw_addElement(element);
         private raw_addElementAt(element, index);
@@ -13056,7 +13093,7 @@ declare module dragonBones {
 */
 declare module dragonBones {
     module display {
-        class DragonBonesEgretBridge implements IDisplayBridge {
+        class DragonBonesEgretBridge implements display.IDisplayBridge {
             private static RADIAN_TO_ANGLE;
             private _display;
             public getVisible(): boolean;
@@ -13073,7 +13110,7 @@ declare module dragonBones {
         }
     }
     module textures {
-        class EgretTextureAtlas implements ITextureAtlas {
+        class EgretTextureAtlas implements textures.ITextureAtlas {
             public texture: any;
             public name: string;
             public scale: number;
@@ -13085,7 +13122,7 @@ declare module dragonBones {
         }
     }
     module factorys {
-        class EgretFactory extends BaseFactory {
+        class EgretFactory extends factorys.BaseFactory {
             constructor();
             /** @private */
             public _generateArmature(): Armature;
@@ -13102,7 +13139,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.DeviceContext
     */
-    class HTML5DeviceContext extends DeviceContext {
+    class HTML5DeviceContext extends ns_egret.DeviceContext {
         private _time;
         /**
         * @member ns_egret.HTML5DeviceContext#frameRate
@@ -13128,7 +13165,7 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.SoundContext
     */
-    class HTML5SoundContext extends SoundContext {
+    class HTML5SoundContext extends ns_egret.SoundContext {
         private _soundList;
         private _capabilities;
         private _soundSupported;
@@ -13164,16 +13201,16 @@ declare module ns_egret {
     * @classdesc
     * @extends ns_egret.NetContext
     */
-    class HTML5NetContext extends NetContext {
+    class HTML5NetContext extends ns_egret.NetContext {
         constructor();
-        public proceed(loader: URLLoader): void;
+        public proceed(loader: ns_egret.URLLoader): void;
         private getXHR();
         private setResponseType(xhr, responseType);
         private loadTexture(loader);
     }
 }
 declare module ns_egret {
-    class HTML5TouchContext extends TouchContext {
+    class HTML5TouchContext extends ns_egret.TouchContext {
         private canvas;
         constructor(canvas: HTMLCanvasElement);
         public run(): void;

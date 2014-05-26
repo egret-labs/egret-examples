@@ -28,15 +28,18 @@
     </style>
 </head>
 <body>
-<div style="float: left">
-    <div style="float: left;width: 200px; background: #FFFFFF">
-    <select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)"></select>
-    <div>这里是一段Example描述</div>
+<div style="width: 1500px">
+    <div style="float: left;width: 200px;">
+        <select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)">
+        </select>
+
+        <textarea style="font-size:20px;height:360px;width:190px;" id="testDescription" disabled="false"></textarea>
     </div>
-</div>
-<div style="display:inline-block;width:480px; height:800px;margin: 0 auto; background: black; position:relative;"
-     id="gameDiv">
-    <canvas id="gameCanvas" width="480" height="800" style="background-color: #000000"></canvas>
+    <div id="gameDiv" style="float: left;width: 500px;background: black;">
+        <canvas id="gameCanvas" width="500" height="400"></canvas>
+    </div>
+    <textarea style="font-size:16px;height:400px;width:700px;" id="exampleTextArea" disabled="false"></textarea>
+
 </div>
 
 <script>
@@ -95,14 +98,14 @@
                 var key = itemArray[0];
                 var value = itemArray[1];
                 if (key == "test") {
-                    appFile = value + ".js";
+                    appFile = value;
                     hasTest = true;
                     break;
                 }
             }
         }
         if (!hasTest) {
-            appFile = list[0] + ".js";
+            appFile = list[0];
         }
 
         return appFile;
@@ -121,7 +124,7 @@
     egret_h5.preloadScript(egret_file_list, "bin-debug/lib/");
     egret_h5.preloadScript(game_file_list, "bin-debug/src/");
     egret_h5.startLoading();
-    alert(getCurrentTest());
+    //alert(getCurrentTest());
 </script>
 </body>
 </html>
