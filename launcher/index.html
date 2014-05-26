@@ -71,7 +71,41 @@
     })
 
     function onSelectChange(value){
+        var url = location.href;
+        var index = url.indexOf("?");
+        if (index != -1) {
+            url = url.slice(0, index);
+        }
+        if (url.indexOf(".html") == -1) {
+            url += "index.html";
+        }
+        url += "?test=" + value;
+        location.href = url;
+    }
 
+    function getCurrentTest(){
+        var appFile;
+        var hasTest = false;
+        var str = location.search;
+        str = str.slice(1, str.length);
+        var totalArray = str.split("&");
+        for (var i = 0; i < totalArray.length; i++) {
+            var itemArray = totalArray[i].split("=");
+            if (itemArray.length == 2) {
+                var key = itemArray[0];
+                var value = itemArray[1];
+                if (key == "test") {
+                    appFile = value + ".js";
+                    hasTest = true;
+                    break;
+                }
+            }
+        }
+        if (!hasTest) {
+            appFile = list[0] + ".js";
+        }
+
+        return appFile;
     }
 
 
@@ -87,6 +121,7 @@
     egret_h5.preloadScript(egret_file_list, "bin-debug/lib/");
     egret_h5.preloadScript(game_file_list, "bin-debug/src/");
     egret_h5.startLoading();
+    alert(getCurrentTest());
 </script>
 </body>
 </html>
