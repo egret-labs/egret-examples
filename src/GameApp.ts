@@ -32,15 +32,15 @@ class GameApp {
         this.loadingView.addToStage();
 
         //初始化Resource资源加载库，提示：Resource资源加载库是可选模块，不在egret-core项目里，最新代码请到github上的egret-game-library项目检出。
-        ns_egret.Resource.eventDispatcher.addEventListener(ns_egret.ResourceEvent.GROUP_COMPLETE,this.onResourceLoadComplete,this);
-        ns_egret.Resource.eventDispatcher.addEventListener(ns_egret.ResourceEvent.GROUP_PROGRESS,this.onResourceProgress,this);
-        ns_egret.Resource.loadConfig("resources/resource.json","resources/");
-        ns_egret.Resource.loadGroup(this.currentTestName);
+        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onResourceLoadComplete,this);
+        RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS,this.onResourceProgress,this);
+        RES.loadConfig("resources/resource.json","resources/assets/480/");
+        RES.loadGroup(this.currentTestName);
     }
     /**
      * preload资源组加载完成
      */
-    private onResourceLoadComplete(event:ns_egret.ResourceEvent):void {
+    private onResourceLoadComplete(event:RES.ResourceEvent):void {
         if(event.groupName==this.currentTestName){
             this.loadingView.removeFromStage();
             this.createGameScene();
@@ -49,7 +49,7 @@ class GameApp {
     /**
      * preload资源组加载进度
      */
-    private onResourceProgress(event:ns_egret.ResourceEvent):void {
+    private onResourceProgress(event:RES.ResourceEvent):void {
         if(event.groupName==this.currentTestName){
             this.loadingView.onProgress(event.itemsLoaded,event.itemsTotal);
         }
@@ -66,7 +66,7 @@ class GameApp {
 
     private createBitmapByName(name:string):ns_egret.Bitmap {
         var result:ns_egret.Bitmap = new ns_egret.Bitmap();
-        var texture:ns_egret.Texture = ns_egret.Resource.getRes(name);
+        var texture:ns_egret.Texture = RES.getRes(name);
         result.texture = texture;
         return result;
     }

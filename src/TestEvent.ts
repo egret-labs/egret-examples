@@ -16,46 +16,43 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-class TestBitmap {
+class TestEvent {
 
     public getDescription():string {
-        return "这个项目展示了Bitmap的正常显示、位移、缩放、旋转、斜切";
+        return "这个项目展示了多个显示对象（包含复杂嵌套）的事件触发，事件机制参考Flash显示列表事件流";
     }
 
     public createExample():void {
         var container = new ns_egret.DisplayObjectContainer();
         ns_egret.MainContext.instance.stage.addChild(container);
-        var texture:ns_egret.Texture = RES.getRes("daisy_png");
+        container.scaleX = container.scaleY = 1.5;
+        container.rotation = 45;
 
-        var bitmap1 = new ns_egret.Bitmap();
-        bitmap1.texture = texture;
-        container.addChild(bitmap1);
-        bitmap1.x = bitmap1.y = 50;
-        container.touchEnabled = true;
-        bitmap1.touchEnabled = true;
-        bitmap1.width = bitmap1.height = 100;
+        var left = new ns_egret.Bitmap();
+        left.texture = RES.getRes("b1_png");
+        left.x = 100;
+        container.addChild(left);
+        left.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function (event){
+            console.log("点击左侧箭头");
+        },left);
+        left.touchEnabled = true;
 
-        var bitmap2 = new ns_egret.Bitmap();
-        bitmap2.texture = texture;
-        container.addChild(bitmap2);
-        bitmap2.x = 150;
-        bitmap2.y = 50;
-        bitmap2.scaleX = bitmap2.scaleY = 0.5;
+        var right = new ns_egret.Bitmap();
+        right.texture = RES.getRes("b5_png");
+        right.x = 150;
+        container.addChild(right);
+        right.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function (event){
+            console.log("点击右侧箭头");
+        },right);
 
-        var bitmap3 = new ns_egret.Bitmap();
-        bitmap3.texture = texture;
-        container.addChild(bitmap3);
-        bitmap3.x = 50;
-        bitmap3.y = 150;
-        bitmap3.rotation = 45;
+        container.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function(event){
+            console.log ("容器冒泡侦听");
+        },container);
 
-        var bitmap4 = new ns_egret.Bitmap();
-        bitmap4.texture = texture;
-        container.addChild(bitmap4);
-        bitmap4.x = 150;
-        bitmap4.y = 150;
-        bitmap4.skewX = 45;
 
-        container.cacheAsBitmap(true);
+        container.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function(event){
+            console.log ("容器捕获侦听");
+        },container,true);
+        right.touchEnabled = true;
     }
 }

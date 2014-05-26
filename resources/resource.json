@@ -1,11 +1,33 @@
 {
 "resources":
 	[
-		{"name":"daisy","type":"img","url":"assets/480/daisy.png"}
+		{"name":"daisy_png","type":"img","url":"daisy.png"},
+		{"name":"texture_png","type":"img","url":"armature/texture.png"},
+		{"name":"skeleton_json","type":"json","url":"armature/skeleton.json"},
+		{"name":"texture_json","type":"json","url":"armature/texture.json"},
+		{"name":"font_png","type":"img","url":"font.png"},
+		{"name":"b_1_png","type":"img","url":"b_1.png"},
+		{"name":"b_2_png","type":"img","url":"b_2.png"},
+		{"name":"b1_png","type":"img","url":"b1.png"},
+		{"name":"b5_png","type":"img","url":"b5.png"},
+		{"name":"monkey_png","type":"img","url":"monkey.png"},
+		{"name":"monkey_json","type":"json","url":"monkey.json"},
+		{"name":"sprite_sheet_png","type":"img","url":"sprite_sheet.png"},
+		{"name":"icons_png","type":"img","url":"icons.png"},
+		{"name":"icons_json","type":"json","url":"icons.json"}
 	],
 
 "groups":
 	[
-        {"name":"TestBitmap","keys":"daisy"}
+        {"name":"TestBitmap","keys":"daisy_png"},
+        {"name":"TestArmature","keys":"texture_png,skeleton_json,texture_json"},
+        {"name":"TestBitmapText","keys":"font_png"},
+        {"name":"TestCache","keys":"daisy_png,b_1_png,b_2_png"},
+        {"name":"TestDisplayList","keys":"daisy_png"},
+        {"name":"TestEvent","keys":"b1_png,b5_png"},
+        {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
+        {"name":"TestScaleBitmap","keys":"daisy_png"},
+        {"name":"TestSpriteFrame","keys":"icons_png,icons_json"},
+        {"name":"TestTween","keys":"b1_png"}
 	]
 }

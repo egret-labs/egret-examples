@@ -16,46 +16,60 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-class TestBitmap {
+class TestDisplayList {
 
     public getDescription():string {
-        return "这个项目展示了Bitmap的正常显示、位移、缩放、旋转、斜切";
+        return "ns_egret.RenderFilter.getInstance().addDrawArea(new ns_egret.Rectangle(100,0,500,500));\n\n" +
+            "ns_egret.MainContext.instance.rendererContext.canvasContext.setTransform(1, 0, 0, 1, 0, 0);" +
+            "ns_egret.MainContext.instance.rendererContext.canvasContext.clearRect(0,0,500,500);\n\n" +
+            "测试cacheAsBitmap:\n" +
+            "container.cacheAsBitmap(true);\n" +
+            "bitmap1.cacheAsBitmap(true);\n" +
+            "bitmap2.cacheAsBitmap(true);\n" +
+            "bitmap3.cacheAsBitmap(true);\n" +
+            "bitmap4.cacheAsBitmap(true);\n\n" +
+            "container.mask = {x:100,y:100,width:100,height:100}";
     }
 
     public createExample():void {
         var container = new ns_egret.DisplayObjectContainer();
+        container.scaleX = 2;
         ns_egret.MainContext.instance.stage.addChild(container);
-        var texture:ns_egret.Texture = RES.getRes("daisy_png");
+        var texture = RES.getRes("daisy_png");
 
         var bitmap1 = new ns_egret.Bitmap();
         bitmap1.texture = texture;
         container.addChild(bitmap1);
         bitmap1.x = bitmap1.y = 50;
-        container.touchEnabled = true;
-        bitmap1.touchEnabled = true;
-        bitmap1.width = bitmap1.height = 100;
 
         var bitmap2 = new ns_egret.Bitmap();
         bitmap2.texture = texture;
         container.addChild(bitmap2);
-        bitmap2.x = 150;
-        bitmap2.y = 50;
-        bitmap2.scaleX = bitmap2.scaleY = 0.5;
+        bitmap2.x = 75;
+        bitmap2.y = 75;
 
         var bitmap3 = new ns_egret.Bitmap();
         bitmap3.texture = texture;
         container.addChild(bitmap3);
+        bitmap3.scaleX = bitmap3.scaleY = 2;
         bitmap3.x = 50;
         bitmap3.y = 150;
-        bitmap3.rotation = 45;
 
         var bitmap4 = new ns_egret.Bitmap();
         bitmap4.texture = texture;
         container.addChild(bitmap4);
-        bitmap4.x = 150;
-        bitmap4.y = 150;
-        bitmap4.skewX = 45;
+        bitmap4.x = 250;
+        bitmap4.y = 250;
+        bitmap4.rotation = 90;
 
-        container.cacheAsBitmap(true);
+//    for(var i = 0 ; i < 1000;i++)
+//    {
+//        scaleBitmap = new ns_egret.Scale9Bitmap(texture);
+//        scaleBitmap.setScaleGrid(15,15,35,35);
+//        scaleBitmap.width = scaleBitmap.height = 190;
+//        scaleBitmap.x = 40;
+//        scaleBitmap.y = 100;
+//        container.addChild(scaleBitmap);
+//    }
     }
 }

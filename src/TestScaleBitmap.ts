@@ -16,46 +16,22 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-class TestBitmap {
+class TestScaleBitmap {
 
     public getDescription():string {
-        return "这个项目展示了Bitmap的正常显示、位移、缩放、旋转、斜切";
+        return "这个项目展示了九宫格";
     }
 
     public createExample():void {
         var container = new ns_egret.DisplayObjectContainer();
         ns_egret.MainContext.instance.stage.addChild(container);
-        var texture:ns_egret.Texture = RES.getRes("daisy_png");
 
-        var bitmap1 = new ns_egret.Bitmap();
-        bitmap1.texture = texture;
-        container.addChild(bitmap1);
-        bitmap1.x = bitmap1.y = 50;
-        container.touchEnabled = true;
-        bitmap1.touchEnabled = true;
-        bitmap1.width = bitmap1.height = 100;
-
-        var bitmap2 = new ns_egret.Bitmap();
-        bitmap2.texture = texture;
-        container.addChild(bitmap2);
-        bitmap2.x = 150;
-        bitmap2.y = 50;
-        bitmap2.scaleX = bitmap2.scaleY = 0.5;
-
-        var bitmap3 = new ns_egret.Bitmap();
-        bitmap3.texture = texture;
-        container.addChild(bitmap3);
-        bitmap3.x = 50;
-        bitmap3.y = 150;
-        bitmap3.rotation = 45;
-
-        var bitmap4 = new ns_egret.Bitmap();
-        bitmap4.texture = texture;
-        container.addChild(bitmap4);
-        bitmap4.x = 150;
-        bitmap4.y = 150;
-        bitmap4.skewX = 45;
-
-        container.cacheAsBitmap(true);
+        var texture = RES.getRes("daisy_png");
+        var scaleBitmap = new ns_egret.Scale9Bitmap(texture);
+        scaleBitmap.setScaleGrid(5,5,5,5);
+        scaleBitmap.width = scaleBitmap.height = 200;
+        scaleBitmap.x = 200;
+        scaleBitmap.y = 200;
+        container.addChild(scaleBitmap);
     }
 }

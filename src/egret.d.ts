@@ -12854,7 +12854,7 @@ declare module dragonBones {
             public addTextureAtlas(textureAtlas: textures.ITextureAtlas, name?: string): void;
             public removeTextureAtlas(name: string): void;
             public dispose(disposeData?: boolean): void;
-            public buildArmature(armatureName: string, animationName: string, skeletonName: string, textureAtlasName: string, skinName: string): Armature;
+            public buildArmature(armatureName: string, animationName?: string, skeletonName?: string, textureAtlasName?: string, skinName?: string): Armature;
             public getTextureDisplay(textureName: string, textureAtlasName: string, pivotX: number, pivotY: number): Object;
             /** @private */
             public _generateArmature(): Armature;

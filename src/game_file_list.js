@@ -18,5 +18,19 @@ var game_file_list = [
     "GameApp.js",
     "LoadingUI.js",
 
-    "TestBitmap.js"
+    "TestArmature.js",
+    "TestBitmap.js",
+    "TestBitmapText.js",
+    "TestBox2d.js",
+    "TestCache.js",
+    "TestDisplayList.js",
+    "TestEvent.js",
+    "TestMovieClip.js",
+    "TestNet.js",
+    "TestScaleBitmap.js",
+    "TestShape.js",
+    "TestSpriteFrame.js",
+    "TestText.js",
+    "TestTicker.js",
+    "TestTween.js"
 ]
