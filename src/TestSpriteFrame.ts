@@ -35,13 +35,11 @@ class TestSpriteFrame {
         var container = new ns_egret.DisplayObjectContainer();
         ns_egret.MainContext.instance.stage.addChild(container);
 
-        var data = RES.getRes("icons_json");
-        var texture = RES.getRes("icons_png");
+        var spriteSheet:ns_egret.SpriteSheet = RES.getRes("icons");
+        var texture = spriteSheet.getTexture("activity_10.png");
 
-        var spriteSheet = new ns_egret.SpriteSheet(data);
         var bitmap = new ns_egret.Bitmap();
         bitmap.texture = texture;
-        bitmap.spriteFrame = spriteSheet.getFrame("activity_10.png");
         container.addChild(bitmap);
     }
 }
