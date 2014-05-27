@@ -53,7 +53,7 @@ class GUIExplorer extends ns_egret.DisplayObjectContainer{
     public createExporer():void{
         var stage:ns_egret.Stage = ns_egret.MainContext.instance.stage;
         var sm:ns_egret.SystemManager = new ns_egret.SystemManager();
-        stage.addChild(stage);
+        stage.addChild(sm);
         var asset:ns_egret.UIAsset = new ns_egret.UIAsset();
         asset.source = "resources/assets/background-disabled-skin.png";
         sm.addElement(asset);
