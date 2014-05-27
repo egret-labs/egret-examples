@@ -32,34 +32,34 @@ class TestEvent {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
         container.scaleX = container.scaleY = 1.5;
         container.rotation = 45;
 
-        var left = new ns_egret.Bitmap();
+        var left = new egret.Bitmap();
         left.texture = RES.getRes("b1_png");
         left.x = 100;
         container.addChild(left);
-        left.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function (event){
+        left.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){
             console.log("点击左侧箭头");
         },left);
         left.touchEnabled = true;
 
-        var right = new ns_egret.Bitmap();
+        var right = new egret.Bitmap();
         right.texture = RES.getRes("b5_png");
         right.x = 150;
         container.addChild(right);
-        right.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function (event){
+        right.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){
             console.log("点击右侧箭头");
         },right);
 
-        container.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function(event){
+        container.addEventListener(egret.TouchEvent.TOUCH_TAP,function(event){
             console.log ("容器冒泡侦听");
         },container);
 
 
-        container.addEventListener(ns_egret.TouchEvent.TOUCH_TAP,function(event){
+        container.addEventListener(egret.TouchEvent.TOUCH_TAP,function(event){
             console.log ("容器捕获侦听");
         },container,true);
         right.touchEnabled = true;

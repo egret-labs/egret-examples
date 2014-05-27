@@ -32,10 +32,10 @@ class TestTicker {
     }
 
     public createExample():void {
-        var container = ns_egret.MainContext.instance.stage;
-        var label = new ns_egret.TextField();
+        var container = egret.MainContext.instance.stage;
+        var label = new egret.TextField();
         container.addChild(label);
-        ns_egret.Ticker.getInstance().setTimeout(function (){
+        egret.Ticker.getInstance().setTimeout(function (){
             label.text = "Ticker";
         },this,3000);
     }

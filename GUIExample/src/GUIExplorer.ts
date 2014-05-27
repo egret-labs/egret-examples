@@ -26,7 +26,7 @@
  */
 
 
-class GUIExplorer extends ns_egret.DisplayObjectContainer{
+class GUIExplorer extends egret.DisplayObjectContainer{
 
     public constructor(){
         super();
@@ -34,10 +34,10 @@ class GUIExplorer extends ns_egret.DisplayObjectContainer{
 
     public startGame():void{
         //设置屏幕适配策略
-        var container = new ns_egret.EqualToFrame();
-        var content = ns_egret.Browser.getInstance().isMobile ? new ns_egret.FixedWidth() : new ns_egret.FixedSize(960, 640);
-        var policy = new ns_egret.ResolutionPolicy(container, content);
-        ns_egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
+        var container = new egret.EqualToFrame();
+        var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : new egret.FixedSize(960, 640);
+        var policy = new egret.ResolutionPolicy(container, content);
+        egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
 
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
         RES.loadConfig("resources/resource.json","resources/");
@@ -51,10 +51,10 @@ class GUIExplorer extends ns_egret.DisplayObjectContainer{
     }
 
     public createExporer():void{
-        var stage:ns_egret.Stage = ns_egret.MainContext.instance.stage;
-        var sm:ns_egret.SystemManager = new ns_egret.SystemManager();
+        var stage:egret.Stage = egret.MainContext.instance.stage;
+        var sm:egret.SystemManager = new egret.SystemManager();
         stage.addChild(sm);
-        var asset:ns_egret.UIAsset = new ns_egret.UIAsset();
+        var asset:egret.UIAsset = new egret.UIAsset();
         asset.source = "resources/assets/background-disabled-skin.png";
         sm.addElement(asset);
     }

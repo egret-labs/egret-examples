@@ -32,20 +32,20 @@ class TestCache {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
         var texture = RES.getRes("daisy_png");
 //    container.width = container.height = 1000;
 
 
-        var text = new ns_egret.TextField();
+        var text = new egret.TextField();
         text.text = "HelloWorld";
 //    container.addChild(text);
         text.x = text.y = 150;
         text.width = text.height = 100;
 
 
-        var bitmap = new ns_egret.Bitmap();
+        var bitmap = new egret.Bitmap();
         bitmap.texture = texture;
         container.addChild(bitmap);
         bitmap.x = bitmap.y = 150;

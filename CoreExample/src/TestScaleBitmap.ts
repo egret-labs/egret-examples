@@ -32,11 +32,11 @@ class TestScaleBitmap {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
 
         var texture = RES.getRes("daisy_png");
-        var scaleBitmap = new ns_egret.Scale9Bitmap(texture);
+        var scaleBitmap = new egret.Scale9Bitmap(texture);
         scaleBitmap.setScaleGrid(5,5,5,5);
         scaleBitmap.width = scaleBitmap.height = 200;
         scaleBitmap.x = 200;

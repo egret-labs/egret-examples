@@ -32,22 +32,22 @@ class TestShape {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
         /*
-         var shape = new ns_egret.ShapeRect();
+         var shape = new egret.ShapeRect();
          shape.width = shape.height = 100;
          container.addChild(shape);
 
 
-         var shape1 = new ns_egret.Shape();
+         var shape1 = new egret.Shape();
          shape1.graphic.beginFill(0xff0000,.5);
          shape1.graphic.drawRect(200,200,100,100);
          shape1.graphic.endFill();
          container.addChild(shape1);
          */
 
-        var shape2 = new ns_egret.Shape();
+        var shape2 = new egret.Shape();
         shape2.graphics.lineStyle(5,0xffff00,1);
         shape2.graphics.lineTo(300,300);
         shape2.graphics.endFill();

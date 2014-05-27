@@ -32,15 +32,15 @@ class TestSpriteFrame {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
 
-        var texture:ns_egret.Texture = RES.getRes("icons.activity_10");
+        var texture:egret.Texture = RES.getRes("icons.activity_10");
 //        等同于这样取：
-//        var spriteSheet:ns_egret.SpriteSheet = RES.getRes("icons");
+//        var spriteSheet:egret.SpriteSheet = RES.getRes("icons");
 //        var texture = spriteSheet.getTexture("activity_10");
 
-        var bitmap = new ns_egret.Bitmap();
+        var bitmap = new egret.Bitmap();
         bitmap.texture = texture;
         container.addChild(bitmap);
     }

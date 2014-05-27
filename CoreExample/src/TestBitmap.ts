@@ -32,11 +32,11 @@ class TestBitmap {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
-        var texture:ns_egret.Texture = RES.getRes("daisy_png");
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
+        var texture:egret.Texture = RES.getRes("daisy_png");
 
-        var bitmap1 = new ns_egret.Bitmap();
+        var bitmap1 = new egret.Bitmap();
         bitmap1.texture = texture;
         container.addChild(bitmap1);
         bitmap1.x = bitmap1.y = 50;
@@ -44,21 +44,21 @@ class TestBitmap {
         bitmap1.touchEnabled = true;
         bitmap1.width = bitmap1.height = 100;
 
-        var bitmap2 = new ns_egret.Bitmap();
+        var bitmap2 = new egret.Bitmap();
         bitmap2.texture = texture;
         container.addChild(bitmap2);
         bitmap2.x = 150;
         bitmap2.y = 50;
         bitmap2.scaleX = bitmap2.scaleY = 0.5;
 
-        var bitmap3 = new ns_egret.Bitmap();
+        var bitmap3 = new egret.Bitmap();
         bitmap3.texture = texture;
         container.addChild(bitmap3);
         bitmap3.x = 50;
         bitmap3.y = 150;
         bitmap3.rotation = 45;
 
-        var bitmap4 = new ns_egret.Bitmap();
+        var bitmap4 = new egret.Bitmap();
         bitmap4.texture = texture;
         container.addChild(bitmap4);
         bitmap4.x = 150;

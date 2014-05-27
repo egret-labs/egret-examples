@@ -32,13 +32,13 @@ class TestBitmapText {
     }
 
     public createExample():void {
-        var spriteSheet:ns_egret.BitmapTextSpriteSheet = RES.getRes("bitmapFont");
-        var bitmap1 = new ns_egret.BitmapText();
+        var spriteSheet:egret.BitmapTextSpriteSheet = RES.getRes("bitmapFont");
+        var bitmap1 = new egret.BitmapText();
         bitmap1.spriteSheet = spriteSheet;
         bitmap1.text = "HelloWorld";
 
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
 
         container.addChild(bitmap1);
 

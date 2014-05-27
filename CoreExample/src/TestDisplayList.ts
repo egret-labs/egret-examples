@@ -28,9 +28,9 @@
 class TestDisplayList {
 
     public getDescription():string {
-        return "ns_egret.RenderFilter.getInstance().addDrawArea(new ns_egret.Rectangle(100,0,500,500));\n\n" +
-            "ns_egret.MainContext.instance.rendererContext.canvasContext.setTransform(1, 0, 0, 1, 0, 0);" +
-            "ns_egret.MainContext.instance.rendererContext.canvasContext.clearRect(0,0,500,500);\n\n" +
+        return "egret.RenderFilter.getInstance().addDrawArea(new egret.Rectangle(100,0,500,500));\n\n" +
+            "egret.MainContext.instance.rendererContext.canvasContext.setTransform(1, 0, 0, 1, 0, 0);" +
+            "egret.MainContext.instance.rendererContext.canvasContext.clearRect(0,0,500,500);\n\n" +
             "测试cacheAsBitmap:\n" +
             "container.cacheAsBitmap(true);\n" +
             "bitmap1.cacheAsBitmap(true);\n" +
@@ -41,30 +41,30 @@ class TestDisplayList {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
+        var container = new egret.DisplayObjectContainer();
         container.scaleX = 2;
-        ns_egret.MainContext.instance.stage.addChild(container);
+        egret.MainContext.instance.stage.addChild(container);
         var texture = RES.getRes("daisy_png");
 
-        var bitmap1 = new ns_egret.Bitmap();
+        var bitmap1 = new egret.Bitmap();
         bitmap1.texture = texture;
         container.addChild(bitmap1);
         bitmap1.x = bitmap1.y = 50;
 
-        var bitmap2 = new ns_egret.Bitmap();
+        var bitmap2 = new egret.Bitmap();
         bitmap2.texture = texture;
         container.addChild(bitmap2);
         bitmap2.x = 75;
         bitmap2.y = 75;
 
-        var bitmap3 = new ns_egret.Bitmap();
+        var bitmap3 = new egret.Bitmap();
         bitmap3.texture = texture;
         container.addChild(bitmap3);
         bitmap3.scaleX = bitmap3.scaleY = 2;
         bitmap3.x = 50;
         bitmap3.y = 150;
 
-        var bitmap4 = new ns_egret.Bitmap();
+        var bitmap4 = new egret.Bitmap();
         bitmap4.texture = texture;
         container.addChild(bitmap4);
         bitmap4.x = 250;
@@ -73,7 +73,7 @@ class TestDisplayList {
 
 //    for(var i = 0 ; i < 1000;i++)
 //    {
-//        scaleBitmap = new ns_egret.Scale9Bitmap(texture);
+//        scaleBitmap = new egret.Scale9Bitmap(texture);
 //        scaleBitmap.setScaleGrid(15,15,35,35);
 //        scaleBitmap.width = scaleBitmap.height = 190;
 //        scaleBitmap.x = 40;

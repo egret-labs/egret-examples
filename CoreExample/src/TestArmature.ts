@@ -32,9 +32,9 @@ class TestArmature {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
+        var container = new egret.DisplayObjectContainer();
 
-        ns_egret.MainContext.instance.stage.addChild(container);
+        egret.MainContext.instance.stage.addChild(container);
         container.x = 50;
 
         var skeletonData = RES.getRes("skeleton_json");
@@ -53,7 +53,7 @@ class TestArmature {
         armatureDisplay.y = 350;
         armature.animation.gotoAndPlay("walk");
 
-        ns_egret.Ticker.getInstance().register(function (advancedTime) {
+        egret.Ticker.getInstance().register(function (advancedTime) {
             dragonBones.animation.WorldClock.clock.advanceTime(advancedTime / 1000);
         }, this);
     }

@@ -32,31 +32,31 @@ class TestTween {
     }
 
     public createExample():void {
-        var container = new ns_egret.DisplayObjectContainer();
-        ns_egret.MainContext.instance.stage.addChild(container);
+        var container = new egret.DisplayObjectContainer();
+        egret.MainContext.instance.stage.addChild(container);
         var texture = RES.getRes("b1_png");
 
-        var move = new ns_egret.Bitmap();
+        var move = new egret.Bitmap();
         move.texture = texture;
         move.x = 50;
         move.y = 50;
         container.addChild(move);
-        ns_egret.Tween.get(move,{loop:true}).to({x:250},2000).to({x:50},2000).call(function (){
+        egret.Tween.get(move,{loop:true}).to({x:250},2000).to({x:50},2000).call(function (){
             console.log("Hello,Tween!");
         });
 
-        var alpha = new ns_egret.Bitmap();
+        var alpha = new egret.Bitmap();
         alpha.texture = texture;
         alpha.x = 250;
         alpha.y = 50;
         container.addChild(alpha);
-        ns_egret.Tween.get(alpha,{loop:true}).to({alpha:0},1000).to({alpha:1},1000);
+        egret.Tween.get(alpha,{loop:true}).to({alpha:0},1000).to({alpha:1},1000);
 
-        var rotation = new ns_egret.Bitmap();
+        var rotation = new egret.Bitmap();
         rotation.texture = texture;
         rotation.x = 150;
         rotation.y = 150;
         container.addChild(rotation);
-        ns_egret.Tween.get(rotation,{loop:true}).to({rotation:360},2000).wait(500);
+        egret.Tween.get(rotation,{loop:true}).to({rotation:360},2000).wait(500);
     }
 }

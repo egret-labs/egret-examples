@@ -29,7 +29,7 @@
  */
 class GameApp {
 
-    private textContainer:ns_egret.DisplayObjectContainer;
+    private textContainer:egret.DisplayObjectContainer;
     /**
      * 加载进度界面
      */
@@ -42,13 +42,13 @@ class GameApp {
      */
     public startGame():void {
         this.currentTestName = window["getCurrentTest"]();
-        ns_egret.Profiler.getInstance().run();
+        egret.Profiler.getInstance().run();
 
         //设置屏幕适配策略
-//        var container = new ns_egret.EqualToFrame();
-//        var content = ns_egret.Browser.getInstance().isMobile ? new ns_egret.FixedWidth() : new ns_egret.FixedSize(480, 800);
-//        var policy = new ns_egret.ResolutionPolicy(container, content);
-//        ns_egret.StageDelegate.getInstance().setDesignSize(480, 800, policy);
+//        var container = new egret.EqualToFrame();
+//        var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : new egret.FixedSize(480, 800);
+//        var policy = new egret.ResolutionPolicy(container, content);
+//        egret.StageDelegate.getInstance().setDesignSize(480, 800, policy);
 
         //设置加载进度界面
         this.loadingView  = new LoadingUI();
@@ -87,9 +87,9 @@ class GameApp {
         test.createExample();
     }
 
-    private createBitmapByName(name:string):ns_egret.Bitmap {
-        var result:ns_egret.Bitmap = new ns_egret.Bitmap();
-        var texture:ns_egret.Texture = RES.getRes(name);
+    private createBitmapByName(name:string):egret.Bitmap {
+        var result:egret.Bitmap = new egret.Bitmap();
+        var texture:egret.Texture = RES.getRes(name);
         result.texture = texture;
         return result;
     }
