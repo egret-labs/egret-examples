@@ -858,7 +858,6 @@ declare module ns_egret {
         public textureHeight : number;
         public _bitmapData: any;
         public bitmapData : any;
-        static createWithBase64(base64: string): Texture;
     }
 }
 declare module ns_egret {
@@ -3021,33 +3020,6 @@ declare module ns_egret {
         constructor();
         private _graphics;
         public graphics : Graphics;
-        public _render(renderContext: RendererContext): void;
-    }
-    class ShapeRect extends Shape {
-        private _color;
-        private _colorDirty;
-        private _sizeDirty;
-        constructor();
-        public color : number;
-        public alpha : number;
-        /**
-        * 宽度，优先顺序为 显式设置宽度 > 测量宽度
-        * @returns {number}
-        */
-        /**
-        * 显式设置宽度
-        * @param value
-        */
-        public width : number;
-        /**
-        * 高度，优先顺序为 显式设置高度 > 测量高度
-        * @returns {number}
-        */
-        /**
-        * 显式设置高度
-        * @param value
-        */
-        public height : number;
         public _render(renderContext: RendererContext): void;
     }
 }

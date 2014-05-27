@@ -28,38 +28,12 @@
 
 module RES {
 
-    export class FontAnalyzer extends BinAnalyzer{
+    export class FontAnalyzer extends SheetAnalyzer{
 
         public constructor(){
             super();
-            this._dataFormat = ns_egret.URLLoaderDataFormat.TEXT;
         }
 
-        /**
-         * 一项加载结束
-         */
-        public onLoadFinish(event:ns_egret.Event):void{
-            var loader:ns_egret.URLLoader = <ns_egret.URLLoader> (event.target);
-            var data:any = this.resItemDic[loader.hashCode];
-            delete this.resItemDic[loader.hashCode];
-            this.recycler.push(loader);
-            var resItem:ResourceItem = data.item;
-            var compFunc:Function = data.func;
-            resItem.loaded = (event.type==ns_egret.Event.COMPLETE);
-            if(resItem.loaded){
-                this.analyzeData(resItem,loader.data)
-            }
-            if(typeof(loader.data)=="string"){
-                this._dataFormat = ns_egret.URLLoaderDataFormat.TEXTURE;
-                this.loadFile(resItem,compFunc,data.thisObject);
-                this._dataFormat = ns_egret.URLLoaderDataFormat.TEXT;
-            }
-            else{
-                compFunc.call(data.thisObject,resItem);
-            }
-        }
-
-        private sheetMap:any = {};
         /**
          * 解析并缓存加载成功的数据
          */
@@ -73,7 +47,7 @@ module RES {
                 config = <string> data;
                 this.sheetMap[name] = config;
                 resItem.loaded = false;
-                resItem.url = this.getRelativePath(resItem.url,config);
+                resItem.url = this.getTexturePath(resItem.url,config);
             }
             else{
                 var texture:ns_egret.Texture = data;
@@ -87,7 +61,7 @@ module RES {
             }
         }
 
-        private getRelativePath(url:string,fntText:string):string{
+        private getTexturePath(url:string,fntText:string):string{
 
             var file:string = "";
             var lines = fntText.split("\n");

@@ -30,6 +30,21 @@ module RES {
         }
 
         /**
+         * @inheritDoc
+         */
+        public getRes(name:string):any{
+            var res:any = this.fileDic[name];
+            if(!res){
+                var prefix:string = RES.AnalyzerBase.getStringPrefix(name);
+                res = this.fileDic[prefix];
+                if(res){
+                    var tail:string = RES.AnalyzerBase.getStringTail(name);
+                    res = (<ns_egret.SpriteSheet> res).getTexture(tail);
+                }
+            }
+            return res;
+        }
+        /**
          * 一项加载结束
          */
         public onLoadFinish(event:ns_egret.Event):void{
@@ -53,7 +68,7 @@ module RES {
             }
         }
 
-        private sheetMap:any = {};
+        public sheetMap:any = {};
         /**
          * 解析并缓存加载成功的数据
          */
