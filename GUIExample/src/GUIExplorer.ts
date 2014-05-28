@@ -46,7 +46,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     public onGroupComp(event:RES.ResourceEvent):void{
         if(event.groupName=="preload"){
-           this.createExporer();Number
+           this.createExporer();
         }
     }
 
@@ -54,8 +54,18 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var stage:egret.Stage = egret.MainContext.instance.stage;
         var uiStage:egret.UIStage = new egret.UIStage();
         stage.addChild(uiStage);
+
         var asset:egret.UIAsset = new egret.UIAsset();
-        asset.source = "resources/assets/background-disabled-skin.png";
+        var texture:egret.Texture = RES.getRes("button-selected-up");
+        var bitmap:egret.Bitmap = new egret.Bitmap(texture);
+//        texture._offsetX = 5;
+//        texture._offsetY = 5;
+        bitmap.scale9Grid = new egret.Rectangle(30,30,0,0);
+        bitmap.width = 120;
+        bitmap.height = 120;
+        asset.source = bitmap;
+        asset.x = 100;
+        asset.y = 100;
         uiStage.addElement(asset);
     }
 }

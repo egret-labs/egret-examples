@@ -27,5 +27,18 @@ module RES {
             super();
             this._dataFormat = egret.URLLoaderDataFormat.TEXTURE;
         }
+
+        /**
+         * 解析并缓存加载成功的数据
+         */
+        public analyzeData(resItem:ResourceItem,data:any):void{
+            var name:string = resItem.name;
+            if(this.fileDic[name]||!data){
+                return;
+            }
+            this.fileDic[name] = data;
+            if(resItem.data["scale9grid"]){
+            }
+        }
     }
 }

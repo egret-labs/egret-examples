@@ -1782,6 +1782,10 @@ declare module egret {
         */
         public clearDrawArea(): void;
         /**
+        * 绘制九宫格位图
+        */
+        public drawScale9GridImage(renderContext: RendererContext, data: RenderData, scale9Grid: Rectangle, sourceX: number, sourceY: number, sourceWidth: number, sourceHeight: number, destX: number, destY: number, destWidth: number, destHeight: number): void;
+        /**
         * 先检查有没有不需要绘制的区域，再把需要绘制的区域绘制出来
         * @method egret.egret#drawImage
         * @param renderContext {any}
@@ -2945,6 +2949,11 @@ declare module egret {
         * @member {egret.Texture} egret.Bitmap#texture
         */
         public texture: Texture;
+        /**
+        * 矩形区域，它定义位图对象的九个缩放区域
+        * @member {egret.Texture} egret.Bitmap#scale9Grid
+        */
+        public scale9Grid: Rectangle;
         public _render(renderContext: RendererContext): void;
         /**
         * @see egret.DisplayObject.measureBounds
@@ -2990,7 +2999,7 @@ declare module egret {
         private canvasContext;
         private commandQueue;
         constructor(renderContext: RendererContext);
-        public beginFill(color: number, alpha: number): void;
+        public beginFill(color: number, alpha?: number): void;
         private _setStyle(colorStr);
         public drawRect(x: number, y: number, width: number, height: number): void;
         /**
@@ -3339,36 +3348,6 @@ declare module egret {
         * 当前Egret使用的交互模式。
         */
         static mode: string;
-    }
-}
-declare module egret {
-    class Scale9Bitmap extends DisplayObjectContainer {
-        private texture;
-        private _defaultPadding;
-        private _top;
-        private _bottom;
-        private _left;
-        private _right;
-        private _scaleWidth;
-        private _scaleHeight;
-        private _topLeftBitmap;
-        private _topMiddleBitmap;
-        private _topRightBitmap;
-        private _middleLeftBitmap;
-        private _middleMiddleBitmap;
-        private _middleRightBitmap;
-        private _bottomLeftBitmap;
-        private _bottomMiddleBitmap;
-        private _bottomRightBitmap;
-        public spriteFrame: SpriteSheetFrame;
-        constructor(texture: Texture);
-        private _createBitmap();
-        public setScaleGrid(top?: number, bottom?: number, left?: number, right?: number): void;
-        public width : number;
-        public height : number;
-        public _updateTransform(): void;
-        private setChildScaleX(child, scaleX);
-        private setChildScaleY(child, scaleY);
     }
 }
 declare module egret {
@@ -13452,20 +13431,16 @@ declare module dragonBones {
     module textures {
         class EgretTextureAtlas implements ITextureAtlas {
             public texture: any;
+            private textureAtlasRawData;
             public name: string;
             public scale: number;
             public spriteSheet: egret.SpriteSheet;
+            private _textureData;
             constructor(texture: any, textureAtlasRawData: any, scale?: number);
+            public getTexture(fullName: string): egret.Texture;
             public dispose(): void;
             public getRegion(subTextureName: string): geom.Rectangle;
             private parseData(textureAtlasRawData);
-            /**
-            * 这个API已经被完全废弃，会尽快删除
-            * @param data
-            * @returns {SpriteSheet}
-            * @stable D
-            */
-            private parseFromDragonBones(data);
         }
     }
     module factorys {
