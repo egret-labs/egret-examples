@@ -2955,6 +2955,15 @@ declare module egret {
     }
 }
 declare module egret {
+    class BitmapTextSpriteSheet extends SpriteSheet {
+        constructor(bitmapData: any, fntText: string);
+        private charList;
+        public getTexture(name: string): Texture;
+        private parseConfig(fntText);
+        private getConfigByKey(configText, key);
+    }
+}
+declare module egret {
     /**
     * @class BitmapText
     * 位图字体采用了Bitmap+SpriteSheet的方式来渲染文字
@@ -3154,41 +3163,6 @@ declare module egret {
         public editBoxEditingDidEnd(sender: any): void;
         public editBoxTextChanged(sender: any, text: any): void;
         public editBoxReturn(sender: any): void;
-    }
-}
-/**
-* Copyright (c) 2014,Egret-Labs.org
-* All rights reserved.
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*
-*     * Redistributions of source code must retain the above copyright
-*       notice, this list of conditions and the following disclaimer.
-*     * Redistributions in binary form must reproduce the above copyright
-*       notice, this list of conditions and the following disclaimer in the
-*       documentation and/or other materials provided with the distribution.
-*     * Neither the name of the Egret-Labs.org nor the
-*       names of its contributors may be used to endorse or promote products
-*       derived from this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY EGRET-LABS.ORG AND CONTRIBUTORS "AS IS" AND ANY
-* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-* DISCLAIMED. IN NO EVENT SHALL EGRET-LABS.ORG AND CONTRIBUTORS BE LIABLE FOR ANY
-* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-declare module egret {
-    class BitmapTextSpriteSheet extends SpriteSheet {
-        constructor(bitmapData: any, fntText: string);
-        private charList;
-        public getTexture(name: string): Texture;
-        private parseConfig(fntText);
-        private getConfigByKey(configText, key);
     }
 }
 declare module egret {
@@ -4490,30 +4464,30 @@ declare module egret {
 }
 declare module egret {
     /**
-    * @class egret.ISystemManager
+    * @class egret.IUIStage
     * @interface
     * @classdesc
     * @extends egret.IEventDispatcher
     */
-    interface ISystemManager extends IEventDispatcher {
+    interface IUIStage extends IEventDispatcher {
         /**
         * 弹出窗口层容器。
-        * @member egret.ISystemManager#popUpContainer
+        * @member egret.IUIStage#popUpContainer
         */ 
         popUpContainer: IContainer;
         /**
         * 工具提示层容器。
-        * @member egret.ISystemManager#toolTipContainer
+        * @member egret.IUIStage#toolTipContainer
         */ 
         toolTipContainer: IContainer;
         /**
         * 鼠标样式层容器。
-        * @member egret.ISystemManager#cursorContainer
+        * @member egret.IUIStage#cursorContainer
         */ 
         cursorContainer: IContainer;
         /**
         * 舞台引用
-        * @member egret.ISystemManager#stage
+        * @member egret.IUIStage#stage
         */ 
         stage: Stage;
     }
@@ -4548,12 +4522,12 @@ declare module egret {
         /**
         * 系统管理器列表
         */ 
-        static _systemManager: ISystemManager;
+        static _uiStage: IUIStage;
         /**
         * 顶级应用容器
-        * @member egret.UIGlobals.systemManager
+        * @member egret.UIGlobals.uiStage
         */
-        static systemManager : ISystemManager;
+        static uiStage : IUIStage;
     }
 }
 declare module egret {
@@ -7984,7 +7958,7 @@ declare module egret {
         /**
         * 当鼠标弹起时，若不是在mouseDownTarget上弹起，而是另外的子显示对象上弹起时，额外抛出一个鼠标单击事件。
         */ 
-        private system_mouseUpSomewhereHandler(event);
+        private stage_mouseUpSomewhereHandler(event);
     }
 }
 declare module egret {
@@ -10371,7 +10345,7 @@ declare module egret {
         * 根据popUp获取对应的popUpData
         */
         private findPopUpData(popUp);
-        private static REMOVE_FROM_SYSTEMMANAGER;
+        private static REMOVE_FROM_UISTAGE;
         /**
         * 弹出一个窗口。<br/>
         * @method egret.PopUpManagerImpl#addPopUp
@@ -10398,7 +10372,7 @@ declare module egret {
         public modalAlpha : number;
         private invalidateModalFlag;
         /**
-        * 标记一个SystemManager的模态层失效
+        * 标记一个UIStage的模态层失效
         */
         private invalidateModal();
         private validateModal(event);
@@ -10406,7 +10380,7 @@ declare module egret {
         /**
         * 更新窗口模态效果
         */
-        private updateModal(systemManager);
+        private updateModal(uiStage);
         /**
         * 移除由addPopUp()方法弹出的窗口。
         * @method egret.PopUpManagerImpl#removePopUp
@@ -12494,20 +12468,20 @@ declare module egret {
 }
 declare module egret {
     /**
-    * @class egret.SystemContainer
+    * @class egret.UILayer
     * @classdesc
-    * SystemManager的虚拟子容器
+    * UIStage的虚拟子容器
     * @implements egret.IContainer
     */
-    class SystemContainer implements IContainer {
+    class UILayer implements IContainer {
         /**
         * 构造函数
-        * @method egret.SystemContainer#constructor
-        * @param owner {ISystemManager}
+        * @method egret.UILayer#constructor
+        * @param owner {IUIStage}
         * @param lowerBoundReference {string}
         * @param upperBoundReference {strin}
         */ 
-        constructor(owner: ISystemManager, lowerBoundReference: string, upperBoundReference: string);
+        constructor(owner: IUIStage, lowerBoundReference: string, upperBoundReference: string);
         /**
         * 实体容器
         */ 
@@ -12521,7 +12495,7 @@ declare module egret {
         */ 
         private upperBoundReference;
         /**
-        * @member egret.SystemContainer#numElements
+        * @member egret.UILayer#numElements
         */
         public numElements : number;
         private raw_getElementAt;
@@ -12531,44 +12505,44 @@ declare module egret {
         private raw_removeElementAt;
         private raw_setElementIndex;
         /**
-        * @method egret.SystemContainer#getElementAt
+        * @method egret.UILayer#getElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
         public getElementAt(index: number): IVisualElement;
         /**
-        * @method egret.SystemContainer#addElement
+        * @method egret.UILayer#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
         public addElement(element: IVisualElement): IVisualElement;
         /**
-        * @method egret.SystemContainer#addElementAt
+        * @method egret.UILayer#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
         public addElementAt(element: IVisualElement, index: number): IVisualElement;
         /**
-        * @method egret.SystemContainer#removeElement
+        * @method egret.UILayer#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
         public removeElement(element: IVisualElement): IVisualElement;
         /**
-        * @method egret.SystemContainer#removeElementAt
+        * @method egret.UILayer#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
         public removeElementAt(index: number): IVisualElement;
         /**
-        * @method egret.SystemContainer#getElementIndex
+        * @method egret.UILayer#getElementIndex
         * @param element {IVisualElement}
         * @returns {number}
         */
         public getElementIndex(element: IVisualElement): number;
         /**
-        * @method egret.SystemContainer#setElementIndex
+        * @method egret.UILayer#setElementIndex
         * @param element {IVisualElement}
         * @param index {number}
         */
@@ -12577,18 +12551,18 @@ declare module egret {
 }
 declare module egret {
     /**
-    * @class egret.SystemManager
+    * @class egret.UIStage
     * @classdesc
     * 系统管理器，应用程序顶级容器。
     * 通常情况下，一个程序应该只含有唯一的系统管理器,并且所有的组件都包含在它内部。
     * 它负责管理弹窗，鼠标样式，工具提示的显示层级，以及过滤鼠标和键盘事件为可以取消的。
     * @extends egret.Group
-    * @implements egret.ISystemManager
+    * @implements egret.IUIStage
     */ 
-    class SystemManager extends Group implements ISystemManager {
+    class UIStage extends Group implements IUIStage {
         /**
         * 构造函数
-        * @method egret.SystemManager#constructor
+        * @method egret.UIStage#constructor
         */ 
         constructor();
         /**
@@ -12604,86 +12578,86 @@ declare module egret {
         */ 
         private onResize(event?);
         /**
-        * @constant egret.SystemManager#x
+        * @constant egret.UIStage#x
         */
         /**
         * @inheritDoc
         */
         public x : number;
         /**
-        * @constant egret.SystemManager#y
+        * @constant egret.UIStage#y
         */
         /**
         * @inheritDoc
         */
         public y : number;
         /**
-        * @member egret.SystemManager#width
+        * @member egret.UIStage#width
         */
         /**
         * @inheritDoc
         */
         public width : number;
         /**
-        * @member egret.SystemManager#height
+        * @member egret.UIStage#height
         */
         /**
         * @inheritDoc
         */
         public height : number;
         /**
-        * @member egret.SystemManager#scaleX
+        * @member egret.UIStage#scaleX
         */
         /**
         * @inheritDoc
         */
         public scaleX : number;
         /**
-        * @member egret.SystemManager#scaleY
+        * @member egret.UIStage#scaleY
         */
         /**
         * @inheritDoc
         */
         public scaleY : number;
         /**
-        * @method egret.SystemManager#setActualSize
+        * @method egret.UIStage#setActualSize
         * @param w {number}
         * @param h {number}
         */
         public setActualSize(w: number, h: number): void;
         /**
-        * @method egret.SystemManager#setLayoutBoundsPosition
+        * @method egret.UIStage#setLayoutBoundsPosition
         * @param x {number}
         * @param y {number}
         */
         public setLayoutBoundsPosition(x: number, y: number): void;
         /**
-        * @method egret.SystemManager#setLayoutBoundsSize
+        * @method egret.UIStage#setLayoutBoundsSize
         * @param layoutWidth {number}
         * @param layoutHeight {number}
         */
         public setLayoutBoundsSize(layoutWidth: number, layoutHeight: number): void;
         /**
-        * 布局对象,SystemManager只接受BasicLayout
-        * @member egret.SystemManager#layout
+        * 布局对象,UIStage只接受BasicLayout
+        * @member egret.UIStage#layout
         */ 
         public layout : LayoutBase;
         private _popUpContainer;
         /**
         * 弹出窗口层容器。
-        * @member egret.SystemManager#popUpContainer
+        * @member egret.UIStage#popUpContainer
         */ 
         public popUpContainer : IContainer;
         private _toolTipContainer;
         /**
         * 工具提示层容器。
-        * @member egret.SystemManager#toolTipContainer
+        * @member egret.UIStage#toolTipContainer
         */ 
         public toolTipContainer : IContainer;
         private _cursorContainer;
         /**
         * 鼠标样式层容器。
-        * @member egret.SystemManager#cursorContainer
+        * @member egret.UIStage#cursorContainer
         */ 
         public cursorContainer : IContainer;
         private _noTopMostIndex;
@@ -12707,36 +12681,36 @@ declare module egret {
         */ 
         private cursorIndex;
         /**
-        * @method egret.SystemManager#addElement
+        * @method egret.UIStage#addElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
         public addElement(element: IVisualElement): IVisualElement;
         /**
-        * @method egret.SystemManager#addElementAt
+        * @method egret.UIStage#addElementAt
         * @param element {IVisualElement}
         * @param index {number}
         * @returns {IVisualElement}
         */
         public addElementAt(element: IVisualElement, index: number): IVisualElement;
         /**
-        * @method egret.SystemManager#removeElement
+        * @method egret.UIStage#removeElement
         * @param element {IVisualElement}
         * @returns {IVisualElement}
         */
         public removeElement(element: IVisualElement): IVisualElement;
         /**
-        * @method egret.SystemManager#removeElementAt
+        * @method egret.UIStage#removeElementAt
         * @param index {number}
         * @returns {IVisualElement}
         */
         public removeElementAt(index: number): IVisualElement;
         /**
-        * @method egret.SystemManager#removeAllElements
+        * @method egret.UIStage#removeAllElements
         */
         public removeAllElements(): void;
         /**
-        * @method egret.SystemManager#_elementRemoved
+        * @method egret.UIStage#_elementRemoved
         * @param element {IVisualElement}
         * @param index {number}
         * @param notifyListeners {boolean}

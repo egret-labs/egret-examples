@@ -46,17 +46,17 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     public onGroupComp(event:RES.ResourceEvent):void{
         if(event.groupName=="preload"){
-           this.createExporer();
+           this.createExporer();Number
         }
     }
 
     public createExporer():void{
         var stage:egret.Stage = egret.MainContext.instance.stage;
-        var sm:egret.SystemManager = new egret.SystemManager();
-        stage.addChild(sm);
+        var uiStage:egret.UIStage = new egret.UIStage();
+        stage.addChild(uiStage);
         var asset:egret.UIAsset = new egret.UIAsset();
         asset.source = "resources/assets/background-disabled-skin.png";
-        sm.addElement(asset);
+        uiStage.addElement(asset);
     }
 }
 
