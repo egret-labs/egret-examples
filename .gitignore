@@ -2,3 +2,4 @@ bin-debug/
 .idea/
 temp/
 **/**/egret.d.ts
+egret.d.ts
