@@ -38,6 +38,7 @@ class TestURLLoader {
 
     private sendGetRequest() {
         var statusGetLabel = new egret.TextField();
+        statusGetLabel.size = 18;
         statusGetLabel.text = "正在向httpbin.org发送GET请求";
         egret.MainContext.instance.stage.addChild(statusGetLabel);
         statusGetLabel.x = 50;
@@ -53,9 +54,10 @@ class TestURLLoader {
             var loader:egret.URLLoader = <egret.URLLoader> event.target;
             var data:egret.URLVariables = loader.data;
             var responseLabel = new egret.TextField();
+            responseLabel.size = 18;
             responseLabel.text = "GET响应: \n" + data.toString().substring(0, 50) + "...";
             egret.MainContext.instance.stage.addChild(responseLabel);
-            responseLabel.x = 50;
+            responseLabel.x = 100;
             responseLabel.y = 70;
             statusGetLabel.text = "获得GET响应! ";
         }
@@ -65,6 +67,7 @@ class TestURLLoader {
     private sendPostRequest() {
         var statusPostLabel = new egret.TextField();
         egret.MainContext.instance.stage.addChild(statusPostLabel);
+        statusPostLabel.size = 18;
         statusPostLabel.x = 50;
         statusPostLabel.y = 40;
         statusPostLabel.text = "正在向httpbin.org发送POST请求";
@@ -83,10 +86,11 @@ class TestURLLoader {
             var loader:egret.URLLoader = <egret.URLLoader> event.target;
             var data:egret.URLVariables = loader.data;
             var responseLabel = new egret.TextField();
+            responseLabel.size = 18;
             responseLabel.text = "POST响应:  \n" + data.toString().substring(0, 50) + "...";
             egret.MainContext.instance.stage.addChild(responseLabel);
 
-            responseLabel.x = 50;
+            responseLabel.x = 100;
             responseLabel.y = 230;
             statusPostLabel.text = "获得POST响应! ";
         }
