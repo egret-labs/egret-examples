@@ -58,12 +58,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var asset:egret.UIAsset = new egret.UIAsset();
         var texture:egret.Texture = RES.getRes("button-selected-up");
         var bitmap:egret.Bitmap = new egret.Bitmap(texture);
-//        texture._offsetX = 5;
-//        texture._offsetY = 5;
-        bitmap.scale9Grid = new egret.Rectangle(30,30,0,0);
-        bitmap.width = 120;
-        bitmap.height = 120;
+        bitmap.scale9Grid = new egret.Rectangle(7,7,40,40);
         asset.source = bitmap;
+        asset.width = 120;
+        asset.height = 120;
         asset.x = 100;
         asset.y = 100;
         uiStage.addElement(asset);
