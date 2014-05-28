@@ -35,6 +35,9 @@ class TestTicker {
         var container = egret.MainContext.instance.stage;
         var label = new egret.TextField();
         container.addChild(label);
+        label.x = 100;
+        label.y = 100;
+        label.text = "3秒后文字会改变";
         egret.Ticker.getInstance().setTimeout(function (){
             label.text = "Ticker";
         },this,3000);
