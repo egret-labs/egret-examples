@@ -28,6 +28,7 @@
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestScaleBitmap","keys":"button-selected-up-skin_png"},
         {"name":"TestSpriteFrame","keys":"icons"},
+        {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestTween","keys":"b1_png"}
 	]
 }
