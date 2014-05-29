@@ -25,54 +25,61 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="AssetAdapter.ts"/>
-/// <reference path="egret.d.ts"/>
-/// <reference path="skins/ItemRendererSkin.ts"/>
-/// <reference path="skins/ListSkin.ts"/>
+/// <reference path="../egret.d.ts"/>
 
-class GUIExplorer extends egret.DisplayObjectContainer{
+class ItemRendererSkin extends egret.Skin{
 
     public constructor(){
         super();
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+        this.height = 85;
+        this.states = ["up","down"];
     }
 
-    public onAddToStage(event:egret.Event):void{
-        //注入自定义的素材解析器
-        egret.Injector.mapClass("egret.IAssetAdapter",AssetAdapter);
+    private static _skinParts:Array<string> = ["labelDisplay"];
 
-        //启动RES资源加载模块
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
-        RES.loadConfig("resources/resource.json","resources/");
-        RES.loadGroup("preload");
+    public get skinParts():Array<string>{
+        return ItemRendererSkin._skinParts;
+    }
+    /**
+     * [SkinPart]
+     */
+    public labelDisplay:egret.Label;
+
+    private upSkin:egret.UIAsset;
+    private selectedSkin:egret.UIAsset;
+
+
+    public createChildren():void{
+        super.createChildren();
+        this.upSkin = new egret.UIAsset();
+        this.upSkin.percentHeight = this.upSkin.percentWidth = 100;
+        this.upSkin.source = "list-item-up";
+        this.addElement(this.upSkin);
+
+        this.selectedSkin = new egret.UIAsset();
+        this.selectedSkin.percentHeight = this.selectedSkin.percentWidth = 100;
+        this.selectedSkin.source = "list-item-selected";
+        this.addElement(this.selectedSkin);
+
+        this.labelDisplay = new egret.Label();
+        this.labelDisplay.size = 18;
+        this.labelDisplay.textColor = 0xe4e4e4;
+        this.labelDisplay.left = 32;
+        this.labelDisplay.verticalCenter = 0;
+        this.addElement(this.labelDisplay);
     }
 
-    public onGroupComp(event:RES.ResourceEvent):void{
-        if(event.groupName=="preload"){
-           this.createExporer();
+    public commitCurrentState():void{
+        super.commitCurrentState();
+        switch (this.currentState){
+            case "up":
+                this.upSkin.visible = true;
+                this.selectedSkin.visible = false;
+                break;
+            case "down":
+                this.selectedSkin.visible = true;
+                this.upSkin.visible = false;
+                break;
         }
-    }
-
-    public createExporer():void{
-        //实例化GUI根容器
-        var uiStage:egret.UIStage = new egret.UIStage();
-        this.addChild(uiStage);
-
-        var asset:egret.UIAsset = new egret.UIAsset();
-        asset.source = "header-background";
-        asset.fillMode = egret.BitmapFillMode.REPEAT;
-        asset.percentWidth = 100;
-        uiStage.addElement(asset);
-
-        var list:egret.List = new egret.List();
-        list.skinName = ListSkin;
-        list.itemRendererSkinName = ItemRendererSkin;
-        list.percentWidth = 100;
-        list.top = 128;
-        list.bottom = 0;
-        uiStage.addElement(list);
-
-        var screens:Array<string> = RES.getRes("screens");
-        list.dataProvider = new egret.ArrayCollection(screens);
     }
 }

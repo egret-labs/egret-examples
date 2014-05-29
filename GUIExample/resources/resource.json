@@ -38,8 +38,8 @@
 		{"name":"list-inset-item-last-up","type":"img","url":"assets/list-inset-item-last-up-skin.png"},
 		{"name":"list-inset-item-single-selected","type":"img","url":"assets/list-inset-item-single-selected-skin.png"},
 		{"name":"list-inset-item-single-up","type":"img","url":"assets/list-inset-item-single-up-skin.png"},
-		{"name":"list-item-selected","type":"img","url":"assets/list-item-selected-skin.png"},
-		{"name":"list-item-up","type":"img","url":"assets/list-item-up-skin.png"},
+		{"name":"list-item-selected","scale9grid":"12,0,1,88","type":"img","url":"assets/list-item-selected-skin.png"},
+		{"name":"list-item-up","scale9grid":"12,0,1,88","type":"img","url":"assets/list-item-up-skin.png"},
 		{"name":"page-indicator-normal","type":"img","url":"assets/page-indicator-normal-skin.png"},
 		{"name":"page-indicator-selected","type":"img","url":"assets/page-indicator-selected-skin.png"},
 		{"name":"picker-list-icon","type":"img","url":"assets/picker-list-icon.png"},
@@ -51,11 +51,13 @@
 		{"name":"tab-down","type":"img","url":"assets/tab-down-skin.png"},
 		{"name":"tab-selected-disabled","type":"img","url":"assets/tab-selected-disabled-skin.png"},
 		{"name":"tab-selected","type":"img","url":"assets/tab-selected-skin.png"},
-		{"name":"vertical-scroll-bar-thumb","type":"img","url":"assets/vertical-scroll-bar-thumb-skin.png"}
+		{"name":"vertical-scroll-bar-thumb","type":"img","url":"assets/vertical-scroll-bar-thumb-skin.png"},
+
+		{"name":"screens","type":"json","url":"config/screens.json"}
 	],
 
 "groups":
 	[
-        {"name":"preload","keys":"background-disabled,page-indicator-normal-skin.png,page-indicator-normal,button-danger-up,check-selected-disabled-icon,callout-arrow-top,tab-selected,callout-arrow-right,list-inset-item-first-up,button-back-down,check-selected-up-icon,page-indicator-selected,button-disabled,callout-arrow-left,list-inset-item-first-selected,vertical-scroll-bar-thumb,list-inset-item-single-up,list-inset-item-last-up,tab-down,background-disabled,button-forward-down,tab-selected-disabled,header-background,list-item-up,horizontal-scroll-bar-thumb,background-popup,list-item-selected,search-icon,button-call-to-action-down,button-back-disabled,radio-selected-down-icon,button-call-to-action-up,button-danger-down,background-focused,radio-selected-up-icon,button-back-up,picker-list-icon,background,list-inset-item-single-selected,check-selected-down-icon,button-forward-disabled,background-down,button-selected-disabled,radio-selected-disabled-icon,callout-arrow-bottom,list-accessory-drill-down-icon,button-selected-up,picker-list-item-selected-icon,button-up,background-inset,button-forward-up,list-inset-item-last-selected,button-down"}
+        {"name":"preload","keys":"screens,background-disabled,page-indicator-normal-skin.png,page-indicator-normal,button-danger-up,check-selected-disabled-icon,callout-arrow-top,tab-selected,callout-arrow-right,list-inset-item-first-up,button-back-down,check-selected-up-icon,page-indicator-selected,button-disabled,callout-arrow-left,list-inset-item-first-selected,vertical-scroll-bar-thumb,list-inset-item-single-up,list-inset-item-last-up,tab-down,background-disabled,button-forward-down,tab-selected-disabled,header-background,list-item-up,horizontal-scroll-bar-thumb,background-popup,list-item-selected,search-icon,button-call-to-action-down,button-back-disabled,radio-selected-down-icon,button-call-to-action-up,button-danger-down,background-focused,radio-selected-up-icon,button-back-up,picker-list-icon,background,list-inset-item-single-selected,check-selected-down-icon,button-forward-disabled,background-down,button-selected-disabled,radio-selected-disabled-icon,callout-arrow-bottom,list-accessory-drill-down-icon,button-selected-up,picker-list-item-selected-icon,button-up,background-inset,button-forward-up,list-inset-item-last-selected,button-down"}
 	]
 }

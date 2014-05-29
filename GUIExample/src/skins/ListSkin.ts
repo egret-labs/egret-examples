@@ -25,54 +25,36 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="AssetAdapter.ts"/>
-/// <reference path="egret.d.ts"/>
-/// <reference path="skins/ItemRendererSkin.ts"/>
-/// <reference path="skins/ListSkin.ts"/>
+/// <reference path="../egret.d.ts"/>
 
-class GUIExplorer extends egret.DisplayObjectContainer{
+class ListSkin extends egret.Skin{
 
     public constructor(){
         super();
-        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
     }
 
-    public onAddToStage(event:egret.Event):void{
-        //注入自定义的素材解析器
-        egret.Injector.mapClass("egret.IAssetAdapter",AssetAdapter);
+    private static _skinParts:Array<string> = ["dataGroup"];
 
-        //启动RES资源加载模块
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
-        RES.loadConfig("resources/resource.json","resources/");
-        RES.loadGroup("preload");
+    public get skinParts():Array<string>{
+        return ListSkin._skinParts;
     }
+    /**
+     * [SkinPart]
+     */
+    public dataGroup:egret.DataGroup;
 
-    public onGroupComp(event:RES.ResourceEvent):void{
-        if(event.groupName=="preload"){
-           this.createExporer();
-        }
-    }
+    public createChildren():void{
+        super.createChildren();
 
-    public createExporer():void{
-        //实例化GUI根容器
-        var uiStage:egret.UIStage = new egret.UIStage();
-        this.addChild(uiStage);
-
-        var asset:egret.UIAsset = new egret.UIAsset();
-        asset.source = "header-background";
-        asset.fillMode = egret.BitmapFillMode.REPEAT;
-        asset.percentWidth = 100;
-        uiStage.addElement(asset);
-
-        var list:egret.List = new egret.List();
-        list.skinName = ListSkin;
-        list.itemRendererSkinName = ItemRendererSkin;
-        list.percentWidth = 100;
-        list.top = 128;
-        list.bottom = 0;
-        uiStage.addElement(list);
-
-        var screens:Array<string> = RES.getRes("screens");
-        list.dataProvider = new egret.ArrayCollection(screens);
+        this.dataGroup = new egret.DataGroup();
+        var layout:egret.VerticalLayout = new egret.VerticalLayout();
+        layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
+        layout.gap = 0;
+        this.dataGroup.layout = layout;
+        var scroller:egret.Scroller = new egret.Scroller();
+        scroller.viewport = this.dataGroup;
+        scroller.percentHeight = 100;
+        scroller.percentWidth = 100;
+        this.addElement(scroller);
     }
 }
