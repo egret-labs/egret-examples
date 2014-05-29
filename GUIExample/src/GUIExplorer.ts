@@ -25,7 +25,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
+///<reference path="egret.d.ts"/>
+///<reference path="AssetAdapter.ts"/>
 class GUIExplorer extends egret.DisplayObjectContainer{
 
     public constructor(){
@@ -39,6 +40,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var policy = new egret.ResolutionPolicy(container, content);
         egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
 
+        //注入自定义的素材解析器
+        egret.Injector.mapClass("egret.IAssetAdapter",AssetAdapter);
+
+        //启动RES资源加载模块
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
         RES.loadConfig("resources/resource.json","resources/");
         RES.loadGroup("preload");
@@ -56,11 +61,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         stage.addChild(uiStage);
 
         var asset:egret.UIAsset = new egret.UIAsset();
-        var texture:egret.Texture = RES.getRes("button-selected-up");
         asset.scale9Grid = new egret.Rectangle(7,7,40,40);
-        asset.source = texture;
-//        asset.width = 120;
-//        asset.height = 120;
+        asset.source = "button-selected-up";
+        asset.width = 120;
+        asset.height = 120;
         asset.x = 100;
         asset.y = 100;
         uiStage.addElement(asset);
