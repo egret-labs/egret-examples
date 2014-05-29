@@ -25,8 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///<reference path="egret.d.ts"/>
-///<reference path="AssetAdapter.ts"/>
+/// <reference path="AssetAdapter.ts"/>
+/// <reference path="egret.d.ts"/>
+
 class GUIExplorer extends egret.DisplayObjectContainer{
 
     public constructor(){
@@ -61,7 +62,6 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         stage.addChild(uiStage);
 
         var asset:egret.UIAsset = new egret.UIAsset();
-        asset.scale9Grid = new egret.Rectangle(7,7,40,40);
         asset.source = "button-selected-up";
         asset.width = 120;
         asset.height = 120;

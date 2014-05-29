@@ -24,7 +24,9 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-///<reference path="egret.d.ts"/>
+
+/// <reference path="egret.d.ts"/>
+
 class AssetAdapter implements egret.IAssetAdapter{
 
     /**
@@ -47,27 +49,18 @@ class AssetAdapter implements egret.IAssetAdapter{
         }
         else if(typeof(source)=="string"){
             if(RES.hasRes(source)){
-                RES.getResAsync(source,onGetRes,this)
+                RES.getResAsync(source,onGetRes,this);
             }
             else{
-                var url:string = <string>source;
-                var loader:egret.URLLoader = new egret.URLLoader();
-                loader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;
-                loader.addEventListener(egret.Event.COMPLETE, function(event:egret.Event){
-                    content = loader.data;
-                    compFunc.call(thisObject,content,source);
-                }, this);
-                loader.load(new egret.URLRequest(url));
+               RES.getResByUrl(source,onGetRes,this);
             }
 
+            function onGetRes(data:any):void{
+                compFunc.call(thisObject,data,source);
+            }
         }
         else{
             compFunc.call(thisObject,content,source);
-        }
-
-
-        function onGetRes(data:any):void{
-            compFunc.call(thisObject,data,source);
         }
     }
 

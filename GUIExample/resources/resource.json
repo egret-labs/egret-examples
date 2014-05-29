@@ -20,7 +20,7 @@
 		{"name":"button-forward-down","type":"img","url":"assets/button-forward-down-skin.png"},
 		{"name":"button-forward-up","type":"img","url":"assets/button-forward-up-skin.png"},
 		{"name":"button-selected-disabled","type":"img","url":"assets/button-selected-disabled-skin.png"},
-		{"name":"button-selected-up","type":"img","url":"assets/button-selected-up-skin.png"},
+		{"name":"button-selected-up","scale9grid":"7,7,40,40","type":"img","url":"assets/button-selected-up-skin.png"},
 		{"name":"button-up","type":"img","url":"assets/button-up-skin.png"},
 		{"name":"callout-arrow-bottom","type":"img","url":"assets/callout-arrow-bottom-skin.png"},
 		{"name":"callout-arrow-left","type":"img","url":"assets/callout-arrow-left-skin.png"},
