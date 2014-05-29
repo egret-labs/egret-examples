@@ -1,6 +1,5 @@
 ///<reference path="egret.d.ts"/>
 ///<reference path="LoadingUI.ts"/>
-///<reference path="resource/Resource.ts"/>
 /**
  * Copyright (c) 2014,Egret-Labs.org
  * All rights reserved.
