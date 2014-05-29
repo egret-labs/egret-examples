@@ -13,7 +13,8 @@
 		{"name":"monkey_json","type":"json","url":"monkey.json"},
 		{"name":"sprite_sheet_png","type":"img","url":"sprite_sheet.png"},
 		{"name":"bitmapFont","type":"font","url":"font.fnt"},
-		{"name":"icons","type":"sheet","url":"icons.json"}
+		{"name":"icons","type":"sheet","url":"icons.json"},
+		{"name":"button-selected-up-skin_png","type":"img","url":"button-selected-up-skin.png"}
 	],
 
 "groups":
@@ -25,8 +26,9 @@
         {"name":"TestDisplayList","keys":"daisy_png"},
         {"name":"TestEvent","keys":"b1_png,b5_png"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
-        {"name":"TestScaleBitmap","keys":"daisy_png"},
+        {"name":"TestScaleBitmap","keys":"button-selected-up-skin_png"},
         {"name":"TestSpriteFrame","keys":"icons"},
+        {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestTween","keys":"b1_png"}
 	]
 }

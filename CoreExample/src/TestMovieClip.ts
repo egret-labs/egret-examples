@@ -32,13 +32,13 @@ class TestMovieClip {
     }
 
     public createExample():void {
-        var data = RES.getRes("monkey_json").data;
+        var data = RES.getRes("monkey_json");
         var texture = RES.getRes("monkey_png");
         var monkey = new egret.MovieClip(data, texture);
         monkey.x = 200;
         monkey.y = 200;
         egret.MainContext.instance.stage.addChild(monkey);
         monkey.setInterval(3);
-        monkey.gotoAndPlay("banana");
+        monkey.gotoAndPlay("attack");
     }
 }
