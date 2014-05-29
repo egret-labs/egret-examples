@@ -1,5 +1,3 @@
-///<reference path="egret.d.ts"/>
-///<reference path="GameApp.ts"/>
 /**
  * Copyright (c) 2014,Egret-Labs.org
  * All rights reserved.
@@ -27,16 +25,20 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class LoadingUI{
+///<reference path="egret.d.ts"/>
+///<reference path="GameApp.ts"/>
 
-    private container;
+class LoadingUI extends egret.Sprite{
+
+    public constructor(){
+        super();
+        this.createView();
+    }
     private textField;
 
-    addToStage():void {
-        this.container = new egret.DisplayObjectContainer();
+    private createView():void {
         this.textField = new egret.TextField();
-        egret.MainContext.instance.stage.addChild(this.container);
-        this.container.addChild(this.textField);
+        this.addChild(this.textField);
         this.textField.x = 120;
         this.textField.y = 300;
         this.textField.witdh = 480;
@@ -44,11 +46,7 @@ class LoadingUI{
         this.textField.align = "middle";
     }
 
-    removeFromStage():void {
-        this.container.parent.removeChild(this.container);
-    }
-
-    onProgress(current, total):void {
+    public setProgress(current, total):void {
         this.textField.text = "游戏加载中..." + current + "/" + total;
     }
 }

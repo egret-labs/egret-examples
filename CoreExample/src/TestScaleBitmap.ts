@@ -38,7 +38,7 @@ class TestScaleBitmap {
         var texture = RES.getRes("button-selected-up-skin_png");
         var scaleBitmap = new egret.Bitmap(texture);
         scaleBitmap.texture = texture;
-        scaleBitmap.scale9Grid = new egret.Rectangle().initialize(5,5,texture.textureWidth - 10,texture.textureHeight - 10);
+        scaleBitmap.scale9Grid = new egret.Rectangle().initialize(7,7,46,46);
         scaleBitmap.width = 200;
         scaleBitmap.height = 100;
         scaleBitmap.x = 100;

@@ -26,9 +26,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-class GameApp {
+class GameApp extends egret.DisplayObjectContainer{
 
-    private textContainer:egret.DisplayObjectContainer;
+    public constructor(){
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
+    }
+
+    private textContainer:egret.Sprite;
     /**
      * 加载进度界面
      */
@@ -39,19 +44,13 @@ class GameApp {
     /**
      * 游戏启动后，外部会自动调用此方法
      */
-    public startGame():void {
+    public onAddToStage(event:egret.Event):void {
         this.currentTestName = window["getCurrentTest"]();
         egret.Profiler.getInstance().run();
 
-        //设置屏幕适配策略
-//        var container = new egret.EqualToFrame();
-//        var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : new egret.FixedSize(480, 800);
-//        var policy = new egret.ResolutionPolicy(container, content);
-//        egret.StageDelegate.getInstance().setDesignSize(480, 800, policy);
-
         //设置加载进度界面
         this.loadingView  = new LoadingUI();
-        this.loadingView.addToStage();
+        this.stage.addChild(this.loadingView);
 
         //初始化Resource资源加载库，提示：Resource资源加载库是可选模块，不在egret-core项目里，最新代码请到github上的egret-game-library项目检出。
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onResourceLoadComplete,this);
@@ -64,7 +63,7 @@ class GameApp {
      */
     private onResourceLoadComplete(event:RES.ResourceEvent):void {
         if(event.groupName==this.currentTestName){
-            this.loadingView.removeFromStage();
+            this.stage.removeChild(this.loadingView);
             this.createGameScene();
         }
     }
@@ -73,14 +72,14 @@ class GameApp {
      */
     private onResourceProgress(event:RES.ResourceEvent):void {
         if(event.groupName==this.currentTestName){
-            this.loadingView.onProgress(event.itemsLoaded,event.itemsTotal);
+            this.loadingView.setProgress(event.itemsLoaded,event.itemsTotal);
         }
     }
     /**
      * 创建游戏场景
      */
     private createGameScene():void{
-        var test = new window[this.currentTestName];
+        var test:any = new window[this.currentTestName];
         window["testDescription"].value = test.getDescription();
         window["exampleTextArea"].value = test.createExample.toString();
         test.createExample();
@@ -93,8 +92,5 @@ class GameApp {
         return result;
     }
 }
-
-//声明一个全局的app属性，以便在launcher/egret_loader.js调用它的startGame()方法。
-var app = new GameApp();
 
 
