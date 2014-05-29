@@ -61,8 +61,15 @@ class ItemRendererSkin extends egret.Skin{
         this.selectedSkin.source = "list-item-selected";
         this.addElement(this.selectedSkin);
 
+        var icon:egret.UIAsset = new egret.UIAsset();
+        icon.source = "list-accessory-drill-down-icon";
+        icon.right = 22;
+        icon.verticalCenter = 0;
+        this.addElement(icon);
+
         this.labelDisplay = new egret.Label();
-        this.labelDisplay.size = 18;
+        this.labelDisplay.size = 26;
+        this.labelDisplay.fontFamily = "Tahoma";
         this.labelDisplay.textColor = 0xe4e4e4;
         this.labelDisplay.left = 32;
         this.labelDisplay.verticalCenter = 0;

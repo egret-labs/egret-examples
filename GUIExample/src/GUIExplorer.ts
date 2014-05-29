@@ -62,13 +62,23 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         asset.source = "header-background";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         asset.percentWidth = 100;
+        asset.height = 90;
         uiStage.addElement(asset);
+
+        var title:egret.Label = new egret.Label();
+        title.text = "Egret GUI";
+        title.fontFamily = "Tahoma";
+        title.textColor = 0xe4e4e4;
+        title.size = 35;
+        title.horizontalCenter = 0;
+        title.top = 25;
+        uiStage.addElement(title);
 
         var list:egret.List = new egret.List();
         list.skinName = ListSkin;
         list.itemRendererSkinName = ItemRendererSkin;
         list.percentWidth = 100;
-        list.top = 128;
+        list.top = 90;
         list.bottom = 0;
         uiStage.addElement(list);
 
