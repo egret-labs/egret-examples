@@ -62,11 +62,9 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         stage.addChild(uiStage);
 
         var asset:egret.UIAsset = new egret.UIAsset();
-        asset.source = "button-selected-up";
-        asset.width = 120;
-        asset.height = 120;
-        asset.x = 100;
-        asset.y = 100;
+        asset.source = "header-background";
+        asset.fillMode = egret.BitmapFillMode.REPEAT;
+        asset.percentWidth = 100;
         uiStage.addElement(asset);
     }
 }
