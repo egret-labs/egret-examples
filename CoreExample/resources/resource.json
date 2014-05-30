@@ -1,7 +1,7 @@
 {
 "resources":
 	[
-		{"name":"daisy_png","type":"img","url":"daisy.png"},
+		{"name":"daisy_png","type":"img","url":"egret_icon.png"},
 		{"name":"texture_png","type":"img","url":"armature/texture.png"},
 		{"name":"skeleton_json","type":"json","url":"armature/skeleton.json"},
 		{"name":"texture_json","type":"json","url":"armature/texture.json"},
