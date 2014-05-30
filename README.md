@@ -15,4 +15,4 @@ Egret Examples
 
 > 注意：不要忽略 ```-e``` 参数
 
-* 执行 ``` egret startserver {examples} ```
+* 执行 ``` egret startserver {examples}/CoreExample ```
