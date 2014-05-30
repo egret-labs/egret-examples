@@ -6,7 +6,8 @@ Egret Examples
 
 > 您可以访问[egret-core](https://github.com/egret-labs/egret-core)来安装 Egret
 
-* 将 Egret Examples解压到任意文件夹，该文件夹在下文中被称为 {examples}
+* 下载 egret-examples
+* 将下载后的 egret-examples 解压到任意文件夹，该文件夹在下文中被称为 {examples}
 * 执行 ``` egret build {examples}/CoreExample -e ```
 
 > 注意：不要忽略 ```-e``` 参数
