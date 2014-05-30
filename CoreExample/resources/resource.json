@@ -20,7 +20,7 @@
         {"name":"TestArmature","keys":"texture_png,skeleton_json,texture_json"},
         {"name":"TestBitmapText","keys":"bitmapFont"},
         {"name":"TestCache","keys":"daisy_png,button_png"},
-        {"name":"TestDisplayList","keys":"daisy_png"},
+        {"name":"TestDisplayList","keys":"egret_icon_png"},
         {"name":"TestEvent","keys":"b1_png,b5_png"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestScaleBitmap","keys":"button_png"},
