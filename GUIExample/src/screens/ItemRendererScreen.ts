@@ -24,29 +24,23 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
-	"skins/HSliderSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js",
-	"screens/SliderScreen.js",
-	"screens/ItemRendererScreen.js"
-]
+class ItemRendererScreen extends ScreenBase {
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public constructor() {
+        super();
+    }
+
+    public createChildren():void {
+        super.createChildren();
+
+        var dataGroup:egret.DataGroup = new egret.DataGroup();
+        dataGroup.itemRendererSkinName = ItemRendererSkin;
+        dataGroup.percentWidth = 100;
+        dataGroup.percentHeight = 100;
+        this.addElement(dataGroup);
+
+        dataGroup.dataProvider = new egret.ArrayCollection(["ItemRender"]);
+    }
+}
+
