@@ -29,8 +29,11 @@ var game_file_list = [
 	"GUIExplorer.js",
 	"skins/ListSkin.js",
 	"skins/BackButtonSkin.js",
+	"skins/ButtonSkin.js",
 	"skins/ItemRendererSkin.js",
-	"screens/ScreenBase.js"
+	"skins/ScreenSkin.js",
+	"screens/ScreenBase.js",
+	"screens/ButtonScreen.js"
 ]
 
 //在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。

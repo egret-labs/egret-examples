@@ -25,13 +25,21 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-class ScreenBase extends egret.SkinnableContainer{
+class ButtonScreen extends ScreenBase{
 
     public constructor(){
         super();
-        this.percentHeight = 100;
-        this.percentWidth = 100;
-        this.skinName = ScreenSkin;
+    }
+
+    public createChildren():void{
+        super.createChildren();
+
+        var button:egret.Button = new egret.Button();
+        button.skinName = ButtonSkin;
+        button.horizontalCenter = 0;
+        button.verticalCenter = 0;
+        button.label = "Button";
+        button.width = 200;
+        this.addElement(button);
     }
 }

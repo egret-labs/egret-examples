@@ -25,13 +25,44 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-class ScreenBase extends egret.SkinnableContainer{
+class ScreenSkin extends egret.Skin{
 
     public constructor(){
         super();
-        this.percentHeight = 100;
-        this.percentWidth = 100;
-        this.skinName = ScreenSkin;
+    }
+
+    private static _skinParts:Array<string> = ["contentGroup"];
+
+    public get skinParts():Array<string>{
+        return ScreenSkin._skinParts;
+    }
+    /**
+     * [SkinPart]
+     */
+    public contentGroup:egret.Group;
+
+    public createChildren():void{
+        super.createChildren();
+
+        this.contentGroup = new egret.Group();
+        this.contentGroup.percentWidth = 100;
+        this.contentGroup.top = 90;
+        this.contentGroup.bottom = 0;
+        this.addElement(this.contentGroup);
+
+        var backButton:egret.Button = new egret.Button();
+        backButton.width = 90;
+        backButton.height = 58;
+        backButton.skinName = BackButtonSkin;
+        backButton.y = 16;
+        backButton.x = 16;
+        backButton.label = "Back";
+        this.addElement(backButton);
+        backButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouchTap,this);
+    }
+
+    public onTouchTap(event:egret.Event):void{
+        if(this.hostComponent)
+            this.hostComponent.dispatchEventWith("goBack");
     }
 }
