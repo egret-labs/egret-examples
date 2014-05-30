@@ -53,9 +53,13 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         }
     }
 
+    private uiStage:egret.UIStage;
+    private mainContainer:egret.Group;
+
     public createExporer():void{
         //实例化GUI根容器
         var uiStage:egret.UIStage = new egret.UIStage();
+        this.uiStage = uiStage;
         this.addChild(uiStage);
 
         var asset:egret.UIAsset = new egret.UIAsset();
@@ -65,6 +69,11 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         asset.height = 90;
         uiStage.addElement(asset);
 
+        this.mainContainer = new egret.Group();
+        this.mainContainer.percentWidth = 100;
+        this.mainContainer.percentHeight = 100;
+        uiStage.addElement(this.mainContainer);
+
         var title:egret.Label = new egret.Label();
         title.text = "Egret GUI";
         title.fontFamily = "Tahoma";
@@ -72,7 +81,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         title.size = 35;
         title.horizontalCenter = 0;
         title.top = 25;
-        uiStage.addElement(title);
+        this.mainContainer.addElement(title);
 
         var list:egret.List = new egret.List();
         list.skinName = ListSkin;
@@ -80,9 +89,44 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         list.percentWidth = 100;
         list.top = 90;
         list.bottom = 0;
-        uiStage.addElement(list);
+        this.mainContainer.addElement(list);
 
         var screens:Array<string> = RES.getRes("screens");
         list.dataProvider = new egret.ArrayCollection(screens);
+        list.addEventListener(egret.IndexChangeEvent.CHANGE,this.onIndexChaned,this);
+        uiStage.validateNow();
+    }
+
+    private screens:any = {};
+
+    private currentScreen:ScreenBase;
+
+    private onIndexChaned(event:egret.Event):void{
+        var uiStage:egret.UIStage = this.uiStage;
+        egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMianContainer,this);
+
+        var screen:ScreenBase = new ScreenBase();
+        this.currentScreen = screen;
+        screen.addEventListener("goBack",this.onGoBack,this);
+        uiStage.addElement(screen);
+        screen.x = uiStage.width;
+        egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
+    }
+
+    private hideMianContainer():void{
+        this.uiStage.removeElement(this.mainContainer);
+    }
+
+    private hideScreen():void{
+        this.uiStage.removeElement(this.currentScreen);
+        this.currentScreen.removeEventListener("goBack",this.onGoBack,this);
+        this.currentScreen = null;
+    }
+
+    private onGoBack(event:egret.Event):void{
+        var uiStage:egret.UIStage = this.uiStage;
+        uiStage.addElement(this.mainContainer);
+        egret.Tween.get(this.mainContainer).to({x:0},500,egret.Ease.sineInOut);
+        egret.Tween.get(this.currentScreen).to({x:uiStage.width},500,egret.Ease.sineInOut).call(this.hideScreen,this);
     }
 }
