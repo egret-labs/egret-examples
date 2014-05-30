@@ -24,26 +24,23 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js"
-]
+class LabelScreen extends ScreenBase {
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public constructor() {
+        super();
+    }
+
+    public createChildren():void {
+        super.createChildren();
+
+        var centerLabel:egret.Label = new egret.Label();
+        centerLabel.textColor = 0xffffff;
+        centerLabel.size = 30;
+        centerLabel.text = "居中文字";
+        centerLabel.horizontalCenter = 0;
+        centerLabel.verticalCenter = 0;
+        this.addElement(centerLabel);
+    }
+}
+
