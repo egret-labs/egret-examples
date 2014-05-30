@@ -54,16 +54,10 @@ class TestBitmap {
         var bitmap3 = new egret.Bitmap();
         bitmap3.texture = texture;
         container.addChild(bitmap3);
-        bitmap3.x = 50;
+        bitmap3.x = 150;
         bitmap3.y = 150;
         bitmap3.rotation = 45;
-
-        var bitmap4 = new egret.Bitmap();
-        bitmap4.texture = texture;
-        container.addChild(bitmap4);
-        bitmap4.x = 150;
-        bitmap4.y = 150;
-        bitmap4.skewX = 45;
+        bitmap3.scaleX = bitmap3.scaleY = .5;
 
     }
 }

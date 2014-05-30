@@ -1,14 +1,11 @@
 {
 "resources":
 	[
-		{"name":"daisy_png","type":"img","url":"egret_icon.png"},
+		{"name":"egret_icon_png","type":"img","url":"egret_icon.png"},
 		{"name":"texture_png","type":"img","url":"armature/texture.png"},
 		{"name":"skeleton_json","type":"json","url":"armature/skeleton.json"},
 		{"name":"texture_json","type":"json","url":"armature/texture.json"},
-		{"name":"b_1_png","type":"img","url":"b_1.png"},
-		{"name":"b_2_png","type":"img","url":"b_2.png"},
-		{"name":"b1_png","type":"img","url":"b1.png"},
-		{"name":"b5_png","type":"img","url":"b5.png"},
+		{"name":"button_png","type":"img","url":"button.png"},
 		{"name":"monkey_png","type":"img","url":"monkey.png"},
 		{"name":"monkey_json","type":"json","url":"monkey.json"},
 		{"name":"sprite_sheet_png","type":"img","url":"sprite_sheet.png"},
@@ -19,16 +16,16 @@
 
 "groups":
 	[
-        {"name":"TestBitmap","keys":"daisy_png"},
+        {"name":"TestBitmap","keys":"egret_icon_png"},
         {"name":"TestArmature","keys":"texture_png,skeleton_json,texture_json"},
         {"name":"TestBitmapText","keys":"bitmapFont"},
-        {"name":"TestCache","keys":"daisy_png,b_1_png,b_2_png"},
+        {"name":"TestCache","keys":"daisy_png,button_png"},
         {"name":"TestDisplayList","keys":"daisy_png"},
         {"name":"TestEvent","keys":"b1_png,b5_png"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
-        {"name":"TestScaleBitmap","keys":"button-selected-up-skin_png"},
+        {"name":"TestScaleBitmap","keys":"button_png"},
         {"name":"TestSpriteFrame","keys":"icons"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
-        {"name":"TestTween","keys":"b1_png"}
+        {"name":"TestTween","keys":"button_png"}
 	]
 }

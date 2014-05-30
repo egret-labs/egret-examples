@@ -34,7 +34,7 @@ class TestTween {
     public createExample():void {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
-        var texture = RES.getRes("b1_png");
+        var texture = RES.getRes("button_png");
 
         var move = new egret.Bitmap();
         move.texture = texture;

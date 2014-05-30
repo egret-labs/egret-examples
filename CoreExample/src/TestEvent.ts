@@ -38,7 +38,7 @@ class TestEvent {
         container.rotation = 45;
 
         var left = new egret.Bitmap();
-        left.texture = RES.getRes("b1_png");
+        left.texture = RES.getRes("button_png");
         left.x = 100;
         container.addChild(left);
         left.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){
@@ -47,7 +47,7 @@ class TestEvent {
         left.touchEnabled = true;
 
         var right = new egret.Bitmap();
-        right.texture = RES.getRes("b5_png");
+        right.texture = RES.getRes("button_png");
         right.x = 150;
         container.addChild(right);
         right.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){

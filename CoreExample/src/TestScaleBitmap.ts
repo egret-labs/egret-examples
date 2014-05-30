@@ -35,12 +35,21 @@ class TestScaleBitmap {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
 
-        var texture = RES.getRes("egret_icon_png");
-        var scaleBitmap = new egret.Scale9Bitmap(texture);
-        scaleBitmap.setScaleGrid(5,5,5,5);
+        var texture = RES.getRes("button_png");
+        var scale9Grid = new egret.Rectangle(7,7,46,46);
+        var scaleBitmap = new egret.Bitmap(texture);
+        scaleBitmap.scale9Grid = scale9Grid;
         scaleBitmap.width = scaleBitmap.height = 200;
-        scaleBitmap.x = 200;
-        scaleBitmap.y = 200;
+        scaleBitmap.x = 50;
+        scaleBitmap.y = 50;
         container.addChild(scaleBitmap);
+
+
+        var scaleBitmap2 = new egret.Bitmap(texture);
+        scaleBitmap2.scale9Grid = scale9Grid;
+        scaleBitmap2.width = scaleBitmap.height = 100;
+        scaleBitmap2.x = 300;
+        scaleBitmap2.y = 50;
+        container.addChild(scaleBitmap2);
     }
 }
