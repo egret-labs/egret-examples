@@ -26,6 +26,7 @@
  */
 var game_file_list = [
 	"AssetAdapter.js",
+	"SkinAdapter.js",
 	"GUIExplorer.js",
 	"skins/ListSkin.js",
 	"skins/BackButtonSkin.js",
