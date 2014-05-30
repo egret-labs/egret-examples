@@ -44,7 +44,7 @@ class TestDisplayList {
         var container = new egret.DisplayObjectContainer();
         container.scaleX = 2;
         egret.MainContext.instance.stage.addChild(container);
-        var texture = RES.getRes("daisy_png");
+        var texture = RES.getRes("egret_icon_png");
 
         var bitmap1 = new egret.Bitmap();
         bitmap1.texture = texture;

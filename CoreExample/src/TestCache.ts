@@ -34,7 +34,7 @@ class TestCache {
     public createExample():void {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
-        var texture = RES.getRes("daisy_png");
+        var texture = RES.getRes("egret_icon_png");
 //    container.width = container.height = 1000;
 
 

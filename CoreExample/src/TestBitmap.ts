@@ -34,7 +34,7 @@ class TestBitmap {
     public createExample():void {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
-        var texture:egret.Texture = RES.getRes("daisy_png");
+        var texture:egret.Texture = RES.getRes("egret_icon_png");
 
         var bitmap1 = new egret.Bitmap();
         bitmap1.texture = texture;
@@ -65,6 +65,5 @@ class TestBitmap {
         bitmap4.y = 150;
         bitmap4.skewX = 45;
 
-        container.cacheAsBitmap(true);
     }
 }
