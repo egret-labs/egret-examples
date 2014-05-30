@@ -73,6 +73,9 @@ class SkinAdapter implements egret.ISkinAdapter{
             case "egret.Alert":
                 skin = new AlertSkin();
                 break;
+            case "egret.ProgressBar":
+                skin = new ProgressBarSkin();
+                break;
         }
         return skin;
     }

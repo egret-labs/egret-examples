@@ -24,23 +24,24 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ProgressBarScreen.js"
-]
+class ProgressBarScreen extends ScreenBase {
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public constructor() {
+        super();
+    }
+
+    public createChildren():void {
+        super.createChildren();
+
+        var bar:egret.ProgressBar = new egret.ProgressBar();
+        bar.maximum = 100;
+        bar.value = 0;
+        bar.horizontalCenter = 0;
+        bar.verticalCenter = 0;
+        bar.slideDuration = 0;
+        this.addElement(bar);
+        egret.Tween.get(bar, {loop:true}).to({value:100}, 2000);
+    }
+}
+
