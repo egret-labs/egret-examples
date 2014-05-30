@@ -36,6 +36,7 @@ var game_file_list = [
 	"skins/ScreenSkin.js",
 	"skins/ProgressBarSkin.js",
 	"skins/HSliderSkin.js",
+	"skins/TabBarSkin.js",
 
 	"screens/ScreenBase.js",
 	"screens/ButtonScreen.js",
@@ -45,6 +46,7 @@ var game_file_list = [
 	"screens/ListScreen.js",
 	"screens/LabelScreen.js",
 	"screens/SliderScreen.js",
+	"screens/TabBarScreen.js",
 	"screens/ItemRendererScreen.js"
 ]
 

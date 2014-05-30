@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class SliderScreen extends ScreenBase {
+class TabBarScreen extends ScreenBase {
 
     private labelDisplay:egret.Label;
 
@@ -36,26 +36,27 @@ class SliderScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var group:egret.Group = new egret.Group();
-        group.horizontalCenter = 0;
-        group.verticalCenter = 0;
-        this.addElement(group);
+        var bar:egret.TabBar = new egret.TabBar();
+        bar.horizontalCenter = 0;
+        bar.verticalCenter = 0;
+        this.addElement(bar);
 
-        var slider:egret.HSlider = new egret.HSlider();
-        slider.maximum = 100;
-        group.addElement(slider);
-        slider.addEventListener(egret.Event.CHANGE, this.onChange, this);
+        bar.dataProvider = new egret.ArrayCollection(["tab1", "tab2", "tab3"]);
+        bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
 
         this.labelDisplay = new egret.Label();
         this.labelDisplay.maxDisplayedLines = 1;
         this.labelDisplay.size = 20;
+        this.labelDisplay.top = 50;
+        this.labelDisplay.horizontalCenter = 0;
         this.labelDisplay.textColor = 0xffffff;
-        this.labelDisplay.text = "0";
-        group.addElement(this.labelDisplay);
+        this.labelDisplay.text = "选中第1项";
+        this.addElement(this.labelDisplay);
     }
 
-    private onChange(event:egret.Event):void{
-        var slider:egret.HSlider = <egret.HSlider>event.currentTarget;
-        this.labelDisplay.text = slider.value.toString();
+    private onClick(event:egret.ListEvent):void {
+        var bar:egret.TabBar = <egret.TabBar>event.currentTarget;
+        this.labelDisplay.text = "选中第" + (bar.selectedIndex + 1) + "项";
     }
 }
+

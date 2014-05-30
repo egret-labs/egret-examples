@@ -24,38 +24,35 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-class SliderScreen extends ScreenBase {
-
-    private labelDisplay:egret.Label;
-
+class TabBarSkin extends egret.Skin {
     public constructor() {
         super();
+        this.minWidth = 60;
+        this.minHeight = 20;
     }
+
+    private static _skinParts:Array<string> = ["dataGroup"];
+
+    public get skinParts():Array<string> {
+        return TabBarSkin._skinParts;
+    }
+
+    /**
+     * [SkinPart]
+     */
+    public dataGroup:egret.DataGroup;
 
     public createChildren():void {
         super.createChildren();
-
-        var group:egret.Group = new egret.Group();
-        group.horizontalCenter = 0;
-        group.verticalCenter = 0;
-        this.addElement(group);
-
-        var slider:egret.HSlider = new egret.HSlider();
-        slider.maximum = 100;
-        group.addElement(slider);
-        slider.addEventListener(egret.Event.CHANGE, this.onChange, this);
-
-        this.labelDisplay = new egret.Label();
-        this.labelDisplay.maxDisplayedLines = 1;
-        this.labelDisplay.size = 20;
-        this.labelDisplay.textColor = 0xffffff;
-        this.labelDisplay.text = "0";
-        group.addElement(this.labelDisplay);
-    }
-
-    private onChange(event:egret.Event):void{
-        var slider:egret.HSlider = <egret.HSlider>event.currentTarget;
-        this.labelDisplay.text = slider.value.toString();
+        this.dataGroup = new egret.DataGroup();
+        this.dataGroup.percentWidth = 100;
+        this.dataGroup.percentHeight = 100;
+        this.dataGroup.itemRendererSkinName = ButtonSkin;
+        var layout:egret.HorizontalLayout = new egret.HorizontalLayout();
+        layout.gap = -1;
+        layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
+        layout.verticalAlign = egret.VerticalAlign.CONTENT_JUSTIFY;
+        this.dataGroup.layout = layout;
+        this.addElement(this.dataGroup);
     }
 }

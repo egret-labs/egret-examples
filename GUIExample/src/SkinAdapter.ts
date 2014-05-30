@@ -79,6 +79,9 @@ class SkinAdapter implements egret.ISkinAdapter{
             case "egret.HSlider":
                 skin = new HSliderSkin();
                 break;
+            case "egret.TabBar":
+                skin = new TabBarSkin();
+                break;
         }
         return skin;
     }
