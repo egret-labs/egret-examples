@@ -55,6 +55,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     private uiStage:egret.UIStage;
     private mainContainer:egret.Group;
+    private mainList:egret.List;
 
     public createExporer():void{
         //实例化GUI根容器
@@ -84,6 +85,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.mainContainer.addElement(title);
 
         var list:egret.List = new egret.List();
+        this.mainList = list;
         list.skinName = ListSkin;
         list.itemRendererSkinName = ItemRendererSkin;
         list.percentWidth = 100;
@@ -93,7 +95,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
         var screens:Array<string> = RES.getRes("screens");
         list.dataProvider = new egret.ArrayCollection(screens);
-        list.addEventListener(egret.IndexChangeEvent.CHANGE,this.onIndexChaned,this);
+        list.addEventListener(egret.ListEvent.ITEM_CLICK,this.onItemClick,this);
         uiStage.validateNow();
     }
 
@@ -101,11 +103,19 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     private currentScreen:ScreenBase;
 
-    private onIndexChaned(event:egret.Event):void{
+    private onItemClick(event:egret.ListEvent):void{
         var uiStage:egret.UIStage = this.uiStage;
         egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMianContainer,this);
 
-        var screen:ScreenBase = new ScreenBase();
+        var className:string = event.item+"Screen";
+        var clazz:any;
+        if(egret.hasDefinition(className)){
+            clazz = egret.getDefinitionByName(className);
+        }
+        else{
+            clazz = ScreenBase;
+        }
+        var screen:ScreenBase = new clazz();
         this.currentScreen = screen;
         screen.addEventListener("goBack",this.onGoBack,this);
         uiStage.addElement(screen);
@@ -124,6 +134,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     }
 
     private onGoBack(event:egret.Event):void{
+        this.mainList.selectedIndex = -1;
         var uiStage:egret.UIStage = this.uiStage;
         uiStage.addElement(this.mainContainer);
         egret.Tween.get(this.mainContainer).to({x:0},500,egret.Ease.sineInOut);
