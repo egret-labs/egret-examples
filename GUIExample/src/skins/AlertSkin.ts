@@ -92,10 +92,12 @@ class AlertSkin extends egret.Skin {
 
         this.firstButton = new egret.Button();
         this.firstButton.width = 120;
+        this.firstButton.height = 55;
         this.firstButton.label = "确定";
         hGroup.addElement(this.firstButton);
         this.secondButton = new egret.Button();
         this.secondButton.width = 120;
+        this.secondButton.height = 55;
         this.secondButton.label = "取消";
         hGroup.addElement(this.secondButton);
     }

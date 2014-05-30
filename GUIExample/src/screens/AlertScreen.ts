@@ -45,7 +45,7 @@ class AlertScreen extends ScreenBase {
     }
 
     private clickHandler():void {
-        egret.Alert.show("Alert Message","Alert");
+        egret.Alert.show("Alert Message");
     }
 }
 
