@@ -24,24 +24,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js"
-]
+class ScrollerScreen extends ScreenBase{
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public constructor(){
+        super();
+    }
+
+    public createChildren():void{
+        super.createChildren();
+
+        var scroller:egret.Scroller = new egret.Scroller();
+        scroller.width  = 100;
+        scroller.horizontalCenter = 0;
+        scroller.verticalCenter = 0;
+        this.addElement(scroller);
+
+        var group:egret.Group = new egret.Group();
+        scroller.viewport = group;
+
+        var ui:egret.UIAsset = new egret.UIAsset();
+        ui.source = "picker-list-item-selected-icon";
+        ui.width = 200;
+        group.addElement(ui);
+    }
+}
