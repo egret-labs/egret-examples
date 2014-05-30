@@ -25,20 +25,55 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class ButtonScreen extends ScreenBase{
-
+/**
+ * @class egret.DefaultSkinAdapter
+ * @classdesc
+ * 默认的ISkinAdapter接口实现
+ * @implements egret.ISkinAdapter
+ */
+class SkinAdapter implements egret.ISkinAdapter{
+    /**
+     * 构造函数
+     * @method egret.DefaultSkinAdapter#constructor
+     */
     public constructor(){
-        super();
     }
+    /**
+     * 获取皮肤显示对象
+     * @method egret.ISkinAdapter#getSkin
+     * @param skinName {any} 待解析的皮肤标识符
+     * @param hostComponentKey {string} 主机组件标识符
+     * @returns {any} 皮肤对象实例
+     */
+    public getSkin(skinName:any,hostComponentKey:string):any{
+        if(skinName)
+        {
+            if(skinName.prototype){
+                return new skinName();
+            }
+            else if(typeof(skinName)=="string"){
+                var clazz:any = egret.getDefinitionByName(<string><any> skinName);
+                if(clazz){
+                    return new clazz();
+                }
+                else{
+                    return null;
+                }
+            }
+            else{
+                return skinName;
+            }
+        }
 
-    public createChildren():void{
-        super.createChildren();
-
-        var button:egret.Button = new egret.Button();
-        button.horizontalCenter = 0;
-        button.verticalCenter = 0;
-        button.label = "Button";
-        button.width = 200;
-        this.addElement(button);
+        var skin:any;
+        switch (hostComponentKey){
+            case "egret.Button":
+                skin = new ButtonSkin();
+                break;
+            case "egret.Alert":
+                skin = new AlertSkin();
+                break;
+        }
+        return skin;
     }
 }
