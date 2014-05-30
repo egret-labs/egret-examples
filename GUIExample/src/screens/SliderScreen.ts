@@ -24,28 +24,40 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
-	"skins/HSliderSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js",
-	"screens/SliderScreen.js"
-]
+class SliderScreen extends ScreenBase {
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    private labelDisplay:egret.Label;
+
+    public constructor() {
+        super();
+    }
+
+    public createChildren():void {
+        super.createChildren();
+
+        var group:egret.Group = new egret.Group();
+        group.horizontalCenter = 0;
+        group.verticalCenter = 0;
+        this.addElement(group);
+
+        var slider:egret.HSlider = new egret.HSlider();
+        slider.maximum = 100;
+        group.addElement(slider);
+        slider.addEventListener(egret.Event.CHANGE, this.onChange, this);
+
+        this.labelDisplay = new egret.Label();
+        this.labelDisplay.maxDisplayedLines = 1;
+        this.labelDisplay.size = 20;
+        this.labelDisplay.left = 100;
+        this.labelDisplay.verticalCenter = 0;
+        this.labelDisplay.textColor = 0xffffff;
+        this.labelDisplay.text = "0";
+        group.addElement(this.labelDisplay);
+    }
+
+    private onChange(event:egret.Event):void{
+        var slider:egret.HSlider = <egret.HSlider>event.currentTarget;
+        this.labelDisplay.text = slider.value.toString();
+    }
+}

@@ -24,28 +24,47 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
-	"skins/HSliderSkin.js",
+class HSliderSkin extends egret.Skin {
+    public constructor() {
+        super();
+        this.minWidth = 50;
+        this.minHeight = 11;
+    }
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js",
-	"screens/SliderScreen.js"
-]
+    public static _skinParts:Array<any> = ["thumb", "track"];
+    public get skinParts():Array<any> {
+        return HSliderSkin._skinParts;
+    }
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public thumb:egret.Button;
+
+    public track:egret.Button;
+
+    public createChildren():void {
+        super.createChildren();
+
+        this.track = new egret.Button();
+        this.track.left = 0;
+        this.track.right = 0;
+        this.track.top = 0;
+        this.track.bottom = 0;
+        this.track.minWidth = 33;
+        this.track.width = 100;
+        this.track.height = 35;
+        var shape:egret.Shape = new egret.Shape();
+        shape.graphics.beginFill(0x000000);
+        shape.graphics.drawRect(0,0,100,35);
+        shape.graphics.endFill();
+        shape.width = 100;
+        shape.height = 35;
+        this.track.skinName = shape;
+        this.addElement(this.track);
+
+        this.thumb = new egret.Button();
+        this.thumb.top = 0;
+        this.thumb.bottom = 0;
+        this.thumb.width = 11;
+        this.thumb.height = 11;
+        this.addElement(this.thumb);
+    }
+}
