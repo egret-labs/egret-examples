@@ -31,13 +31,14 @@
  * 默认的ISkinAdapter接口实现
  * @implements egret.ISkinAdapter
  */
-class SkinAdapter implements egret.ISkinAdapter{
+class SkinAdapter implements egret.ISkinAdapter {
     /**
      * 构造函数
      * @method egret.DefaultSkinAdapter#constructor
      */
-    public constructor(){
+    public constructor() {
     }
+
     /**
      * 获取皮肤显示对象
      * @method egret.ISkinAdapter#getSkin
@@ -45,28 +46,27 @@ class SkinAdapter implements egret.ISkinAdapter{
      * @param hostComponentKey {string} 主机组件标识符
      * @returns {any} 皮肤对象实例
      */
-    public getSkin(skinName:any,hostComponentKey:string):any{
-        if(skinName)
-        {
-            if(skinName.prototype){
+    public getSkin(skinName:any, hostComponentKey:string):any {
+        if (skinName) {
+            if (skinName.prototype) {
                 return new skinName();
             }
-            else if(typeof(skinName)=="string"){
+            else if (typeof(skinName) == "string") {
                 var clazz:any = egret.getDefinitionByName(<string><any> skinName);
-                if(clazz){
+                if (clazz) {
                     return new clazz();
                 }
-                else{
+                else {
                     return null;
                 }
             }
-            else{
+            else {
                 return skinName;
             }
         }
 
         var skin:any;
-        switch (hostComponentKey){
+        switch (hostComponentKey) {
             case "egret.Button":
                 skin = new ButtonSkin();
                 break;
@@ -84,6 +84,12 @@ class SkinAdapter implements egret.ISkinAdapter{
                 break;
             case "egret.TitleWindow":
                 skin = new TitleWindowSkin();
+                break;
+            case "egret.List":
+                skin = new ListSkin();
+                break;
+            case "egret.Tree":
+                skin = new ListSkin();
                 break;
         }
         return skin;

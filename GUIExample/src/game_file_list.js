@@ -39,6 +39,8 @@ var game_file_list = [
 	"skins/TabBarSkin.js",
 	"skins/TitleWindowSkin.js",
 	"skins/TitleWindowCloseButtonSkin.js",
+	"skins/TreeItemRendererSkin.js",
+	"skins/TreeDisclosureButtonSkin.js",
 
 	"screens/ScreenBase.js",
 	"screens/ButtonScreen.js",
@@ -50,7 +52,8 @@ var game_file_list = [
 	"screens/SliderScreen.js",
 	"screens/TabBarScreen.js",
 	"screens/ItemRendererScreen.js",
-	"screens/TitleWindowScreen.js"
+	"screens/TitleWindowScreen.js",
+	"screens/TreeScreen.js"
 ]
 
 //在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。

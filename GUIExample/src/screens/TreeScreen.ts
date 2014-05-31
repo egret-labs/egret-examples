@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class ListScreen extends ScreenBase {
+class TreeScreen extends ScreenBase {
 
     public constructor() {
         super();
@@ -34,17 +34,34 @@ class ListScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var list:egret.List = new egret.List();
-        list.itemRendererSkinName = ItemRendererSkin;
-        list.percentWidth = 100;
-        list.percentHeight = 100;
-        this.addElement(list);
+        var tree:egret.Tree = new egret.Tree();
+        var dp2:egret.ObjectCollection = new egret.ObjectCollection();
+        dp2.source = {children: [
+            {dir: true, name: "Object数据源0",
+                children: [
+                    {name: "Object数据源00"},
+                    {dir: true, name: "Object数据源01",
+                        children: [
+                            {name: "Object数据源010"}
+                        ]}
+                ]},
+            {dir: true, name: "Object数据源1", children: []},
+            {name: "Object数据源2"}
+        ]};
+        tree.itemRendererSkinName = TreeItemRendererSkin;
+        egret.ObjectCollection.assignParent(dp2.source);
+        tree.labelField = "name";
+        tree.iconFunction = this.iconFunc;
+        tree.dataProvider = dp2;
+        tree.x = 200;
+        tree.y = 140;
+        this.addElement(tree);
+    }
 
-        var arr:Array<string> = [];
-        for (var i:number = 1; i < 14; i++) {
-            arr.push("item" + i);
-        }
-        list.dataProvider = new egret.ArrayCollection(arr);
+    private iconFunc(item:any):any {
+        if (item.dir)
+            return "check-selected-down-icon";
+        return "check-selected-disabled-icon";
     }
 }
 
