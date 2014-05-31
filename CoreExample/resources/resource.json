@@ -11,7 +11,8 @@
 		{"name":"sprite_sheet_png","type":"img","url":"sprite_sheet.png"},
 		{"name":"bitmapFont","type":"font","url":"font.fnt"},
 		{"name":"icons","type":"sheet","url":"icons.json"},
-		{"name":"button-selected-up-skin_png","type":"img","url":"button-selected-up-skin.png"}
+		{"name":"button-selected-up-skin_png","type":"img","url":"button-selected-up-skin.png"},
+		{"name":"sound","type":"sound","url":"sound.mp3"}
 	],
 
 "groups":
@@ -26,6 +27,7 @@
         {"name":"TestScaleBitmap","keys":"button_png"},
         {"name":"TestSpriteFrame","keys":"icons"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
-        {"name":"TestTween","keys":"button_png"}
+        {"name":"TestTween","keys":"button_png"},
+        {"name":"TestSound","keys":"sound"}
 	]
 }

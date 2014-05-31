@@ -21,6 +21,7 @@
             margin: 0;
             height: 100%;
         }
+
         html {
             -ms-touch-action: none; /* Direct all pointer events to JavaScript code. */
         }
@@ -58,18 +59,19 @@
         "TestTicker",
         "TestDisplayList",
         "TestMovieClip",
-        "TestShape"
+        "TestShape",
+        "TestSound"
     ];
     var menu = document.getElementById("examples_menu");
-    list.forEach(function(item){
+    list.forEach(function (item) {
         var option = document.createElement("option");
-        option.setAttribute("id",item);
-        option.setAttribute("value",item);
+        option.setAttribute("id", item);
+        option.setAttribute("value", item);
         option.innerText = item;
         menu.appendChild(option);
     })
 
-    function onSelectChange(value){
+    function onSelectChange(value) {
         var url = location.href;
         var index = url.indexOf("?");
         if (index != -1) {
@@ -82,7 +84,7 @@
         location.href = url;
     }
 
-    function getCurrentTest(){
+    function getCurrentTest() {
         var appFile;
         var hasTest = false;
         var str = location.search;
@@ -107,10 +109,6 @@
         return appFile;
     }
     menu.value = getCurrentTest();
-
-
-
-
 
 
 </script>
