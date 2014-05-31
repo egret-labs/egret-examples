@@ -24,34 +24,27 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
-	"skins/HSliderSkin.js",
-	"skins/TabBarSkin.js",
-	"skins/TitleWindowSkin.js",
-	"skins/TitleWindowCloseButtonSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js",
-	"screens/SliderScreen.js",
-	"screens/TabBarScreen.js",
-	"screens/ItemRendererScreen.js",
-	"screens/TitleWindowScreen.js"
-]
+class TitleWindowScreen extends ScreenBase {
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+    public constructor() {
+        super();
+    }
+
+    public createChildren():void {
+        super.createChildren();
+
+        var window:egret.TitleWindow = new egret.TitleWindow();
+        window.height = 300;
+        window.width = 400;
+        window.title = "测试窗口";
+        window.addEventListener(egret.CloseEvent.CLOSE, this.onClose, this);
+        egret.PopUpManager.addPopUp(window);
+    }
+
+    private onClose(event:egret.CloseEvent):void {
+        var window:egret.TitleWindow = <egret.TitleWindow>event.currentTarget;
+        egret.PopUpManager.removePopUp(window);
+    }
+}
+

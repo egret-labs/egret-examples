@@ -82,6 +82,9 @@ class SkinAdapter implements egret.ISkinAdapter{
             case "egret.TabBar":
                 skin = new TabBarSkin();
                 break;
+            case "egret.TitleWindow":
+                skin = new TitleWindowSkin();
+                break;
         }
         return skin;
     }

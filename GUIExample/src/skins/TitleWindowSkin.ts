@@ -24,34 +24,54 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-var game_file_list = [
-	"AssetAdapter.js",
-	"SkinAdapter.js",
-	"GUIExplorer.js",
-	"skins/ListSkin.js",
-	"skins/BackButtonSkin.js",
-    "skins/ButtonSkin.js",
-	"skins/AlertSkin.js",
-	"skins/ItemRendererSkin.js",
-	"skins/ScreenSkin.js",
-	"skins/ProgressBarSkin.js",
-	"skins/HSliderSkin.js",
-	"skins/TabBarSkin.js",
-	"skins/TitleWindowSkin.js",
-	"skins/TitleWindowCloseButtonSkin.js",
 
-	"screens/ScreenBase.js",
-	"screens/ButtonScreen.js",
-	"screens/AlertScreen.js",
-	"screens/ScrollerScreen.js",
-	"screens/ProgressBarScreen.js",
-	"screens/ListScreen.js",
-	"screens/LabelScreen.js",
-	"screens/SliderScreen.js",
-	"screens/TabBarScreen.js",
-	"screens/ItemRendererScreen.js",
-	"screens/TitleWindowScreen.js"
-]
+/// <reference path="../egret.d.ts"/>
 
-//在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-var document_class = "GUIExplorer";
+class TitleWindowSkin extends egret.Skin {
+
+    public constructor() {
+        super();
+    }
+
+    private static _skinParts:Array<string> = ["closeButton", "titleDisplay"];
+
+    public get skinParts():Array<string> {
+        return TitleWindowSkin._skinParts;
+    }
+
+    /**
+     * [SkinPart]
+     */
+    public closeButton:egret.Button;
+
+    public backGround:egret.UIAsset;
+
+    public titleDisplay:egret.Label;
+
+    public createChildren():void {
+        super.createChildren();
+        this.backGround = new egret.UIAsset();
+        this.backGround.percentHeight = 100;
+        this.backGround.percentWidth = 100;
+        this.backGround.source = "panel-skin-background";
+        this.addElement(this.backGround);
+
+        this.titleDisplay = new egret.Label();
+        this.titleDisplay.textColor = 0xffffff;
+        this.titleDisplay.size = 30;
+        this.titleDisplay.maxDisplayedLines = 1;
+        this.titleDisplay.left = 5;
+        this.titleDisplay.right = 5;
+        this.titleDisplay.top = 1;
+        this.titleDisplay.minHeight = 28;
+        this.titleDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this.titleDisplay.textAlign = egret.HorizontalAlign.CENTER;
+        this.addElement(this.titleDisplay);
+
+        this.closeButton = new egret.Button();
+        this.closeButton.skinName = TitleWindowCloseButtonSkin;
+        this.closeButton.right = 7;
+        this.closeButton.top = 7;
+        this.addElement(this.closeButton);
+    }
+}
