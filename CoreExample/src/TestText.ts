@@ -36,36 +36,48 @@ class TestText {
         egret.MainContext.instance.stage.addChild(container);
 
         var colorLabel = new egret.TextField();
-//    colorLabel.width = colorLabel.height = 0;
+        colorLabel.width = 500;
         colorLabel.textColor = 0xff0000;
-        colorLabel.textAlign = "left";
-        colorLabel.text = "这是一段居左的文字\n可以支持多行";
+        colorLabel.text = "左对齐文本";
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.x = 0;
-        colorLabel.y = 100;
-        colorLabel.width = 120;
-        colorLabel.height = 0;
+        colorLabel.width = 500;
+        colorLabel.y = 60;
         colorLabel.textColor = 0xff0000;
-        colorLabel.textAlign = "center";
-        colorLabel.text = "这是一段居中的文字，宽度设置120,字号设置30px,所以正好显示4个";
+        colorLabel.textAlign = egret.HorizontalAlign.CENTER;
+        colorLabel.text = "水平居中文本";
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.x = 400;
-        colorLabel.y = 250;
-        colorLabel.width = 160;
-        colorLabel.height = 0;
-        colorLabel.anchorX = 1;
-        colorLabel.textColor = 0xFFFFFF;
-        colorLabel.textAlign = "right";
-        colorLabel.text = "这个文字居右对齐";
+        colorLabel.width = 500;
+        colorLabel.textColor = 0xff0000;
+        colorLabel.textAlign = egret.HorizontalAlign.RIGHT;
+        colorLabel.text = "右对齐文本";
+        container.addChild(colorLabel);
+
+        var colorLabel = new egret.TextField();
+        colorLabel.width = 500;
+        colorLabel.height = 400;
+        colorLabel.textColor = 0x009aff;
+        colorLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
+        colorLabel.textAlign = egret.HorizontalAlign.CENTER;
+        colorLabel.text = "垂直居中文本";
+        container.addChild(colorLabel);
+
+        var colorLabel = new egret.TextField();
+        colorLabel.width = 500;
+        colorLabel.height = 400;
+        colorLabel.textColor = 0x009aff;
+        colorLabel.verticalAlign = egret.VerticalAlign.BOTTOM;
+        colorLabel.textAlign = egret.HorizontalAlign.CENTER;
+        colorLabel.text = "底对齐文本";
         container.addChild(colorLabel);
 
         var strokeLabel = new egret.TextField();
         strokeLabel.x = 400;
-        strokeLabel.y = 20;
+        strokeLabel.height = 400;
+        strokeLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
         strokeLabel.textColor = 0xFFFFFF;
         strokeLabel.text = "描边";
         strokeLabel.strokeColor = 0xFF0000;
