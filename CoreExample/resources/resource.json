@@ -1,17 +1,17 @@
 {
 "resources":
 	[
-		{"name":"egret_icon_png","type":"img","url":"egret_icon.png"},
-		{"name":"texture_png","type":"img","url":"armature/texture.png"},
+		{"name":"egret_icon_png","type":"image","url":"egret_icon.png"},
+		{"name":"texture_png","type":"image","url":"armature/texture.png"},
 		{"name":"skeleton_json","type":"json","url":"armature/skeleton.json"},
 		{"name":"texture_json","type":"json","url":"armature/texture.json"},
-		{"name":"button_png","type":"img","url":"button.png"},
-		{"name":"monkey_png","type":"img","url":"monkey.png"},
+		{"name":"button_png","type":"image","url":"button.png"},
+		{"name":"monkey_png","type":"image","url":"monkey.png"},
 		{"name":"monkey_json","type":"json","url":"monkey.json"},
-		{"name":"sprite_sheet_png","type":"img","url":"sprite_sheet.png"},
+		{"name":"sprite_sheet_png","type":"image","url":"sprite_sheet.png"},
 		{"name":"bitmapFont","type":"font","url":"font.fnt"},
 		{"name":"icons","type":"sheet","url":"icons.json"},
-		{"name":"button-selected-up-skin_png","type":"img","url":"button-selected-up-skin.png"},
+		{"name":"button-selected-up-skin_png","type":"image","url":"button-selected-up-skin.png"},
 		{"name":"sound","type":"sound","url":"sound.mp3"}
 	],
 
@@ -25,7 +25,7 @@
         {"name":"TestEvent","keys":"b1_png,b5_png"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestScaleBitmap","keys":"button_png"},
-        {"name":"TestSpriteFrame","keys":"icons"},
+        {"name":"TestSpriteSheet","keys":"icons"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestTween","keys":"button_png"},
         {"name":"TestSound","keys":"sound"}

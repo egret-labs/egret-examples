@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TestSpriteFrame {
+class TestSpriteSheet {
 
     public getDescription():string {
         return "SpriteFrame";
@@ -35,10 +35,8 @@ class TestSpriteFrame {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
 
-        var texture:egret.Texture = RES.getRes("icons.activity_10");
-//        等同于这样取：
-//        var spriteSheet:egret.SpriteSheet = RES.getRes("icons");
-//        var texture = spriteSheet.getTexture("activity_10");
+        var spriteSheet:egret.SpriteSheet = RES.getRes("icons");
+        var texture = spriteSheet.getTexture("activity_10");
 
         var bitmap = new egret.Bitmap();
         bitmap.texture = texture;

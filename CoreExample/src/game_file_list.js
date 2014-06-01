@@ -38,7 +38,7 @@ var game_file_list = [
     "TestURLLoader.js",
     "TestScaleBitmap.js",
     "TestShape.js",
-    "TestSpriteFrame.js",
+    "TestSpriteSheet.js",
     "TestText.js",
     "TestTicker.js",
     "TestTween.js",
