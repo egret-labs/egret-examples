@@ -26,53 +26,47 @@
  */
 
 /// <reference path="../egret.d.ts"/>
-/// <reference path="TitleWindowCloseButtonSkin.ts"/>
+/// <reference path="SliderThumbSkin.ts"/>
 
-class TitleWindowSkin extends egret.Skin {
-
+class VSliderSkin extends egret.Skin {
     public constructor() {
         super();
+        this.minWidth = 11;
+        this.minHeight = 50;
     }
 
-    private static _skinParts:Array<string> = ["closeButton", "titleDisplay"];
-
-    public get skinParts():Array<string> {
-        return TitleWindowSkin._skinParts;
+    public static _skinParts:Array<any> = ["thumb", "track","trackHighlight"];
+    public get skinParts():Array<any> {
+        return VSliderSkin._skinParts;
     }
 
-    /**
-     * [SkinPart]
-     */
-    public closeButton:egret.Button;
+    public trackHighlight:egret.UIAsset;
 
-    public backGround:egret.UIAsset;
+    public thumb:egret.Button;
 
-    public titleDisplay:egret.Label;
+    public track:egret.Button;
 
     public createChildren():void {
         super.createChildren();
-        this.backGround = new egret.UIAsset();
-        this.backGround.percentHeight = 100;
-        this.backGround.percentWidth = 100;
-        this.backGround.source = "background";
-        this.addElement(this.backGround);
 
-        this.titleDisplay = new egret.Label();
-        this.titleDisplay.textColor = 0xffffff;
-        this.titleDisplay.size = 30;
-        this.titleDisplay.maxDisplayedLines = 1;
-        this.titleDisplay.left = 5;
-        this.titleDisplay.right = 5;
-        this.titleDisplay.top = 1;
-        this.titleDisplay.minHeight = 28;
-        this.titleDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.titleDisplay.textAlign = egret.HorizontalAlign.CENTER;
-        this.addElement(this.titleDisplay);
+        this.track = new egret.Button();
+        var asset:egret.UIAsset = new egret.UIAsset();
+        asset.source = "background";
+        this.track.skinName = asset;
+        this.track.percentHeight = 100;
+        this.track.width = 11;
+        this.track.horizontalCenter = 0;
+        this.addElement(this.track);
 
-        this.closeButton = new egret.Button();
-        this.closeButton.skinName = TitleWindowCloseButtonSkin;
-        this.closeButton.right = 7;
-        this.closeButton.top = 7;
-        this.addElement(this.closeButton);
+        this.trackHighlight = new egret.UIAsset();
+        this.trackHighlight.source = "background-down";
+        this.trackHighlight.width = 11;
+        this.trackHighlight.horizontalCenter = 0;
+        this.addElement(this.trackHighlight);
+
+        this.thumb = new egret.Button();
+        this.thumb.skinName = SliderThumbSkin;
+        this.thumb.horizontalCenter = 0;
+        this.addElement(this.thumb);
     }
 }

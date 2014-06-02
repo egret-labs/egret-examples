@@ -26,7 +26,6 @@
  */
 
 /// <reference path="../egret.d.ts"/>
-/// <reference path="ScreenItemRendererSkin.ts"/>
 
 class ItemRendererSkin extends egret.Skin{
 

@@ -43,7 +43,7 @@ class ScrollerScreen extends ScreenBase{
         background.strokeAlpha = 1;
         background.strokeColor = 0x009aff;
         this.addElement(background);
-        
+
         var scroller:egret.Scroller = new egret.Scroller();
         scroller.top = scroller.left = scroller.right = scroller.bottom = 100;
         this.addElement(scroller);

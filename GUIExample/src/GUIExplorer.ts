@@ -30,6 +30,7 @@
 /// <reference path="egret.d.ts"/>
 /// <reference path="screens/ScreenBase.ts"/>
 /// <reference path="skins/ListSkin.ts"/>
+/// <reference path="skins/ScreenItemRendererSkin.ts"/>
 
 class GUIExplorer extends egret.DisplayObjectContainer{
 

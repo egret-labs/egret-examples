@@ -27,7 +27,7 @@
 
 /// <reference path="../egret.d.ts"/>
 /// <reference path="ScreenBase.ts"/>
-/// <reference path="../skins/ScreenItemRendererSkin.ts"/>
+/// <reference path="../skins/ItemRendererSkin.ts"/>
 
 class ListScreen extends ScreenBase {
 

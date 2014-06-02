@@ -41,6 +41,7 @@
 /// <reference path="skins/TabBarSkin.ts"/>
 /// <reference path="skins/TitleWindowSkin.ts"/>
 /// <reference path="skins/ToggleButtonSkin.ts"/>
+/// <reference path="skins/VSliderSkin.ts"/>
 
 class SkinAdapter implements egret.ISkinAdapter {
     /**
@@ -95,6 +96,9 @@ class SkinAdapter implements egret.ISkinAdapter {
                 break;
             case "egret.HSlider":
                 skin = new HSliderSkin();
+                break;
+            case "egret.VSlider":
+                skin = new VSliderSkin();
                 break;
             case "egret.TabBar":
                 skin = new TabBarSkin();

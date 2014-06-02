@@ -39,26 +39,42 @@ class SliderScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var group:egret.Group = new egret.Group();
-        group.horizontalCenter = 0;
-        group.verticalCenter = 0;
-        this.addElement(group);
+        var hSlider:egret.HSlider = new egret.HSlider();
+        hSlider.width = 250;
+        hSlider.maximum = 100;
+        hSlider.horizontalCenter = 0;
+        hSlider.verticalCenter = 135;
+        hSlider.value = 50;
+        this.addElement(hSlider);
+        hSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
 
-        var slider:egret.HSlider = new egret.HSlider();
-        slider.maximum = 100;
-        group.addElement(slider);
-        slider.addEventListener(egret.Event.CHANGE, this.onChange, this);
+        var vSlider:egret.HSlider = new egret.VSlider();
+        vSlider.height = 250;
+        vSlider.maximum = 100;
+        vSlider.horizontalCenter = -135;
+        vSlider.verticalCenter = 0;
+        vSlider.value = 50;
+        this.addElement(vSlider);
+        vSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
 
         this.labelDisplay = new egret.Label();
-        this.labelDisplay.maxDisplayedLines = 1;
         this.labelDisplay.size = 20;
         this.labelDisplay.textColor = 0xffffff;
-        this.labelDisplay.text = "0";
-        group.addElement(this.labelDisplay);
+        this.labelDisplay.fontFamily = "微软雅黑";
+        this.labelDisplay.text = "拖拽滑块以改变值";
+        this.labelDisplay.horizontalCenter = 0;
+        this.labelDisplay.verticalCenter = 0;
+        this.addElement(this.labelDisplay);
     }
 
     private onChange(event:egret.Event):void{
-        var slider:egret.HSlider = <egret.HSlider>event.currentTarget;
-        this.labelDisplay.text = slider.value.toString();
+        var slider:egret.SliderBase = <egret.SliderBase>event.currentTarget;
+        if(slider instanceof egret.VSlider){
+            this.labelDisplay.text = "VSlider.value : "+slider.value.toString();
+        }
+        else{
+            this.labelDisplay.text = "HSlider.value : "+slider.value.toString();
+        }
+
     }
 }

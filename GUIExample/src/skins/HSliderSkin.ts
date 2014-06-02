@@ -26,6 +26,7 @@
  */
 
 /// <reference path="../egret.d.ts"/>
+/// <reference path="SliderThumbSkin.ts"/>
 
 class HSliderSkin extends egret.Skin {
     public constructor() {
@@ -34,10 +35,12 @@ class HSliderSkin extends egret.Skin {
         this.minHeight = 11;
     }
 
-    public static _skinParts:Array<any> = ["thumb", "track"];
+    public static _skinParts:Array<any> = ["thumb", "track","trackHighlight"];
     public get skinParts():Array<any> {
         return HSliderSkin._skinParts;
     }
+
+    public trackHighlight:egret.UIAsset;
 
     public thumb:egret.Button;
 
@@ -47,27 +50,24 @@ class HSliderSkin extends egret.Skin {
         super.createChildren();
 
         this.track = new egret.Button();
-        this.track.left = 0;
-        this.track.right = 0;
-        this.track.top = 0;
-        this.track.bottom = 0;
-        this.track.minWidth = 33;
-        this.track.width = 100;
-        this.track.height = 35;
-        var shape:egret.Shape = new egret.Shape();
-        shape.graphics.beginFill(0x000000);
-        shape.graphics.drawRect(0,0,100,35);
-        shape.graphics.endFill();
-        shape.width = 100;
-        shape.height = 35;
-        this.track.skinName = shape;
+        var asset:egret.UIAsset = new egret.UIAsset();
+        asset.source = "background";
+        this.track.skinName = asset;
+        this.track.percentWidth = 100;
+        this.track.height = 11;
+        this.track.verticalCenter = 0;
         this.addElement(this.track);
 
+        this.trackHighlight = new egret.UIAsset();
+        this.trackHighlight.source = "background-down";
+        this.trackHighlight.height = 11;
+        this.trackHighlight.verticalCenter = 0;
+        this.addElement(this.trackHighlight);
+
         this.thumb = new egret.Button();
-        this.thumb.top = 0;
-        this.thumb.bottom = 0;
-        this.thumb.width = 11;
-        this.thumb.height = 11;
+        this.thumb.skinName = SliderThumbSkin;
+        this.thumb.verticalCenter = 0;
         this.addElement(this.thumb);
+
     }
 }
