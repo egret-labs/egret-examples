@@ -44,13 +44,13 @@ class TabBarScreen extends ScreenBase {
         bar.verticalCenter = 0;
         this.addElement(bar);
 
-        bar.dataProvider = new egret.ArrayCollection(["tab1", "tab2", "tab3"]);
+        bar.dataProvider = new egret.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
         bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
 
         this.labelDisplay = new egret.Label();
         this.labelDisplay.maxDisplayedLines = 1;
-        this.labelDisplay.size = 20;
-        this.labelDisplay.top = 50;
+        this.labelDisplay.fontFamily = "微软雅黑";
+        this.labelDisplay.verticalCenter = -100;
         this.labelDisplay.horizontalCenter = 0;
         this.labelDisplay.textColor = 0xffffff;
         this.labelDisplay.text = "选中第1项";
