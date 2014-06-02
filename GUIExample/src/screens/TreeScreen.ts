@@ -41,30 +41,32 @@ class TreeScreen extends ScreenBase {
         var tree:egret.Tree = new egret.Tree();
         var dp2:egret.ObjectCollection = new egret.ObjectCollection();
         dp2.source = {children: [
-            {dir: true, name: "Object数据源0",
+            {dir: true, name: "Item0",
                 children: [
-                    {name: "Object数据源00"},
-                    {dir: true, name: "Object数据源01",
+                    {name: "Item00"},
+                    {dir: true, name: "Item01",
                         children: [
-                            {name: "Object数据源010"}
+                            {name: "Item010"}
                         ]}
                 ]},
-            {dir: true, name: "Object数据源1", children: []},
-            {name: "Object数据源2"}
+            {dir: true, name: "Item1", children: []},
+            {name: "Item2"}
         ]};
         tree.itemRendererSkinName = TreeItemRendererSkin;
         egret.ObjectCollection.assignParent(dp2.source);
         tree.labelField = "name";
         tree.iconFunction = this.iconFunc;
         tree.dataProvider = dp2;
-        tree.x = 200;
-        tree.y = 140;
+        tree.horizontalCenter = 0;
+        tree.verticalCenter = 0;
+        tree.width = 190;
+        tree.height = 200;
         this.addElement(tree);
     }
 
     private iconFunc(item:any):any {
         if (item.dir)
-            return "check-selected-down-icon";
-        return "check-selected-disabled-icon";
+            return "dir_icon";
+        return "file_icon";
     }
 }

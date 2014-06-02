@@ -2,6 +2,9 @@
 "resources":
 	[
         {"name":"egret_labs","type":"image","url":"assets/egret-labs.jpg"},
+        {"name":"dir_icon","type":"image","url":"assets/dir.png"},
+        {"name":"file_icon","type":"image","url":"assets/file.png"},
+        {"name":"egret_labs","type":"image","url":"assets/egret-labs.jpg"},
         {"name":"background","type":"image","scale9grid":"4,4,24,24","url":"assets/background-skin.png"},
 		{"name":"background-disabled","scale9grid":"4,4,24,24","type":"image","url":"assets/background-disabled-skin.png"},
 		{"name":"background-down","scale9grid":"4,4,24,24","type":"image","url":"assets/background-down-skin.png"},
@@ -59,6 +62,6 @@
 
 "groups":
 	[
-        {"name":"preload","keys":"egret_labs,screens,background-disabled,page-indicator-normal-skin.png,page-indicator-normal,button-danger-up,check-selected-disabled-icon,callout-arrow-top,tab-selected,callout-arrow-right,list-inset-item-first-up,button-back-down,check-selected-up-icon,page-indicator-selected,button-disabled,callout-arrow-left,list-inset-item-first-selected,vertical-scroll-bar-thumb,list-inset-item-single-up,list-inset-item-last-up,tab-down,background-disabled,button-forward-down,tab-selected-disabled,header-background,list-item-up,horizontal-scroll-bar-thumb,background-popup,list-item-selected,search-icon,button-call-to-action-down,button-back-disabled,radio-selected-down-icon,button-call-to-action-up,button-danger-down,background-focused,radio-selected-up-icon,button-back-up,picker-list-icon,background,list-inset-item-single-selected,check-selected-down-icon,button-forward-disabled,background-down,button-selected-disabled,radio-selected-disabled-icon,callout-arrow-bottom,list-accessory-drill-down-icon,button-selected-up,picker-list-item-selected-icon,button-up,background-inset,button-forward-up,list-inset-item-last-selected,button-down,panel-skin-background"}
+        {"name":"preload","keys":"dir_icon,file_icon,egret_labs,screens,background-disabled,page-indicator-normal-skin.png,page-indicator-normal,button-danger-up,check-selected-disabled-icon,callout-arrow-top,tab-selected,callout-arrow-right,list-inset-item-first-up,button-back-down,check-selected-up-icon,page-indicator-selected,button-disabled,callout-arrow-left,list-inset-item-first-selected,vertical-scroll-bar-thumb,list-inset-item-single-up,list-inset-item-last-up,tab-down,background-disabled,button-forward-down,tab-selected-disabled,header-background,list-item-up,horizontal-scroll-bar-thumb,background-popup,list-item-selected,search-icon,button-call-to-action-down,button-back-disabled,radio-selected-down-icon,button-call-to-action-up,button-danger-down,background-focused,radio-selected-up-icon,button-back-up,picker-list-icon,background,list-inset-item-single-selected,check-selected-down-icon,button-forward-disabled,background-down,button-selected-disabled,radio-selected-disabled-icon,callout-arrow-bottom,list-accessory-drill-down-icon,button-selected-up,picker-list-item-selected-icon,button-up,background-inset,button-forward-up,list-inset-item-last-selected,button-down,panel-skin-background"}
 	]
 }

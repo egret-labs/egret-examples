@@ -40,6 +40,7 @@
 /// <reference path="skins/ProgressBarSkin.ts"/>
 /// <reference path="skins/TabBarSkin.ts"/>
 /// <reference path="skins/ToggleButtonSkin.ts"/>
+/// <reference path="skins/TreeSkin.ts"/>
 /// <reference path="skins/VSliderSkin.ts"/>
 
 class SkinAdapter implements egret.ISkinAdapter {
@@ -106,7 +107,7 @@ class SkinAdapter implements egret.ISkinAdapter {
                 skin = new ListSkin();
                 break;
             case "egret.Tree":
-                skin = new ListSkin();
+                skin = new TreeSkin();
                 break;
         }
         return skin;
