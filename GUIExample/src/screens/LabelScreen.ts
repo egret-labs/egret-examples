@@ -34,13 +34,68 @@ class LabelScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var centerLabel:egret.Label = new egret.Label();
-        centerLabel.textColor = 0xffffff;
-        centerLabel.size = 30;
-        centerLabel.text = "居中文字";
-        centerLabel.horizontalCenter = 0;
-        centerLabel.verticalCenter = 0;
-        this.addElement(centerLabel);
+        var group:egret.Group = new egret.Group();
+        group.left = group.top = group.right = group.bottom = 50;
+        this.addElement(group);
+
+        var label:egret.Label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.text = "左对齐文本";
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.text = "水平居中文本";
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.text = "右对齐文本";
+        label.textAlign = egret.HorizontalAlign.RIGHT;
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.text = "垂直居中文本";
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.text = "底对齐文本";
+        label.verticalAlign = egret.VerticalAlign.BOTTOM;
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0xe4e4e4;
+        label.fontFamily = "微软雅黑";
+        label.bold = true;
+        label.text = "粗体文本";
+        label.textAlign = egret.HorizontalAlign.RIGHT;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        group.addElement(label);
+
+        label = new egret.Label();
+        label.percentHeight = label.percentWidth = 100;
+        label.textColor = 0x009aff;
+        label.fontFamily = "微软雅黑";
+        label.italic = true;
+        label.text = "斜体文本";
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        group.addElement(label);
     }
 }
 

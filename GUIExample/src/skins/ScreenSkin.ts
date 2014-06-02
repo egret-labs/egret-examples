@@ -31,7 +31,7 @@ class ScreenSkin extends egret.Skin{
         super();
     }
 
-    private static _skinParts:Array<string> = ["contentGroup"];
+    private static _skinParts:Array<string> = ["contentGroup","titleDisplay"];
 
     public get skinParts():Array<string>{
         return ScreenSkin._skinParts;
@@ -40,6 +40,10 @@ class ScreenSkin extends egret.Skin{
      * [SkinPart]
      */
     public contentGroup:egret.Group;
+    /**
+     * [SkinPart]
+     */
+    public titleDisplay:egret.Label;
 
     public createChildren():void{
         super.createChildren();
@@ -49,6 +53,15 @@ class ScreenSkin extends egret.Skin{
         this.contentGroup.top = 90;
         this.contentGroup.bottom = 0;
         this.addElement(this.contentGroup);
+
+        var title:egret.Label = new egret.Label();
+        this.titleDisplay = title;
+        title.fontFamily = "Tahoma";
+        title.textColor = 0xe4e4e4;
+        title.size = 35;
+        title.horizontalCenter = 0;
+        title.top = 25;
+        this.addElement(title);
 
         var backButton:egret.Button = new egret.Button();
         backButton.width = 90;

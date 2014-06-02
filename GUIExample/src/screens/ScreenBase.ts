@@ -26,7 +26,7 @@
  */
 
 
-class ScreenBase extends egret.SkinnableContainer{
+class ScreenBase extends egret.Panel{
 
     public constructor(){
         super();

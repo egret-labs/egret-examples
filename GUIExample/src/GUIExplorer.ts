@@ -118,6 +118,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
             clazz = ScreenBase;
         }
         var screen:ScreenBase = new clazz();
+        screen.title = event.item;
         this.currentScreen = screen;
         screen.addEventListener("goBack",this.onGoBack,this);
         uiStage.addElement(screen);

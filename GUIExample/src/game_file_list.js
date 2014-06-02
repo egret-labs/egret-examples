@@ -52,7 +52,6 @@ var game_file_list = [
 	"screens/LabelScreen.js",
 	"screens/SliderScreen.js",
 	"screens/TabBarScreen.js",
-	"screens/ItemRendererScreen.js",
 	"screens/TitleWindowScreen.js",
 	"screens/TreeScreen.js"
 ]
