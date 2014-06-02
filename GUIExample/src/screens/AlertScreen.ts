@@ -39,13 +39,14 @@ class AlertScreen extends ScreenBase {
         button.horizontalCenter = 0;
         button.verticalCenter = 0;
         button.label = "Show Alert";
-        button.width = 200;
+        button.width = 140;
+        button.height = 60;
         this.addElement(button);
         button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clickHandler, this);
     }
 
     private clickHandler():void {
-        egret.Alert.show("Alert Message");
+        egret.Alert.show("This is an alert message!","Alert");
     }
 }
 

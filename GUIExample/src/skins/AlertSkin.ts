@@ -57,7 +57,8 @@ class AlertSkin extends egret.Skin {
         this.addElement(this.backGround);
 
         this.titleDisplay = new egret.Label();
-        this.titleDisplay.size = 30;
+        this.titleDisplay.fontFamily = "Tahoma";
+        this.titleDisplay.size = 36;
         this.titleDisplay.maxDisplayedLines = 1;
         this.titleDisplay.left = 5;
         this.titleDisplay.right = 5;
@@ -65,19 +66,20 @@ class AlertSkin extends egret.Skin {
         this.titleDisplay.minHeight = 28;
         this.titleDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.titleDisplay.textAlign = egret.HorizontalAlign.CENTER;
-        this.titleDisplay.textColor = 0xffffff;
+        this.titleDisplay.textColor = 0xe4e4e4;
         this.addElement(this.titleDisplay);
 
         this.contentDisplay = new egret.Label();
+        this.contentDisplay.fontFamily = "Tahoma";
         this.contentDisplay.size = 22;
-        this.contentDisplay.top = 42;
+        this.contentDisplay.top = 30;
         this.contentDisplay.left = 1;
         this.contentDisplay.right = 1;
         this.contentDisplay.bottom = 36;
         this.contentDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.contentDisplay.textAlign = egret.HorizontalAlign.CENTER;
         this.contentDisplay.padding = 10;
-        this.contentDisplay.textColor = 0xffffff;
+        this.contentDisplay.textColor = 0xe4e4e4;
         this.addElement(this.contentDisplay);
 
         var hGroup:egret.Group = new egret.Group();
@@ -91,14 +93,14 @@ class AlertSkin extends egret.Skin {
         this.addElement(hGroup);
 
         this.firstButton = new egret.Button();
-        this.firstButton.width = 120;
-        this.firstButton.height = 55;
-        this.firstButton.label = "确定";
+        this.firstButton.width = 115;
+        this.firstButton.height = 50;
+        this.firstButton.label = "OK";
         hGroup.addElement(this.firstButton);
         this.secondButton = new egret.Button();
-        this.secondButton.width = 120;
-        this.secondButton.height = 55;
-        this.secondButton.label = "取消";
+        this.secondButton.width = 115;
+        this.secondButton.height = 50;
+        this.secondButton.label = "Cancel";
         hGroup.addElement(this.secondButton);
     }
 }
