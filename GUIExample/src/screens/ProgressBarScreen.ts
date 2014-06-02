@@ -40,7 +40,7 @@ class ProgressBarScreen extends ScreenBase {
         var progressBar:egret.ProgressBar = new egret.ProgressBar();
         progressBar.width = 250;
         progressBar.height = 21;
-        progressBar.horizontalCenter = 0;
+        progressBar.horizontalCenter = 120;
         progressBar.verticalCenter = -50;
         progressBar.slideDuration = 0;//屏蔽默认的缓动动画
         this.addElement(progressBar);
@@ -49,10 +49,20 @@ class ProgressBarScreen extends ScreenBase {
         progressBar = new egret.ProgressBar();
         progressBar.width = 250;
         progressBar.height = 21;
-        progressBar.horizontalCenter = 0;
+        progressBar.horizontalCenter = 120;
         progressBar.verticalCenter = 50;
         progressBar.slideDuration = 0;//屏蔽默认的缓动动画
         progressBar.direction = egret.ProgressBarDirection.RIGHT_TO_LEFT;
+        this.addElement(progressBar);
+        egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
+
+        progressBar = new egret.ProgressBar();
+        progressBar.width = 100;
+        progressBar.height = 250;
+        progressBar.horizontalCenter = -120;
+        progressBar.verticalCenter = 0;
+        progressBar.slideDuration = 0;//屏蔽默认的缓动动画
+        progressBar.direction = egret.ProgressBarDirection.BOTTOM_TO_TOP;
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
