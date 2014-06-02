@@ -37,13 +37,32 @@ class ProgressBarScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var bar:egret.ProgressBar = new egret.ProgressBar();
-        bar.maximum = 100;
-        bar.value = 0;
-        bar.horizontalCenter = 0;
-        bar.verticalCenter = 0;
-        bar.slideDuration = 0;
-        this.addElement(bar);
-        egret.Tween.get(bar, {loop:true}).to({value:100}, 2000);
+        var progressBar:egret.ProgressBar = new egret.ProgressBar();
+        progressBar.width = 250;
+        progressBar.height = 21;
+        progressBar.horizontalCenter = 0;
+        progressBar.verticalCenter = -50;
+        progressBar.slideDuration = 0;//屏蔽默认的缓动动画
+        this.addElement(progressBar);
+        egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
+
+        progressBar = new egret.ProgressBar();
+        progressBar.width = 250;
+        progressBar.height = 21;
+        progressBar.horizontalCenter = 0;
+        progressBar.verticalCenter = 50;
+        progressBar.slideDuration = 0;//屏蔽默认的缓动动画
+        progressBar.direction = egret.ProgressBarDirection.RIGHT_TO_LEFT;
+        this.addElement(progressBar);
+        egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
+
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.onRemovedFromStage,this);
+    }
+
+    private onRemovedFromStage(event:egret.Event):void{
+        for(var i:number=0;i<this.numElements;i++){
+            var progressBar:egret.ProgressBar = <egret.ProgressBar><any> this.getElementAt(i);
+            egret.Tween.removeTweens(progressBar);
+        }
     }
 }

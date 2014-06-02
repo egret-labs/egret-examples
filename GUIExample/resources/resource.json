@@ -1,8 +1,9 @@
 {
 "resources":
 	[
-		{"name":"background-disabled","type":"image","url":"assets/background-disabled-skin.png"},
-		{"name":"background-down","type":"image","url":"assets/background-down-skin.png"},
+        {"name":"background","type":"image","scale9grid":"4,4,24,24","url":"assets/background-skin.png"},
+		{"name":"background-disabled","scale9grid":"4,4,24,24","type":"image","url":"assets/background-disabled-skin.png"},
+		{"name":"background-down","scale9grid":"4,4,24,24","type":"image","url":"assets/background-down-skin.png"},
 		{"name":"background-focused","type":"image","url":"assets/background-focused-skin.png"},
 		{"name":"background-inset","type":"image","url":"assets/background-inset-skin.png"},
 		{"name":"background-popup","type":"image","url":"assets/background-popup-skin.png"},
@@ -10,18 +11,18 @@
 		{"name":"button-back-disabled","scale9grid":"22,0,10,60","type":"image","url":"assets/button-back-disabled-skin.png"},
 		{"name":"button-back-down","scale9grid":"22,0,10,60","type":"image","url":"assets/button-back-down-skin.png"},
 		{"name":"button-back-up","scale9grid":"22,0,10,60","type":"image","url":"assets/button-back-up-skin.png"},
-		{"name":"button-call-to-action-down","scale9grid":"7,7,40,40","type":"image","url":"assets/button-call-to-action-down-skin.png"},
-		{"name":"button-call-to-action-up","scale9grid":"7,7,40,40","type":"image","url":"assets/button-call-to-action-up-skin.png"},
-		{"name":"button-danger-down","scale9grid":"7,7,40,40","type":"image","url":"assets/button-danger-down-skin.png"},
-		{"name":"button-danger-up","scale9grid":"7,7,40,40","type":"image","url":"assets/button-danger-up-skin.png"},
-		{"name":"button-disabled","scale9grid":"7,7,40,40","type":"image","url":"assets/button-disabled-skin.png"},
-		{"name":"button-down","scale9grid":"7,7,40,40","type":"image","url":"assets/button-down-skin.png"},
+		{"name":"button-call-to-action-down","scale9grid":"7,7,46,46","type":"image","url":"assets/button-call-to-action-down-skin.png"},
+		{"name":"button-call-to-action-up","scale9grid":"7,7,46,46","type":"image","url":"assets/button-call-to-action-up-skin.png"},
+		{"name":"button-danger-down","scale9grid":"7,7,46,46","type":"image","url":"assets/button-danger-down-skin.png"},
+		{"name":"button-danger-up","scale9grid":"7,7,46,46","type":"image","url":"assets/button-danger-up-skin.png"},
+		{"name":"button-disabled","scale9grid":"7,7,46,46","type":"image","url":"assets/button-disabled-skin.png"},
+		{"name":"button-down","scale9grid":"7,7,46,46","type":"image","url":"assets/button-down-skin.png"},
 		{"name":"button-forward-disabled","type":"image","url":"assets/button-forward-disabled-skin.png"},
 		{"name":"button-forward-down","type":"image","url":"assets/button-forward-down-skin.png"},
 		{"name":"button-forward-up","type":"image","url":"assets/button-forward-up-skin.png"},
-		{"name":"button-selected-disabled","scale9grid":"7,7,40,40","type":"image","url":"assets/button-selected-disabled-skin.png"},
-		{"name":"button-selected-up","scale9grid":"7,7,40,40","type":"image","url":"assets/button-selected-up-skin.png"},
-		{"name":"button-up","scale9grid":"7,7,40,40","type":"image","url":"assets/button-up-skin.png"},
+		{"name":"button-selected-disabled","scale9grid":"7,7,46,46","type":"image","url":"assets/button-selected-disabled-skin.png"},
+		{"name":"button-selected-up","scale9grid":"7,7,46,46","type":"image","url":"assets/button-selected-up-skin.png"},
+		{"name":"button-up","scale9grid":"7,7,46,46","type":"image","url":"assets/button-up-skin.png"},
 		{"name":"callout-arrow-bottom","type":"image","url":"assets/callout-arrow-bottom-skin.png"},
 		{"name":"callout-arrow-left","type":"image","url":"assets/callout-arrow-left-skin.png"},
 		{"name":"callout-arrow-right","type":"image","url":"assets/callout-arrow-right-skin.png"},
@@ -52,8 +53,6 @@
 		{"name":"tab-selected-disabled","type":"image","url":"assets/tab-selected-disabled-skin.png"},
 		{"name":"tab-selected","type":"image","url":"assets/tab-selected-skin.png"},
 		{"name":"vertical-scroll-bar-thumb","type":"image","url":"assets/vertical-scroll-bar-thumb-skin.png"},
-        {"name":"panel-skin-background","type":"image","scale9grid":"7,7,20,20","url":"assets/background-skin.png"},
-
 		{"name":"screens","type":"json","url":"config/screens.json"}
 	],
 

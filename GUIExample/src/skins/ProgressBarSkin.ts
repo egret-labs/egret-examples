@@ -30,8 +30,6 @@
 class ProgressBarSkin extends egret.Skin {
     public constructor() {
         super();
-        this.width = 200;
-        this.height = 40;
     }
 
     public static _skinParts:Array<any> = ["thumb", "track", "labelDisplay"];
@@ -41,7 +39,7 @@ class ProgressBarSkin extends egret.Skin {
 
     public thumb:egret.UIAsset;
 
-    public track:egret.UIAsset;
+    public track:egret.UIComponent;
 
     public labelDisplay:egret.Label;
 
@@ -49,21 +47,18 @@ class ProgressBarSkin extends egret.Skin {
         super.createChildren();
 
         var bg = new egret.UIAsset();
-        bg.width = this.width;
-        bg.height = this.height;
+        bg.percentHeight = bg.percentWidth = 100;
         bg.source = "background-disabled";
-        bg.scale9Grid = new egret.Rectangle(10,10,10,10);
         this.addElement(bg);
 
         this.thumb = new egret.UIAsset();
-        this.thumb.height = this.height;
         this.thumb.source = "background-down";
-        this.thumb.scale9Grid = new egret.Rectangle(10,10,10,10);
         this.addElement(this.thumb);
 
-        this.track = new egret.UIAsset();
-        this.track.width = this.width;
-        this.track.height = this.height;
+        //track是用来确定thumb的覆盖区域的，并不一定是背景素材。
+        this.track = new egret.UIComponent();
+        this.track.percentWidth = 100;
+        this.track.percentHeight = 100;
         this.addElement(this.track);
 
         this.labelDisplay = new egret.Label();

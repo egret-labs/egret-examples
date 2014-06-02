@@ -56,7 +56,7 @@ class AlertSkin extends egret.Skin {
         this.backGround = new egret.UIAsset();
         this.backGround.percentHeight = 100;
         this.backGround.percentWidth = 100;
-        this.backGround.source = "panel-skin-background";
+        this.backGround.source = "background";
         this.addElement(this.backGround);
 
         this.titleDisplay = new egret.Label();
@@ -98,12 +98,12 @@ class AlertSkin extends egret.Skin {
         this.firstButton = new egret.Button();
         this.firstButton.width = 115;
         this.firstButton.height = 50;
-        this.firstButton.label = "OK";
+        this.firstButton.label = "确定";
         hGroup.addElement(this.firstButton);
         this.secondButton = new egret.Button();
         this.secondButton.width = 115;
         this.secondButton.height = 50;
-        this.secondButton.label = "Cancel";
+        this.secondButton.label = "取消";
         hGroup.addElement(this.secondButton);
     }
 }
