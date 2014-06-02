@@ -69,6 +69,7 @@ class BackButtonSkin extends egret.Skin{
         this.addElement(this.disabledSkin);
 
         this.labelDisplay = new egret.Label();
+        this.labelDisplay.maxDisplayedLines = 1;
         this.labelDisplay.size = 20;
         this.labelDisplay.fontFamily = "Tahoma";
         this.labelDisplay.textColor = 0x1a1815;

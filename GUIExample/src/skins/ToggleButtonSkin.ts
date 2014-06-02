@@ -56,46 +56,34 @@
 
 /// <reference path="../egret.d.ts"/>
 
-class ButtonSkin extends egret.Skin{
+class ToggleButtonSkin extends egret.Skin{
 
     public constructor(){
         super();
         this.minWidth = 140;
         this.height = 60;
-        this.states = ["up","down","disabled"];
+        this.states = ["up","down","disabled","upAndSelected","downAndSelected","disabledAndSelected"];
     }
 
     private static _skinParts:Array<string> = ["labelDisplay"];
 
     public get skinParts():Array<string>{
-        return ButtonSkin._skinParts;
+        return ToggleButtonSkin._skinParts;
     }
     /**
      * [SkinPart]
      */
     public labelDisplay:egret.Label;
 
-    private upSkin:egret.UIAsset;
-    private downSkin:egret.UIAsset;
-    private disabledSkin:egret.UIAsset;
+    private backgroud:egret.UIAsset;
 
 
     public createChildren():void{
         super.createChildren();
-        this.upSkin = new egret.UIAsset();
-        this.upSkin.percentHeight = this.upSkin.percentWidth = 100;
-        this.upSkin.source = "button-up";
-        this.addElement(this.upSkin);
-
-        this.downSkin = new egret.UIAsset();
-        this.downSkin.percentHeight = this.downSkin.percentWidth = 100;
-        this.downSkin.source = "button-down";
-        this.addElement(this.downSkin);
-
-        this.disabledSkin = new egret.UIAsset();
-        this.disabledSkin.percentHeight = this.disabledSkin.percentWidth = 100;
-        this.disabledSkin.source = "button-disabled";
-        this.addElement(this.disabledSkin);
+        this.backgroud = new egret.UIAsset();
+        this.backgroud.percentHeight = this.backgroud.percentWidth = 100;
+        this.backgroud.source = "button-up";
+        this.addElement(this.backgroud);
 
         this.labelDisplay = new egret.Label();
         this.labelDisplay.maxDisplayedLines = 1;
@@ -115,19 +103,20 @@ class ButtonSkin extends egret.Skin{
         super.commitCurrentState();
         switch (this.currentState){
             case "up":
-                this.upSkin.visible = true;
-                this.disabledSkin.visible = false;
-                this.downSkin.visible = false;
+                this.backgroud.source = "button-up";
                 break;
+            case "downAndSelected":
             case "down":
-                this.downSkin.visible = true;
-                this.disabledSkin.visible = false;
-                this.upSkin.visible = false;
+                this.backgroud.source = "button-down";
                 break;
             case "disabled":
-                this.disabledSkin.visible = true;
-                this.downSkin.visible = false;
-                this.upSkin.visible = false;
+                this.backgroud.source = "button-disabled";
+                break;
+            case "upAndSelected":
+                this.backgroud.source = "button-selected-up";
+                break;
+            case "disabledAndSelected":
+                this.backgroud.source = "button-selected-disabled";
                 break;
         }
     }

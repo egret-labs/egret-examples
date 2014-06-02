@@ -72,10 +72,10 @@ class AlertSkin extends egret.Skin {
         this.contentDisplay = new egret.Label();
         this.contentDisplay.fontFamily = "Tahoma";
         this.contentDisplay.size = 22;
-        this.contentDisplay.top = 30;
+        this.contentDisplay.top = 36;
         this.contentDisplay.left = 1;
         this.contentDisplay.right = 1;
-        this.contentDisplay.bottom = 36;
+        this.contentDisplay.bottom = 45;
         this.contentDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.contentDisplay.textAlign = egret.HorizontalAlign.CENTER;
         this.contentDisplay.padding = 10;

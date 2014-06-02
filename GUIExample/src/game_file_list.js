@@ -31,6 +31,7 @@ var game_file_list = [
 	"skins/ListSkin.js",
 	"skins/BackButtonSkin.js",
     "skins/ButtonSkin.js",
+    "skins/ToggleButtonSkin.js",
 	"skins/AlertSkin.js",
 	"skins/ItemRendererSkin.js",
 	"skins/ScreenSkin.js",

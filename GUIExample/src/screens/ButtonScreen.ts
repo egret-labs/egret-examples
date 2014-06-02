@@ -34,11 +34,31 @@ class ButtonScreen extends ScreenBase{
     public createChildren():void{
         super.createChildren();
 
+        var group:egret.Group = new egret.Group();
+        var layout:egret.VerticalLayout = new egret.VerticalLayout();
+        layout.horizontalAlign = egret.HorizontalAlign.CONTENT_JUSTIFY;
+        layout.verticalAlign = egret.VerticalAlign.MIDDLE;
+        group.layout = layout;
+        group.percentHeight = 100;
+        group.horizontalCenter = 0;
+        this.addElement(group);
         var button:egret.Button = new egret.Button();
-        button.horizontalCenter = 0;
-        button.verticalCenter = 0;
-        button.label = "Button";
-        button.width = 200;
-        this.addElement(button);
+        button.label = "Normal Button";
+        group.addElement(button);
+
+        button = new egret.Button();
+        button.enabled = false;
+        button.label = "Disabled Button";
+        group.addElement(button);
+
+        var toggleButton:egret.ToggleButton = new egret.ToggleButton();
+        toggleButton.label = "Normal ToggleButton";
+        group.addElement(toggleButton);
+
+        toggleButton = new egret.ToggleButton();
+        toggleButton.enabled = false;
+        toggleButton.selected = true;
+        toggleButton.label = "Disabled ToggleButton";
+        group.addElement(toggleButton);
     }
 }
