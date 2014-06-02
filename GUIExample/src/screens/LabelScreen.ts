@@ -25,6 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenBase.ts"/>
+
 class LabelScreen extends ScreenBase {
 
     public constructor() {
@@ -98,4 +101,3 @@ class LabelScreen extends ScreenBase {
         group.addElement(label);
     }
 }
-

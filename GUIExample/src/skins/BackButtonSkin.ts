@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 /// <reference path="../egret.d.ts"/>
 
 class BackButtonSkin extends egret.Skin{

@@ -26,6 +26,7 @@
  */
 
 /// <reference path="../egret.d.ts"/>
+/// <reference path="TitleWindowCloseButtonSkin.ts"/>
 
 class TitleWindowSkin extends egret.Skin {
 

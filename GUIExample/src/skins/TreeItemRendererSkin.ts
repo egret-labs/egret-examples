@@ -26,6 +26,7 @@
  */
 
 /// <reference path="../egret.d.ts"/>
+/// <reference path="TreeDisclosureButtonSkin.ts"/>
 
 class TreeItemRendererSkin extends egret.Skin {
 

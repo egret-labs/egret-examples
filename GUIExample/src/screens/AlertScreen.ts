@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenBase.ts"/>
+/// <reference path="../skins/ButtonSkin.ts"/>
+
 class AlertScreen extends ScreenBase {
 
     public constructor() {
@@ -47,4 +51,3 @@ class AlertScreen extends ScreenBase {
         egret.Alert.show("this is an alert message!","Alert");
     }
 }
-

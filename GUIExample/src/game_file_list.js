@@ -34,6 +34,7 @@ var game_file_list = [
     "skins/ToggleButtonSkin.js",
 	"skins/AlertSkin.js",
 	"skins/ItemRendererSkin.js",
+	"skins/ScreenItemRendererSkin.js",
 	"skins/ScreenSkin.js",
 	"skins/ProgressBarSkin.js",
 	"skins/HSliderSkin.js",

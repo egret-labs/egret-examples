@@ -26,8 +26,9 @@
  */
 
 /// <reference path="AssetAdapter.ts"/>
+/// <reference path="SkinAdapter.ts"/>
 /// <reference path="egret.d.ts"/>
-/// <reference path="skins/ItemRendererSkin.ts"/>
+/// <reference path="screens/ScreenBase.ts"/>
 /// <reference path="skins/ListSkin.ts"/>
 
 class GUIExplorer extends egret.DisplayObjectContainer{
@@ -89,7 +90,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var list:egret.List = new egret.List();
         this.mainList = list;
         list.skinName = ListSkin;
-        list.itemRendererSkinName = ItemRendererSkin;
+        list.itemRendererSkinName = ScreenItemRendererSkin;
         list.percentWidth = 100;
         list.top = 90;
         list.bottom = 0;

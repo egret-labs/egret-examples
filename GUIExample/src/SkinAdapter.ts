@@ -31,6 +31,17 @@
  * 默认的ISkinAdapter接口实现
  * @implements egret.ISkinAdapter
  */
+
+/// <reference path="egret.d.ts"/>
+/// <reference path="skins/AlertSkin.ts"/>
+/// <reference path="skins/ButtonSkin.ts"/>
+/// <reference path="skins/HSliderSkin.ts"/>
+/// <reference path="skins/ListSkin.ts"/>
+/// <reference path="skins/ProgressBarSkin.ts"/>
+/// <reference path="skins/TabBarSkin.ts"/>
+/// <reference path="skins/TitleWindowSkin.ts"/>
+/// <reference path="skins/ToggleButtonSkin.ts"/>
+
 class SkinAdapter implements egret.ISkinAdapter {
     /**
      * 构造函数

@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenBase.ts"/>
+/// <reference path="../skins/TreeItemRendererSkin.ts"/>
+
 class TreeScreen extends ScreenBase {
 
     public constructor() {
@@ -64,4 +68,3 @@ class TreeScreen extends ScreenBase {
         return "check-selected-disabled-icon";
     }
 }
-

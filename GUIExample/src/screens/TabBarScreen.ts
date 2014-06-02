@@ -25,6 +25,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenBase.ts"/>
+
 class TabBarScreen extends ScreenBase {
 
     private labelDisplay:egret.Label;
@@ -59,4 +62,3 @@ class TabBarScreen extends ScreenBase {
         this.labelDisplay.text = "选中第" + (bar.selectedIndex + 1) + "项";
     }
 }
-

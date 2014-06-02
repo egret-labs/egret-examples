@@ -24,6 +24,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ButtonSkin.ts"/>
+
 class TabBarSkin extends egret.Skin {
     public constructor() {
         super();

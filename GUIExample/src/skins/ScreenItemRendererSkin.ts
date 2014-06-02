@@ -26,59 +26,26 @@
  */
 
 /// <reference path="../egret.d.ts"/>
-/// <reference path="BackButtonSkin.ts"/>
 
-class ScreenSkin extends egret.Skin{
+class ScreenItemRendererSkin extends ItemRendererSkin{
 
     public constructor(){
         super();
+        this.height = 85;
+        this.states = ["up","down"];
     }
-
-    private static _skinParts:Array<string> = ["contentGroup","titleDisplay"];
 
     public get skinParts():Array<string>{
-        return ScreenSkin._skinParts;
+        return ItemRendererSkin._skinParts;
     }
-    /**
-     * [SkinPart]
-     */
-    public contentGroup:egret.Group;
-    /**
-     * [SkinPart]
-     */
-    public titleDisplay:egret.Label;
 
     public createChildren():void{
         super.createChildren();
 
-        this.contentGroup = new egret.Group();
-        this.contentGroup.percentWidth = 100;
-        this.contentGroup.top = 90;
-        this.contentGroup.bottom = 0;
-        this.addElement(this.contentGroup);
-
-        var title:egret.Label = new egret.Label();
-        this.titleDisplay = title;
-        title.fontFamily = "Tahoma";
-        title.textColor = 0xe4e4e4;
-        title.size = 35;
-        title.horizontalCenter = 0;
-        title.top = 25;
-        this.addElement(title);
-
-        var backButton:egret.Button = new egret.Button();
-        backButton.width = 90;
-        backButton.height = 58;
-        backButton.skinName = BackButtonSkin;
-        backButton.y = 16;
-        backButton.x = 16;
-        backButton.label = "Back";
-        this.addElement(backButton);
-        backButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouchTap,this);
-    }
-
-    public onTouchTap(event:egret.Event):void{
-        if(this.hostComponent)
-            this.hostComponent.dispatchEventWith("goBack");
+        var icon:egret.UIAsset = new egret.UIAsset();
+        icon.source = "list-accessory-drill-down-icon";
+        icon.right = 22;
+        icon.verticalCenter = 0;
+        this.addElement(icon);
     }
 }

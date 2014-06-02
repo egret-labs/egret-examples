@@ -25,6 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenBase.ts"/>
+/// <reference path="../skins/ScreenItemRendererSkin.ts"/>
+
 class ListScreen extends ScreenBase {
 
     public constructor() {
@@ -41,10 +45,9 @@ class ListScreen extends ScreenBase {
         this.addElement(list);
 
         var arr:Array<string> = [];
-        for (var i:number = 1; i < 14; i++) {
-            arr.push("item" + i);
+        for (var i:number = 1; i < 150; i++) {
+            arr.push("Item" + i);
         }
         list.dataProvider = new egret.ArrayCollection(arr);
     }
 }
-

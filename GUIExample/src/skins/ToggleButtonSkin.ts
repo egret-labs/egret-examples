@@ -53,7 +53,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 /// <reference path="../egret.d.ts"/>
 
 class ToggleButtonSkin extends egret.Skin{

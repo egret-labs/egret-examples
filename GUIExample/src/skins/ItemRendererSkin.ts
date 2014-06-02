@@ -26,6 +26,7 @@
  */
 
 /// <reference path="../egret.d.ts"/>
+/// <reference path="ScreenItemRendererSkin.ts"/>
 
 class ItemRendererSkin extends egret.Skin{
 
@@ -35,7 +36,7 @@ class ItemRendererSkin extends egret.Skin{
         this.states = ["up","down"];
     }
 
-    private static _skinParts:Array<string> = ["labelDisplay"];
+    public static _skinParts:Array<string> = ["labelDisplay"];
 
     public get skinParts():Array<string>{
         return ItemRendererSkin._skinParts;
@@ -60,12 +61,6 @@ class ItemRendererSkin extends egret.Skin{
         this.selectedSkin.percentHeight = this.selectedSkin.percentWidth = 100;
         this.selectedSkin.source = "list-item-selected";
         this.addElement(this.selectedSkin);
-
-        var icon:egret.UIAsset = new egret.UIAsset();
-        icon.source = "list-accessory-drill-down-icon";
-        icon.right = 22;
-        icon.verticalCenter = 0;
-        this.addElement(icon);
 
         this.labelDisplay = new egret.Label();
         this.labelDisplay.size = 26;
