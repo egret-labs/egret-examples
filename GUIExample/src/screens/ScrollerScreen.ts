@@ -37,18 +37,22 @@ class ScrollerScreen extends ScreenBase{
     public createChildren():void{
         super.createChildren();
 
+        var background:egret.Rect = new egret.Rect();
+        background.left = background.right = background.top = background.bottom = 99;
+        background.fillAlpha = 0;
+        background.strokeAlpha = 1;
+        background.strokeColor = 0x009aff;
+        this.addElement(background);
+        
         var scroller:egret.Scroller = new egret.Scroller();
-        scroller.width  = 100;
-        scroller.horizontalCenter = 0;
-        scroller.verticalCenter = 0;
+        scroller.top = scroller.left = scroller.right = scroller.bottom = 100;
         this.addElement(scroller);
 
         var group:egret.Group = new egret.Group();
         scroller.viewport = group;
 
         var ui:egret.UIAsset = new egret.UIAsset();
-        ui.source = "picker-list-item-selected-icon";
-        ui.width = 200;
+        ui.source = "egret_labs";
         group.addElement(ui);
     }
 }
