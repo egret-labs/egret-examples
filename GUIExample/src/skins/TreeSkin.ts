@@ -54,7 +54,7 @@ class TreeSkin extends egret.Skin{
         this.dataGroup = new egret.DataGroup();
         var layout:egret.VerticalLayout = new egret.VerticalLayout();
         layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
-        layout.gap = 0;
+        layout.gap = 2;
         this.dataGroup.layout = layout;
         var scroller:egret.Scroller = new egret.Scroller();
         scroller.viewport = this.dataGroup;
