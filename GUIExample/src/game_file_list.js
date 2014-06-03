@@ -42,8 +42,6 @@ var game_file_list = [
 	"skins/HSliderSkin.js",
 	"skins/VSliderSkin.js",
 	"skins/TabBarSkin.js",
-	"skins/TitleWindowSkin.js",
-	"skins/TitleWindowCloseButtonSkin.js",
 	"skins/TreeItemRendererSkin.js",
 	"skins/TreeDisclosureButtonSkin.js",
 
