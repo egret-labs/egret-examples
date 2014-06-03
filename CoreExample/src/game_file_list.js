@@ -31,7 +31,6 @@ var game_file_list = [
     "TestArmature.js",
     "TestBitmap.js",
     "TestBitmapText.js",
-    "TestCache.js",
     "TestDisplayList.js",
     "TestEvent.js",
     "TestMovieClip.js",
