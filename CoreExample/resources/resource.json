@@ -11,7 +11,6 @@
 		{"name":"sprite_sheet_png","type":"image","url":"sprite_sheet.png"},
 		{"name":"bitmapFont","type":"font","url":"font.fnt"},
 		{"name":"icons","type":"sheet","url":"icons.json"},
-		{"name":"button-selected-up-skin_png","type":"image","url":"button-selected-up-skin.png"},
 		{"name":"sound","type":"sound","url":"sound.mp3"}
 	],
 
@@ -22,7 +21,7 @@
         {"name":"TestBitmapText","keys":"bitmapFont"},
         {"name":"TestCache","keys":"daisy_png,button_png"},
         {"name":"TestDisplayList","keys":"egret_icon_png"},
-        {"name":"TestEvent","keys":"b1_png,b5_png"},
+        {"name":"TestEvent","keys":"button_png"},
         {"name":"TestMovieClip","keys":"monkey_png,monkey_json"},
         {"name":"TestScaleBitmap","keys":"button_png"},
         {"name":"TestSpriteSheet","keys":"icons"},
