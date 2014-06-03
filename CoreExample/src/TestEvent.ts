@@ -42,16 +42,17 @@ class TestEvent {
         left.x = 100;
         container.addChild(left);
         left.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){
-            console.log("点击左侧箭头");
+            console.log("点击左侧按钮");
         },left);
         left.touchEnabled = true;
 
         var right = new egret.Bitmap();
         right.texture = RES.getRes("button_png");
         right.x = 150;
+        right.y = -10;
         container.addChild(right);
         right.addEventListener(egret.TouchEvent.TOUCH_TAP,function (event){
-            console.log("点击右侧箭头");
+            console.log("点击右侧按钮");
         },right);
 
         container.addEventListener(egret.TouchEvent.TOUCH_TAP,function(event){
