@@ -53,7 +53,7 @@ class SliderScreen extends ScreenBase {
         vSlider.maximum = 100;
         vSlider.horizontalCenter = -135;
         vSlider.verticalCenter = 0;
-        vSlider.value = 50;
+        vSlider.value = 75;
         this.addElement(vSlider);
         vSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
 
