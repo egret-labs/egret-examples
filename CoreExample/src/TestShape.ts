@@ -34,18 +34,13 @@ class TestShape {
     public createExample():void {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
-        /*
-         var shape = new egret.ShapeRect();
-         shape.width = shape.height = 100;
-         container.addChild(shape);
 
 
          var shape1 = new egret.Shape();
-         shape1.graphic.beginFill(0xff0000,.5);
-         shape1.graphic.drawRect(200,200,100,100);
-         shape1.graphic.endFill();
+         shape1.graphics.beginFill(0xff0000,.5);
+         shape1.graphics.drawRect(200,200,100,100);
+         shape1.graphics.endFill();
          container.addChild(shape1);
-         */
 
         var shape2 = new egret.Shape();
         shape2.graphics.lineStyle(5,0xffff00,1);
@@ -53,5 +48,11 @@ class TestShape {
         shape2.graphics.endFill();
         container.addChild(shape2);
         shape2.x = 100;
+
+        var shape3 = new egret.Shape();
+        shape1.graphics.beginFill(0xff0000,.5);
+        shape1.graphics.drawCircle(100,100,100);
+        shape1.graphics.endFill();
+        container.addChild(shape1);
     }
 }
