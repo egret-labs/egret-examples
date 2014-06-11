@@ -79,7 +79,7 @@ class SkinAdapter implements egret.ISkinAdapter {
         return this.getDefaultSkin(hostComponentKey);
     }
 
-    private getDefautlSkin(hostComponentKey:string):any{
+    private getDefaultSkin(hostComponentKey:string):any{
         var skin:any;
         switch (hostComponentKey) {
             case "egret.Button":
