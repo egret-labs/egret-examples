@@ -40,6 +40,11 @@ class AssetAdapter implements egret.IAssetAdapter{
      * 对于某些类型素材，例如MovieClip，可以重用传入的显示对象,只修改其数据再返回。
      */
     public getAsset(source:any,compFunc:Function,thisObject:any,oldContent:any):void{
+
+        function onGetRes(data:any):void{
+            compFunc.call(thisObject,data,source);
+        }
+
         var content:any = source;
         if(source.prototype){
             content = new source();
@@ -55,9 +60,7 @@ class AssetAdapter implements egret.IAssetAdapter{
                RES.getResByUrl(source,onGetRes,this);
             }
 
-            function onGetRes(data:any):void{
-                compFunc.call(thisObject,data,source);
-            }
+
         }
         else{
             compFunc.call(thisObject,content,source);

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Egret Examples</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <base href="../"/>
+
+    <style>
+
+        body {
+            font-family: "CartoGothicStdBook", sans-serif;
+            background: #1a1816 url("resources/assets/top-background-bar.png") top center repeat-x;
+            color: #e5e5e5;
+            font-size: 15px;
+            text-align: center;
+            padding: 7;
+        }
+
+        html {
+            -ms-touch-action: none; /* Direct all pointer events to JavaScript code. */
+        }
+    </style>
+</head>
+<body style="padding: 7px; border: 0px; margin: 0px;">
+<div id="gameDiv"
+     style="display:inline-block;width:100%; height:100%;margin: 0 auto; background: #4a4137; position:relative;padding-top: 7">
+    <canvas id="gameCanvas" width="960" height="640"></canvas>
+</div>
+<script> document_class = "GameApp";</script>
+<script src="launcher/egret_loader.js"></script>
+<script src="launcher/game-min.js"></script>
+<script>
+    egret_h5.startGame();
+</script>
+</body>
+</html>
