@@ -8,4 +8,4 @@ GUI Examples
 
 ### 鸣谢
 
-GUI Examples的默认皮的素材取自开源项目 [ Starling FeathersUI ](https://github.com/joshtynjala/feathers)
+GUI Examples的默认皮肤的素材取自开源项目 [ Starling FeathersUI ](https://github.com/joshtynjala/feathers)
