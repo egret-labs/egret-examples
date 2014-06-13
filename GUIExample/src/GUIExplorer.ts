@@ -108,8 +108,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     private currentScreen:ScreenBase;
 
     private onItemClick(event:egret.ListEvent):void{
+        if(currentScreen)
+            return;
         var uiStage:egret.UIStage = this.uiStage;
-        egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMianContainer,this);
+        egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMainContainer,this);
 
         var className:string = event.item+"Screen";
         var clazz:any;
@@ -128,7 +130,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
     }
 
-    private hideMianContainer():void{
+    private hideMainContainer():void{
         this.uiStage.removeElement(this.mainContainer);
     }
 
