@@ -108,7 +108,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     private currentScreen:ScreenBase;
 
     private onItemClick(event:egret.ListEvent):void{
-        if(currentScreen)
+        if(this.currentScreen)
             return;
         var uiStage:egret.UIStage = this.uiStage;
         egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMainContainer,this);
