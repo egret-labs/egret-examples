@@ -67,7 +67,7 @@ egret_h5.startGame = function () {
     context.netContext = new egret.HTML5NetContext();
     context.stage = new egret.Stage(canvas.width, canvas.height);
 ;
-    egret.RendererContext.CONTENT_SCALE_FACTOR = 1;
+    egret.MainContext.instance.rendererContext.texture_scale_factor = 1;
     context.run();
 
     //在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
