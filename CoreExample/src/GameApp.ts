@@ -1,5 +1,3 @@
-///<reference path="../libs/egret.d.ts"/>
-///<reference path="LoadingUI.ts"/>
 /**
  * Copyright (c) 2014,Egret-Labs.org
  * All rights reserved.

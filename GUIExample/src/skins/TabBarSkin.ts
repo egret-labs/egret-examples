@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="ButtonSkin.ts"/>
 
 class TabBarSkin extends egret.Skin {
     public constructor() {

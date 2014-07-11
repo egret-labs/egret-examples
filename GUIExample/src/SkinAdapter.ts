@@ -32,16 +32,6 @@
  * @implements egret.ISkinAdapter
  */
 
-/// <reference path="../libs/egret.d.ts"/>
-/// <reference path="skins/AlertSkin.ts"/>
-/// <reference path="skins/ButtonSkin.ts"/>
-/// <reference path="skins/HSliderSkin.ts"/>
-/// <reference path="skins/ListSkin.ts"/>
-/// <reference path="skins/ProgressBarSkin.ts"/>
-/// <reference path="skins/TabBarSkin.ts"/>
-/// <reference path="skins/ToggleButtonSkin.ts"/>
-/// <reference path="skins/TreeSkin.ts"/>
-/// <reference path="skins/VSliderSkin.ts"/>
 
 class SkinAdapter implements egret.ISkinAdapter {
     /**

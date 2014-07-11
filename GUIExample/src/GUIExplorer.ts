@@ -25,12 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="AssetAdapter.ts"/>
-/// <reference path="SkinAdapter.ts"/>
-/// <reference path="../libs/egret.d.ts"/>
-/// <reference path="screens/ScreenBase.ts"/>
-/// <reference path="skins/ListSkin.ts"/>
-/// <reference path="skins/ScreenItemRendererSkin.ts"/>
 
 class GUIExplorer extends egret.DisplayObjectContainer{
 

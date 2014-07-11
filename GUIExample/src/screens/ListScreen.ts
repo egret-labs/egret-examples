@@ -25,8 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="ScreenBase.ts"/>
-/// <reference path="../skins/ItemRendererSkin.ts"/>
 
 class ListScreen extends ScreenBase {
 
