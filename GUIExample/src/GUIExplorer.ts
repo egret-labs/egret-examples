@@ -41,7 +41,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
         //启动RES资源加载模块
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
-        RES.loadConfig("resources/resource.json","resources/");
+        RES.loadConfig("resource/resource.json","resource/");
         RES.loadGroup("preload");
     }
 

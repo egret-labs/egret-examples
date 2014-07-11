@@ -59,24 +59,24 @@ egret_h5.loadSingleScript = function (src, callback) {
 }
 
 egret_h5.startGame = function () {
-    
     var canvas = document.getElementById(egret.StageDelegate.canvas_name);
     context = egret.MainContext.instance;
     context.rendererContext = new egret.HTML5CanvasRenderer(canvas);
     context.touchContext = new egret.HTML5TouchContext(canvas);
     context.deviceContext = new egret.HTML5DeviceContext();
     context.netContext = new egret.HTML5NetContext();
-    context.stage = new egret.Stage(canvas.width, canvas.height);
+
+
     //设置屏幕适配策略
     var container = new egret.EqualToFrame();
     var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : new egret.NoScale();
     var policy = new egret.ResolutionPolicy(container, content);
     egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
-    egret.RendererContext.CONTENT_SCALE_FACTOR = 1;
-    context.run();
 
-    //在此定义文档类的完整类名，若包含命名空间，需要填写命名空间前缀。
-    var document_class = "GUIExplorer";
+    context.stage = new egret.Stage(canvas.width, canvas.height);
+
+    egret.MainContext.instance.rendererContext.texture_scale_factor = 1;
+    context.run();
 
     var rootClass;
     if(document_class){
@@ -84,7 +84,7 @@ egret_h5.startGame = function () {
     }
     if(rootClass) {
         var rootContainer = new rootClass();
-        if(rootContainer instanceof egret.DisplayObject){
+        if(rootContainer instanceof egret.DisplayObjectContainer){
             context.stage.addChild(rootContainer);
         }
         else{
@@ -92,7 +92,7 @@ egret_h5.startGame = function () {
         }
     }
     else{
-        throw new Error("找不到文档类!");
+        throw new Error("找不到文档类！");
     }
 }
 

@@ -1,0 +1,9 @@
+{
+    "document_class" : "GUIExplorer",
+    "game_dir_tree": [
+        "bin-debug/",
+        "launcher/",
+        "resource/",
+        "src/"
+    ]
+}
