@@ -59,27 +59,7 @@ egret_h5.loadSingleScript = function (src, callback) {
 }
 
 egret_h5.startGame = function () {
-
-    var showAll = new egret.ContentStrategy();
-    showAll._apply = function(delegate, designedResolutionWidth, designedResolutionHeight){
-        var canvas = document.getElementById(egret.StageDelegate.canvas_name);
-        var container = document.getElementById(egret.StageDelegate.canvas_div_name);
-        var viewPortWidth = document.documentElement.clientWidth - 20;
-        var viewPortHeight = document.documentElement.clientHeight - 20;
-        var scaleX = viewPortWidth / designedResolutionWidth;
-        var scaleY = viewPortHeight / designedResolutionHeight;
-        canvas.width = designedResolutionWidth;
-        canvas.height = designedResolutionHeight
-
-        canvas.style.width = viewPortWidth + "px";
-        canvas.style.height = viewPortHeight + "px";
-        container.style.width = viewPortWidth + "px";
-        container.style.height = viewPortHeight + "px";
-        delegate._scaleX = scaleX;
-        delegate._scaleY = scaleY;
-    }
-
-
+    
     var canvas = document.getElementById(egret.StageDelegate.canvas_name);
     context = egret.MainContext.instance;
     context.rendererContext = new egret.HTML5CanvasRenderer(canvas);
@@ -89,7 +69,7 @@ egret_h5.startGame = function () {
     context.stage = new egret.Stage(canvas.width, canvas.height);
     //设置屏幕适配策略
     var container = new egret.EqualToFrame();
-    var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : showAll;
+    var content = egret.Browser.getInstance().isMobile ? new egret.FixedWidth() : new egret.NoScale();
     var policy = new egret.ResolutionPolicy(container, content);
     egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
     egret.RendererContext.CONTENT_SCALE_FACTOR = 1;
