@@ -25,8 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="../egret.d.ts"/>
-
 class ListSkin extends egret.Skin{
 
     public constructor(){

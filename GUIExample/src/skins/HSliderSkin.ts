@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/// <reference path="../egret.d.ts"/>
 /// <reference path="SliderThumbSkin.ts"/>
 
 class HSliderSkin extends egret.Skin {

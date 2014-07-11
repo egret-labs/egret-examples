@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///<reference path="egret.d.ts"/>
+///<reference path="../libs/egret.d.ts"/>
 ///<reference path="GameApp.ts"/>
 
 class LoadingUI extends egret.Sprite{

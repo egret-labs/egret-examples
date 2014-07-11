@@ -32,7 +32,7 @@
  * @implements egret.ISkinAdapter
  */
 
-/// <reference path="egret.d.ts"/>
+/// <reference path="../libs/egret.d.ts"/>
 /// <reference path="skins/AlertSkin.ts"/>
 /// <reference path="skins/ButtonSkin.ts"/>
 /// <reference path="skins/HSliderSkin.ts"/>
