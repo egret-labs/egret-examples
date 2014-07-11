@@ -30,8 +30,8 @@ egret_native.egtMain = function () {
     context.touchContext = new egret.NativeTouchContext();
     context.deviceContext = new egret.NativeDeviceContext();
 
-    egret_native.EGTView.setDesignSize(960, 640);
-    context.stage = new egret.Stage(960, 640);
+    egret_native.EGTView.setDesignSize(480, 800);
+    context.stage = new egret.Stage(480, 800);
     egret.RendererContext.CONTENT_SCALE_FACTOR = 1;
 
     context.run();
