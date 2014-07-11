@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 class LoadingUI extends egret.Sprite{
 
     public constructor(){
@@ -37,7 +36,6 @@ class LoadingUI extends egret.Sprite{
     private createView():void {
         this.textField = new egret.TextField();
         this.addChild(this.textField);
-        this.textField.x = 120;
         this.textField.y = 300;
         this.textField.width = 480;
         this.textField.height = 100;

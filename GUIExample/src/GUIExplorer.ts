@@ -55,6 +55,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     private mainContainer:egret.Group;
     private mainList:egret.List;
 
+
     public createExporer():void{
         //实例化GUI根容器
         var uiStage:egret.UIStage = new egret.UIStage();
@@ -97,7 +98,9 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         uiStage.validateNow();
     }
 
-    private screens:any = {};
+    //声明一个变量,引用反射的类，否则不能被加入编译列表。
+    private classDependency:Array<any> = [AlertScreen,ButtonScreen,LabelScreen,ListScreen,ProgressBarScreen,
+        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen];
 
     private currentScreen:ScreenBase;
 
