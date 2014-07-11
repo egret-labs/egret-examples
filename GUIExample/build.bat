@@ -1,0 +1,2 @@
+egret build
+egret startserver
