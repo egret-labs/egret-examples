@@ -13,7 +13,7 @@
         <e:ToggleButton id="disclosureButton"
                         verticalCenter="0"
                         skinName="skins.TreeDisclosureButtonSkin"/>
-        <e:UIAsset id="iconDisplay" />
+        <e:UIAsset id="iconDisplay"/>
         <e:Label id="labelDisplay"
                  textColor="0x707070"
                  textAlign="center"

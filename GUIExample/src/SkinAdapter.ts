@@ -96,6 +96,13 @@ class SkinAdapter implements egret.ISkinAdapter {
             case "egret.Tree":
                 skin =  "skins.TreeSkin";
                 break;
+            case "egret.RadioButton":
+                skin =  "skins.RadioButtonSkin";
+                break;
+            case "egret.CheckBox":
+                skin =  "skins.CheckBoxSkin";
+                break;
+
         }
         skin = new (egret.getDefinitionByName(skin))();
         return skin;
