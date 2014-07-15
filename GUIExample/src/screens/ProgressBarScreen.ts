@@ -40,6 +40,7 @@ class ProgressBarScreen extends ScreenBase {
         progressBar.height = 21;
         progressBar.horizontalCenter = 120;
         progressBar.verticalCenter = -50;
+        progressBar.skinName = "skins.HProgressBarSkin";
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
@@ -49,6 +50,7 @@ class ProgressBarScreen extends ScreenBase {
         progressBar.horizontalCenter = 120;
         progressBar.verticalCenter = 50;
         progressBar.direction = egret.ProgressBarDirection.RIGHT_TO_LEFT;
+        progressBar.skinName = "skins.HProgressBarSkin";
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
@@ -58,6 +60,7 @@ class ProgressBarScreen extends ScreenBase {
         progressBar.horizontalCenter = -120;
         progressBar.verticalCenter = 0;
         progressBar.direction = egret.ProgressBarDirection.BOTTOM_TO_TOP;
+        progressBar.skinName = "skins.VProgressBarSkin";
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 

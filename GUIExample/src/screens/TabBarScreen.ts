@@ -50,7 +50,7 @@ class TabBarScreen extends ScreenBase {
         this.labelDisplay.fontFamily = "微软雅黑";
         this.labelDisplay.verticalCenter = -100;
         this.labelDisplay.horizontalCenter = 0;
-        this.labelDisplay.textColor = 0xffffff;
+        this.labelDisplay.textColor = 0x727070;
         this.labelDisplay.text = "选中第1项";
         this.addElement(this.labelDisplay);
     }

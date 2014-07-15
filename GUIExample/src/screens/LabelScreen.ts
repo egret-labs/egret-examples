@@ -41,14 +41,14 @@ class LabelScreen extends ScreenBase {
 
         var label:egret.Label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.text = "左对齐文本";
         group.addElement(label);
 
         label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.text = "水平居中文本";
         label.textAlign = egret.HorizontalAlign.CENTER;
@@ -56,7 +56,7 @@ class LabelScreen extends ScreenBase {
 
         label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.text = "右对齐文本";
         label.textAlign = egret.HorizontalAlign.RIGHT;
@@ -64,7 +64,7 @@ class LabelScreen extends ScreenBase {
 
         label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.text = "垂直居中文本";
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
@@ -72,7 +72,7 @@ class LabelScreen extends ScreenBase {
 
         label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.text = "底对齐文本";
         label.verticalAlign = egret.VerticalAlign.BOTTOM;
@@ -80,7 +80,7 @@ class LabelScreen extends ScreenBase {
 
         label = new egret.Label();
         label.percentHeight = label.percentWidth = 100;
-        label.textColor = 0xe4e4e4;
+        label.textColor = 0x727070;
         label.fontFamily = "微软雅黑";
         label.bold = true;
         label.text = "粗体文本";

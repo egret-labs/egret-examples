@@ -36,7 +36,7 @@ class AlertScreen extends ScreenBase {
         super.createChildren();
 
         var button:egret.Button = new egret.Button();
-        button.skinName = ButtonSkin;
+        button.skinName = "skins.ButtonSkin";
         button.horizontalCenter = 0;
         button.verticalCenter = 0;
         button.label = "Show Alert";

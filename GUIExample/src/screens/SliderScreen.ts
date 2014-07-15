@@ -57,7 +57,7 @@ class SliderScreen extends ScreenBase {
 
         this.labelDisplay = new egret.Label();
         this.labelDisplay.size = 20;
-        this.labelDisplay.textColor = 0xffffff;
+        this.labelDisplay.textColor = 0x727070;
         this.labelDisplay.fontFamily = "微软雅黑";
         this.labelDisplay.text = "拖拽滑块以改变值";
         this.labelDisplay.horizontalCenter = 0;

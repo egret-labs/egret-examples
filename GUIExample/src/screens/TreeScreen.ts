@@ -48,7 +48,7 @@ class TreeScreen extends ScreenBase {
             {dir: true, name: "Item1", children: []},
             {name: "Item2"}
         ]};
-        tree.itemRendererSkinName = TreeItemRendererSkin;
+        tree.itemRendererSkinName = "skins.TreeItemRendererSkin";
         egret.ObjectCollection.assignParent(dp2.source);
         tree.labelField = "name";
         tree.iconFunction = this.iconFunc;

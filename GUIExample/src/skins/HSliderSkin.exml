@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing" minWidth = "50"
+        minHeight = "13">
+    <e:states>
+        <e:State name="up"/>
+        <e:State name="down"/>
+        <e:State name="disabled"/>
+    </e:states>
+    <e:UIAsset id="track"
+               source="h-slider-bg"
+               width="100%"
+               height = "13"
+               verticalCenter="0"
+            />
+    <e:UIAsset id="trackHighlight"
+               source="h-slider-highlight"
+               height = "13"
+               verticalCenter="0"
+            />
+    <e:Button id="thumb"
+              skinName = "skins.SliderThumbSkin"
+              verticalCenter = "0"
+            />
+
+</e:Skin>

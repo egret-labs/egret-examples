@@ -32,6 +32,20 @@ class ScreenBase extends egret.Panel{
         super();
         this.percentHeight = 100;
         this.percentWidth = 100;
-        this.skinName = ScreenSkin;
+        this.skinName = "skins.ScreenSkin";
+    }
+
+    public backButton:egret.Button;
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.backButton)
+        {
+            this.backButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouchTap,this);
+        }
+    }
+
+    public onTouchTap(event:egret.Event):void{
+           this.dispatchEventWith("goBack");
     }
 }

@@ -63,6 +63,12 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addChild(uiStage);
 
         var asset:egret.UIAsset = new egret.UIAsset();
+        asset.source = "main_bg";
+        asset.percentHeight = asset.percentWidth = 100;
+        asset.fillMode = egret.BitmapFillMode.REPEAT;
+        uiStage.addElement(asset);
+
+        var asset:egret.UIAsset = new egret.UIAsset();
         asset.source = "header-background";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         asset.percentWidth = 100;
@@ -77,7 +83,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var title:egret.Label = new egret.Label();
         title.text = "Egret GUI";
         title.fontFamily = "Tahoma";
-        title.textColor = 0xe4e4e4;
+        title.textColor = 0x727070;
         title.size = 35;
         title.horizontalCenter = 0;
         title.top = 25;
@@ -85,8 +91,8 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
         var list:egret.List = new egret.List();
         this.mainList = list;
-        list.skinName = ListSkin;
-        list.itemRendererSkinName = ScreenItemRendererSkin;
+        list.skinName = "skins.ListSkin";
+        list.itemRendererSkinName = "skins.ScreenItemRendererSkin";
         list.percentWidth = 100;
         list.top = 90;
         list.bottom = 0;

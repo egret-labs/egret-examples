@@ -36,7 +36,7 @@ class ListScreen extends ScreenBase {
         super.createChildren();
 
         var list:egret.List = new egret.List();
-        list.itemRendererSkinName = ItemRendererSkin;
+        list.itemRendererSkinName = "skins.ItemRendererSkin";
         list.percentWidth = 100;
         list.percentHeight = 100;
         this.addElement(list);
