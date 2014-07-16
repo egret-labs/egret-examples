@@ -106,7 +106,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     //声明一个变量,引用反射的类，否则不能被加入编译列表。
     private classDependency:Array<any> = [AlertScreen,ButtonScreen,LabelScreen,ListScreen,ProgressBarScreen,
-        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen,TogglesScreen];
+        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen,TogglesScreen,TextInputScreen];
 
     private currentScreen:ScreenBase;
 
