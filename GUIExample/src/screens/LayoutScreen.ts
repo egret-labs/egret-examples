@@ -84,7 +84,7 @@ class LayoutScreen extends ScreenBase{
         this.topCheck.addEventListener(egret.Event.CHANGE,this.onCheckBoxChangeHandler,this)
         this.topCheck.id = "topCheck";
         group.addElement(this.topCheck);
-        this.topCheck.top = -20;
+        this.topCheck.top = -50;
         this.topCheck.horizontalCenter = 0;
 
         this.topLeftCheck = new egret.CheckBox();
@@ -92,34 +92,34 @@ class LayoutScreen extends ScreenBase{
         this.topLeftCheck.id = "topLeftCheck";
         group.addElement(this.topLeftCheck);
         this.topLeftCheck.left = 0;
-        this.topLeftCheck.top = -20;
+        this.topLeftCheck.top = -50;
 
         this.topRightCheck = new egret.CheckBox();
         this.topRightCheck.addEventListener(egret.Event.CHANGE,this.onCheckBoxChangeHandler,this)
         this.topRightCheck.id="topRightCheck";
         group.addElement(this.topRightCheck);
         this.topRightCheck.right = 0;
-        this.topRightCheck.top = -20;
+        this.topRightCheck.top = -50;
 
         this.leftChcek = new egret.CheckBox();
         this.leftChcek.addEventListener(egret.Event.CHANGE,this.onCheckBoxChangeHandler,this)
         this.leftChcek.id ="leftChcek";
         group.addElement(this.leftChcek)
-        this.leftChcek.left = -20;
+        this.leftChcek.left = -50;
         this.leftChcek.verticalCenter = 0;
 
         this.leftTopCheck = new egret.CheckBox();
         this.leftTopCheck.addEventListener(egret.Event.CHANGE,this.onCheckBoxChangeHandler,this)
         this.leftTopCheck.id="leftTopCheck";
         group.addElement(this.leftTopCheck);
-        this.leftTopCheck.left = -20;
+        this.leftTopCheck.left = -50;
         this.leftTopCheck.top = 0;
 
         this.leftBottomCheck = new egret.CheckBox();
         this.leftBottomCheck.addEventListener(egret.Event.CHANGE,this.onCheckBoxChangeHandler,this)
         this.leftBottomCheck.id="leftBottomCheck";
         group.addElement(this.leftBottomCheck);
-        this.leftBottomCheck.left = -20;
+        this.leftBottomCheck.left = -50;
         this.leftBottomCheck.bottom = 0;
 
         this.vleftLine = new egret.Rect();

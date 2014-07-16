@@ -28,7 +28,7 @@
                     />
         </e:Group>
         <e:Label id="labelDisplay"
-                 size="14"
+                 size="20"
                  textColor="0x707070"
                  textAlign="center"
                  verticalAlign="middle"
