@@ -26,24 +26,39 @@
  */
 
 
-class ListScreen extends ScreenBase {
+class CustomItemRender extends egret.ItemRenderer implements egret.IItemRenderer{
 
     public constructor() {
         super();
     }
-
-    public createChildren():void {
-        super.createChildren();
-
-        var list:egret.List = new egret.List();
-        list.itemRendererSkinName = "skins.ItemRendererSkin";
-        list.percentWidth = 100;
-        list.percentHeight = 100;
-        this.addElement(list);
-        var arr:Array<string> = [];
-        for (var i:number = 1; i < 150; i++) {
-            arr.push("Item" + i);
+    public toggleButton:egret.ToggleButton;
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.toggleButton)
+        {
+            if(this.data != null)
+            {
+                this.toggleButton.selected = this.data.toggle;
+            }
+            this.toggleButton.addEventListener(egret.Event.CHANGE,this.onChangeHandler,this);
         }
-        list.dataProvider = new egret.ArrayCollection(arr);
+    }
+
+    public onChangeHandler(event:egret.Event):void{
+        if(this.data != null)
+        {
+            this.data.toggle = this.toggleButton.selected;
+        }
+
+    }
+
+    public dataChanged():void
+    {
+        super.dataChanged();
+        if(this.toggleButton != null && this.data != null)
+        {
+            this.toggleButton.selected = this.data.toggle;
+        }
     }
 }

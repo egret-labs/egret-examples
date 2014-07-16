@@ -106,10 +106,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     //声明一个变量,引用反射的类，否则不能被加入编译列表。
     private classDependency:Array<any> = [AlertScreen,ButtonScreen,LabelScreen,ListScreen,ProgressBarScreen,
-        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen,TogglesScreen,TextInputScreen];
+        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen,TogglesScreen,ItemRendererScreen,LayoutScreen];
 
     private currentScreen:ScreenBase;
-
+    private classInstanceCache:any = {};
     private onItemClick(event:egret.ListEvent):void{
         if(this.currentScreen)
             return;
@@ -124,7 +124,17 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         else{
             clazz = ScreenBase;
         }
-        var screen:ScreenBase = new clazz();
+
+        //缓存一下，免得反复重复创建
+        if(this.classInstanceCache.hasOwnProperty(className))
+        {
+            screen = this.classInstanceCache[className];
+        }else
+        {
+            var screen:ScreenBase = new clazz();
+            this.classInstanceCache[className] = screen;
+        }
+
         screen.title = event.item;
         this.currentScreen = screen;
         screen.addEventListener("goBack",this.onGoBack,this);

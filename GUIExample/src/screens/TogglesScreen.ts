@@ -99,6 +99,5 @@ class TogglesScreen extends ScreenBase{
         radio.label = "Radio Button 3";
         radio.value = "Data 3";
         radioBtnGroup.addElement(radio);
-
     }
 }

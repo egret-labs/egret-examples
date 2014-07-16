@@ -26,24 +26,27 @@
  */
 
 
-class ListScreen extends ScreenBase {
+class ItemRendererScreen extends ScreenBase{
 
-    public constructor() {
+    public constructor(){
         super();
     }
 
-    public createChildren():void {
+    public createChildren():void{
         super.createChildren();
 
         var list:egret.List = new egret.List();
-        list.itemRendererSkinName = "skins.ItemRendererSkin";
+        list.itemRenderer = new egret.ClassFactory(CustomItemRender);
+        list.itemRendererSkinName = "skins.CustomItemRendererSkin";
         list.percentWidth = 100;
         list.percentHeight = 100;
         this.addElement(list);
-        var arr:Array<string> = [];
-        for (var i:number = 1; i < 150; i++) {
-            arr.push("Item" + i);
+        var arr:Array<any> = [];
+        for (var i:number = 1; i < 50; i++) {
+
+            arr.push({label:"item"+i,toggle:false});
         }
         list.dataProvider = new egret.ArrayCollection(arr);
+
     }
 }
