@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-    <e:UIAsset source="h-progress-bg"
-               height="100%"
-               width = "100%"
-            />
-    <e:UIAsset id="thumb"
-               source="h-progress-thumb"
-            />
-
-    <e:UIComponent id="track"
-               height="100%"
-               width = "100%"
-            />
-
-
-    <e:Label id="labelDisplay"
-             textAlign="center"
-             verticalAlign="middle"
-             maxDisplayedLines="1"
-             size="20"
-             left="5"
-             right="5"
-             verticalCenter="0"
-             textColor="0x707070"
-            />
+	<e:UIAsset source="h-progress-bg" height="100%" width="100%" />
+	<e:UIAsset id="thumb" source="h-progress-thumb" />
+	<e:UIComponent id="track" height="100%" width="100%" />
+	<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle"
+		maxDisplayedLines="1" size="20" left="5" right="5" verticalCenter="0"
+		textColor="0x707070" />
 </e:Skin>
