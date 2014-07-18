@@ -3,3 +3,4 @@ bin-debug/
 temp/
 **/**/egret.d.ts
 egret.d.ts
+crc32.temp
