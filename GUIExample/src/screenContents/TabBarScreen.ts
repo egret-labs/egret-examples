@@ -26,25 +26,27 @@
  */
 
 
-class AlertScreen extends ScreenBase {
+class TabBarScreen extends egret.SkinnableContainer {
 
     public constructor() {
         super();
+        this.skinName = "screenContentSkins.TabBarScreenSkin";
     }
 
-    public createChildren():void {
-        super.createChildren();
-
-        var button:egret.Button = new egret.Button();
-        button.skinName = "skins.ButtonSkin";
-        button.horizontalCenter = 0;
-        button.verticalCenter = 0;
-        button.label = "Show Alert";
-        this.addElement(button);
-        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clickHandler, this);
+    public bar:egret.TabBar;
+    public label:egret.Label;
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.bar)
+        {
+            this.bar.dataProvider = new egret.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
+            this.bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
+        }
     }
 
-    private clickHandler():void {
-        egret.Alert.show("this is an alert message!","Alert");
+    private onClick(event:egret.ListEvent):void {
+        var bar:egret.TabBar = <egret.TabBar>event.currentTarget;
+        this.label.text = "选中第" + (bar.selectedIndex + 1) + "项";
     }
 }

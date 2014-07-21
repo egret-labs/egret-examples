@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:Group horizontalCenter="0" verticalCenter="0">
+        <e:layout>
+            <e:VerticalLayout horizontalAlign="contentJustify" verticalAlign="middle" gap="30"/>
+        </e:layout>
+        <e:Group>
+            <e:layout>
+                <e:HorizontalLayout gap="20"/>
+            </e:layout>
+            <e:ToggleButton selected="true" skinName="skins.ToggleOnOffButtonSkin"/>
+        </e:Group>
+        <e:Group>
+            <e:layout>
+                <e:HorizontalLayout gap="20"/>
+            </e:layout>
+           <e:CheckBox label="Check Box 1" selected="true"/>
+           <e:CheckBox label="Check Box 2"/>
+           <e:CheckBox label="Check Box 3"/>
+        </e:Group>
+        <e:Group>
+            <e:layout>
+                <e:HorizontalLayout gap="20"/>
+            </e:layout>
+            <e:RadioButton label="Radio Button 1" value="Data1" selected="true"/>
+            <e:RadioButton label="Radio Button 2" value="Data2"/>
+            <e:RadioButton label="Radio Button 3" value="Data3"/>
+        </e:Group>
+    </e:Group>
+</e:Skin>

@@ -26,31 +26,31 @@
  */
 
 
-class ScrollerScreen extends ScreenBase{
+class ProgressBarScreen extends egret.SkinnableContainer {
 
-    public constructor(){
+    public constructor() {
         super();
+        this.skinName = "screenContentSkins.ProgressBarScreenSkin";
     }
 
-    public createChildren():void{
-        super.createChildren();
+    public hProgressBar1:egret.ProgressBar;
+    public hProgressBar2:egret.ProgressBar;
+    public vProgressBar:egret.ProgressBar;
 
-        var background:egret.Rect = new egret.Rect();
-        background.left = background.right = background.top = background.bottom = 99;
-        background.fillAlpha = 0;
-        background.strokeAlpha = 1;
-        background.strokeColor = 0x009aff;
-        this.addElement(background);
-
-        var scroller:egret.Scroller = new egret.Scroller();
-        scroller.top = scroller.left = scroller.right = scroller.bottom = 100;
-        this.addElement(scroller);
-
-        var group:egret.Group = new egret.Group();
-        scroller.viewport = group;
-
-        var ui:egret.UIAsset = new egret.UIAsset();
-        ui.source = "egret_labs";
-        group.addElement(ui);
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.hProgressBar1)
+        {
+            egret.Tween.get(this.hProgressBar1, {loop:true}).to({value:100}, 3000);
+        }
+        if(instance == this.hProgressBar2)
+        {
+            egret.Tween.get(this.hProgressBar2, {loop:true}).to({value:100}, 3000);
+        }
+        if(instance == this.vProgressBar)
+        {
+            egret.Tween.get(this.vProgressBar, {loop:true}).to({value:100}, 3000);
+        }
     }
 }

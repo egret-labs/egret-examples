@@ -26,53 +26,24 @@
  */
 
 
-class SliderScreen extends ScreenBase {
-
-    private labelDisplay:egret.Label;
+class ListScreen extends egret.SkinnableContainer {
 
     public constructor() {
         super();
+        this.skinName = "screenContentSkins.ListScreenSkin";
     }
 
-    public createChildren():void {
-        super.createChildren();
-
-        var hSlider:egret.HSlider = new egret.HSlider();
-        hSlider.width = 250;
-        hSlider.maximum = 100;
-        hSlider.horizontalCenter = 0;
-        hSlider.verticalCenter = 135;
-        hSlider.value = 50;
-        this.addElement(hSlider);
-        hSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
-
-        var vSlider:egret.HSlider = new egret.VSlider();
-        vSlider.height = 250;
-        vSlider.maximum = 100;
-        vSlider.horizontalCenter = -135;
-        vSlider.verticalCenter = 0;
-        vSlider.value = 75;
-        this.addElement(vSlider);
-        vSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
-
-        this.labelDisplay = new egret.Label();
-        this.labelDisplay.size = 20;
-        this.labelDisplay.textColor = 0x727070;
-        this.labelDisplay.fontFamily = "微软雅黑";
-        this.labelDisplay.text = "拖拽滑块以改变值";
-        this.labelDisplay.horizontalCenter = 0;
-        this.labelDisplay.verticalCenter = 0;
-        this.addElement(this.labelDisplay);
-    }
-
-    private onChange(event:egret.Event):void{
-        var slider:egret.SliderBase = <egret.SliderBase>event.currentTarget;
-        if(slider instanceof egret.VSlider){
-            this.labelDisplay.text = "VSlider.value : "+slider.value.toString();
+    public list:egret.List;
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.list)
+        {
+            var arr:Array<string> = [];
+            for (var i:number = 1; i < 150; i++) {
+                arr.push("Item" + i);
+            }
+            this.list.dataProvider = new egret.ArrayCollection(arr);
         }
-        else{
-            this.labelDisplay.text = "HSlider.value : "+slider.value.toString();
-        }
-
     }
 }

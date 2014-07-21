@@ -25,44 +25,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TreeScreen extends ScreenBase {
 
-    public constructor() {
+class ButtonScreen extends egret.SkinnableContainer{
+
+    public constructor(){
         super();
-    }
-
-    public createChildren():void {
-        super.createChildren();
-
-        var tree:egret.Tree = new egret.Tree();
-        var dp2:egret.ObjectCollection = new egret.ObjectCollection();
-        dp2.source = {children: [
-            {dir: true, name: "Item0",
-                children: [
-                    {name: "Item00"},
-                    {dir: true, name: "Item01",
-                        children: [
-                            {name: "Item010"}
-                        ]}
-                ]},
-            {dir: true, name: "Item1", children: []},
-            {name: "Item2"}
-        ]};
-        tree.itemRendererSkinName = "skins.TreeItemRendererSkin";
-        egret.ObjectCollection.assignParent(dp2.source);
-        tree.labelField = "name";
-        tree.iconFunction = this.iconFunc;
-        tree.dataProvider = dp2;
-        tree.horizontalCenter = 0;
-        tree.verticalCenter = 0;
-        tree.width = 190;
-        tree.height = 200;
-        this.addElement(tree);
-    }
-
-    private iconFunc(item:any):any {
-        if (item.dir)
-            return "dir_icon";
-        return "file_icon";
+        this.skinName = "screenContentSkins.ButtonScreenSkin";
     }
 }

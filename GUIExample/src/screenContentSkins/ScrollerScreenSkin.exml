@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:Rect left="99" right="99" bottom="99" top="99" fillAlpha="0" strokeAlpha="1" strokeColor="0x009aff"/>
+    <e:Scroller top="100" right="100" bottom="100" left="100" >
+        <e:Group>
+            <e:UIAsset source="egret_labs"/>
+        </e:Group>
+    </e:Scroller>
+</e:Skin>

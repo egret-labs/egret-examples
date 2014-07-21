@@ -105,10 +105,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     }
 
     //声明一个变量,引用反射的类，否则不能被加入编译列表。
-    private classDependency:Array<any> = [AlertScreen,ButtonScreen,LabelScreen,ListScreen,ProgressBarScreen,
-        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen,TogglesScreen,ItemRendererScreen,LayoutScreen];
+    private classDependency:Array<any> = [AlertScreen,ButtonScreen,ItemRendererScreen,LabelScreen,
+        LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,TogglesScreen,TreeScreen];
 
-    private currentScreen:ScreenBase;
+    private currentScreen:GUIScreen;
     private classInstanceCache:any = {};
     private onItemClick(event:egret.ListEvent):void{
         if(this.currentScreen)
@@ -120,27 +120,29 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var clazz:any;
         if(egret.hasDefinition(className)){
             clazz = egret.getDefinitionByName(className);
-        }
-        else{
-            clazz = ScreenBase;
-        }
 
-        //缓存一下，免得反复重复创建
-        if(this.classInstanceCache.hasOwnProperty(className))
-        {
-            screen = this.classInstanceCache[className];
-        }else
-        {
-            var screen:ScreenBase = new clazz();
-            this.classInstanceCache[className] = screen;
-        }
+            var screen:GUIScreen;
+            //缓存一下，免得反复重复创建
+            if(this.classInstanceCache.hasOwnProperty(className))
+            {
+                screen = this.classInstanceCache[className];
+            }else
+            {
+                var screen:GUIScreen = new GUIScreen();
+                var screenContent:egret.SkinnableContainer = new clazz();
+                screenContent.percentHeight = 100;
+                screenContent.percentWidth = 100;
+                screen.addElement(screenContent)
+                this.classInstanceCache[className] = screen;
+            }
 
-        screen.title = event.item;
-        this.currentScreen = screen;
-        screen.addEventListener("goBack",this.onGoBack,this);
-        uiStage.addElement(screen);
-        screen.x = uiStage.width;
-        egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
+            screen.title = event.item;
+            this.currentScreen = screen;
+            screen.addEventListener("goBack",this.onGoBack,this);
+            uiStage.addElement(screen);
+            screen.x = uiStage.width;
+            egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
+        }
     }
 
     private hideMainContainer():void{

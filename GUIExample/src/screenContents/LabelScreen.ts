@@ -26,24 +26,11 @@
  */
 
 
-class ListScreen extends ScreenBase {
+class LabelScreen extends egret.SkinnableComponent {
 
     public constructor() {
         super();
+        this.skinName = "screenContentSkins.LabelScreenSkin";
     }
 
-    public createChildren():void {
-        super.createChildren();
-
-        var list:egret.List = new egret.List();
-        list.itemRendererSkinName = "skins.ItemRendererSkin";
-        list.percentWidth = 100;
-        list.percentHeight = 100;
-        this.addElement(list);
-        var arr:Array<string> = [];
-        for (var i:number = 1; i < 150; i++) {
-            arr.push("Item" + i);
-        }
-        list.dataProvider = new egret.ArrayCollection(arr);
-    }
 }

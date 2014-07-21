@@ -26,37 +26,10 @@
  */
 
 
-class TabBarScreen extends ScreenBase {
+class ScrollerScreen extends egret.SkinnableContainer{
 
-    private labelDisplay:egret.Label;
-
-    public constructor() {
+    public constructor(){
         super();
-    }
-
-    public createChildren():void {
-        super.createChildren();
-
-        var bar:egret.TabBar = new egret.TabBar();
-        bar.horizontalCenter = 0;
-        bar.verticalCenter = 0;
-        this.addElement(bar);
-
-        bar.dataProvider = new egret.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
-        bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
-
-        this.labelDisplay = new egret.Label();
-        this.labelDisplay.maxDisplayedLines = 1;
-        this.labelDisplay.fontFamily = "微软雅黑";
-        this.labelDisplay.verticalCenter = -100;
-        this.labelDisplay.horizontalCenter = 0;
-        this.labelDisplay.textColor = 0x727070;
-        this.labelDisplay.text = "选中第1项";
-        this.addElement(this.labelDisplay);
-    }
-
-    private onClick(event:egret.ListEvent):void {
-        var bar:egret.TabBar = <egret.TabBar>event.currentTarget;
-        this.labelDisplay.text = "选中第" + (bar.selectedIndex + 1) + "项";
+        this.skinName = "screenContentSkins.ScrollerScreenSkin";
     }
 }
