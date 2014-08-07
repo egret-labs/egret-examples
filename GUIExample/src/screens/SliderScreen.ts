@@ -28,7 +28,7 @@
 
 class SliderScreen extends ScreenBase {
 
-    private labelDisplay:egret.Label;
+    private labelDisplay:egret.gui.Label;
 
     public constructor() {
         super();
@@ -37,7 +37,7 @@ class SliderScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var hSlider:egret.HSlider = new egret.HSlider();
+        var hSlider:egret.gui.HSlider = new egret.gui.HSlider();
         hSlider.width = 250;
         hSlider.maximum = 100;
         hSlider.horizontalCenter = 0;
@@ -46,7 +46,7 @@ class SliderScreen extends ScreenBase {
         this.addElement(hSlider);
         hSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
 
-        var vSlider:egret.HSlider = new egret.VSlider();
+        var vSlider:egret.gui.HSlider = new egret.gui.VSlider();
         vSlider.height = 250;
         vSlider.maximum = 100;
         vSlider.horizontalCenter = -135;
@@ -55,7 +55,7 @@ class SliderScreen extends ScreenBase {
         this.addElement(vSlider);
         vSlider.addEventListener(egret.Event.CHANGE, this.onChange, this);
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.size = 20;
         this.labelDisplay.textColor = 0xffffff;
         this.labelDisplay.fontFamily = "微软雅黑";
@@ -66,8 +66,8 @@ class SliderScreen extends ScreenBase {
     }
 
     private onChange(event:egret.Event):void{
-        var slider:egret.SliderBase = <egret.SliderBase>event.currentTarget;
-        if(slider instanceof egret.VSlider){
+        var slider:egret.gui.SliderBase = <egret.gui.SliderBase>event.currentTarget;
+        if(slider instanceof egret.gui.VSlider){
             this.labelDisplay.text = "VSlider.value : "+slider.value.toString();
         }
         else{

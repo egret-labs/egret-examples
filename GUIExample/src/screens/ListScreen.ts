@@ -35,7 +35,7 @@ class ListScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var list:egret.List = new egret.List();
+        var list:egret.gui.List = new egret.gui.List();
         list.itemRendererSkinName = ItemRendererSkin;
         list.percentWidth = 100;
         list.percentHeight = 100;
@@ -45,6 +45,6 @@ class ListScreen extends ScreenBase {
         for (var i:number = 1; i < 150; i++) {
             arr.push("Item" + i);
         }
-        list.dataProvider = new egret.ArrayCollection(arr);
+        list.dataProvider = new egret.gui.ArrayCollection(arr);
     }
 }

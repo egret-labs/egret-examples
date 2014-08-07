@@ -35,9 +35,9 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     public onAddToStage(event:egret.Event):void{
         //注入自定义的素材解析器
-        egret.Injector.mapClass("egret.IAssetAdapter",AssetAdapter);
+        egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
         //注入自定义的皮肤解析器
-        egret.Injector.mapClass("egret.ISkinAdapter",SkinAdapter);
+        egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
 
         //启动RES资源加载模块
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
@@ -51,30 +51,30 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         }
     }
 
-    private uiStage:egret.UIStage;
-    private mainContainer:egret.Group;
-    private mainList:egret.List;
+    private uiStage:egret.gui.UIStage;
+    private mainContainer:egret.gui.Group;
+    private mainList:egret.gui.List;
 
 
     public createExporer():void{
         //实例化GUI根容器
-        var uiStage:egret.UIStage = new egret.UIStage();
+        var uiStage:egret.gui.UIStage = new egret.gui.UIStage();
         this.uiStage = uiStage;
         this.addChild(uiStage);
 
-        var asset:egret.UIAsset = new egret.UIAsset();
+        var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
         asset.source = "header-background";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         asset.percentWidth = 100;
         asset.height = 90;
         uiStage.addElement(asset);
 
-        this.mainContainer = new egret.Group();
+        this.mainContainer = new egret.gui.Group();
         this.mainContainer.percentWidth = 100;
         this.mainContainer.percentHeight = 100;
         uiStage.addElement(this.mainContainer);
 
-        var title:egret.Label = new egret.Label();
+        var title:egret.gui.Label = new egret.gui.Label();
         title.text = "Egret GUI";
         title.fontFamily = "Tahoma";
         title.textColor = 0xe4e4e4;
@@ -83,7 +83,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         title.top = 25;
         this.mainContainer.addElement(title);
 
-        var list:egret.List = new egret.List();
+        var list:egret.gui.List = new egret.gui.List();
         this.mainList = list;
         list.skinName = ListSkin;
         list.itemRendererSkinName = ScreenItemRendererSkin;
@@ -93,8 +93,8 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.mainContainer.addElement(list);
 
         var screens:Array<string> = RES.getRes("screens");
-        list.dataProvider = new egret.ArrayCollection(screens);
-        list.addEventListener(egret.ListEvent.ITEM_CLICK,this.onItemClick,this);
+        list.dataProvider = new egret.gui.ArrayCollection(screens);
+        list.addEventListener(egret.gui.ListEvent.ITEM_CLICK,this.onItemClick,this);
         uiStage.validateNow();
     }
 
@@ -104,10 +104,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     private currentScreen:ScreenBase;
 
-    private onItemClick(event:egret.ListEvent):void{
+    private onItemClick(event:egret.gui.ListEvent):void{
         if(this.currentScreen)
             return;
-        var uiStage:egret.UIStage = this.uiStage;
+        var uiStage:egret.gui.UIStage = this.uiStage;
         egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMainContainer,this);
 
         var className:string = event.item+"Screen";
@@ -139,7 +139,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     private onGoBack(event:egret.Event):void{
         this.mainList.selectedIndex = -1;
-        var uiStage:egret.UIStage = this.uiStage;
+        var uiStage:egret.gui.UIStage = this.uiStage;
         uiStage.addElement(this.mainContainer);
         egret.Tween.get(this.mainContainer).to({x:0},500,egret.Ease.sineInOut);
         egret.Tween.get(this.currentScreen).to({x:uiStage.width},500,egret.Ease.sineInOut).call(this.hideScreen,this);

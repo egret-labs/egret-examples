@@ -26,7 +26,7 @@
  */
 
 
-class ScreenBase extends egret.Panel{
+class ScreenBase extends egret.gui.Panel{
 
     public constructor(){
         super();

@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class ListSkin extends egret.Skin{
+class ListSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -39,17 +39,17 @@ class ListSkin extends egret.Skin{
     /**
      * [SkinPart]
      */
-    public dataGroup:egret.DataGroup;
+    public dataGroup:egret.gui.DataGroup;
 
     public createChildren():void{
         super.createChildren();
 
-        this.dataGroup = new egret.DataGroup();
-        var layout:egret.VerticalLayout = new egret.VerticalLayout();
+        this.dataGroup = new egret.gui.DataGroup();
+        var layout:egret.gui.VerticalLayout = new egret.gui.VerticalLayout();
         layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         layout.gap = 0;
         this.dataGroup.layout = layout;
-        var scroller:egret.Scroller = new egret.Scroller();
+        var scroller:egret.gui.Scroller = new egret.gui.Scroller();
         scroller.viewport = this.dataGroup;
         scroller.percentHeight = 100;
         scroller.percentWidth = 100;

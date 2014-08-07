@@ -35,18 +35,18 @@ class LabelScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var group:egret.Group = new egret.Group();
+        var group:egret.gui.Group = new egret.gui.Group();
         group.left = group.top = group.right = group.bottom = 50;
         this.addElement(group);
 
-        var label:egret.Label = new egret.Label();
+        var label:egret.gui.Label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
         label.text = "左对齐文本";
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
@@ -54,7 +54,7 @@ class LabelScreen extends ScreenBase {
         label.textAlign = egret.HorizontalAlign.CENTER;
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
@@ -62,7 +62,7 @@ class LabelScreen extends ScreenBase {
         label.textAlign = egret.HorizontalAlign.RIGHT;
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
@@ -70,7 +70,7 @@ class LabelScreen extends ScreenBase {
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
@@ -78,7 +78,7 @@ class LabelScreen extends ScreenBase {
         label.verticalAlign = egret.VerticalAlign.BOTTOM;
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0xe4e4e4;
         label.fontFamily = "微软雅黑";
@@ -88,7 +88,7 @@ class LabelScreen extends ScreenBase {
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         group.addElement(label);
 
-        label = new egret.Label();
+        label = new egret.gui.Label();
         label.percentHeight = label.percentWidth = 100;
         label.textColor = 0x009aff;
         label.fontFamily = "微软雅黑";

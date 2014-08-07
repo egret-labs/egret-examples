@@ -41,7 +41,7 @@ class ScreenItemRendererSkin extends ItemRendererSkin{
     public createChildren():void{
         super.createChildren();
 
-        var icon:egret.UIAsset = new egret.UIAsset();
+        var icon:egret.gui.UIAsset = new egret.gui.UIAsset();
         icon.source = "list-accessory-drill-down-icon";
         icon.right = 22;
         icon.verticalCenter = 0;

@@ -26,7 +26,7 @@
  */
 
 
-class ItemRendererSkin extends egret.Skin{
+class ItemRendererSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -42,25 +42,25 @@ class ItemRendererSkin extends egret.Skin{
     /**
      * [SkinPart]
      */
-    public labelDisplay:egret.Label;
+    public labelDisplay:egret.gui.Label;
 
-    private upSkin:egret.UIAsset;
-    private selectedSkin:egret.UIAsset;
+    private upSkin:egret.gui.UIAsset;
+    private selectedSkin:egret.gui.UIAsset;
 
 
     public createChildren():void{
         super.createChildren();
-        this.upSkin = new egret.UIAsset();
+        this.upSkin = new egret.gui.UIAsset();
         this.upSkin.percentHeight = this.upSkin.percentWidth = 100;
         this.upSkin.source = "list-item-up";
         this.addElement(this.upSkin);
 
-        this.selectedSkin = new egret.UIAsset();
+        this.selectedSkin = new egret.gui.UIAsset();
         this.selectedSkin.percentHeight = this.selectedSkin.percentWidth = 100;
         this.selectedSkin.source = "list-item-selected";
         this.addElement(this.selectedSkin);
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.size = 26;
         this.labelDisplay.fontFamily = "Tahoma";
         this.labelDisplay.textColor = 0xe4e4e4;

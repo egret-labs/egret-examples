@@ -26,7 +26,7 @@
  */
 
 
-class TreeItemRendererSkin extends egret.Skin {
+class TreeItemRendererSkin extends egret.gui.Skin {
 
     public constructor() {
         super();
@@ -42,15 +42,15 @@ class TreeItemRendererSkin extends egret.Skin {
     /**
      * [SkinPart]
      */
-    public iconDisplay:egret.UIAsset;
-    public contentGroup:egret.Group;
-    public labelDisplay:egret.Label;
-    public disclosureButton:egret.ToggleButton;
+    public iconDisplay:egret.gui.UIAsset;
+    public contentGroup:egret.gui.Group;
+    public labelDisplay:egret.gui.Label;
+    public disclosureButton:egret.gui.ToggleButton;
 
     public createChildren():void {
         super.createChildren();
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.textColor = 0xffffff;
         this.labelDisplay.textAlign = egret.HorizontalAlign.CENTER;
         this.labelDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
@@ -60,21 +60,21 @@ class TreeItemRendererSkin extends egret.Skin {
         this.labelDisplay.top = 3;
         this.labelDisplay.bottom = 3;
 
-        this.contentGroup = new egret.Group();
+        this.contentGroup = new egret.gui.Group();
         this.contentGroup.top = 0;
         this.contentGroup.bottom = 0;
-        var layout:egret.HorizontalLayout = new egret.HorizontalLayout();
+        var layout:egret.gui.HorizontalLayout = new egret.gui.HorizontalLayout();
         layout.gap = 1;
         layout.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.contentGroup.layout = layout;
         this.addElement(this.contentGroup);
 
-        this.disclosureButton = new egret.ToggleButton();
+        this.disclosureButton = new egret.gui.ToggleButton();
         this.disclosureButton.scaleX = this.disclosureButton.scaleY = 0.5;
         this.disclosureButton.skinName = TreeDisclosureButtonSkin;
         this.contentGroup.addElement(this.disclosureButton);
 
-        this.iconDisplay = new egret.UIAsset();
+        this.iconDisplay = new egret.gui.UIAsset();
         this.contentGroup.addElement(this.iconDisplay);
         this.contentGroup.addElement(this.labelDisplay);
     }

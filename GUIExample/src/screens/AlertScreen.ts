@@ -35,7 +35,7 @@ class AlertScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var button:egret.Button = new egret.Button();
+        var button:egret.gui.Button = new egret.gui.Button();
         button.skinName = ButtonSkin;
         button.horizontalCenter = 0;
         button.verticalCenter = 0;
@@ -45,6 +45,6 @@ class AlertScreen extends ScreenBase {
     }
 
     private clickHandler():void {
-        egret.Alert.show("this is an alert message!","Alert");
+        egret.gui.Alert.show("this is an alert message!","Alert");
     }
 }

@@ -26,7 +26,7 @@
  */
 
 
-class ToggleButtonSkin extends egret.Skin{
+class ToggleButtonSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -43,19 +43,19 @@ class ToggleButtonSkin extends egret.Skin{
     /**
      * [SkinPart]
      */
-    public labelDisplay:egret.Label;
+    public labelDisplay:egret.gui.Label;
 
-    private backgroud:egret.UIAsset;
+    private backgroud:egret.gui.UIAsset;
 
 
     public createChildren():void{
         super.createChildren();
-        this.backgroud = new egret.UIAsset();
+        this.backgroud = new egret.gui.UIAsset();
         this.backgroud.percentHeight = this.backgroud.percentWidth = 100;
         this.backgroud.source = "button-up";
         this.addElement(this.backgroud);
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.maxDisplayedLines = 1;
         this.labelDisplay.size = 20;
         this.labelDisplay.fontFamily = "Tahoma";

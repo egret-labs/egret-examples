@@ -28,7 +28,7 @@
 
 class TabBarScreen extends ScreenBase {
 
-    private labelDisplay:egret.Label;
+    private labelDisplay:egret.gui.Label;
 
     public constructor() {
         super();
@@ -37,15 +37,15 @@ class TabBarScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var bar:egret.TabBar = new egret.TabBar();
+        var bar:egret.gui.TabBar = new egret.gui.TabBar();
         bar.horizontalCenter = 0;
         bar.verticalCenter = 0;
         this.addElement(bar);
 
-        bar.dataProvider = new egret.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
-        bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
+        bar.dataProvider = new egret.gui.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
+        bar.addEventListener(egret.gui.ListEvent.ITEM_CLICK, this.onClick, this);
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.maxDisplayedLines = 1;
         this.labelDisplay.fontFamily = "微软雅黑";
         this.labelDisplay.verticalCenter = -100;
@@ -55,8 +55,8 @@ class TabBarScreen extends ScreenBase {
         this.addElement(this.labelDisplay);
     }
 
-    private onClick(event:egret.ListEvent):void {
-        var bar:egret.TabBar = <egret.TabBar>event.currentTarget;
+    private onClick(event:egret.gui.ListEvent):void {
+        var bar:egret.gui.TabBar = <egret.gui.TabBar>event.currentTarget;
         this.labelDisplay.text = "选中第" + (bar.selectedIndex + 1) + "项";
     }
 }

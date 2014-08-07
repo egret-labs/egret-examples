@@ -34,8 +34,8 @@ class TreeScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var tree:egret.Tree = new egret.Tree();
-        var dp2:egret.ObjectCollection = new egret.ObjectCollection();
+        var tree:egret.gui.Tree = new egret.gui.Tree();
+        var dp2:egret.gui.ObjectCollection = new egret.gui.ObjectCollection();
         dp2.source = {children: [
             {dir: true, name: "Item0",
                 children: [
@@ -49,7 +49,7 @@ class TreeScreen extends ScreenBase {
             {name: "Item2"}
         ]};
         tree.itemRendererSkinName = TreeItemRendererSkin;
-        egret.ObjectCollection.assignParent(dp2.source);
+        egret.gui.ObjectCollection.assignParent(dp2.source);
         tree.labelField = "name";
         tree.iconFunction = this.iconFunc;
         tree.dataProvider = dp2;

@@ -26,7 +26,7 @@
  */
 
 
-class TabBarSkin extends egret.Skin {
+class TabBarSkin extends egret.gui.Skin {
     public constructor() {
         super();
         this.minWidth = 60;
@@ -42,15 +42,15 @@ class TabBarSkin extends egret.Skin {
     /**
      * [SkinPart]
      */
-    public dataGroup:egret.DataGroup;
+    public dataGroup:egret.gui.DataGroup;
 
     public createChildren():void {
         super.createChildren();
-        this.dataGroup = new egret.DataGroup();
+        this.dataGroup = new egret.gui.DataGroup();
         this.dataGroup.percentWidth = 100;
         this.dataGroup.percentHeight = 100;
         this.dataGroup.itemRendererSkinName = ButtonSkin;
-        var layout:egret.HorizontalLayout = new egret.HorizontalLayout();
+        var layout:egret.gui.HorizontalLayout = new egret.gui.HorizontalLayout();
         layout.gap = -1;
         layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         layout.verticalAlign = egret.VerticalAlign.CONTENT_JUSTIFY;

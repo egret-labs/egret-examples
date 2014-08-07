@@ -35,7 +35,7 @@ class ProgressBarScreen extends ScreenBase {
     public createChildren():void {
         super.createChildren();
 
-        var progressBar:egret.ProgressBar = new egret.ProgressBar();
+        var progressBar:egret.gui.ProgressBar = new egret.gui.ProgressBar();
         progressBar.width = 250;
         progressBar.height = 21;
         progressBar.horizontalCenter = 120;
@@ -43,21 +43,21 @@ class ProgressBarScreen extends ScreenBase {
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
-        progressBar = new egret.ProgressBar();
+        progressBar = new egret.gui.ProgressBar();
         progressBar.width = 250;
         progressBar.height = 21;
         progressBar.horizontalCenter = 120;
         progressBar.verticalCenter = 50;
-        progressBar.direction = egret.ProgressBarDirection.RIGHT_TO_LEFT;
+        progressBar.direction = egret.gui.ProgressBarDirection.RIGHT_TO_LEFT;
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
-        progressBar = new egret.ProgressBar();
+        progressBar = new egret.gui.ProgressBar();
         progressBar.width = 100;
         progressBar.height = 250;
         progressBar.horizontalCenter = -120;
         progressBar.verticalCenter = 0;
-        progressBar.direction = egret.ProgressBarDirection.BOTTOM_TO_TOP;
+        progressBar.direction = egret.gui.ProgressBarDirection.BOTTOM_TO_TOP;
         this.addElement(progressBar);
         egret.Tween.get(progressBar, {loop:true}).to({value:100}, 3000);
 
@@ -66,7 +66,7 @@ class ProgressBarScreen extends ScreenBase {
 
     private onRemovedFromStage(event:egret.Event):void{
         for(var i:number=0;i<this.numElements;i++){
-            var progressBar:egret.ProgressBar = <egret.ProgressBar><any> this.getElementAt(i);
+            var progressBar:egret.gui.ProgressBar = <egret.gui.ProgressBar><any> this.getElementAt(i);
             egret.Tween.removeTweens(progressBar);
         }
     }

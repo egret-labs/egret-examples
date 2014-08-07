@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TreeDisclosureButtonSkin extends egret.Skin {
+class TreeDisclosureButtonSkin extends egret.gui.Skin {
 
     public constructor() {
         super();
@@ -42,23 +42,23 @@ class TreeDisclosureButtonSkin extends egret.Skin {
     /**
      * [SkinPart]
      */
-    private upSkin:egret.UIAsset;
-    private downSkin:egret.UIAsset;
-    private disabledSkin:egret.UIAsset;
+    private upSkin:egret.gui.UIAsset;
+    private downSkin:egret.gui.UIAsset;
+    private disabledSkin:egret.gui.UIAsset;
 
     public createChildren():void {
         super.createChildren();
-        this.upSkin = new egret.UIAsset();
+        this.upSkin = new egret.gui.UIAsset();
         this.upSkin.percentHeight = this.upSkin.percentWidth = 100;
         this.upSkin.source = "button-forward-up";
         this.addElement(this.upSkin);
 
-        this.downSkin = new egret.UIAsset();
+        this.downSkin = new egret.gui.UIAsset();
         this.downSkin.percentHeight = this.downSkin.percentWidth = 100;
         this.downSkin.source = "button-forward-down";
         this.addElement(this.downSkin);
 
-        this.disabledSkin = new egret.UIAsset();
+        this.disabledSkin = new egret.gui.UIAsset();
         this.disabledSkin.percentHeight = this.disabledSkin.percentWidth = 100;
         this.disabledSkin.source = "button-forward-disabled";
         this.addElement(this.disabledSkin);

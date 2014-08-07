@@ -26,7 +26,7 @@
  */
 
 
-class TreeSkin extends egret.Skin{
+class TreeSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -40,22 +40,22 @@ class TreeSkin extends egret.Skin{
     /**
      * [SkinPart]
      */
-    public dataGroup:egret.DataGroup;
+    public dataGroup:egret.gui.DataGroup;
 
     public createChildren():void{
         super.createChildren();
 
-        var rect:egret.Rect = new egret.Rect();
+        var rect:egret.gui.Rect = new egret.gui.Rect();
         rect.left = rect.top = rect.bottom = rect.right = -1;
         rect.fillColor = 0x272320;
         this.addElement(rect);
 
-        this.dataGroup = new egret.DataGroup();
-        var layout:egret.VerticalLayout = new egret.VerticalLayout();
+        this.dataGroup = new egret.gui.DataGroup();
+        var layout:egret.gui.VerticalLayout = new egret.gui.VerticalLayout();
         layout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         layout.gap = 2;
         this.dataGroup.layout = layout;
-        var scroller:egret.Scroller = new egret.Scroller();
+        var scroller:egret.gui.Scroller = new egret.gui.Scroller();
         scroller.viewport = this.dataGroup;
         scroller.percentHeight = 100;
         scroller.percentWidth = 100;

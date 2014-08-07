@@ -26,7 +26,7 @@
  */
 
 
-class VSliderSkin extends egret.Skin {
+class VSliderSkin extends egret.gui.Skin {
     public constructor() {
         super();
         this.minWidth = 11;
@@ -38,17 +38,17 @@ class VSliderSkin extends egret.Skin {
         return VSliderSkin._skinParts;
     }
 
-    public trackHighlight:egret.UIAsset;
+    public trackHighlight:egret.gui.UIAsset;
 
-    public thumb:egret.Button;
+    public thumb:egret.gui.Button;
 
-    public track:egret.Button;
+    public track:egret.gui.Button;
 
     public createChildren():void {
         super.createChildren();
 
-        this.track = new egret.Button();
-        var asset:egret.UIAsset = new egret.UIAsset();
+        this.track = new egret.gui.Button();
+        var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
         asset.source = "background";
         this.track.skinName = asset;
         this.track.percentHeight = 100;
@@ -56,13 +56,13 @@ class VSliderSkin extends egret.Skin {
         this.track.horizontalCenter = 0;
         this.addElement(this.track);
 
-        this.trackHighlight = new egret.UIAsset();
+        this.trackHighlight = new egret.gui.UIAsset();
         this.trackHighlight.source = "background-down";
         this.trackHighlight.width = 11;
         this.trackHighlight.horizontalCenter = 0;
         this.addElement(this.trackHighlight);
 
-        this.thumb = new egret.Button();
+        this.thumb = new egret.gui.Button();
         this.thumb.skinName = SliderThumbSkin;
         this.thumb.horizontalCenter = 0;
         this.addElement(this.thumb);

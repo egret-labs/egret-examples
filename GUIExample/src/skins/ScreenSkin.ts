@@ -26,7 +26,7 @@
  */
 
 
-class ScreenSkin extends egret.Skin{
+class ScreenSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -40,22 +40,22 @@ class ScreenSkin extends egret.Skin{
     /**
      * [SkinPart]
      */
-    public contentGroup:egret.Group;
+    public contentGroup:egret.gui.Group;
     /**
      * [SkinPart]
      */
-    public titleDisplay:egret.Label;
+    public titleDisplay:egret.gui.Label;
 
     public createChildren():void{
         super.createChildren();
 
-        this.contentGroup = new egret.Group();
+        this.contentGroup = new egret.gui.Group();
         this.contentGroup.percentWidth = 100;
         this.contentGroup.top = 90;
         this.contentGroup.bottom = 0;
         this.addElement(this.contentGroup);
 
-        var title:egret.Label = new egret.Label();
+        var title:egret.gui.Label = new egret.gui.Label();
         this.titleDisplay = title;
         title.fontFamily = "Tahoma";
         title.textColor = 0xe4e4e4;
@@ -64,7 +64,7 @@ class ScreenSkin extends egret.Skin{
         title.top = 25;
         this.addElement(title);
 
-        var backButton:egret.Button = new egret.Button();
+        var backButton:egret.gui.Button = new egret.gui.Button();
         backButton.width = 90;
         backButton.height = 58;
         backButton.skinName = BackButtonSkin;

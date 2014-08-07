@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class ProgressBarSkin extends egret.Skin {
+class ProgressBarSkin extends egret.gui.Skin {
     public constructor() {
         super();
     }
@@ -35,31 +35,31 @@ class ProgressBarSkin extends egret.Skin {
         return ProgressBarSkin._skinParts;
     }
 
-    public thumb:egret.UIAsset;
+    public thumb:egret.gui.UIAsset;
 
-    public track:egret.UIComponent;
+    public track:egret.gui.UIComponent;
 
-    public labelDisplay:egret.Label;
+    public labelDisplay:egret.gui.Label;
 
     public createChildren():void {
         super.createChildren();
 
-        var bg = new egret.UIAsset();
+        var bg = new egret.gui.UIAsset();
         bg.percentHeight = bg.percentWidth = 100;
         bg.source = "background-disabled";
         this.addElement(bg);
 
-        this.thumb = new egret.UIAsset();
+        this.thumb = new egret.gui.UIAsset();
         this.thumb.source = "background-down";
         this.addElement(this.thumb);
 
         //track是用来确定thumb的覆盖区域的，并不一定是背景素材。
-        this.track = new egret.UIComponent();
+        this.track = new egret.gui.UIComponent();
         this.track.percentWidth = 100;
         this.track.percentHeight = 100;
         this.addElement(this.track);
 
-        this.labelDisplay = new egret.Label();
+        this.labelDisplay = new egret.gui.Label();
         this.labelDisplay.textAlign = egret.HorizontalAlign.CENTER;
         this.labelDisplay.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.labelDisplay.maxDisplayedLines = 1;

@@ -26,24 +26,24 @@
  */
 
 /**
- * @class egret.DefaultSkinAdapter
+ * @class egret.gui.DefaultSkinAdapter
  * @classdesc
  * 默认的ISkinAdapter接口实现
- * @implements egret.ISkinAdapter
+ * @implements egret.gui.ISkinAdapter
  */
 
 
-class SkinAdapter implements egret.ISkinAdapter {
+class SkinAdapter implements egret.gui.ISkinAdapter {
     /**
      * 构造函数
-     * @method egret.DefaultSkinAdapter#constructor
+     * @method egret.gui.DefaultSkinAdapter#constructor
      */
     public constructor() {
     }
 
     /**
      * 获取皮肤显示对象
-     * @method egret.ISkinAdapter#getSkin
+     * @method egret.gui.ISkinAdapter#getSkin
      * @param skinName {any} 待解析的皮肤标识符
      * @param hostComponentKey {string} 主机组件标识符
      * @returns {any} 皮肤对象实例
@@ -72,31 +72,31 @@ class SkinAdapter implements egret.ISkinAdapter {
     private getDefaultSkin(hostComponentKey:string):any{
         var skin:any;
         switch (hostComponentKey) {
-            case "egret.Button":
+            case "egret.gui.Button":
                 skin = new ButtonSkin();
                 break;
-            case "egret.ToggleButton":
+            case "egret.gui.ToggleButton":
                 skin = new ToggleButtonSkin();
                 break;
-            case "egret.Alert":
+            case "egret.gui.Alert":
                 skin = new AlertSkin();
                 break;
-            case "egret.ProgressBar":
+            case "egret.gui.ProgressBar":
                 skin = new ProgressBarSkin();
                 break;
-            case "egret.HSlider":
+            case "egret.gui.HSlider":
                 skin = new HSliderSkin();
                 break;
-            case "egret.VSlider":
+            case "egret.gui.VSlider":
                 skin = new VSliderSkin();
                 break;
-            case "egret.TabBar":
+            case "egret.gui.TabBar":
                 skin = new TabBarSkin();
                 break;
-            case "egret.List":
+            case "egret.gui.List":
                 skin = new ListSkin();
                 break;
-            case "egret.Tree":
+            case "egret.gui.Tree":
                 skin = new TreeSkin();
                 break;
         }

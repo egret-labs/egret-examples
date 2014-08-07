@@ -26,7 +26,7 @@
  */
 
 
-class SliderThumbSkin extends egret.Skin{
+class SliderThumbSkin extends egret.gui.Skin{
 
     public constructor(){
         super();
@@ -38,7 +38,7 @@ class SliderThumbSkin extends egret.Skin{
 
     public createChildren():void{
         super.createChildren();
-        var asset:egret.UIAsset = new egret.UIAsset();
+        var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
         asset.source = "page-indicator-selected";
         asset.x = -8;
         asset.y = -8;
