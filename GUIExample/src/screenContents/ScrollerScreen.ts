@@ -26,7 +26,7 @@
  */
 
 
-class ScrollerScreen extends egret.SkinnableContainer{
+class ScrollerScreen extends egret.gui.SkinnableContainer{
 
     public constructor(){
         super();

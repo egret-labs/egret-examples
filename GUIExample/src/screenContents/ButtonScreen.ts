@@ -26,7 +26,7 @@
  */
 
 
-class ButtonScreen extends egret.SkinnableContainer{
+class ButtonScreen extends egret.gui.SkinnableContainer{
 
     public constructor(){
         super();

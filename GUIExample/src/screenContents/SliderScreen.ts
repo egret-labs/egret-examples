@@ -26,18 +26,18 @@
  */
 
 
-class SliderScreen extends egret.SkinnableContainer {
+class SliderScreen extends egret.gui.SkinnableContainer {
 
-    private labelDisplay:egret.Label;
+    private labelDisplay:egret.gui.Label;
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.SliderScreenSkin";
     }
 
-    public hSlider:egret.HSlider;
-    public vSlider:egret.HSlider;
-    public label:egret.Label;
+    public hSlider:egret.gui.HSlider;
+    public vSlider:egret.gui.HSlider;
+    public label:egret.gui.Label;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
@@ -52,8 +52,8 @@ class SliderScreen extends egret.SkinnableContainer {
     }
 
     private onChange(event:egret.Event):void{
-        var slider:egret.SliderBase = <egret.SliderBase>event.currentTarget;
-        if(slider instanceof egret.VSlider){
+        var slider:egret.gui.SliderBase = <egret.gui.SliderBase>event.currentTarget;
+        if(slider instanceof egret.gui.VSlider){
             this.label.text = "VSlider.value : "+slider.value.toString();
         }
         else{

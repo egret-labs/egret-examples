@@ -26,16 +26,16 @@
  */
 
 
-class ProgressBarScreen extends egret.SkinnableContainer {
+class ProgressBarScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.ProgressBarScreenSkin";
     }
 
-    public hProgressBar1:egret.ProgressBar;
-    public hProgressBar2:egret.ProgressBar;
-    public vProgressBar:egret.ProgressBar;
+    public hProgressBar1:egret.gui.ProgressBar;
+    public hProgressBar2:egret.gui.ProgressBar;
+    public vProgressBar:egret.gui.ProgressBar;
 
     public partAdded(partName: string, instance: any): void
     {

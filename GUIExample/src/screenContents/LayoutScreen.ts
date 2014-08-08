@@ -26,27 +26,27 @@
  */
 
 
-class LayoutScreen extends egret.SkinnableContainer{
+class LayoutScreen extends egret.gui.SkinnableContainer{
 
     public constructor(){
         super();
         this.skinName = "screenContentSkins.LayoutScreenSkin";
     }
 
-    public panel:egret.UIAsset;
-    public topCheck:egret.CheckBox;
-    public topLeftCheck:egret.CheckBox;
-    public topRightCheck:egret.CheckBox;
-    public leftChcek:egret.CheckBox;
-    public leftTopCheck:egret.CheckBox;
-    public leftBottomCheck:egret.CheckBox;
+    public panel:egret.gui.UIAsset;
+    public topCheck:egret.gui.CheckBox;
+    public topLeftCheck:egret.gui.CheckBox;
+    public topRightCheck:egret.gui.CheckBox;
+    public leftChcek:egret.gui.CheckBox;
+    public leftTopCheck:egret.gui.CheckBox;
+    public leftBottomCheck:egret.gui.CheckBox;
 
-    public vleftLine:egret.Rect;
-    public vMiddleLine:egret.Rect;
-    public vRightLine:egret.Rect;
-    public hTopLine:egret.Rect;
-    public hMiddleLine:egret.Rect;
-    public hBottomLine:egret.Rect;
+    public vleftLine:egret.gui.Rect;
+    public vMiddleLine:egret.gui.Rect;
+    public vRightLine:egret.gui.Rect;
+    public hTopLine:egret.gui.Rect;
+    public hMiddleLine:egret.gui.Rect;
+    public hBottomLine:egret.gui.Rect;
 
     public partAdded(partName: string, instance: any): void
     {

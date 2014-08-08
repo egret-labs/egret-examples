@@ -26,14 +26,14 @@
  */
 
 
-class ItemRendererScreen extends egret.SkinnableContainer{
+class ItemRendererScreen extends egret.gui.SkinnableContainer{
 
     public constructor(){
         super();
         this.skinName = "screenContentSkins.ItemRendererScreenSkin";
     }
 
-    public list:egret.List;
+    public list:egret.gui.List;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
@@ -44,7 +44,7 @@ class ItemRendererScreen extends egret.SkinnableContainer{
             {
                 arr.push({label:"item"+i,toggle:false});
             }
-            this.list.dataProvider = new egret.ArrayCollection(arr);
+            this.list.dataProvider = new egret.gui.ArrayCollection(arr);
         }
     }
 }

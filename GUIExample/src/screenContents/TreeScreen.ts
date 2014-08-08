@@ -25,20 +25,20 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TreeScreen extends egret.SkinnableContainer {
+class TreeScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.TreeScreenSkin";
     }
 
-    public tree:egret.Tree;
+    public tree:egret.gui.Tree;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
         if(instance == this.tree)
         {
-            var dp:egret.ObjectCollection = new egret.ObjectCollection();
+            var dp:egret.gui.ObjectCollection = new egret.gui.ObjectCollection();
             dp.source = {children: [
                 {dir: true, name: "Item0",
                     children: [

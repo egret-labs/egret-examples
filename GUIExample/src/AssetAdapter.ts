@@ -26,11 +26,11 @@
  */
 
 
-class AssetAdapter implements egret.IAssetAdapter{
+class AssetAdapter implements egret.gui.IAssetAdapter{
 
     /**
      * 解析素材
-     * @method egret.DefaultAssetAdapter#getAsset
+     * @method egret.gui.DefaultAssetAdapter#getAsset
      * @param source {any} 待解析的新素材标识符
      * @param compFunc {Function} 解析完成回调函数，示例：compFunc(content:any,source:any):void;
      * 回调参数content接受两种类型：DisplayObject或Texture。

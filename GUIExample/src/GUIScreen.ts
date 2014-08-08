@@ -26,7 +26,7 @@
  */
 
 
-class GUIScreen extends egret.Panel{
+class GUIScreen extends egret.gui.Panel{
 
     public constructor(){
         super();
@@ -35,7 +35,7 @@ class GUIScreen extends egret.Panel{
         this.skinName = "skins.ScreenSkin";
     }
 
-    public backButton:egret.Button;
+    public backButton:egret.gui.Button;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);

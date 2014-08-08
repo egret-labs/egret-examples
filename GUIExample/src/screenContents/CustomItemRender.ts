@@ -26,12 +26,12 @@
  */
 
 
-class CustomItemRender extends egret.ItemRenderer implements egret.IItemRenderer{
+class CustomItemRender extends egret.gui.ItemRenderer implements egret.gui.IItemRenderer{
 
     public constructor() {
         super();
     }
-    public toggleButton:egret.ToggleButton;
+    public toggleButton:egret.gui.ToggleButton;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);

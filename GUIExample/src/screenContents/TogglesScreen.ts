@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TogglesScreen extends egret.SkinnableContainer{
+class TogglesScreen extends egret.gui.SkinnableContainer{
 
     public constructor(){
         super();

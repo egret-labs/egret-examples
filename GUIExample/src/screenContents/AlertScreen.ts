@@ -26,14 +26,14 @@
  */
 
 
-class AlertScreen extends egret.SkinnableContainer {
+class AlertScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.AlertScreenSkin";
     }
 
-    public button:egret.Button;
+    public button:egret.gui.Button;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
@@ -44,6 +44,6 @@ class AlertScreen extends egret.SkinnableContainer {
     }
 
     private clickHandler():void {
-        egret.Alert.show("this is an alert message!","Alert");
+        egret.gui.Alert.show("this is an alert message!","Alert");
     }
 }

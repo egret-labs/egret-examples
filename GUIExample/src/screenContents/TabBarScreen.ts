@@ -26,27 +26,27 @@
  */
 
 
-class TabBarScreen extends egret.SkinnableContainer {
+class TabBarScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.TabBarScreenSkin";
     }
 
-    public bar:egret.TabBar;
-    public label:egret.Label;
+    public bar:egret.gui.TabBar;
+    public label:egret.gui.Label;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
         if(instance == this.bar)
         {
-            this.bar.dataProvider = new egret.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
-            this.bar.addEventListener(egret.ListEvent.ITEM_CLICK, this.onClick, this);
+            this.bar.dataProvider = new egret.gui.ArrayCollection(["Tab 1", "Tab 2", "Tab 3"]);
+            this.bar.addEventListener(egret.gui.ListEvent.ITEM_CLICK, this.onClick, this);
         }
     }
 
-    private onClick(event:egret.ListEvent):void {
-        var bar:egret.TabBar = <egret.TabBar>event.currentTarget;
+    private onClick(event:egret.gui.ListEvent):void {
+        var bar:egret.gui.TabBar = <egret.gui.TabBar>event.currentTarget;
         this.label.text = "选中第" + (bar.selectedIndex + 1) + "项";
     }
 }

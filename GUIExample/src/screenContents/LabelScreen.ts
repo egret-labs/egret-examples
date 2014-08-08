@@ -26,7 +26,7 @@
  */
 
 
-class LabelScreen extends egret.SkinnableComponent {
+class LabelScreen extends egret.gui.SkinnableComponent {
 
     public constructor() {
         super();

@@ -26,14 +26,14 @@
  */
 
 
-class ListScreen extends egret.SkinnableContainer {
+class ListScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
         this.skinName = "screenContentSkins.ListScreenSkin";
     }
 
-    public list:egret.List;
+    public list:egret.gui.List;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
@@ -43,7 +43,7 @@ class ListScreen extends egret.SkinnableContainer {
             for (var i:number = 1; i < 150; i++) {
                 arr.push("Item" + i);
             }
-            this.list.dataProvider = new egret.ArrayCollection(arr);
+            this.list.dataProvider = new egret.gui.ArrayCollection(arr);
         }
     }
 }
