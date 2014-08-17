@@ -1,0 +1,19 @@
+{
+	"document_class": "GUIExplorer",
+	"native": {
+		"path_ignore": [
+			"libs"
+		]
+	},
+	"modules": [
+		{
+			"name": "core"
+		},
+		{
+			"name": "gui"
+		},
+		{
+			"name": "dragonbones"
+		}
+	]
+}
