@@ -1,8 +1,0 @@
-{
-    "document_class" : "GUIExplorer",
-    "native": {
-        "path_ignore": [
-            "libs"
-        ]
-    }
-}

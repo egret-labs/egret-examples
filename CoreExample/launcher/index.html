@@ -41,6 +41,7 @@
     <textarea style="font-size:16px;height:400px;width:700px;" id="exampleTextArea" disabled="false"></textarea>
 
 </div>
+<script>var document_class = "GameApp";</script><!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
 
 <script>
 
@@ -118,7 +119,7 @@
 <script src="bin-debug/src/game_file_list.js"></script>
 
 <script>
-    egret_h5.preloadScript(egret_file_list, "bin-debug/lib/");
+    egret_h5.preloadScript(egret_file_list, "libs/core/");
     egret_h5.preloadScript(game_file_list, "bin-debug/src/");
     egret_h5.startLoading();
 </script>

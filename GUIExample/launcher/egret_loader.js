@@ -66,14 +66,10 @@ egret_h5.startGame = function () {
     context.deviceContext = new egret.HTML5DeviceContext();
     context.netContext = new egret.HTML5NetContext();
 
-
-    //设置屏幕适配策略
-    var container = new egret.EqualToFrame();
-    var content = egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? new egret.FixedWidth() : new egret.NoScale();
-    var policy = new egret.ResolutionPolicy(container, content);
-    egret.StageDelegate.getInstance().setDesignSize(960, 640, policy);
-
-    context.stage = new egret.Stage(canvas.width, canvas.height);
+    egret.StageDelegate.getInstance().setDesignSize(960, 640);
+    context.stage = new egret.Stage();
+    var scaleMode =  egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.SHOW_ALL : egret.StageScaleMode.NO_SCALE;
+    context.stage.scaleMode = scaleMode;
 
     egret.MainContext.instance.rendererContext.texture_scale_factor = 1;
     context.run();

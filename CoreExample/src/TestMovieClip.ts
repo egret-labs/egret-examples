@@ -38,7 +38,7 @@ class TestMovieClip {
         monkey.x = 200;
         monkey.y = 200;
         egret.MainContext.instance.stage.addChild(monkey);
-        monkey.setInterval(3);
+        monkey.frameRate = 24;
         monkey.gotoAndPlay("attack");
     }
 }

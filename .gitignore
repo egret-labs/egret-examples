@@ -1,6 +1,6 @@
 bin-debug/
 .idea/
 temp/
-**/**/egret.d.ts
+libs/
 egret.d.ts
 crc32.temp

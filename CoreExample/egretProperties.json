@@ -1,0 +1,18 @@
+{
+	"modules": [
+		{
+			"name": "core"
+		},
+		{
+			"name": "gui"
+		},
+		{
+			"name": "dragonbones"
+		}
+	],
+	"native": {
+		"path_ignore": [
+			"libs"
+		]
+	}
+}
