@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:HSlider id="hSlider" width="250" maximum="100" horizontalCenter="0" verticalCenter="135" value="50"/>
+    <e:VSlider id="vSlider" height="250" maximum="100" horizontalCenter="-135" verticalCenter="0" value="70"/>
+    <e:Label id="label" size="20" textColor="0x727070" fontFamily="微软雅黑" text="拖拽滑块以改变值"
+             horizontalCenter="0" verticalCenter="0"/>
+</e:Skin>

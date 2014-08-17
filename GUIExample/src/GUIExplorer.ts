@@ -63,6 +63,12 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addChild(uiStage);
 
         var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
+        asset.source = "main_bg";
+        asset.percentHeight = asset.percentWidth = 100;
+        asset.fillMode = egret.BitmapFillMode.REPEAT;
+        uiStage.addElement(asset);
+
+        var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
         asset.source = "header-background";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         asset.percentWidth = 100;
@@ -77,7 +83,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var title:egret.gui.Label = new egret.gui.Label();
         title.text = "Egret GUI";
         title.fontFamily = "Tahoma";
-        title.textColor = 0xe4e4e4;
+        title.textColor = 0x727070;
         title.size = 35;
         title.horizontalCenter = 0;
         title.top = 25;
@@ -85,8 +91,8 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
         var list:egret.gui.List = new egret.gui.List();
         this.mainList = list;
-        list.skinName = ListSkin;
-        list.itemRendererSkinName = ScreenItemRendererSkin;
+        list.skinName = "skins.ListSkin";
+        list.itemRendererSkinName = "skins.ScreenItemRendererSkin";
         list.percentWidth = 100;
         list.top = 90;
         list.bottom = 0;
@@ -99,11 +105,11 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     }
 
     //声明一个变量,引用反射的类，否则不能被加入编译列表。
-    private classDependency:Array<any> = [AlertScreen,ButtonScreen,LabelScreen,ListScreen,ProgressBarScreen,
-        ScrollerScreen,SliderScreen,TabBarScreen,TreeScreen];
+    private classDependency:Array<any> = [AlertScreen,ButtonScreen,ItemRendererScreen,LabelScreen,
+        LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,TogglesScreen,TreeScreen];
 
-    private currentScreen:ScreenBase;
-
+    private currentScreen:GUIScreen;
+    private classInstanceCache:any = {};
     private onItemClick(event:egret.gui.ListEvent):void{
         if(this.currentScreen)
             return;
@@ -114,17 +120,29 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var clazz:any;
         if(egret.hasDefinition(className)){
             clazz = egret.getDefinitionByName(className);
+
+            var screen:GUIScreen;
+            //缓存一下，免得反复重复创建
+            if(this.classInstanceCache.hasOwnProperty(className))
+            {
+                screen = this.classInstanceCache[className];
+            }else
+            {
+                var screen:GUIScreen = new GUIScreen();
+                var screenContent:egret.gui.SkinnableContainer = new clazz();
+                screenContent.percentHeight = 100;
+                screenContent.percentWidth = 100;
+                screen.addElement(screenContent)
+                this.classInstanceCache[className] = screen;
+            }
+
+            screen.title = event.item;
+            this.currentScreen = screen;
+            screen.addEventListener("goBack",this.onGoBack,this);
+            uiStage.addElement(screen);
+            screen.x = uiStage.width;
+            egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
         }
-        else{
-            clazz = ScreenBase;
-        }
-        var screen:ScreenBase = new clazz();
-        screen.title = event.item;
-        this.currentScreen = screen;
-        screen.addEventListener("goBack",this.onGoBack,this);
-        uiStage.addElement(screen);
-        screen.x = uiStage.width;
-        egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
     }
 
     private hideMainContainer():void{

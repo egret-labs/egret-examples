@@ -73,33 +73,38 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
         var skin:any;
         switch (hostComponentKey) {
             case "egret.gui.Button":
-                skin = new ButtonSkin();
+                skin =  "skins.ButtonSkin";
                 break;
             case "egret.gui.ToggleButton":
-                skin = new ToggleButtonSkin();
+                skin =  "skins.ToggleButtonSkin"
                 break;
             case "egret.gui.Alert":
-                skin = new AlertSkin();
-                break;
-            case "egret.gui.ProgressBar":
-                skin = new ProgressBarSkin();
+                skin =  "skins.AlertSkin";
                 break;
             case "egret.gui.HSlider":
-                skin = new HSliderSkin();
+                skin =  "skins.HSliderSkin";
                 break;
             case "egret.gui.VSlider":
-                skin = new VSliderSkin();
+                skin =  "skins.VSliderSkin";
                 break;
             case "egret.gui.TabBar":
-                skin = new TabBarSkin();
+                skin =  "skins.TabBarSkin";
                 break;
             case "egret.gui.List":
-                skin = new ListSkin();
+                skin =  "skins.ListSkin";
                 break;
             case "egret.gui.Tree":
-                skin = new TreeSkin();
+                skin =  "skins.TreeSkin";
                 break;
+            case "egret.gui.RadioButton":
+                skin =  "skins.RadioButtonSkin";
+                break;
+            case "egret.gui.CheckBox":
+                skin =  "skins.CheckBoxSkin";
+                break;
+
         }
+        skin = new (egret.getDefinitionByName(skin))();
         return skin;
     }
 }

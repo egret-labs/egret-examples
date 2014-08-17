@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:TabBar id="bar" horizontalCenter="0" verticalCenter="0"/>
+    <e:Label id="label" maxDisplayedLines="1" fontFamily="微软雅黑" verticalCenter="-100" horizontalCenter="0"
+            textColor="0x727070" text="选中第1项"/>
+</e:Skin>

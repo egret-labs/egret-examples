@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:Group left="50" right="50" top="50" bottom="50">
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="左对齐文本"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="水平居中文本"
+                textAlign="center"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="右对齐文本"
+                 textAlign="right"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="垂直居中文本"
+                 verticalAlign="middle"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="底对齐文本"
+                 verticalAlign="bottom"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="粗体文本"
+                 bold="true" textAlign="right" verticalAlign="bottom"/>
+        <e:Label width="100%" height="100%" textColor="0x727070" fontFamily="微软雅黑" text="斜体文本"
+                 italic="true" textAlign="center" verticalAlign="middle"/>
+    </e:Group>
+</e:Skin>
