@@ -14,5 +14,6 @@
 		"path_ignore": [
 			"libs"
 		]
-	}
+	},
+	"egret_version": "1.0.4"
 }
