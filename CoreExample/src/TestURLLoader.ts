@@ -46,7 +46,7 @@ class TestURLLoader {
 
         var url:string = "http://httpbin.org/get";
         var loader:egret.URLLoader = new egret.URLLoader();
-        loader.dataFormat = egret.URLLoaderDataFormat.VARIABLES;
+        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
         loader.addEventListener(egret.Event.COMPLETE,onGetComplete,this);
         loader.load(new egret.URLRequest(url));
 
@@ -74,7 +74,7 @@ class TestURLLoader {
 
         var url:string = "http://httpbin.org/post";
         var loader:egret.URLLoader = new egret.URLLoader();
-        loader.dataFormat = egret.URLLoaderDataFormat.VARIABLES;
+        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
         loader.addEventListener(egret.Event.COMPLETE,onPostComplete,this);
         var request:egret.URLRequest = new egret.URLRequest(url);
         request.method = egret.URLRequestMethod.POST;
