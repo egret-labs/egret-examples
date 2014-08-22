@@ -7,10 +7,10 @@
 		<e:State name="down" />
 		<e:State name="disabled" />
 	</e:states>
-	<e:UIAsset width="100%" height="100%" source.up="button-up"
+	<e:UIAsset width="100%" height="100%" source="button-up"
 		source.down="button-down" source.disabled="button-disabled" />
 	<e:Label id="labelDisplay" size="20" verticalAlign="middle"
-		textAlign="center" fontFamily="Tahoma" textColor.up="0x1e7465"
+		textAlign="center" fontFamily="Tahoma" textColor="0x1e7465"
 		textColor.down="0x1e7465" textColor.disabled="0x727070" left="10"
 		right="10" top="8" bottom="12" />
 </e:Skin>

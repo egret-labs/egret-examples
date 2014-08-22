@@ -14,7 +14,7 @@
 			<e:HorizontalLayout verticalAlign="middle" gap="5" />
 		</e:layout>
 		<e:Group>
-			<e:UIAsset source.up="radio-up" source.down="radio-down"
+			<e:UIAsset source="radio-up" source.down="radio-down"
 				source.disabled="radio-down-selected" source.upAndSelected="radio-up-selected"
 				source.downAndSelected="radio-down-selected"
 				source.disabledAndSelected="radio-disabled-selected" verticalCenter="1" />

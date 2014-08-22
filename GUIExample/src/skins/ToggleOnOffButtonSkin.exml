@@ -9,7 +9,7 @@
 		<e:State name="downAndSelected" />
 		<e:State name="disabledAndSelected" />
 	</e:states>
-	<e:UIAsset source.up="toggle-up" source.down="toggle-down"
+	<e:UIAsset source="toggle-up" source.down="toggle-down"
 		source.disabled="toggle-disabled" source.upAndSelected="toggle-up-selected"
 		source.downAndSelected="toggle-down-selected"
 		source.disabledAndSelected="toggle-disabled-selected" />
