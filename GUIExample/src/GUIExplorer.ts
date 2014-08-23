@@ -33,11 +33,13 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
     }
 
+    private alert:skins.AlertSkin;
+
     public onAddToStage(event:egret.Event):void{
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
-        //注入自定义的皮肤解析器
-        egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
+        //初始化默认皮肤的主题配置
+        egret.gui.Theme.load("resource/theme.thm");
 
         //启动RES资源加载模块
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
