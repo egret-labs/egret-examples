@@ -33,8 +33,6 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
     }
 
-    private alert:skins.AlertSkin;
-
     public onAddToStage(event:egret.Event):void{
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
