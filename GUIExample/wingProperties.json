@@ -861,5 +861,6 @@
 				"name":"v-slider-highlight"
 			}]
 		}
-	}
+	},
+	"theme":"resource/theme.thm"
 }
