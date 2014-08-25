@@ -26,7 +26,7 @@
  */
 
 
-class ProgressBarScreen extends egret.gui.SkinnableContainer {
+class ProgressBarScreen extends egret.gui.SkinnableComponent {
 
     public constructor() {
         super();
