@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
 	minHeight="22">
-	<w:HostComponent name="egret.Button" />
+	<w:HostComponent name="egret.gui.Button" />
 	<e:Group id="contentGroup" top="0" bottom="0">
 		<e:layout>
 			<e:HorizontalLayout verticalAlign="middle" gap="1" />
