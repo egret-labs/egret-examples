@@ -49,6 +49,9 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
      * @returns {any} 皮肤对象实例
      */
     public getSkin(skinName:any, hostComponentKey:string):any {
+        var skin:any=this.getDefaultSkin(hostComponentKey);
+        if(skin)
+            return skin;
         if (skinName) {
             if (skinName.prototype) {
                 return new skinName();
@@ -66,10 +69,23 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
                 return skinName;
             }
         }
-        return this.getDefaultSkin(hostComponentKey);
     }
 
-    private getDefaultSkin(hostComponentKey:string):any{
+    private getDefaultSkin(hostComponentKey:string):any
+    {
+        var skin:any;
+
+        switch(GUIExplorer.skinType)
+        {
+            case "ocean":
+                skin=this.defaultSkinForNew(hostComponentKey);
+                break;
+        }
+        return skin;
+
+    }
+    private defaultSkinForNew(hostComponentKey:string):any
+    {
         var skin:any;
         switch (hostComponentKey) {
             case "egret.gui.Button":
@@ -102,9 +118,35 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
             case "egret.gui.CheckBox":
                 skin =  "skins.CheckBoxSkin";
                 break;
+            case "screenContents.CustomItemRender":
+                skin="skins.CustomItemRendererSkin";
+                break;
+            case "screenContents.CustomListItemRender":
+                skin="skins.ItemRendererSkin";
+                break;
+            case "ToggleOnOffButton":
+                skin="skins.ToggleOnOffButtonSkin";
+                break;
+            case "HProgressBar":
+                skin="skins.HProgressBarSkin";
+                break;
+            case "VProgressBar":
+                skin="skins.VProgressBarSkin";
+                break;
+            case "SliderThumbButton":
+                skin="skins.SliderThumbSkin";
+                break;
+            case "CustomTreeItemRender":
+                skin="skins.TreeItemRendererSkin";
+                break;
+            case "TreeDisclosureButton":
+                skin="skins.TreeDisclosureButtonSkin";
+                break;
 
         }
-        skin = new (egret.getDefinitionByName(skin))();
+
+        if(skin)
+            skin= new (egret.getDefinitionByName(skin))();
         return skin;
     }
 }

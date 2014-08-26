@@ -7,7 +7,7 @@
 			<e:HorizontalLayout verticalAlign="middle" gap="1" />
 		</e:layout>
 		<e:ToggleButton id="disclosureButton" verticalCenter="0"
-			skinName="skins.TreeDisclosureButtonSkin" />
+		hostComponentKey="TreeDisclosureButton" />
 		<e:UIAsset id="iconDisplay" />
 		<e:Label id="labelDisplay" textColor="0x707070" textAlign="center"
 			verticalAlign="middle" maxDisplayedLines="1" left="5" right="5" top="3"

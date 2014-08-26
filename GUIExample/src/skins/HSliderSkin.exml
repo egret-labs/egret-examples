@@ -10,6 +10,6 @@
 		height="13" verticalCenter="0" />
 	<e:UIAsset id="trackHighlight" source="h-slider-highlight"
 		height="13" verticalCenter="0" />
-	<e:Button id="thumb" skinName="skins.SliderThumbSkin"
+	<e:Button id="thumb" hostComponentKey="SliderThumbButton"
 		verticalCenter="0" />
 </e:Skin>

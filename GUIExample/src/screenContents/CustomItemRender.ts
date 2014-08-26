@@ -30,6 +30,7 @@ class CustomItemRender extends egret.gui.ItemRenderer implements egret.gui.IItem
 
     public constructor() {
         super();
+        this.hostComponentKey="screenContents.CustomItemRender";
     }
     public toggleButton:egret.gui.ToggleButton;
     public partAdded(partName: string, instance: any): void
