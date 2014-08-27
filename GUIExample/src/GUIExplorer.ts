@@ -37,23 +37,52 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     public onAddToStage(event:egret.Event):void{
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
+
+        //初始化默认皮肤的主题配置
+        //egret.gui.Theme.load("resource/theme.thm");
         //注入自定义的皮肤解析器
         egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
 
-        //启动RES资源加载模块
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
-        RES.loadConfig("resource/config/app.json");
-        RES.loadGroup("global");
+        var skintype:string = window["getCurrentTest"]();
+       // this.setSkinType("simple");
+        this.setSkinType(skintype);
     }
 
+    /*
+    * 设置皮肤类型
+    * */
+    private setSkinType(type:string):void
+    {
+        GUIExplorer.skinType=type;
+        var path:string;
+        switch (type)
+        {
+            case "ocean":
+                path="resource/config/resource_ocean.json";
+                break;
+            case "simple":
+                path="resource/config/resource_simple.json";
+                break;
+        }
+        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
+        RES.loadConfig(path);
+        RES.loadGroup("global");
+    }
+    private clear():void
+    {
+        var screens:Array<string> = RES.getRes("screens_json");
+        this.mainList.dataProvider = new egret.gui.ArrayCollection(screens);
+        this.mainList.addEventListener(egret.gui.ListEvent.ITEM_CLICK,this.onItemClick,this);
+        this.uiStage.validateNow();
+    }
     public onGroupComp(event:RES.ResourceEvent):void
     {
-        RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
+       // RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
         switch(event.groupName)
         {
             case "global":
                 this.createExporer();
-                this.setSkinType("ocean");
+                RES.loadGroup("skin");
                     break;
             case "skin":
                 this.clear();
@@ -64,7 +93,8 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     private uiStage:egret.gui.UIStage;
     private mainList:egret.gui.List;
     private listBack:egret.gui.UIAsset;
-
+    public componentGroup:egret.gui.Group;
+    private gap:number=300;
     public createExporer():void{
         //实例化GUI根容器
         var uiStage:egret.gui.UIStage = new egret.gui.UIStage();
@@ -72,132 +102,102 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addChild(uiStage);
 
         var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
-        asset.source = "back_png";
+        asset.source = "app_back_png";
         asset.percentHeight = asset.percentWidth = 100;
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         uiStage.addElement(asset);
 
+        this.listBack=new egret.gui.UIAsset();
+        this.listBack.source="app_list_back_png";
+        this.listBack.width=this.gap;
+        this.listBack.bottom=0;
+        this.listBack.top=0;
+        uiStage.addElement(this.listBack);
 
         var headerGroup:egret.gui.Group=new egret.gui.Group();
-        headerGroup.width=300;
+        headerGroup.width=this.gap;
         headerGroup.height=90;
         uiStage.addElement(headerGroup);
 
         var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
-        asset.source = "header_back_png";
+        asset.source = "app_header_back_png";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
         asset.percentWidth=asset.percentHeight=100;
         headerGroup.addElement(asset);
 
         var logo:egret.gui.UIAsset=new egret.gui.UIAsset();
-        logo.source="logo_png";
+        logo.source="app_logo_png";
         logo.bottom=5;
         logo.left=20;
         headerGroup.addElement(logo);
 
         var title:egret.gui.Label = new egret.gui.Label();
+
         title.text = "Egret GUI";
         title.size=18;
         title.right=20;
         title.bottom=10;
         headerGroup.addElement(title);
 
-       this.listBack=new egret.gui.UIAsset();
-        this.listBack.source="list_back_png";
-        this.listBack.width=300;
-        this.listBack.bottom=0;
-        this.listBack.top=90;
-        uiStage.addElement(this.listBack);
-
         var list:egret.gui.List = new egret.gui.List();
         this.mainList = list;
-        list.skinName = "skins.ListSkin";
-        list.itemRendererSkinName = "skins.ScreenItemRendererSkin";
-        list.width = 300;
+
+        list.width = this.gap;
         list.top = 90;
         list.bottom = 0;
         uiStage.addElement(list);
-
-//        var dp:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([{label:"asdf"},{label:"wqqq"},{label:"213qwe"}]);
-//        this.mainList.labelField="label";
-//        this.mainList.dataProvider=dp;
-    }
-
-    private setSkinType(type:string):void
-    {
-
-        GUIExplorer.skinType=type;
-        var path:string;
-        switch (type)
+        list.addEventListener(egret.gui.ListEvent.ITEM_CLICK,this.onItemClick,this);
+        switch(GUIExplorer.skinType)
         {
             case "ocean":
-                path="resource/config/resource_ocean.json";
+                title.textColor=0xffffff;
+                list.skinName = "skins.ocean.ListSkin";
+                list.itemRendererSkinName = "skins.ocean.ScreenItemRendererSkin";
+                break;
+            case "simple":
+                title.textColor=0x111111;
+                list.skinName = "skins.simple.ListSkin";
+                list.itemRendererSkinName = "skins.simple.ScreenItemRendererSkin";
                 break;
         }
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
-        RES.loadConfig(path);
-        RES.loadGroup("skin");
+        this.componentGroup=new egret.gui.Group();
+        this.componentGroup.percentHeight=100;
+        this.componentGroup.left=this.gap;
+        this.componentGroup.right=0;
+        uiStage.addElement(this.componentGroup);
+
+
     }
-    private clear():void
-    {
-        //this.listBack.source="list_item_select_png";
-        var screens:Array<string> = RES.getRes("screens_json");
-        this.mainList.dataProvider = new egret.gui.ArrayCollection(screens);
-        this.mainList.addEventListener(egret.gui.ListEvent.ITEM_CLICK,this.onItemClick,this);
-        this.uiStage.validateNow();
-    }
-    private currentScreen:GUIScreen;
+
+    private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
+        AlertScreen,ButtonScreen,CustomItemRender,CustomTreeItemRender,ItemRendererScreen,TogglesScreen,TreeScreen,
+        LabelScreen,LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,
+    ]);
     private classInstanceCache:any = {};
     private onItemClick(event:egret.gui.ListEvent):void{
-        if(this.currentScreen)
-            return;
-        var uiStage:egret.gui.UIStage = this.uiStage;
-        egret.Tween.get(this.mainContainer).to({x:-uiStage.width},500,egret.Ease.sineInOut).call(this.hideMainContainer,this);
 
+//        var label:egret.gui.Label=new egret.gui.Label();
+//        label.text="asdfasdf";
+//        this.componentGroup.removeAllElements();
+//        this.componentGroup.addElement(label);
+//        return;
+        this.componentGroup.removeAllElements();
         var className:string = event.item+"Screen";
         var clazz:any;
         if(egret.hasDefinition(className)){
             clazz = egret.getDefinitionByName(className);
-
-            var screen:GUIScreen;
             //缓存一下，免得反复重复创建
             if(this.classInstanceCache.hasOwnProperty(className))
             {
-                screen = this.classInstanceCache[className];
+                this.componentGroup.addElement(this.classInstanceCache[className]);
             }else
             {
-                var screen:GUIScreen = new GUIScreen();
                 var screenContent:egret.gui.SkinnableContainer = new clazz();
                 screenContent.percentHeight = 100;
                 screenContent.percentWidth = 100;
-                screen.addElement(screenContent)
-                this.classInstanceCache[className] = screen;
+                this.componentGroup.addElement(screenContent);
+                this.classInstanceCache[className] = screenContent;
             }
-
-            screen.title = event.item;
-            this.currentScreen = screen;
-            screen.addEventListener("goBack",this.onGoBack,this);
-            uiStage.addElement(screen);
-            screen.x = uiStage.width;
-            egret.Tween.get(screen).to({x:0},500,egret.Ease.sineInOut);
         }
-    }
-
-    private hideMainContainer():void{
-        this.uiStage.removeElement(this.mainContainer);
-    }
-
-    private hideScreen():void{
-        this.uiStage.removeElement(this.currentScreen);
-        this.currentScreen.removeEventListener("goBack",this.onGoBack,this);
-        this.currentScreen = null;
-    }
-
-    private onGoBack(event:egret.Event):void{
-        this.mainList.selectedIndex = -1;
-        var uiStage:egret.gui.UIStage = this.uiStage;
-        uiStage.addElement(this.mainContainer);
-        egret.Tween.get(this.mainContainer).to({x:0},500,egret.Ease.sineInOut);
-        egret.Tween.get(this.currentScreen).to({x:uiStage.width},500,egret.Ease.sineInOut).call(this.hideScreen,this);
     }
 }

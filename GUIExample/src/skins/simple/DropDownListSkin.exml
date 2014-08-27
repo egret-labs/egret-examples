@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <w:HostComponent name="egret.DropDownList"/>
+    <e:states>
+        <e:State name="normal"/>
+        <e:State name="open"/>
+        <e:State name="disabled"/>
+    </e:states>
+    <e:Button id="openButton" width="100%" height="100%"/>
+    <e:Label id="labelDisplay" textColor.open="0xffff00" textColor.normal="0xff00ff" verticalAlign="middle" paddingLeft="10" touchChildren="false" touchEnabled="false"/>
+    <e:PopUpAnchor id="popUp" width="100%" height="100%"
+                   popUpPosition="below"
+                   popUpWidthMatchesAnchorWidth="true" popUp="{dropDown}"
+                   displayPopUp.open="true" displayPopUp.normal="false">
+    </e:PopUpAnchor>
+    <e:Group id="dropDown" width="100%" height="100%">
+        <e:Scroller id="scroller" width="100%" height="100%">
+            <e:DataGroup id="dataGroup" width="100%" height="100%">
+                <e:layout>
+                    <e:VerticalLayout gap="0" horizontalAlign="justify" />
+                </e:layout>
+            </e:DataGroup>
+        </e:Scroller>
+    </e:Group>
+</e:Skin>

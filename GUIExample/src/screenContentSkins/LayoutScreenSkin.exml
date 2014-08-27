@@ -2,10 +2,10 @@
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
     <e:Group verticalCenter="0" horizontalCenter="0">
         <e:Group verticalCenter="0" horizontalCenter="0">
-            <e:UIAsset source="area-bg" width="400" height="400"/>
+            <e:UIAsset source="app_layout_back_png" width="400" height="400"/>
 
             <e:Group left="5" top="5" bottom="5" right="5">
-                <e:UIAsset id="panel" source="alert-background" x="50" y="50" width="200" height="200"/>
+                <e:UIAsset id="panel" source="app_layout_item_png" x="50" y="50" width="200" height="200"/>
             </e:Group>
             <e:Rect id="vleftLine" fillColor="0x707070" top="3" bottom="3" width="1"
                     left="5" visible="false"/>

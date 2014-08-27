@@ -78,69 +78,162 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
         switch(GUIExplorer.skinType)
         {
             case "ocean":
-                skin=this.defaultSkinForNew(hostComponentKey);
+                skin=this.defaultSkinForOcean(hostComponentKey);
+                break;
+            case "simple":
+                skin=this.defaultSkinForSimple(hostComponentKey);
                 break;
         }
         return skin;
 
     }
-    private defaultSkinForNew(hostComponentKey:string):any
+    private defaultSkinForOcean(hostComponentKey:string):any
     {
         var skin:any;
         switch (hostComponentKey) {
             case "egret.gui.Button":
-                skin =  "skins.ButtonSkin";
+                skin =  "skins.ocean.ButtonSkin";
                 break;
             case "egret.gui.ToggleButton":
-                skin =  "skins.ToggleButtonSkin"
+                skin =  "skins.ocean.ToggleButtonSkin"
                 break;
             case "egret.gui.Alert":
-                skin =  "skins.AlertSkin";
+                skin =  "skins.ocean.AlertSkin";
                 break;
             case "egret.gui.HSlider":
-                skin =  "skins.HSliderSkin";
+                skin =  "skins.ocean.HSliderSkin";
                 break;
             case "egret.gui.VSlider":
-                skin =  "skins.VSliderSkin";
+                skin =  "skins.ocean.VSliderSkin";
                 break;
             case "egret.gui.TabBar":
-                skin =  "skins.TabBarSkin";
+                skin =  "skins.ocean.TabBarSkin";
                 break;
             case "egret.gui.List":
-                skin =  "skins.ListSkin";
+                skin =  "skins.ocean.ListSkin";
                 break;
             case "egret.gui.Tree":
-                skin =  "skins.TreeSkin";
+                skin =  "skins.ocean.TreeSkin";
                 break;
             case "egret.gui.RadioButton":
-                skin =  "skins.RadioButtonSkin";
+                skin =  "skins.ocean.RadioButtonSkin";
                 break;
             case "egret.gui.CheckBox":
-                skin =  "skins.CheckBoxSkin";
+                skin =  "skins.ocean.CheckBoxSkin";
+                break;
+            case "screenContents.CustomDataGroupItemRender":
+                skin="skins.ocean.DataGroupItemRenderSkin";
                 break;
             case "screenContents.CustomItemRender":
-                skin="skins.CustomItemRendererSkin";
+                skin="skins.ocean.CustomItemRendererSkin";
                 break;
             case "screenContents.CustomListItemRender":
-                skin="skins.ItemRendererSkin";
+                skin="skins.ocean.ItemRendererSkin";
                 break;
             case "ToggleOnOffButton":
-                skin="skins.ToggleOnOffButtonSkin";
+                skin="skins.ocean.ToggleOnOffButtonSkin";
                 break;
             case "HProgressBar":
-                skin="skins.HProgressBarSkin";
+                skin="skins.ocean.HProgressBarSkin";
                 break;
             case "VProgressBar":
-                skin="skins.VProgressBarSkin";
+                skin="skins.ocean.VProgressBarSkin";
                 break;
-            case "SliderThumbButton":
-                skin="skins.SliderThumbSkin";
+            case "HSliderThumbButton":
+                skin="skins.ocean.HSliderThumbSkin";
+                break;
+            case "VSliderThumbButton":
+                skin="skins.ocean.VSliderThumbSkin";
                 break;
             case "CustomTreeItemRender":
-                skin="skins.TreeItemRendererSkin";
+                skin="skins.ocean.TreeItemRendererSkin";
                 break;
             case "TreeDisclosureButton":
-                skin="skins.TreeDisclosureButtonSkin";
+                skin="skins.ocean.TreeDisclosureButtonSkin";
+                break;
+            case "egret.gui.DropDownList":
+                skin="skins.ocean.DropDownListSkin";
+                break;
+            case "screenContents.IconButton":
+                skin="skins.ocean.IconButtonSkin";
+                break;
+
+        }
+
+        if(skin)
+            skin= new (egret.getDefinitionByName(skin))();
+        return skin;
+    }
+    private defaultSkinForSimple(hostComponentKey:string):any
+    {
+        var skin:any;
+        switch (hostComponentKey) {
+            case "egret.gui.Button":
+                skin =  "skins.simple.ButtonSkin";
+                break;
+            case "egret.gui.ToggleButton":
+                skin =  "skins.simple.ToggleButtonSkin"
+                break;
+            case "egret.gui.Alert":
+                skin =  "skins.simple.AlertSkin";
+                break;
+            case "egret.gui.HSlider":
+                skin =  "skins.simple.HSliderSkin";
+                break;
+            case "egret.gui.VSlider":
+                skin =  "skins.simple.VSliderSkin";
+                break;
+            case "egret.gui.TabBar":
+                skin =  "skins.simple.TabBarSkin";
+                break;
+            case "egret.gui.List":
+                skin =  "skins.simple.ListSkin";
+                break;
+            case "egret.gui.Tree":
+                skin =  "skins.simple.TreeSkin";
+                break;
+            case "egret.gui.RadioButton":
+                skin =  "skins.simple.RadioButtonSkin";
+                break;
+            case "egret.gui.CheckBox":
+                skin =  "skins.simple.CheckBoxSkin";
+                break;
+            case "screenContents.CustomDataGroupItemRender":
+
+                skin="skins.simple.DataGroupItemRenderSkin";
+                break;
+            case "screenContents.CustomItemRender":
+                skin="skins.simple.CustomItemRendererSkin";
+                break;
+            case "screenContents.CustomListItemRender":
+                skin="skins.simple.ItemRendererSkin";
+                break;
+            case "ToggleOnOffButton":
+                skin="skins.simple.ToggleOnOffButtonSkin";
+                break;
+            case "HProgressBar":
+                skin="skins.simple.HProgressBarSkin";
+                break;
+            case "VProgressBar":
+                skin="skins.simple.VProgressBarSkin";
+                break;
+            case "HSliderThumbButton":
+                skin="skins.simple.HSliderThumbSkin";
+                break;
+            case "VSliderThumbButton":
+                skin="skins.simple.VSliderThumbSkin";
+                break;
+            case "CustomTreeItemRender":
+                skin="skins.simple.TreeItemRendererSkin";
+                break;
+            case "TreeDisclosureButton":
+                skin="skins.simple.TreeDisclosureButtonSkin";
+                break;
+            case "egret.gui.DropDownList":
+                skin="skins.simple.DropDownListSkin";
+                break;
+            case "screenContents.IconButton":
+                skin="skins.simple.IconButtonSkin";
                 break;
 
         }

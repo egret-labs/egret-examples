@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:local="*" xmlns:w="http://ns.egret-labs.org/wing">
     <e:Group horizontalCenter="0" verticalCenter="0">
         <e:layout>
             <e:VerticalLayout horizontalAlign="contentJustify" verticalAlign="middle" />
         </e:layout>
+
+        <local:IconButton icon="app_iconbutton_icon_png" label="Icon Button"/>
         <e:Button label="Normal Button"/>
-        <e:Button label="Disabled Button" enabled="false"/>
+        <e:Button label="Disabled Button" enabled="false" />
         <e:ToggleButton label="Normal ToggleButton"/>
         <e:ToggleButton label="Normal ToggleButton" enabled="false" selected="true"/>
     </e:Group>

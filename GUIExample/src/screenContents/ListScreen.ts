@@ -34,6 +34,7 @@ class ListScreen extends egret.gui.SkinnableContainer {
     }
 
     public list:egret.gui.List;
+    public dropDownList:egret.gui.DropDownList;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
@@ -44,6 +45,8 @@ class ListScreen extends egret.gui.SkinnableContainer {
                 arr.push("Item" + i);
             }
             this.list.dataProvider = new egret.gui.ArrayCollection(arr);
+            this.dropDownList.dataProvider=new egret.gui.ArrayCollection(arr);
+            this.dropDownList.selectedIndex=0;
         }
     }
 }
