@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,tab_bar_over_png,tab_bar_select_png,titlewindow_back_png,titlewindow_close_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json",
+		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,tab_bar_over_png,tab_bar_select_png,titlewindow_back_png,titlewindow_close_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,dropdownlist_down_png,dropdownlist_normal_png,dropdownlist_over_png,dropdownlist_dropbutton_down_png,dropdownlist_dropbutton_normal_png",
 		"name":"skin"
 	},
 	{
@@ -317,5 +317,64 @@
 		"name":"app_logo_png",
 		"type":"image",
 		"url":"resource/asset/app/simple/app_logo.png"
+	},
+	{
+		"name":"onoffbutton_off_label_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_off_label.png"
+	},
+	{
+		"name":"onoffbutton_off_thumb_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_off_thumb.png"
+	},
+	{
+		"name":"onoffbutton_off_track_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_off_track.png"
+	},
+	{
+		"name":"onoffbutton_on_label_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_on_label.png"
+	},
+	{
+		"name":"onoffbutton_on_thumb_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_on_thumb.png"
+	},
+	{
+		"name":"onoffbutton_on_track_png",
+		"type":"image",
+		"url":"resource/asset/simple/ONOFFButton/onoffbutton_on_track.png"
+	},
+	{
+		"name":"dropdownlist_down_png",
+		"scale9grid":"3,3,15,15",
+		"type":"image",
+		"url":"resource/asset/simple/DropdownList/dropdownlist_down.png"
+	},
+	{
+		"name":"dropdownlist_normal_png",
+		"scale9grid":"3,3,14,15",
+		"type":"image",
+		"url":"resource/asset/simple/DropdownList/dropdownlist_normal.png"
+	},
+	{
+		"name":"dropdownlist_over_png",
+		"type":"image",
+		"url":"resource/asset/simple/DropdownList/dropdownlist_over.png"
+	},
+	{
+		"name":"dropdownlist_dropbutton_down_png",
+		"scale9grid":"5,5,13,5",
+		"type":"image",
+		"url":"resource/asset/simple/DropdownList/dropdownlist_dropButton_down.png"
+	},
+	{
+		"name":"dropdownlist_dropbutton_normal_png",
+		"scale9grid":"5,4,13,6",
+		"type":"image",
+		"url":"resource/asset/simple/DropdownList/dropdownlist_dropButton_normal.png"
 	}]
 }

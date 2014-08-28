@@ -28,25 +28,24 @@
 
 class ListScreen extends egret.gui.SkinnableContainer {
 
+    private dp:Array<any>=[];
     public constructor() {
         super();
         this.skinName = "screenContentSkins.ListScreenSkin";
+        for (var i:number = 1; i < 50; i++)
+        {
+            this.dp.push({label:"item"+i,toggle:false});
+        }
     }
 
     public list:egret.gui.List;
-    public dropDownList:egret.gui.DropDownList;
+    public listCustom:egret.gui.List;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
         if(instance == this.list)
-        {
-            var arr:Array<string> = [];
-            for (var i:number = 1; i < 150; i++) {
-                arr.push("Item" + i);
-            }
-            this.list.dataProvider = new egret.gui.ArrayCollection(arr);
-            this.dropDownList.dataProvider=new egret.gui.ArrayCollection(arr);
-            this.dropDownList.selectedIndex=0;
-        }
+            this.list.dataProvider=new egret.gui.ArrayCollection(this.dp);
+        if(instance == this.listCustom)
+            this.listCustom.dataProvider=new egret.gui.ArrayCollection(this.dp);
     }
 }

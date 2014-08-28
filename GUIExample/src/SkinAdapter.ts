@@ -157,7 +157,9 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
             case "screenContents.IconButton":
                 skin="skins.ocean.IconButtonSkin";
                 break;
-
+            case "DropDownListOpenButton":
+                skin="skins.ocean.DropDownListOpenButtonSkin";
+                break;
         }
 
         if(skin)
@@ -199,7 +201,6 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
                 skin =  "skins.simple.CheckBoxSkin";
                 break;
             case "screenContents.CustomDataGroupItemRender":
-
                 skin="skins.simple.DataGroupItemRenderSkin";
                 break;
             case "screenContents.CustomItemRender":
@@ -234,6 +235,9 @@ class SkinAdapter implements egret.gui.ISkinAdapter {
                 break;
             case "screenContents.IconButton":
                 skin="skins.simple.IconButtonSkin";
+                break;
+            case "DropDownListOpenButton":
+                skin="skins.simple.DropDownListOpenButtonSkin";
                 break;
 
         }

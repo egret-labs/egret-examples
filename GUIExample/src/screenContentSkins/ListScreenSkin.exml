@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-    <e:DropDownList id="dropDownList" width="200" horizontalCenter="0" top="50"/>
-      <e:List id="list" itemRenderer="CustomListItemRender"
-              width="200" height="300" top="100" horizontalCenter="0">
-      </e:List>
+<e:Group width="100%" height="100%">
+    <e:List id="list" itemRenderer="CustomListItemRender"
+            width="250" right="0" height="100%">
+    </e:List>
+    <e:List id="listCustom" itemRenderer="CustomItemRender"
+           left="0" right="250" height="100%">
+    </e:List>
+</e:Group>
+
 </e:Skin>

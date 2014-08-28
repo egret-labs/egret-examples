@@ -263,6 +263,7 @@
 	},
 	{
 		"name":"dropdownlist_dropback_png",
+		"scale9grid":"9,9,138,104",
 		"type":"image",
 		"url":"resource/asset/ocean/DropdownList/dropdownlist_dropBack.png"
 	},

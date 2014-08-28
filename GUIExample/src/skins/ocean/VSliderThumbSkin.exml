@@ -6,5 +6,5 @@
 		<e:State name="down" />
 		<e:State name="disabled" />
 	</e:states>
-	<e:UIAsset source="vslider_thumb_png" y="9" fillMode="scale"/>
+	<e:UIAsset source="vslider_thumb_png" fillMode="scale"/>
 </e:Skin>

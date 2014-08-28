@@ -33,16 +33,16 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);
     }
 
+    /*
+    * 皮肤主题类型
+    * */
     public static skinType:string;
-    public onAddToStage(event:egret.Event):void{
+    public onAddToStage(event:egret.Event):void
+    {
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
-
-        //初始化默认皮肤的主题配置
-        //egret.gui.Theme.load("resource/theme.thm");
         //注入自定义的皮肤解析器
-        egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
-
+       // egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
         var skintype:string = window["getCurrentTest"]();
        // this.setSkinType("simple");
         this.setSkinType(skintype);
@@ -58,9 +58,11 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         switch (type)
         {
             case "ocean":
+                egret.gui.Theme.load("resource/theme/theme_ocean.thm");
                 path="resource/config/resource_ocean.json";
                 break;
             case "simple":
+                egret.gui.Theme.load("resource/theme/theme_simple.thm");
                 path="resource/config/resource_simple.json";
                 break;
         }
@@ -169,18 +171,19 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     }
 
+    /*
+    * 预定义类，用于对象反射
+    * */
     private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
         AlertScreen,ButtonScreen,CustomItemRender,CustomTreeItemRender,ItemRendererScreen,TogglesScreen,TreeScreen,
-        LabelScreen,LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,
+        LabelScreen,LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
     ]);
+    /*
+    * 缓存创建的对象
+    * */
     private classInstanceCache:any = {};
     private onItemClick(event:egret.gui.ListEvent):void{
 
-//        var label:egret.gui.Label=new egret.gui.Label();
-//        label.text="asdfasdf";
-//        this.componentGroup.removeAllElements();
-//        this.componentGroup.addElement(label);
-//        return;
         this.componentGroup.removeAllElements();
         var className:string = event.item+"Screen";
         var clazz:any;
