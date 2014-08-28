@@ -39,13 +39,10 @@ class ListScreen extends egret.gui.SkinnableContainer {
     }
 
     public list:egret.gui.List;
-    public listCustom:egret.gui.List;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
         if(instance == this.list)
             this.list.dataProvider=new egret.gui.ArrayCollection(this.dp);
-        if(instance == this.listCustom)
-            this.listCustom.dataProvider=new egret.gui.ArrayCollection(this.dp);
     }
 }

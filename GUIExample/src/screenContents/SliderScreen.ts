@@ -51,6 +51,9 @@ class SliderScreen extends egret.gui.SkinnableContainer {
         }
     }
 
+    /*
+    * 更改显示的值
+    * */
     private onChange(event:egret.Event):void{
         var slider:egret.gui.SliderBase = <egret.gui.SliderBase>event.currentTarget;
         if(slider instanceof egret.gui.VSlider){

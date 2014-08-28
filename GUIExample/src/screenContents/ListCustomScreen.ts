@@ -26,26 +26,23 @@
  */
 
 
-class GUIScreen extends egret.gui.Panel{
+class ListCustomScreen extends egret.gui.SkinnableContainer {
 
-    public constructor(){
+    private dp:Array<any>=[];
+    public constructor() {
         super();
-        this.percentHeight = 100;
-        this.percentWidth = 100;
-        this.skinName = "skins.ScreenSkin";
-    }
-
-    public backButton:egret.gui.Button;
-    public partAdded(partName: string, instance: any): void
-    {
-        super.partAdded(partName,instance);
-        if(instance == this.backButton)
+        this.skinName = "screenContentSkins.ListCustomScreenSkin";
+        for (var i:number = 1; i < 50; i++)
         {
-            this.backButton.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onTouchTap,this);
+            this.dp.push({label:"item"+i,toggle:false});
         }
     }
 
-    public onTouchTap(event:egret.Event):void{
-           this.dispatchEventWith("goBack");
+    public listCustom:egret.gui.List;
+    public partAdded(partName: string, instance: any): void
+    {
+        super.partAdded(partName,instance);
+        if(instance == this.listCustom)
+            this.listCustom.dataProvider=new egret.gui.ArrayCollection(this.dp);
     }
 }

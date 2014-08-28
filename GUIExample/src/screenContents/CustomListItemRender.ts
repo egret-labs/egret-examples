@@ -8,6 +8,5 @@ class CustomListItemRender extends egret.gui.ItemRenderer
     {
         super();
         this.hostComponentKey="screenContents.CustomListItemRender";
-        //this.skinName=skins.ItemRendererSkin;
     }
 }

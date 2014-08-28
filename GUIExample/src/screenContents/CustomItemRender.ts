@@ -45,7 +45,9 @@ class CustomItemRender extends egret.gui.ItemRenderer implements egret.gui.IItem
             this.toggleButton.addEventListener(egret.Event.CHANGE,this.onChangeHandler,this);
         }
     }
-
+    /*
+     * 设置选中状态
+     * */
     public onChangeHandler(event:egret.Event):void{
         if(this.data != null)
         {
@@ -54,6 +56,9 @@ class CustomItemRender extends egret.gui.ItemRenderer implements egret.gui.IItem
 
     }
 
+    /*
+    * 设置选中状态
+    * */
     public dataChanged():void
     {
         super.dataChanged();

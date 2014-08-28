@@ -79,7 +79,6 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     }
     public onGroupComp(event:RES.ResourceEvent):void
     {
-       // RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
         switch(event.groupName)
         {
             case "global":
@@ -96,7 +95,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     private mainList:egret.gui.List;
     private listBack:egret.gui.UIAsset;
     public componentGroup:egret.gui.Group;
-    private gap:number=300;
+    private gap:number=300;//布局分割值
     public createExporer():void{
         //实例化GUI根容器
         var uiStage:egret.gui.UIStage = new egret.gui.UIStage();
@@ -171,12 +170,12 @@ class GUIExplorer extends egret.DisplayObjectContainer{
 
     }
 
-    /*
-    * 预定义类，用于对象反射
+    /**
+    *预定义类，用于对象反射
     * */
     private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
         AlertScreen,ButtonScreen,CustomItemRender,CustomTreeItemRender,ItemRendererScreen,TogglesScreen,TreeScreen,
-        LabelScreen,LayoutScreen,ListScreen,ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
+        LabelScreen,LayoutScreen,ListScreen,ListCustomScreen, ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
     ]);
     /*
     * 缓存创建的对象

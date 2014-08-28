@@ -9,6 +9,9 @@ class IconButton extends egret.gui.Button
         this.hostComponentKey="screenContents.IconButton";
     }
     private _iconPath:string;
+    /*
+    * 设置ICON路径，稍后会在更新皮肤状态时更新ICON
+    * */
     public get icon():string
     {
         return this._iconPath;
@@ -22,6 +25,9 @@ class IconButton extends egret.gui.Button
         }
     }
     public image:egret.gui.UIAsset;
+    /*
+    * 更新皮肤状态
+    * */
     public validateSkinState():void
     {
         if(this.image)

@@ -8,6 +8,5 @@ class CustomDataGroupItemRender extends egret.gui.ItemRenderer
     {
         super();
         this.hostComponentKey="screenContents.CustomDataGroupItemRender";
-        //this.skinName=skins.ItemRendererSkin;
     }
 }

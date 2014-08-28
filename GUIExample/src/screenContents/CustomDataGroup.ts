@@ -6,6 +6,7 @@ class CustomDataGroup extends egret.gui.DataGroup implements egret.gui.IViewport
     public constructor()
     {
         super();
+        //根据皮肤类型应用不同的呈现器皮肤
         switch (GUIExplorer.skinType)
         {
             case "simple":

@@ -58,6 +58,9 @@ class LayoutScreen extends egret.gui.SkinnableContainer{
         }
     }
 
+    /*
+    * 设置对象的显示状态
+    * */
     private onCheckBoxChangeHandler(e:egret.Event):void
     {
         this.panel.x = 50;
