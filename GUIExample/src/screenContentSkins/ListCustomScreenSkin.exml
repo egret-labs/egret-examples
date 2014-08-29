@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
     <e:Rect left="50" right="50" top="110" bottom="110"/>
-    <e:List id="listCustom" itemRenderer="CustomItemRender"
+    <e:List id="listCustom" hostComponentKey="CustomList"
             left="50" right="50" top="110" bottom="110">
     </e:List>
 </e:Skin>

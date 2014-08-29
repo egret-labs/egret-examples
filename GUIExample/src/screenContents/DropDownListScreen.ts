@@ -25,6 +25,16 @@ class DropDownListScreen extends egret.gui.SkinnableContainer
             }
             this.dropDownlist.dataProvider=new egret.gui.ArrayCollection(dp);
             this.dropDownlist.selectedIndex=3;
+            //根据皮肤类型应用不同的呈现器皮肤
+            switch (GUIExplorer.skinType)
+            {
+                case "simple":
+                    this.dropDownlist.itemRendererSkinName="skins.simple.DropDownListItemRendererSkin";
+                    break;
+                case "ocean":
+                    this.dropDownlist.itemRendererSkinName="skins.ocean.DropDownListItemRendererSkin";
+                    break;
+            }
         }
     }
 }
