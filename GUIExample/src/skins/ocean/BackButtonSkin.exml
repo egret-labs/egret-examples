@@ -7,7 +7,7 @@
 		<e:State name="down" />
 		<e:State name="disabled" />
 	</e:states>
-	<e:UIAsset width="100%" height="100%" source.up="button-back-up"
+	<e:UIAsset width="100%" height="100%" source="button-back-up"
 		source.down="button-back-down" source.disabled="button-back-disabled" />
 	<e:Label id="labelDisplay" size="20" verticalAlign="middle"
 		textAlign="center" fontFamily="Tahoma" textColor="0x1e7465" left="18"
