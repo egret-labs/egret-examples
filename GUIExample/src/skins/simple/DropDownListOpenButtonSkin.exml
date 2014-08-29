@@ -13,6 +13,6 @@
          source.down="dropdownlist_dropbutton_down_png"/>
 <e:Label id="labelDisplay" size="20" verticalAlign="middle"
          textAlign="center" fontFamily="Tahoma" textColor.up="0x111111"
-         textColor.down="0x222222" textColor.disabled="0xcccccc" left="10"
+         textColor.down="0x222222" textColor.disabled="0xcccccc" left="10" touchEnabled="false" touchChildren="false"
          right="10" top="8" bottom="12" />
 </e:Skin>

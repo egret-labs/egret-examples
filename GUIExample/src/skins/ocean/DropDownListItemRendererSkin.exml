@@ -10,6 +10,6 @@
                source.down="app_list_item_select_png" />
     <e:UIAsset width="100%" height="1" source="app_list_item_cutlline_png"/>
     <e:Label id="labelDisplay" size="24" fontFamily="Tahoma"
-             textColor.up="0x111111" textColor.down="0xf0f0f0" left="32"
+             textColor.up="0x111111" textColor.down="0xf0f0f0" left="32" touchEnabled="false" touchChildren="false"
              verticalCenter="0" />
 </e:Skin>
