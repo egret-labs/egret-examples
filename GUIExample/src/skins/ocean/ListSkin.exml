@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
 	<e:Scroller width="100%" height="100%">
-		<e:viewport>
 			<e:DataGroup id="dataGroup">
 				<e:layout>
 					<e:VerticalLayout gap="0" horizontalAlign="justify" />
 				</e:layout>
 			</e:DataGroup>
-		</e:viewport>
 	</e:Scroller>
 </e:Skin>

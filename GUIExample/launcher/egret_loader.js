@@ -68,7 +68,7 @@ egret_h5.startGame = function () {
 
     egret.StageDelegate.getInstance().setDesignSize(960, 640);
     context.stage = new egret.Stage();
-    var scaleMode =  egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.SHOW_ALL : egret.StageScaleMode.NO_SCALE;
+    var scaleMode =  egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.NO_BORDER : egret.StageScaleMode.NO_SCALE;
     context.stage.scaleMode = scaleMode;
 
     egret.MainContext.instance.rendererContext.texture_scale_factor = 1;

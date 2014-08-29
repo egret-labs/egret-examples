@@ -6,8 +6,8 @@
 		<e:State name="down" />
 	</e:states>
     <e:UIAsset width="100%" height="100%"
-               source.up="app_list_item_up_png"
-               source.down="app_list_item_select_png" />
+               source.up="list_item_normal_png"
+               source.down="list_item_select_png" />
     <e:UIAsset width="100%" height="1" source="app_list_item_cutlline_png"/>
 
     <e:UIAsset verticalCenter="0" left="20" source="app_iconbutton_icon2_png" />

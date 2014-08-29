@@ -48,13 +48,14 @@ class TreeScreen extends egret.gui.SkinnableContainer {
                                 {name: "TreeItem010"}
                             ]}
                     ]},
-                {dir: true, name: "TreeItem1", children: []},
+                {dir: true, name: "TreeItem1", children: [{name: "TreeItem10"},{name: "TreeItem11"}]},
                 {name: "TreeItem2"}
             ]};
             this.tree.iconFunction = this.iconFunc;
             //设置数据源的父子关系，这样才会缩进
             egret.gui.ObjectCollection.assignParent( dp.source,"children","parent");
             this.tree.dataProvider = dp;
+            this.tree.expandItem(dp.getItemAt(0),true);
         }
     }
 
@@ -63,7 +64,7 @@ class TreeScreen extends egret.gui.SkinnableContainer {
     * */
     private iconFunc(item:any):any {
         if (item.dir)
-            return "dir_icon";
-        return "file_icon";
+            return "tree_icon_dir_png";
+        return "tree_icon_file_png";
     }
 }

@@ -75,6 +75,10 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var screens:Array<string> = RES.getRes("screens_json");
         this.mainList.dataProvider = new egret.gui.ArrayCollection(screens);
         this.mainList.addEventListener(egret.gui.ListEvent.ITEM_CLICK,this.onItemClick,this);
+        this.mainList.selectedIndex=0;
+        var obj:any={};
+        obj.item=this.mainList.selectedItem;
+        this.onItemClick(obj);
         this.uiStage.validateNow();
     }
     public onGroupComp(event:RES.ResourceEvent):void
