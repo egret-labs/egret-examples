@@ -1,9 +1,7 @@
 {
 	"document_class": "GUIExplorer",
 	"native": {
-		"path_ignore": [
-			"libs"
-		]
+		"path_ignore": []
 	},
 	"modules": [
 		{
@@ -16,5 +14,5 @@
 			"name": "dragonbones"
 		}
 	],
-	"egret_version": "1.0.4"
+	"egret_version": "1.0.5"
 }

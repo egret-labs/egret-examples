@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
+        height="85">
+    <e:states>
+        <e:State name="up" />
+        <e:State name="down" />
+    </e:states>
+    <e:UIAsset width="100%" height="100%"
+               source="app_list_item_up_png"
+               source.down="app_list_item_select_png" />
+    <e:Rect width="100%" height=".5" strokeAlpha="1" strokeColor="0x888888" strokeWeight=".5"  fillAlpha="0"/>
+    <e:UIAsset verticalCenter="0" left="20" source="app_iconbutton_icon2_png" />
+    <e:Label id="labelDisplay" size="26" fontFamily="Tahoma"
+             textColor.up="0x727070" textColor.down="0xeeedec" left="60" right="80"
+             verticalCenter="0" />
+    <e:ToggleButton id="toggleButton" selected="true" hostComponentKey="ToggleOnOffButton"
+                    right="30" verticalCenter="0" />
+</e:Skin>

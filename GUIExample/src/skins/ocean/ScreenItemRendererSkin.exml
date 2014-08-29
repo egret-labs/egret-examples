@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
+        height="75">
+    <e:states>
+        <e:State name="up" />
+        <e:State name="down" />
+        <e:State name="over"/>
+    </e:states>
+    <e:UIAsset width="100%" height="100%"
+               source="app_list_item_up_png"
+               source.over="app_list_item_over_png"
+               source.down="app_list_item_select_png" />
+    <e:Rect strokeColor="0x222222" strokeAlpha="1" strokeWeight=".5" width="100%" />
+    <e:Label id="labelDisplay" size="24" fontFamily="Tahoma"
+             textColor.up="0xeeedec" textColor.down="0xeeedec" left="32"
+             verticalCenter="0" />
+</e:Skin>

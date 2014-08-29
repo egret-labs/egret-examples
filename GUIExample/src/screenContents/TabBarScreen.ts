@@ -26,7 +26,7 @@
  */
 
 
-class TabBarScreen extends egret.gui.SkinnableComponent {
+class TabBarScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
@@ -45,6 +45,9 @@ class TabBarScreen extends egret.gui.SkinnableComponent {
         }
     }
 
+    /*
+    * 显示点击的项
+    * */
     private onClick(event:egret.gui.ListEvent):void {
         var bar:egret.gui.TabBar = <egret.gui.TabBar>event.currentTarget;
         this.label.text = "选中第" + (bar.selectedIndex + 1) + "项";

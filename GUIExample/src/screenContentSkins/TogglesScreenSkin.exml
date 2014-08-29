@@ -8,7 +8,7 @@
             <e:layout>
                 <e:HorizontalLayout gap="20"/>
             </e:layout>
-            <e:ToggleButton selected="true" skinName="skins.ToggleOnOffButtonSkin"/>
+            <e:ToggleButton selected="true" hostComponentKey="ToggleOnOffButton"/>
         </e:Group>
         <e:Group>
             <e:layout>

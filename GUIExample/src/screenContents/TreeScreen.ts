@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TreeScreen extends egret.gui.SkinnableComponent {
+class TreeScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();
@@ -40,25 +40,31 @@ class TreeScreen extends egret.gui.SkinnableComponent {
         {
             var dp:egret.gui.ObjectCollection = new egret.gui.ObjectCollection();
             dp.source = {children: [
-                {dir: true, name: "Item0",
+                {dir: true, name: "TreeItem0",
                     children: [
-                        {name: "Item00"},
-                        {dir: true, name: "Item01",
+                        {name: "TreeItem00"},
+                        {dir: true, name: "TreeItem01",
                             children: [
-                                {name: "Item010"}
+                                {name: "TreeItem010"}
                             ]}
                     ]},
-                {dir: true, name: "Item1", children: []},
-                {name: "Item2"}
+                {dir: true, name: "TreeItem1", children: [{name: "TreeItem10"},{name: "TreeItem11"}]},
+                {name: "TreeItem2"}
             ]};
             this.tree.iconFunction = this.iconFunc;
+            //设置数据源的父子关系，这样才会缩进
+            egret.gui.ObjectCollection.assignParent( dp.source,"children","parent");
             this.tree.dataProvider = dp;
+            this.tree.expandItem(dp.getItemAt(0),true);
         }
     }
 
+    /*
+    * 呈现项的icon筛选
+    * */
     private iconFunc(item:any):any {
         if (item.dir)
-            return "dir_icon";
-        return "file_icon";
+            return "tree_icon_dir_png";
+        return "tree_icon_file_png";
     }
 }

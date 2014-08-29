@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:DropDownList id="dropDownlist"  horizontalCenter="0" verticalCenter="0" width="200" height="40"/>
+</e:Skin>

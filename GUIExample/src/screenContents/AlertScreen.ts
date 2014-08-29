@@ -26,7 +26,7 @@
  */
 
 
-class AlertScreen extends egret.gui.SkinnableComponent {
+class AlertScreen extends egret.gui.SkinnableContainer {
 
     public constructor() {
         super();

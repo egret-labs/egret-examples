@@ -3,7 +3,7 @@
     <e:Rect left="99" right="99" bottom="99" top="99" fillAlpha="0" strokeAlpha="1" strokeColor="0x009aff"/>
     <e:Scroller top="100" right="100" bottom="100" left="100" >
         <e:Group>
-            <e:UIAsset source="egret_labs"/>
+            <e:UIAsset source="app_egret_labs_jpg"/>
         </e:Group>
     </e:Scroller>
 </e:Skin>

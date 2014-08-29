@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
+    <w:HostComponent name="screens.ScreenBase" />
+    <e:Group id="contentGroup" percentWidth="100" top="90" bottom="0" />
+    <e:Label id="titleDisplay" textColor="0x727070" size="35"
+             horizontalCenter="0" fontFamily="Tahoma" top="25" />
+    <e:Button id="backButton" width="160" height="58" x="16"
+              skinName="skins.BackButtonSkin" y="16" label="Back" />
+</e:Skin>

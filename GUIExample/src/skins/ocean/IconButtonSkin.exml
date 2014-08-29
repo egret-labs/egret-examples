@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
+        height="60" minWidth="140">
+    <w:HostComponent name="screenContents.IconButton" />
+    <e:states>
+        <e:State name="up" />
+        <e:State name="down" />
+        <e:State name="disabled" />
+    </e:states>
+    <e:UIAsset width="100%" height="100%" source="button_normal_png"
+               source.down="button_down_png" source.disabled="button_disabled_png"/>
+    <e:Group width="100%" height="100%">
+        <e:layout>
+            <e:HorizontalLayout paddingLeft="10" gap="10" verticalAlign="middle"/>
+        </e:layout>
+        <e:UIAsset id="image" left="10" verticalCenter="0"/>
+        <e:Label id="labelDisplay" size="20" verticalAlign="middle"
+                 textAlign="center" fontFamily="Tahoma" textColor.up="0xffffff"
+                 textColor.down="0xf0f0f0" textColor.disabled="0xdfe6e9" left="10"
+                 right="10" top="8" bottom="12" />
+    </e:Group>
+
+</e:Skin>
