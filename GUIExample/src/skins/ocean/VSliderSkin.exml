@@ -10,6 +10,6 @@
 		width="8" horizontalCenter="0" />
 	<e:UIAsset id="trackHighlight" source="vslider_fill_png"
 		width="8" horizontalCenter="0" />
-	<e:Button id="thumb"  hostComponentKey="VSliderThumbButton"
+	<e:Button id="thumb"  hostComponentKey="VSliderThumbButton" width="24" height="24"
 		horizontalCenter="0" />
 </e:Skin>

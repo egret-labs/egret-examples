@@ -1,6 +1,9 @@
 {
 "skins":
 {
+
+"egret.gui.TitleWindow":"skins.ocean.TitleWindowSkin",
+"egret.gui.Panel":"skins.ocean.PanelSkin",
 "egret.gui.Button":"skins.ocean.ButtonSkin",
 "egret.gui.ToggleButton":"skins.ocean.ToggleButtonSkin",
 "egret.gui.Alert":"skins.ocean.AlertSkin",

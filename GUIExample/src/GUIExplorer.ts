@@ -37,6 +37,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     * 皮肤主题类型
     * */
     public static skinType:string;
+    public loading:Loading;
     public onAddToStage(event:egret.Event):void
     {
         //注入自定义的素材解析器
@@ -45,6 +46,9 @@ class GUIExplorer extends egret.DisplayObjectContainer{
        // egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
         var skintype:string = window["getCurrentTest"]();
        // this.setSkinType("simple");
+        this.loading=new Loading();
+        this.loading.contentSize(this.stage.stageWidth,this.stage.stageHeight);
+       this.addChildAt(this.loading,0);
         this.setSkinType(skintype);
     }
 
@@ -67,6 +71,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
                 break;
         }
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
+        RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS,this.onGroupProgress,this);
         RES.loadConfig(path);
         RES.loadGroup("global");
     }
@@ -86,13 +91,18 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         switch(event.groupName)
         {
             case "global":
-                this.createExporer();
                 RES.loadGroup("skin");
                     break;
             case "skin":
+                this.createExporer();
                 this.clear();
+                this.removeChild(this.loading);
                 break;
         }
+    }
+    public onGroupProgress(event:RES.ResourceEvent):void
+    {
+      this.loading.setProgress( Math.floor(event.itemsLoaded/event.itemsTotal*100),"正在加载资源");
     }
 
     private uiStage:egret.gui.UIStage;
@@ -170,15 +180,12 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         this.componentGroup.left=this.gap;
         this.componentGroup.right=0;
         uiStage.addElement(this.componentGroup);
-
-
     }
-
     /**
     *预定义类，用于对象反射
     * */
     private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
-        AlertScreen,ButtonScreen,TogglesScreen,TreeScreen,
+        AlertScreen,ButtonScreen,TogglesScreen,TreeScreen,TitleWindowScreen,PanelScreen,
         LabelScreen,LayoutScreen,ListScreen,ListCustomScreen, ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
     ]);
     /*

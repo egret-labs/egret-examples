@@ -5,7 +5,7 @@
 		"name":"skin"
 	},
 	{
-		"keys":"app_egret_labs_jpg,app_iconbutton_icon_png,app_layout_back_png,app_layout_item_png,app_back_png,app_header_back_png,app_list_back_png,app_list_item_cutlline_png,app_list_item_select_png,app_iconbutton_icon2_png,app_list_item_up_png,app_logo_png",
+		"keys":"app_egret_labs_jpg,app_layout_back_png,app_layout_item_png,app_back_png,app_header_back_png,app_list_back_png,app_list_item_cutlline_png,app_list_item_select_png,app_iconbutton_icon2_png,app_list_item_up_png,app_logo_png,app_iconbutton_icon_png",
 		"name":"global"
 	}],
 	"resources":[
@@ -399,11 +399,6 @@
 		"url":"resource/asset/app/app_egret-labs.jpg"
 	},
 	{
-		"name":"app_iconbutton_icon_png",
-		"type":"image",
-		"url":"resource/asset/app/app_iconbutton-icon.png"
-	},
-	{
 		"name":"app_layout_back_png",
 		"scale9grid":"25,10,142,16",
 		"type":"image",
@@ -474,5 +469,10 @@
 		"name":"list_item_select_png",
 		"type":"image",
 		"url":"resource/asset/ocean/List/list_item_select.png"
+	},
+	{
+		"name":"app_iconbutton_icon_png",
+		"type":"image",
+		"url":"resource/asset/app/ocean/app_iconbutton-icon.png"
 	}]
 }

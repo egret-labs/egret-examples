@@ -1,11 +1,11 @@
 {
 	"groups":[
 	{
-		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,tab_bar_over_png,tab_bar_select_png,titlewindow_back_png,titlewindow_close_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,dropdownlist_down_png,dropdownlist_normal_png,dropdownlist_over_png,dropdownlist_dropbutton_down_png,dropdownlist_dropbutton_normal_png,tree_icon_dir_png,tree_icon_file_png",
+		"keys":"checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,panel_back_png,progressbar_fill_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_normal_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,tab_bar_over_png,tab_bar_select_png,titlewindow_back_png,titlewindow_close_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,dropdownlist_down_png,dropdownlist_normal_png,dropdownlist_over_png,dropdownlist_dropbutton_down_png,dropdownlist_dropbutton_normal_png,tree_icon_dir_png,tree_icon_file_png,panel_headeback_png",
 		"name":"skin"
 	},
 	{
-		"keys":"app_back_png,app_header_back_png,app_list_back_png,app_list_item_cutlline_png,app_list_item_select_png,app_list_item_up_png,app_egret_labs_jpg,app_iconbutton_icon_png,app_iconbutton_icon2_png,app_layout_back_png,app_layout_item_png,app_logo_png",
+		"keys":"app_back_png,app_header_back_png,app_list_back_png,app_list_item_cutlline_png,app_list_item_select_png,app_list_item_up_png,app_egret_labs_jpg,app_iconbutton_icon2_png,app_layout_back_png,app_layout_item_png,app_logo_png,app_iconbutton_icon_png",
 		"name":"global"
 	}],
 	"resources":[
@@ -106,7 +106,7 @@
 	},
 	{
 		"name":"panel_back_png",
-		"scale9grid":"9,32,62,25",
+		"scale9grid":"24,32,494,271",
 		"type":"image",
 		"url":"resource/asset/simple/Panel/Panel_back.png"
 	},
@@ -287,11 +287,6 @@
 		"url":"resource/asset/app/app_egret-labs.jpg"
 	},
 	{
-		"name":"app_iconbutton_icon_png",
-		"type":"image",
-		"url":"resource/asset/app/app_iconbutton-icon.png"
-	},
-	{
 		"name":"app_iconbutton_icon2_png",
 		"type":"image",
 		"url":"resource/asset/app/app_iconbutton-icon2.png"
@@ -386,5 +381,16 @@
 		"name":"tree_icon_file_png",
 		"type":"image",
 		"url":"resource/asset/simple/Tree/tree_icon_file.png"
+	},
+	{
+		"name":"panel_headeback_png",
+		"scale9grid":"25,15,483,25",
+		"type":"image",
+		"url":"resource/asset/simple/Panel/Panel_headeBack.png"
+	},
+	{
+		"name":"app_iconbutton_icon_png",
+		"type":"image",
+		"url":"resource/asset/app/simple/app_iconbutton-icon.png"
 	}]
 }

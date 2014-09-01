@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:local="*" xmlns:w="http://ns.egret-labs.org/wing">
+    <e:Panel width="400" height="300" horizontalCenter="0" verticalCenter="0" title="Panel">
+        <e:Button horizontalCenter="0" verticalCenter="0" label="Button"/>
+    </e:Panel>
+</e:Skin>

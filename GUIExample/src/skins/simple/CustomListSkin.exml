@@ -3,7 +3,7 @@
     <e:Scroller width="100%" height="100%">
         <e:DataGroup id="dataGroup" itemRendererSkinName="skins.simple.CustomItemRendererSkin">
             <e:layout>
-                <e:VerticalLayout gap="0" horizontalAlign="justify" />
+                <e:VerticalLayout gap="0" horizontalAlign="contentJustify" />
             </e:layout>
         </e:DataGroup>
     </e:Scroller>
