@@ -60,7 +60,7 @@ egret_h5.loadSingleScript = function (src, callback) {
 
 egret_h5.startGame = function () {
     var canvas = document.getElementById(egret.StageDelegate.canvas_name);
-    context = egret.MainContext.instance;
+    var context = egret.MainContext.instance;
     context.rendererContext = new egret.HTML5CanvasRenderer(canvas);
     context.touchContext = new egret.HTML5TouchContext(canvas);
     context.deviceContext = new egret.HTML5DeviceContext();
