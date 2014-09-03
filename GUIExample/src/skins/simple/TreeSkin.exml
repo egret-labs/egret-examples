@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-    <e:UIAsset top="-1" left="-1" bottom="-1" right="-1" source="tree-bg" />
     <e:Scroller width="100%" height="100%">
         <e:DataGroup id="dataGroup"  itemRendererSkinName="skins.simple.TreeItemRendererSkin">
             <e:layout>
