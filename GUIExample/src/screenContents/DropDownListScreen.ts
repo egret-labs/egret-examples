@@ -24,7 +24,7 @@ class DropDownListScreen extends egret.gui.SkinnableContainer
                 dp.push({label:"item"+i,toggle:false});
             }
             this.dropDownlist.dataProvider=new egret.gui.ArrayCollection(dp);
-            this.dropDownlist.selectedIndex=3;
+            this.dropDownlist.selectedIndex=0;
             //根据皮肤类型应用不同的呈现器皮肤
             switch (GUIExplorer.skinType)
             {
