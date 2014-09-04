@@ -11,9 +11,7 @@
 		}
 	],
 	"native": {
-		"path_ignore": [
-			"libs"
-		]
+		"path_ignore": []
 	},
-	"egret_version": "1.0.4"
+	"egret_version": "1.0.5"
 }
