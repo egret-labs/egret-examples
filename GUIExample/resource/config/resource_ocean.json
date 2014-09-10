@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"combo_box_dropback_png,combo_box_dropbutton_png,combo_box_input_png,combo_box_itemback_png,danger_button_down_png,danger_button_normal_png,danger_button_over_png,hscrollbar_buttonback_png,hscrollbar_leftbuttom_png,hscrollbar_rightbutton_png,hscrollbar_thumb_png,hscrollbar_track_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,panel_back_png,panel_headeback_png,titlewindow_back_png,titlewindow_close_png,titlewindow_headback_png,vscroller_buttonback_png,vscroller_downbutton_png,vscroller_thumb_png,vscroller_track_png,vscroller_upbutton_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json,checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,dropdownlist_down_png,dropdownlist_dropback_png,dropdownlist_dropbutton_png,dropdownlist_normal_png,dropdownlist_over_png,progressbar_fill_png,progressbar_thumb_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,radiobutton_select_normal_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,tabbar_over_png,tabbar_select_png,tree_icon_file_png,tree_icon_dir_png,list_item_normal_png,list_item_select_png",
+		"keys":"hscrollbar_buttonback_png,hscrollbar_leftbuttom_png,hscrollbar_rightbutton_png,hscrollbar_thumb_png,hscrollbar_track_png,hslider_fill_png,hslider_thumb_png,hslider_track_png,iconbutton_disabled_png,iconbutton_down_png,iconbutton_normal_png,iconbutton_over_png,button_disabled_png,button_down_png,button_normal_png,button_over_png,onoffbutton_off_label_png,onoffbutton_off_thumb_png,onoffbutton_off_track_png,onoffbutton_on_label_png,onoffbutton_on_thumb_png,onoffbutton_on_track_png,panel_back_png,panel_headeback_png,titlewindow_back_png,titlewindow_close_png,titlewindow_headback_png,vscroller_buttonback_png,vscroller_downbutton_png,vscroller_thumb_png,vscroller_track_png,vscroller_upbutton_png,vslider_fill_png,vslider_thumb_png,vslider_track_png,screens_json,checkbox_select_disabled_png,checkbox_select_normal_png,checkbox_select_over_png,checkbox_unselect_disabled_png,checkbox_unselect_normal_png,checkbox_unselect_over_png,dropdownlist_down_png,dropdownlist_dropback_png,dropdownlist_dropbutton_png,dropdownlist_normal_png,dropdownlist_over_png,progressbar_fill_png,progressbar_thumb_png,progressbar_track_png,radiobutton_select_disabled_png,radiobutton_select_over_png,radiobutton_unselect_disabled_png,radiobutton_unselect_normal_png,radiobutton_unselect_over_png,radiobutton_select_normal_png,togglebutton_disabled_png,togglebutton_normal_png,togglebutton_over_png,togglebutton_selected_png,tree_back_png,tree_btndisabled_png,tree_btndisabledselect_png,tree_btndown_png,tree_btndownselect_png,tree_btnup_png,tree_btnupselect_png,tabbar_over_png,tabbar_select_png,tree_icon_file_png,tree_icon_dir_png,list_item_normal_png,list_item_select_png",
 		"name":"skin"
 	},
 	{
@@ -9,41 +9,6 @@
 		"name":"global"
 	}],
 	"resources":[
-	{
-		"name":"combo_box_dropback_png",
-		"type":"image",
-		"url":"resource/asset/ocean/ComboBox/combo box-dropBack.png"
-	},
-	{
-		"name":"combo_box_dropbutton_png",
-		"type":"image",
-		"url":"resource/asset/ocean/ComboBox/combo box-dropButton.png"
-	},
-	{
-		"name":"combo_box_input_png",
-		"type":"image",
-		"url":"resource/asset/ocean/ComboBox/combo box-input.png"
-	},
-	{
-		"name":"combo_box_itemback_png",
-		"type":"image",
-		"url":"resource/asset/ocean/ComboBox/combo box-itemBack.png"
-	},
-	{
-		"name":"danger_button_down_png",
-		"type":"image",
-		"url":"resource/asset/ocean/DangerButton/danger button_down.png"
-	},
-	{
-		"name":"danger_button_normal_png",
-		"type":"image",
-		"url":"resource/asset/ocean/DangerButton/danger button_normal.png"
-	},
-	{
-		"name":"danger_button_over_png",
-		"type":"image",
-		"url":"resource/asset/ocean/DangerButton/danger button_over.png"
-	},
 	{
 		"name":"hscrollbar_buttonback_png",
 		"type":"image",

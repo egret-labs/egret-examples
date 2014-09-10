@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:local="*" xmlns:w="http://ns.egret-labs.org/wing">
-    <w:HostComponent name="egret.DropDownList"/>
+    <w:HostComponent name="egret.gui.DropDownList"/>
     <e:states>
         <e:State name="normal"/>
         <e:State name="open"/>

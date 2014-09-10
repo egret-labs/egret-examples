@@ -30,6 +30,7 @@ class Loading extends egret.Sprite
         this.display.size=50;
         this.display.textColor=0x222222;
         this.display.bold=true;
+        this.display.visible=false;
         this.addChild(this.display);
     }
     public setProgress(v:number,info:string):void
@@ -37,5 +38,6 @@ class Loading extends egret.Sprite
         this.display.x=(this.contentWidth-this.display.width)/2;
         this.display.y=(this.contentHeight-this.display.height)/2;
         this.display.text=info+v.toString()+"%";
+        this.display.visible=true;
     }
 }
