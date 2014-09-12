@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
         height="85">
+    <w:HostComponent name="egret.gui.ItemRenderer"/>
     <e:states>
-        <e:State name="up" />
-        <e:State name="down" />
+        <e:State name="up"/>
+        <e:State name="down"/>
+        <e:State name="disabled"/>
     </e:states>
     <e:UIAsset width="100%" height="100%"
                source.up="app_list_item_up_png"

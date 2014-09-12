@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
         minHeight="230" minWidth="470" maxWidth="710">
-    <w:HostComponent name="egret.gui.AlertSkin" />
+    <w:HostComponent name="egret.gui.Alert" />
     <e:UIAsset width="100%" height="100%" source="panel_back_png" />
     <e:Group left="3" right="9" height="55" id="moveArea">
         <e:UIAsset width="100%" height="100%" source="panel_headeback_png" />

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing"
 	minWidth="60" minHeight="20">
-	<e:DataGroup id="dataGroup" itemRendererSkinName="skins.ocean.DataGroupItemRenderSkin" width="100%" height="100%" top="90" bottom="0">
+	<e:DataGroup id="dataGroup" width="100%" height="100%" top="90" bottom="0"
+                 itemRenderer="egret.gui.TabBarButton" itemRendererSkinName="skins.ocean.TabBarButtonSkin">
 		<e:layout>
 			<e:HorizontalLayout gap="-1" horizontalAlign="justify"
 				verticalAlign="contentJustify" />

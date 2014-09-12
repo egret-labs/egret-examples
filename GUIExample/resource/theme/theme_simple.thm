@@ -17,6 +17,7 @@
         "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
         "egret.gui.DropDownList":"skins.simple.DropDownListSkin",
         "egret.gui.ProgressBar":"skins.simple.ProgressBarSkin",
+        "egret.gui.SkinnableContainer":"skins.simple.SkinnableContainerSkin",
 
 
         "CustomItemRender":"skins.simple.CustomItemRendererSkin",
