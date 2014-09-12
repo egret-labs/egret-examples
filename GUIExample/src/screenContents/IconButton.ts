@@ -6,32 +6,33 @@ class IconButton extends egret.gui.Button
     public constructor()
     {
         super();
-        this.hostComponentKey="screenContents.IconButton";
+        this.hostComponentKey="IconButton";
     }
-    private _iconPath:string;
-    /*
-    * 设置ICON路径，稍后会在更新皮肤状态时更新ICON
-    * */
+
+    private _icon:string;
+    /**
+     * icon素材名
+     */
     public get icon():string
     {
-        return this._iconPath;
+        return this._icon;
     }
-    public set icon(v:string)
-    {
-        if(v!=this._iconPath)
-        {
-            this._iconPath=v;
-            this.invalidateSkinState();
+    public set icon(value:string) {
+        if (this._icon == value)
+            return;
+        this._icon = value;
+        if (this.iconDisplay) {
+            this.iconDisplay.source = value;
         }
     }
-    public image:egret.gui.UIAsset;
-    /*
-    * 更新皮肤状态
-    * */
-    public validateSkinState():void
-    {
-        if(this.image)
-            this.image.source=this.icon;
-        super.validateSkinState();
+
+    public iconDisplay:egret.gui.UIAsset;
+
+    public partAdded(partName:string, instance:any):void{
+        super.partAdded(partName, instance);
+
+        if (instance == this.iconDisplay){
+            this.iconDisplay.source = this._icon;
+        }
     }
 }

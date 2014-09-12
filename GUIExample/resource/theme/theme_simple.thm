@@ -15,14 +15,12 @@
         "egret.gui.CheckBox":"skins.simple.CheckBoxSkin",
         "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
         "egret.gui.DropDownList":"skins.simple.DropDownListSkin",
+
+
         "CustomItemRender":"skins.simple.CustomItemRendererSkin",
+        "IconButton":"skins.simple.IconButtonSkin",
         "ToggleOnOffButton":"skins.simple.ToggleOnOffButtonSkin",
         "HProgressBar":"skins.simple.HProgressBarSkin",
-        "VProgressBar":"skins.simple.VProgressBarSkin",
-        "HSliderThumbButton":"skins.simple.HSliderThumbSkin",
-        "VSliderThumbButton":"skins.simple.VSliderThumbSkin",
-        "TreeDisclosureButton":"skins.simple.TreeDisclosureButtonSkin",
-        "screenContents.IconButton":"skins.simple.IconButtonSkin",
-        "DropDownListOpenButton":"skins.simple.DropDownListOpenButtonSkin"
+        "VProgressBar":"skins.simple.VProgressBarSkin"
     }
 }

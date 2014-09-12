@@ -7,8 +7,8 @@
         <e:State name="down" />
         <e:State name="disabled" />
     </e:states>
-    <e:UIAsset width="100%" height="100%" source="dropdownlist_normal_png"
-               source.down="dropdownlist_down_png" source.disabled="button_disabled_png" />
-    <e:UIAsset  verticalCenter="0" right="0" height="100%" source.up="dropdownlist_dropbutton_normal_png"
-                source.down="dropdownlist_dropbutton_down_png"/>
+    <e:UIAsset width="100%" height="100%" source="DropDownListButtonSkin_up_png"
+               source.down="DropDownListButtonSkin_down_png"/>
+    <e:UIAsset  verticalCenter="0" right="4" source.up="dropdownlist_arrow_up_png"
+                source.down="dropdownlist_arrow_down_png"/>
 </e:Skin>

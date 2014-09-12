@@ -14,15 +14,13 @@
         "egret.gui.RadioButton":"skins.ocean.RadioButtonSkin",
         "egret.gui.CheckBox":"skins.ocean.CheckBoxSkin",
         "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
+        "egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
+
+
         "CustomItemRender":"skins.ocean.CustomItemRendererSkin",
+        "IconButton":"skins.ocean.IconButtonSkin",
         "ToggleOnOffButton":"skins.ocean.ToggleOnOffButtonSkin",
         "HProgressBar":"skins.ocean.HProgressBarSkin",
-        "VProgressBar":"skins.ocean.VProgressBarSkin",
-        "HSliderThumbButton":"skins.ocean.HSliderThumbSkin",
-        "VSliderThumbButton":"skins.ocean.VSliderThumbSkin",
-        "TreeDisclosureButton":"skins.ocean.TreeDisclosureButtonSkin",
-        "egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
-        "screenContents.IconButton":"skins.ocean.IconButtonSkin",
-        "DropDownListOpenButton":"skins.ocean.DropDownListOpenButtonSkin"
+        "VProgressBar":"skins.ocean.VProgressBarSkin"
     }
 }

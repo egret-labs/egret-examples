@@ -8,7 +8,7 @@
         <e:Label id="titleDisplay" fontFamily="Tahoma" size="26"
                  textColor="0x727070" maxDisplayedLines="1" left="5" right="5" verticalCenter="0"
                  minHeight="28" verticalAlign="middle" textAlign="center" />
-        <e:UIAsset id="closeButton" verticalCenter="0" right="10" source="titlewindow_close_png"/>
+        <e:Button id="closeButton" verticalCenter="0" right="10" skinName="skins.simple.CloseButtonSkin"/>
     </e:Group>
     <e:Label id="contentDisplay" fontFamily="Tahoma" size="22"
              textColor="0x727070" left="1" right="1" top="36" bottom="45" padding="10"
