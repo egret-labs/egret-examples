@@ -5,6 +5,7 @@
         "egret.gui.Panel":"skins.simple.PanelSkin",
         "egret.gui.Button":"skins.simple.ButtonSkin",
         "egret.gui.ToggleButton":"skins.simple.ToggleButtonSkin",
+        "egret.gui.ToggleSwitch":"skins.simple.ToggleSwitchSkin",
         "egret.gui.Alert":"skins.simple.AlertSkin",
         "egret.gui.HSlider":"skins.simple.HSliderSkin",
         "egret.gui.VSlider":"skins.simple.VSliderSkin",
@@ -15,12 +16,11 @@
         "egret.gui.CheckBox":"skins.simple.CheckBoxSkin",
         "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
         "egret.gui.DropDownList":"skins.simple.DropDownListSkin",
+        "egret.gui.ProgressBar":"skins.simple.ProgressBarSkin",
 
 
         "CustomItemRender":"skins.simple.CustomItemRendererSkin",
         "IconButton":"skins.simple.IconButtonSkin",
-        "ToggleOnOffButton":"skins.simple.ToggleOnOffButtonSkin",
-        "HProgressBar":"skins.simple.HProgressBarSkin",
         "VProgressBar":"skins.simple.VProgressBarSkin"
     }
 }

@@ -9,26 +9,26 @@ class CustomItemRenderer extends egret.gui.ItemRenderer
         this.hostComponentKey="CustomItemRender";
     }
 
-    public toggleButton:egret.gui.ToggleButton;
+    public toggleSwitch:egret.gui.ToggleSwitch;
 
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
-        if(instance == this.toggleButton)
-            this.toggleButton.addEventListener(egret.Event.CHANGE,this.touchDown,this);
+        if(instance == this.toggleSwitch)
+            this.toggleSwitch.addEventListener(egret.Event.CHANGE,this.touchDown,this);
     }
 
     private touchDown(event:egret.Event):void
     {
-        this.data.toggle=this.toggleButton.selected;
+        this.data.toggle=this.toggleSwitch.selected;
     }
 
     public dataChanged():void
     {
         super.dataChanged();
-        if(this.toggleButton)
+        if(this.toggleSwitch)
         {
-            this.toggleButton.selected=this.data.toggle;
+            this.toggleSwitch.selected=this.data.toggle;
         }
     }
 }

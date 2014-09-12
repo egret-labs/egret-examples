@@ -13,6 +13,5 @@
     <e:Label id="labelDisplay" size="26" fontFamily="Tahoma"
              textColor.up="0x727070" textColor.down="0xeeedec" left="60" right="80"
              verticalCenter="0" />
-    <e:ToggleButton id="toggleButton" selected="true" hostComponentKey="ToggleOnOffButton"
-                    right="30" verticalCenter="0" />
+    <e:ToggleSwitch id="toggleSwitch" selected="true" right="30" verticalCenter="0" />
 </e:Skin>
