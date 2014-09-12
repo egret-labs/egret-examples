@@ -63,16 +63,16 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         {
             case "ocean":
                 egret.gui.Theme.load("resource/theme/theme_ocean.thm");
-                path="resource/config/resource_ocean.json";
+                path="resource/resource_ocean.json";
                 break;
             case "simple":
                 egret.gui.Theme.load("resource/theme/theme_simple.thm");
-                path="resource/config/resource_simple.json";
+                path="resource/resource_simple.json";
                 break;
         }
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE,this.onGroupComp,this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS,this.onGroupProgress,this);
-        RES.loadConfig(path);
+        RES.loadConfig(path,"resource/");
         RES.loadGroup("global");
     }
     private clear():void
