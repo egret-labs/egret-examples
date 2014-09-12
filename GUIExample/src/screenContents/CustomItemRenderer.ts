@@ -6,8 +6,7 @@ class CustomItemRenderer extends egret.gui.ItemRenderer
     public constructor()
     {
         super();
-        //this.skinName="skins.ocean.CustomItemRendererSkin";
-        this.hostComponentKey="screenContents.CustomItemRender";
+        this.hostComponentKey="CustomItemRender";
     }
     public toggleButton:egret.gui.ToggleButton;
     public partAdded(partName: string, instance: any): void

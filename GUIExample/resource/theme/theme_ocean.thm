@@ -1,29 +1,28 @@
 {
-"skins":
-{
-
-"egret.gui.TitleWindow":"skins.ocean.TitleWindowSkin",
-"egret.gui.Panel":"skins.ocean.PanelSkin",
-"egret.gui.Button":"skins.ocean.ButtonSkin",
-"egret.gui.ToggleButton":"skins.ocean.ToggleButtonSkin",
-"egret.gui.Alert":"skins.ocean.AlertSkin",
-"egret.gui.HSlider":"skins.ocean.HSliderSkin",
-"egret.gui.VSlider":"skins.ocean.VSliderSkin",
-"egret.gui.TabBar":"skins.ocean.TabBarSkin",
-"egret.gui.List":"skins.ocean.ListSkin",
-"egret.gui.Tree":"skins.ocean.TreeSkin",
-"egret.gui.RadioButton":"skins.ocean.RadioButtonSkin",
-"egret.gui.CheckBox":"skins.ocean.CheckBoxSkin",
-"CustomList":"skins.ocean.CustomListSkin",
-"screenContents.CustomItemRender":"skins.ocean.CustomItemRendererSkin",
-"ToggleOnOffButton":"skins.ocean.ToggleOnOffButtonSkin",
-"HProgressBar":"skins.ocean.HProgressBarSkin",
-"VProgressBar":"skins.ocean.VProgressBarSkin",
-"HSliderThumbButton":"skins.ocean.HSliderThumbSkin",
-"VSliderThumbButton":"skins.ocean.VSliderThumbSkin",
-"TreeDisclosureButton":"skins.ocean.TreeDisclosureButtonSkin",
-"egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
-"screenContents.IconButton":"skins.ocean.IconButtonSkin",
-"DropDownListOpenButton":"skins.ocean.DropDownListOpenButtonSkin"
-}
+    "skins":
+    {
+        "egret.gui.TitleWindow":"skins.ocean.TitleWindowSkin",
+        "egret.gui.Panel":"skins.ocean.PanelSkin",
+        "egret.gui.Button":"skins.ocean.ButtonSkin",
+        "egret.gui.ToggleButton":"skins.ocean.ToggleButtonSkin",
+        "egret.gui.Alert":"skins.ocean.AlertSkin",
+        "egret.gui.HSlider":"skins.ocean.HSliderSkin",
+        "egret.gui.VSlider":"skins.ocean.VSliderSkin",
+        "egret.gui.TabBar":"skins.ocean.TabBarSkin",
+        "egret.gui.List":"skins.ocean.ListSkin",
+        "egret.gui.Tree":"skins.ocean.TreeSkin",
+        "egret.gui.RadioButton":"skins.ocean.RadioButtonSkin",
+        "egret.gui.CheckBox":"skins.ocean.CheckBoxSkin",
+        "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
+        "CustomItemRender":"skins.ocean.CustomItemRendererSkin",
+        "ToggleOnOffButton":"skins.ocean.ToggleOnOffButtonSkin",
+        "HProgressBar":"skins.ocean.HProgressBarSkin",
+        "VProgressBar":"skins.ocean.VProgressBarSkin",
+        "HSliderThumbButton":"skins.ocean.HSliderThumbSkin",
+        "VSliderThumbButton":"skins.ocean.VSliderThumbSkin",
+        "TreeDisclosureButton":"skins.ocean.TreeDisclosureButtonSkin",
+        "egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
+        "screenContents.IconButton":"skins.ocean.IconButtonSkin",
+        "DropDownListOpenButton":"skins.ocean.DropDownListOpenButtonSkin"
+    }
 }

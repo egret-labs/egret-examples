@@ -1,29 +1,28 @@
 {
-"skins":
-{
-
-"egret.gui.TitleWindow":"skins.simple.TitleWindowSkin",
-"egret.gui.Panel":"skins.simple.PanelSkin",
-"egret.gui.Button":"skins.simple.ButtonSkin",
-"egret.gui.ToggleButton":"skins.simple.ToggleButtonSkin",
-"egret.gui.Alert":"skins.simple.AlertSkin",
-"egret.gui.HSlider":"skins.simple.HSliderSkin",
-"egret.gui.VSlider":"skins.simple.VSliderSkin",
-"egret.gui.TabBar":"skins.simple.TabBarSkin",
-"egret.gui.List":"skins.simple.ListSkin",
-"egret.gui.Tree":"skins.simple.TreeSkin",
-"egret.gui.RadioButton":"skins.simple.RadioButtonSkin",
-"egret.gui.CheckBox":"skins.simple.CheckBoxSkin",
-"CustomList":"skins.simple.CustomListSkin",
-"screenContents.CustomItemRender":"skins.simple.CustomItemRendererSkin",
-"ToggleOnOffButton":"skins.simple.ToggleOnOffButtonSkin",
-"HProgressBar":"skins.simple.HProgressBarSkin",
-"VProgressBar":"skins.simple.VProgressBarSkin",
-"HSliderThumbButton":"skins.simple.HSliderThumbSkin",
-"VSliderThumbButton":"skins.simple.VSliderThumbSkin",
-"TreeDisclosureButton":"skins.simple.TreeDisclosureButtonSkin",
-"egret.gui.DropDownList":"skins.simple.DropDownListSkin",
-"screenContents.IconButton":"skins.simple.IconButtonSkin",
-"DropDownListOpenButton":"skins.simple.DropDownListOpenButtonSkin"
-}
+    "skins":
+    {
+        "egret.gui.TitleWindow":"skins.simple.TitleWindowSkin",
+        "egret.gui.Panel":"skins.simple.PanelSkin",
+        "egret.gui.Button":"skins.simple.ButtonSkin",
+        "egret.gui.ToggleButton":"skins.simple.ToggleButtonSkin",
+        "egret.gui.Alert":"skins.simple.AlertSkin",
+        "egret.gui.HSlider":"skins.simple.HSliderSkin",
+        "egret.gui.VSlider":"skins.simple.VSliderSkin",
+        "egret.gui.TabBar":"skins.simple.TabBarSkin",
+        "egret.gui.List":"skins.simple.ListSkin",
+        "egret.gui.Tree":"skins.simple.TreeSkin",
+        "egret.gui.RadioButton":"skins.simple.RadioButtonSkin",
+        "egret.gui.CheckBox":"skins.simple.CheckBoxSkin",
+        "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
+        "egret.gui.DropDownList":"skins.simple.DropDownListSkin",
+        "CustomItemRender":"skins.simple.CustomItemRendererSkin",
+        "ToggleOnOffButton":"skins.simple.ToggleOnOffButtonSkin",
+        "HProgressBar":"skins.simple.HProgressBarSkin",
+        "VProgressBar":"skins.simple.VProgressBarSkin",
+        "HSliderThumbButton":"skins.simple.HSliderThumbSkin",
+        "VSliderThumbButton":"skins.simple.VSliderThumbSkin",
+        "TreeDisclosureButton":"skins.simple.TreeDisclosureButtonSkin",
+        "screenContents.IconButton":"skins.simple.IconButtonSkin",
+        "DropDownListOpenButton":"skins.simple.DropDownListOpenButtonSkin"
+    }
 }
