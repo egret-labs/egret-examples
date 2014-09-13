@@ -16,6 +16,7 @@
         "egret.gui.RadioButton":"skins.ocean.RadioButtonSkin",
         "egret.gui.CheckBox":"skins.ocean.CheckBoxSkin",
         "egret.gui.ItemRenderer":"skins.ocean.ItemRendererSkin",
+        "egret.gui.TreeItemRenderer":"skins.ocean.TreeItemRendererSkin",
         "egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
         "egret.gui.ProgressBar":"skins.ocean.ProgressBarSkin",
         "egret.gui.SkinnableContainer":"skins.ocean.SkinnableContainerSkin",

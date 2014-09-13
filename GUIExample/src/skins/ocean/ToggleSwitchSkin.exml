@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-	<w:HostComponent name="egret.gui.ToggleButton" />
+	<w:HostComponent name="egret.gui.ToggleSwitch" />
 	<e:states>
 		<e:State name="up" />
 		<e:State name="down" />
