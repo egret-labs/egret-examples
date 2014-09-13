@@ -3,8 +3,7 @@
         minWidth="50" minHeight="13">
     <w:HostComponent name="egret.gui.HSlider"/>
     <e:states>
-        <e:State name="up" />
-        <e:State name="down" />
+        <e:State name="normal" />
         <e:State name="disabled" />
     </e:states>
     <e:UIAsset id="track" source="hslider_track_png" width="100%"

@@ -3,8 +3,7 @@
         minWidth="13" minHeight="13">
     <w:HostComponent name="egret.gui.VSlider" />
     <e:states>
-        <e:State name="up" />
-        <e:State name="down" />
+        <e:State name="normal" />
         <e:State name="disabled" />
     </e:states>
     <e:UIAsset id="track" source="vslider_track_png" height="100%"
