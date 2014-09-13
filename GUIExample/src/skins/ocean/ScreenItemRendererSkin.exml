@@ -3,10 +3,6 @@
         height="75">
     <w:HostComponent name="egret.gui.ItemRenderer" />
     <e:states>
-        <e:State name="normal" />
-        <e:State name="disabled" />
-    </e:states>
-    <e:states>
         <e:State name="up" />
         <e:State name="down" />
         <e:State name="diabled"/>

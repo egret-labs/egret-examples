@@ -42,8 +42,6 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     {
         //注入自定义的素材解析器
         egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
-        //注入自定义的皮肤解析器
-       // egret.Injector.mapClass("egret.gui.ISkinAdapter",SkinAdapter);
         var skintype:string = window["getCurrentTest"]();
        // this.setSkinType("simple");
         this.loading=new Loading();
