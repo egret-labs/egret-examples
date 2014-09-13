@@ -10,6 +10,7 @@
         "egret.gui.HSlider":"skins.ocean.HSliderSkin",
         "egret.gui.VSlider":"skins.ocean.VSliderSkin",
         "egret.gui.TabBar":"skins.ocean.TabBarSkin",
+        "egret.gui.TabBarButton":"skins.ocean.TabBarButtonSkin",
         "egret.gui.List":"skins.ocean.ListSkin",
         "egret.gui.Tree":"skins.ocean.TreeSkin",
         "egret.gui.RadioButton":"skins.ocean.RadioButtonSkin",
@@ -18,6 +19,7 @@
         "egret.gui.DropDownList":"skins.ocean.DropDownListSkin",
         "egret.gui.ProgressBar":"skins.ocean.ProgressBarSkin",
         "egret.gui.SkinnableContainer":"skins.ocean.SkinnableContainerSkin",
+        "egret.gui.SkinnableDataContainer":"skins.ocean.SkinnableDataContainerSkin",
 
         "CustomItemRender":"skins.ocean.CustomItemRendererSkin",
         "IconButton":"skins.ocean.IconButtonSkin",
