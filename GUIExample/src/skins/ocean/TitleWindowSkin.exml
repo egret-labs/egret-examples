@@ -14,6 +14,6 @@
                  minHeight="28" verticalAlign="middle" textAlign="center" />
         <e:UIAsset id="closeButton" verticalCenter="0" right="10" source="titlewindow_close_png"/>
     </e:Group>
-    <e:Group width="100%" bottom="0"  top="50" id="contentGroup">
+    <e:Group left="7" right="7" bottom="0" top="50" id="contentGroup" clipAndEnableScrolling="true">
     </e:Group>
 </e:Skin>

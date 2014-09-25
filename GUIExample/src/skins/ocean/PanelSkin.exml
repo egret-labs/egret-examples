@@ -13,6 +13,6 @@
                  textColor="0x727070" maxDisplayedLines="1" left="5" right="5" verticalCenter="0"
                  minHeight="28" verticalAlign="middle" textAlign="center" />
     </e:Group>
-    <e:Group width="100%" bottom="0"  top="50" id="contentGroup">
+    <e:Group left="7" right="7" bottom="0"  top="50" id="contentGroup" clipAndEnableScrolling="true">
     </e:Group>
 </e:Skin>
