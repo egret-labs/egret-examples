@@ -28,19 +28,17 @@
     </style>
 </head>
 <body>
-<div style="width: 1500px">
-    <div style="float: left;width: 200px;">
-        <select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)">
-        </select>
+<div style="float: left;width: 200px;">
+    <select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)">
 
-        <textarea style="font-size:20px;height:360px;width:190px;" id="testDescription" disabled="false"></textarea>
-    </div>
-    <div id="gameDiv" style="float: left;width: 500px;background: #99E3E3;">
-        <canvas id="gameCanvas" width="500" height="400"></canvas>
-    </div>
-    <textarea style="font-size:16px;height:400px;width:700px;" id="exampleTextArea" disabled="false"></textarea>
+    </select>
+
+    <textarea style="font-size:20px;height:360px;width:190px;" id="testDescription" disabled="false"></textarea>
+</div>
+<div id="gameDiv" style="float: left;width: 500px;background: #99E3E3;">
 
 </div>
+<textarea style="font-size:16px;height:400px;width:400px;" id="exampleTextArea" disabled="false"></textarea>
 <script>var document_class = "GameApp";</script><!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
 
 <script>
@@ -115,6 +113,7 @@
 
 
 <script src="bin-debug/lib/egret_file_list.js"></script>
+<script src="launcher/egret_require.js"></script>
 <script src="launcher/egret_loader.js"></script>
 <script src="bin-debug/src/game_file_list.js"></script>
 
