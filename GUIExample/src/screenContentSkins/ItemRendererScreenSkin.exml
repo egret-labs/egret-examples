@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-      <e:List id="list" itemRenderer="CustomItemRender"
-              width="100%" height="100%">
-      </e:List>
-</e:Skin>
