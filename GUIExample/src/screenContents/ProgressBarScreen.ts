@@ -31,26 +31,72 @@ class ProgressBarScreen extends egret.gui.SkinnableContainer {
     public constructor() {
         super();
         this.skinName = "screenContentSkins.ProgressBarScreenSkin";
+        this.addEventListener( egret.Event.REMOVED_FROM_STAGE,this.removed,this);
+        this.addEventListener( egret.Event.ADDED_TO_STAGE,this.added,this);
     }
 
     public hProgressBar1:egret.gui.ProgressBar;
     public hProgressBar2:egret.gui.ProgressBar;
     public vProgressBar:egret.gui.ProgressBar;
 
+    private tweenBar1:egret.Tween;
+    private tweenBar2:egret.Tween;
+    private tweenVBar:egret.Tween;
     public partAdded(partName: string, instance: any): void
     {
         super.partAdded(partName,instance);
         if(instance == this.hProgressBar1)
         {
-            egret.Tween.get(this.hProgressBar1, {loop:true}).to({value:100}, 3000);
+            this.tweenBar1=egret.Tween.get(this.hProgressBar1, {loop:true});
+            this.tweenBar1.to({value:100}, 3000);
         }
         if(instance == this.hProgressBar2)
         {
-            egret.Tween.get(this.hProgressBar2, {loop:true}).to({value:100}, 3000);
+            this.tweenBar2=egret.Tween.get(this.hProgressBar2, {loop:true});
+            this.tweenBar2.to({value:100}, 3000);
         }
         if(instance == this.vProgressBar)
         {
-            egret.Tween.get(this.vProgressBar, {loop:true}).to({value:100}, 3000);
+            this.tweenVBar=egret.Tween.get(this.vProgressBar, {loop:true});
+            this.tweenVBar.to({value:100}, 3000);
+        }
+    }
+    private removed(e: egret.Event):void
+    {
+        this.stopEffect();
+    }
+    private added(e:egret.Event):void
+    {
+        this.startEffect();
+    }
+    private startEffect():void
+    {
+        if(this.tweenBar1)
+        {
+            this.tweenBar1.setPaused(false);
+        }
+        if(this.tweenBar2)
+        {
+            this.tweenBar2.setPaused(false);;
+        }
+        if(this.tweenVBar)
+        {
+            this.tweenVBar.setPaused(false);;
+        }
+    }
+    private stopEffect():void
+    {
+        if(this.tweenBar1)
+        {
+            this.tweenBar1.setPaused(true);
+        }
+        if(this.tweenBar2)
+        {
+            this.tweenBar2.setPaused(true);
+        }
+        if(this.tweenVBar)
+        {
+            this.tweenVBar.setPaused(true);
         }
     }
 }
