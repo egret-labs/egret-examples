@@ -135,6 +135,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
         var asset:egret.gui.UIAsset = new egret.gui.UIAsset();
         asset.source = "app_header_back_png";
         asset.fillMode = egret.BitmapFillMode.REPEAT;
+        asset.cacheAsBitmap = true;
         asset.percentWidth=asset.percentHeight=100;
         headerGroup.addElement(asset);
 
