@@ -9,6 +9,6 @@
         <e:Button label="Normal Button"/>
         <e:Button label="Disabled Button" enabled="false" />
         <e:ToggleButton label="Normal ToggleButton"/>
-        <e:ToggleButton label="Normal ToggleButton" enabled="false" selected="true"/>
+        <e:ToggleButton label="Disabled ToggleButton" enabled="false" selected="true"/>
     </e:Group>
 </e:Skin>
