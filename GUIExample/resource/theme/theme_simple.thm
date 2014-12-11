@@ -24,7 +24,6 @@
 
 
         "CustomItemRender":"skins.simple.CustomItemRendererSkin",
-        "IconButton":"skins.simple.IconButtonSkin",
         "VProgressBar":"skins.simple.VProgressBarSkin"
     }
 }

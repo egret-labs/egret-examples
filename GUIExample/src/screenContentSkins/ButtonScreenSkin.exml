@@ -5,7 +5,7 @@
             <e:VerticalLayout horizontalAlign="contentJustify" verticalAlign="middle" />
         </e:layout>
 
-        <local:IconButton icon="app_iconbutton_icon_png" label="Icon Button"/>
+        <e:Button icon="app_iconbutton_icon_png" label="Icon Button"/>
         <e:Button label="Normal Button"/>
         <e:Button label="Disabled Button" enabled="false" />
         <e:ToggleButton label="Normal ToggleButton"/>
