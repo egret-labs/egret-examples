@@ -15,7 +15,6 @@
         </e:layout>
         <e:UIAsset id="iconDisplay"/>
         <e:Label id="labelDisplay" size="20" verticalAlign="middle"  paddingLeft="5" paddingRight="5"
-                 textAlign="center" fontFamily="Tahoma" textColor.up="0xffffff"
-                 textColor.down="0xf0f0f0" textColor.disabled="0xdfe6e9" />
+                 textAlign="center" fontFamily="Tahoma" />
     </e:Group>
 </e:Skin>
