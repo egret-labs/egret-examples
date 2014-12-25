@@ -41,20 +41,20 @@ class TestArmature {
         var textureData = RES.getRes("texture_json");
         var texture = RES.getRes("texture_png");
 
-        var factory = new dragonBones.factorys.EgretFactory();
-        factory.addSkeletonData(dragonBones.objects.DataParser.parseSkeletonData(skeletonData));
-        factory.addTextureAtlas(new dragonBones.textures.EgretTextureAtlas(texture, textureData));
+        var factory = new dragonBones.EgretFactory();
+        factory.addSkeletonData(dragonBones.DataParser.parseDragonBonesData(skeletonData));
+        factory.addTextureAtlas(new dragonBones.EgretTextureAtlas(texture, textureData));
 
         var armature = factory.buildArmature("Dragon");
         var armatureDisplay = armature.getDisplay();
-        dragonBones.animation.WorldClock.clock.add(armature);
+        dragonBones.WorldClock.clock.add(armature);
         container.addChild(armatureDisplay);
-        armatureDisplay.x = 300;
-        armatureDisplay.y = 350;
+        armatureDisplay.x = 200;
+        armatureDisplay.y = 450;
         armature.animation.gotoAndPlay("walk");
 
         egret.Ticker.getInstance().register(function (advancedTime) {
-            dragonBones.animation.WorldClock.clock.advanceTime(advancedTime / 1000);
+            dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
         }, this);
     }
 }
