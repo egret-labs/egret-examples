@@ -49,8 +49,8 @@ class TestArmature {
         var armatureDisplay = armature.getDisplay();
         dragonBones.WorldClock.clock.add(armature);
         container.addChild(armatureDisplay);
-        armatureDisplay.x = 300;
-        armatureDisplay.y = 350;
+        armatureDisplay.x = 200;
+        armatureDisplay.y = 450;
         armature.animation.gotoAndPlay("walk");
 
         egret.Ticker.getInstance().register(function (advancedTime) {

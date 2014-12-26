@@ -12,6 +12,13 @@
     <meta name="x5-fullscreen" content="true"/>
     <meta name="360-fullscreen" content="true"/>
     <base href="../"/>
+    <!--[if IE]><script type="text/javascript">
+        // Fix for IE ignoring relative base tags.
+        (function() {
+            var baseTag = document.getElementsByTagName('base')[0];
+            baseTag.href = baseTag.href;
+        })();
+    </script><![endif]-->
 
     <style>
 
@@ -37,70 +44,70 @@
 
 <script>var document_class = "GUIExplorer";</script><!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
 
-<script>
-
-
-    var list = ["ocean","simple"];
-
-    var menu = document.getElementById("examples_menu");
-    list.forEach(function (item) {
-        var option = document.createElement("option");
-        option.setAttribute("id", item);
-        option.setAttribute("value", item);
-        option.innerText = item;
-        menu.appendChild(option);
-    })
-
-    function onSelectChange(value) {
-        var url = location.href;
-        var index = url.indexOf("?");
-        if (index != -1) {
-            url = url.slice(0, index);
-        }
-        if (url.indexOf(".html") == -1) {
-            url += "index.html";
-        }
-        url += "?test=" + value;
-        location.href = url;
-    }
-
-    function getCurrentTest() {
-        var appFile;
-        var hasTest = false;
-        var str = location.search;
-        str = str.slice(1, str.length);
-        var totalArray = str.split("&");
-        for (var i = 0; i < totalArray.length; i++) {
-            var itemArray = totalArray[i].split("=");
-            if (itemArray.length == 2) {
-                var key = itemArray[0];
-                var value = itemArray[1];
-                if (key == "test") {
-                    appFile = value;
-                    hasTest = true;
-                    break;
-                }
-            }
-        }
-        if (!hasTest) {
-            appFile = list[0];
-        }
-
-        return appFile;
-    }
-    menu.value = getCurrentTest();
-
-
-</script>
 <script src="bin-debug/lib/egret_file_list.js"></script>
 <script src="launcher/egret_require.js"></script>
 <script src="launcher/egret_loader.js"></script>
 <script src="bin-debug/src/game_file_list.js"></script>
 
 <script>
-    egret_h5.preloadScript(egret_file_list, "libs/");
-    egret_h5.preloadScript(game_file_list, "bin-debug/src/");
-    egret_h5.startLoading();
+    var support = [].map && document.createElement("canvas").getContext;
+    if (support) {
+		var list = ["ocean","simple"];
+		var menu = document.getElementById("examples_menu");
+		list.forEach(function (item) {
+			var option = document.createElement("option");
+			option.setAttribute("id", item);
+			option.setAttribute("value", item);
+			option.innerText = item;
+			menu.appendChild(option);
+		})
+
+		function onSelectChange(value) {
+			var url = location.href;
+			var index = url.indexOf("?");
+			if (index != -1) {
+				url = url.slice(0, index);
+			}
+			if (url.indexOf(".html") == -1) {
+				url += "index.html";
+			}
+			url += "?test=" + value;
+			location.href = url;
+		}
+
+		function getCurrentTest() {
+			var appFile;
+			var hasTest = false;
+			var str = location.search;
+			str = str.slice(1, str.length);
+			var totalArray = str.split("&");
+			for (var i = 0; i < totalArray.length; i++) {
+				var itemArray = totalArray[i].split("=");
+				if (itemArray.length == 2) {
+					var key = itemArray[0];
+					var value = itemArray[1];
+					if (key == "test") {
+						appFile = value;
+						hasTest = true;
+						break;
+					}
+				}
+			}
+			if (!hasTest) {
+				appFile = list[0];
+			}
+
+			return appFile;
+		}
+		menu.value = getCurrentTest();
+
+		egret_h5.preloadScript(egret_file_list, "libs/");
+		egret_h5.preloadScript(game_file_list, "bin-debug/src/");
+		egret_h5.startLoading();
+	}
+    else {
+        alert("Egret 不支持您当前的浏览器")
+    }
 </script>
 </body>
 </html>

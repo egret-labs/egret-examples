@@ -23,7 +23,6 @@
         "egret.gui.SkinnableDataContainer":"skins.ocean.SkinnableDataContainerSkin",
 
         "CustomItemRender":"skins.ocean.CustomItemRendererSkin",
-        "IconButton":"skins.ocean.IconButtonSkin",
         "VProgressBar":"skins.ocean.VProgressBarSkin"
     }
 }
