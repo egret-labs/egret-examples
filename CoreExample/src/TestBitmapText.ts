@@ -32,9 +32,9 @@ class TestBitmapText {
     }
 
     public createExample():void {
-        var spriteSheet:egret.BitmapTextSpriteSheet = RES.getRes("bitmapFont");
+        var bitmapFont:egret.BitmapFont = RES.getRes("bitmapFont");
         var bitmap1 = new egret.BitmapText();
-        bitmap1.spriteSheet = spriteSheet;
+        bitmap1.font = bitmapFont;
         bitmap1.text = "HelloWorld";
 
         var container = new egret.DisplayObjectContainer();
