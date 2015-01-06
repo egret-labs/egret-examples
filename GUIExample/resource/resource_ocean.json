@@ -419,5 +419,10 @@
 		"name":"app_iconbutton_icon_png",
 		"type":"image",
 		"url":"asset/app/ocean/app_iconbutton-icon.png"
+	},
+	{
+		"name":"font_fnt",
+		"type":"font",
+		"url":"asset/app/font.fnt"
 	}]
 }

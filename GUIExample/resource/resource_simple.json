@@ -358,5 +358,10 @@
 		"name":"closebtn_up_png",
 		"type":"image",
 		"url":"asset/simple/TitleWindow/closebtn_up.png"
+	},
+	{
+		"name":"font_fnt",
+		"type":"font",
+		"url":"asset/app/font.fnt"
 	}]
 }

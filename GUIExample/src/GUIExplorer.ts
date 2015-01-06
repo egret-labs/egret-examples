@@ -184,7 +184,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     *预定义类，用于对象反射
     * */
     private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
-        AlertScreen,ButtonScreen,TogglesScreen,TreeScreen,TitleWindowScreen,PanelScreen,
+        AlertScreen,BitmapLabelScreen,ButtonScreen,TogglesScreen,TreeScreen,TitleWindowScreen,PanelScreen,
         LabelScreen,LayoutScreen,ListScreen,ListCustomScreen, ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
     ]);
     /*
