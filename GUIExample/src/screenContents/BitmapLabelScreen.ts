@@ -33,12 +33,4 @@ class BitmapLabelScreen extends egret.gui.SkinnableComponent {
         this.skinName = "screenContentSkins.BitmapLabelScreenSkin";
     }
 
-    public bitmapLabel:egret.gui.BitmapLabel;
-
-    public childrenCreated(){
-        super.childrenCreated();
-        egret.setTimeout(function():void{
-            this.bitmapLabel.text = "helloworld\negret";
-        },this,2000)
-    }
 }
