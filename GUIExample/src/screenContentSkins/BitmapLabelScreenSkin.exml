@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
     <e:Group left="50" right="50" top="50" bottom="50">
-        <e:BitmapLabel id="bitmapLabel" horizontalCenter="0" verticalCenter="0" text="HelloEgret" font="font_fnt"/>
+        <e:BitmapLabel id="bitmapLabel" horizontalCenter="0" verticalCenter="0" text="Hello Egret" font="font_fnt"/>
     </e:Group>
 </e:Skin>

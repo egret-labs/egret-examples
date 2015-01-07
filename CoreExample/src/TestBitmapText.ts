@@ -35,7 +35,7 @@ class TestBitmapText {
         var bitmapFont:egret.BitmapFont = RES.getRes("bitmapFont");
         var bitmap1 = new egret.BitmapText();
         bitmap1.font = bitmapFont;
-        bitmap1.text = "HelloWorld";
+        bitmap1.text = "Hello Egret";
 
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
