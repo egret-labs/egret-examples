@@ -32,17 +32,20 @@ class TestText {
     }
 
     public createExample():void {
+        var stageWidth = egret.MainContext.instance.stage.stageWidth;
+        var stageHeight = egret.MainContext.instance.stage.stageHeight;
+
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
 
         var colorLabel = new egret.TextField();
-        colorLabel.width = 500;
+        colorLabel.width = stageWidth;
         colorLabel.textColor = 0xff0000;
         colorLabel.text = "左对齐文本";
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.width = 500;
+        colorLabel.width = stageWidth;
         colorLabel.y = 60;
         colorLabel.textColor = 0xff0000;
         colorLabel.textAlign = egret.HorizontalAlign.CENTER;
@@ -50,15 +53,15 @@ class TestText {
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.width = 500;
+        colorLabel.width = stageWidth;
         colorLabel.textColor = 0xff0000;
         colorLabel.textAlign = egret.HorizontalAlign.RIGHT;
         colorLabel.text = "右对齐文本";
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.width = 500;
-        colorLabel.height = 400;
+        colorLabel.width = stageWidth;
+        colorLabel.height = stageHeight;
         colorLabel.textColor = 0x009aff;
         colorLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
         colorLabel.textAlign = egret.HorizontalAlign.CENTER;
@@ -66,8 +69,8 @@ class TestText {
         container.addChild(colorLabel);
 
         var colorLabel = new egret.TextField();
-        colorLabel.width = 500;
-        colorLabel.height = 400;
+        colorLabel.width = stageWidth;
+        colorLabel.height = stageHeight;
         colorLabel.textColor = 0x009aff;
         colorLabel.verticalAlign = egret.VerticalAlign.BOTTOM;
         colorLabel.textAlign = egret.HorizontalAlign.CENTER;
@@ -76,7 +79,7 @@ class TestText {
 
         var strokeLabel = new egret.TextField();
         strokeLabel.x = 400;
-        strokeLabel.height = 400;
+        strokeLabel.height = stageHeight;
         strokeLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
         strokeLabel.textColor = 0xFFFFFF;
         strokeLabel.text = "描边";
