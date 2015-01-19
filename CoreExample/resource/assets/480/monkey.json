@@ -1,252 +1,211 @@
-{"frames": {
-    "stand": {
-        "totalFrame": 19,
-        "childrenFrame": [
-            {
-                "res": "stand1",
-                "x": 3,
-                "y": 0
-            },
-            {
-                "res": "stand2",
-                "x": 2,
-                "y": 0
-            },
-            {
-                "res": "stand3",
-                "x": 2,
-                "y": 0
-            },
-            {
-                "res": "stand4",
-                "x": 2,
-                "y": 2
-            },
-            {
-                "res": "stand5",
-                "x": 2,
-                "y": 2
-            },
-            {
-                "res": "stand6",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand7",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand8",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand9",
-                "x": 0,
-                "y": 4
-            },
-            {
-                "res": "stand10",
-                "x": 0,
-                "y": 6
-            },
-            {
-                "res": "stand11",
-                "x": 0,
-                "y": 4
-            },
-            {
-                "res": "stand12",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand13",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand14",
-                "x": 1,
-                "y": 4
-            },
-            {
-                "res": "stand15",
-                "x": 2,
-                "y": 2
-            },
-            {
-                "res": "stand16",
-                "x": 2,
-                "y": 2
-            },
-            {
-                "res": "stand17",
-                "x": 2,
-                "y": 2
-            },
-            {
-                "res": "stand18",
-                "x": 2,
-                "y": 0
-            },
-            {
-                "res": "stand19",
-                "x": 3,
-                "y": 0
-            }
-        ]
-    },
-    "attack": {
-        "totalFrame": 19,
-        "childrenFrame": [
-            {
-                "res": "attack1",
-                "x": 31,
-                "y": 20
-            },
-            {
-                "res": "attack2",
-                "x": 28,
-                "y": 22
-            },
-            {
-                "res": "attack3",
-                "x": 23,
-                "y": 22
-            },
-            {
-                "res": "attack4",
-                "x": 23,
-                "y": 22
-            },
-            {
-                "res": "attack5",
-                "x": 29,
-                "y": 12
-            },
-            {
-                "res": "attack6",
-                "x": 29,
-                "y": 12
-            },
-            {
-                "res": "attack7",
-                "x": 13,
-                "y": 0
-            },
-            {
-                "res": "attack8",
-                "x": 4,
-                "y": 4
-            },
-            {
-                "res": "attack9",
-                "x": 0,
-                "y": 6
-            },
-            {
-                "res": "attack10",
-                "x": 0,
-                "y": 6
-            },
-            {
-                "res": "attack11",
-                "x": 0,
-                "y": 6
-            },
-            {
-                "res": "attack12",
-                "x": 23,
-                "y": 14,
-                "action":"startAttack"
-            },
-            {
-                "res": "attack13",
-                "x": 23,
-                "y": 14
-            },
-            {
-                "res": "attack14",
-                "x": 23,
-                "y": 14
-            },
-            {
-                "res": "attack15",
-                "x": 23,
-                "y": 14
-            },
-            {
-                "res": "attack16",
-                "x": 21,
-                "y": 16
-            },
-            {
-                "res": "attack17",
-                "x": 21,
-                "y": 16
-            },
-            {
-                "res": "attack18",
-                "x": 29,
-                "y": 16
-            },
-            {
-                "res": "attack19",
-                "x": 29,
-                "y": 16,
-                "action":"attackComplete"
-            }
-        ]
-    },
-    "banana": {
-        "totalFrame": 8,
-        "childrenFrame": [
-            {
-                "res": "banana1",
-                "x": 2,
-                "y": 5
-            },
-            {
-                "res": "banana2",
-                "x": 9,
-                "y": 2
-            },
-            {
-                "res": "banana3",
-                "x": 0,
-                "y": 7
-            },
-            {
-                "res": "banana4",
-                "x": 7,
-                "y": 0
-            },
-            {
-                "res": "banana5",
-                "x": 1,
-                "y": 5
-            },
-            {
-                "res": "banana6",
-                "x": 5,
-                "y": 1
-            },
-            {
-                "res": "banana7",
-                "x": 4,
-                "y": 3
-            },
-            {
-                "res": "banana8",
-                "x": 3,
-                "y": 4
-            }
-        ]
-    }
-}, "res": {
+{
+"mc":
+{
+"test":{
+	"labels":[
+		{
+			"name":"stand",
+			"frame":1
+		},
+		{
+			"name":"attack",
+			"frame":20
+		}
+    ],
+	"frames":[
+		{
+			"res": "stand1",
+			"x": 3,
+			"y": 0
+		},
+		{
+			"res": "stand2",
+			"x": 2,
+			"y": 0
+		},
+		{
+			"res": "stand3",
+			"x": 2,
+			"y": 0
+		},
+		{
+			"res": "stand4",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"res": "stand5",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"res": "stand6",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand7",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand8",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand9",
+			"x": 0,
+			"y": 4
+		},
+		{
+			"res": "stand10",
+			"x": 0,
+			"y": 6
+		},
+		{
+			"res": "stand11",
+			"x": 0,
+			"y": 4
+		},
+		{
+			"res": "stand12",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand13",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand14",
+			"x": 1,
+			"y": 4
+		},
+		{
+			"res": "stand15",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"res": "stand16",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"res": "stand17",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"res": "stand18",
+			"x": 2,
+			"y": 0
+		},
+		{
+			"res": "stand19",
+			"x": 3,
+			"y": 0
+		},
+        {
+            "res": "attack1",
+            "x": 31,
+            "y": 20,
+            "duration":10
+        },
+        {
+            "res": "attack2",
+            "x": 28,
+            "y": 22
+        },
+        {
+            "res": "attack3",
+            "x": 23,
+            "y": 22
+        },
+        {
+            "res": "attack4",
+            "x": 23,
+            "y": 22
+        },
+        {
+            "res": "attack5",
+            "x": 29,
+            "y": 12
+        },
+        {
+            "res": "attack6",
+            "x": 29,
+            "y": 12
+        },
+        {
+            "res": "attack7",
+            "x": 13,
+            "y": 0
+        },
+        {
+            "res": "attack8",
+            "x": 4,
+            "y": 4
+        },
+        {
+            "res": "attack9",
+            "x": 0,
+            "y": 6
+        },
+        {
+            "res": "attack10",
+            "x": 0,
+            "y": 6
+        },
+        {
+            "res": "attack11",
+            "x": 0,
+            "y": 6
+        },
+        {
+            "res": "attack12",
+            "x": 23,
+            "y": 14
+        },
+        {
+            "res": "attack13",
+            "x": 23,
+            "y": 14
+        },
+        {
+            "res": "attack14",
+            "x": 23,
+            "y": 14
+        },
+        {
+            "res": "attack15",
+            "x": 23,
+            "y": 14
+        },
+        {
+            "res": "attack16",
+            "x": 21,
+            "y": 16
+        },
+        {
+            "res": "attack17",
+            "x": 21,
+            "y": 16
+        },
+        {
+            "res": "attack18",
+            "x": 29,
+            "y": 16
+        },
+        {
+            "res": "attack19",
+            "x": 29,
+            "y": 16
+        }]
+}}, 
+"res": {
     "banana1": {
         "x": 468,
         "y": 286,
