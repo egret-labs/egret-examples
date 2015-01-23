@@ -36,8 +36,9 @@ class TestMovieClip {
         var texture = RES.getRes("chunli_png");
         var mcDataFactory = new egret.MovieClipDataFactory(data, texture);
         var chunli = new egret.MovieClip(mcDataFactory.generateMovieClipData("test"));
-        chunli.x = 200;
-        chunli.y = 200;
+        chunli.x = 100;
+        chunli.y = 220;
+        chunli.scaleY = 1.5;
         egret.MainContext.instance.stage.addChild(chunli);
         chunli.gotoAndPlay("attack", -1);
     }
