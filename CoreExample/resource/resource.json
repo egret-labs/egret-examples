@@ -25,7 +25,7 @@
 		"name":"TestEvent"
 	},
 	{
-		"keys":"monkey_png,monkey_json",
+		"keys":"chunli_png,chunli_json",
 		"name":"TestMovieClip"
 	},
 	{
@@ -71,14 +71,14 @@
 		"url":"button.png"
 	},
 	{
-		"name":"monkey_png",
+		"name":"chunli_png",
 		"type":"image",
-		"url":"monkey.png"
+		"url":"chunli.png"
 	},
 	{
-		"name":"monkey_json",
+		"name":"chunli_json",
 		"type":"json",
-		"url":"monkey.json"
+		"url":"chunli.json"
 	},
 	{
 		"name":"bitmapFont",

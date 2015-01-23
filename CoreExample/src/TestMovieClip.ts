@@ -32,13 +32,13 @@ class TestMovieClip {
     }
 
     public createExample():void {
-        var data = RES.getRes("monkey_json");
-        var texture = RES.getRes("monkey_png");
+        var data = RES.getRes("chunli_json");
+        var texture = RES.getRes("chunli_png");
         var mcDataFactory = new egret.MovieClipDataFactory(data, texture);
-        var monkey = new egret.MovieClip(mcDataFactory.generateMovieClipData("test"));
-        monkey.x = 200;
-        monkey.y = 200;
-        egret.MainContext.instance.stage.addChild(monkey);
-        monkey.gotoAndPlay("attack", -1);
+        var chunli = new egret.MovieClip(mcDataFactory.generateMovieClipData("test"));
+        chunli.x = 200;
+        chunli.y = 200;
+        egret.MainContext.instance.stage.addChild(chunli);
+        chunli.gotoAndPlay("attack", -1);
     }
 }
