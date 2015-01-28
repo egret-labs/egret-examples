@@ -28,18 +28,22 @@
 class TestSpriteSheet {
 
     public getDescription():string {
-        return "SpriteFrame";
+        return "SpriteSheet";
     }
 
     public createExample():void {
         var container = new egret.DisplayObjectContainer();
         egret.MainContext.instance.stage.addChild(container);
 
-        var spriteSheet:egret.SpriteSheet = RES.getRes("icons");
-        var texture = spriteSheet.getTexture("activity_10");
+        var texture = RES.getRes("activity_10");
+
 
         var bitmap = new egret.Bitmap();
         bitmap.texture = texture;
         container.addChild(bitmap);
+
+        console.log(RES.getRes("activity_10")!=null);
+        RES.destroyRes("TestSpriteSheet");
+        console.log(RES.getRes("activity_10")!=null);
     }
 }
