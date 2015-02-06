@@ -38,7 +38,7 @@ class TestTicker {
         label.x = 100;
         label.y = 100;
         label.text = "3秒后文字会改变";
-        egret.Ticker.getInstance().setTimeout(function (){
+        egret.setTimeout(function (){
             label.text = "Ticker";
         },this,3000);
     }
