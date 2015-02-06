@@ -5,14 +5,14 @@ class DropDownListScreen extends egret.gui.SkinnableContainer
 {
     public constructor()
     {
-        this.skinName="screenContentSkins.DropDownListScreenSkin";
         super();
+        this.skinName="screenContentSkins.DropDownListScreenSkin";
     }
 
     /**
      * 皮肤组件
      */
-    public dropDownlist:egret.gui.DropDownList;
+    public dropDownlist:egret.gui.DropDownList = null;
 
     public partAdded(partName: string, instance: any): void
     {
