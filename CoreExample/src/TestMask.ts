@@ -25,44 +25,48 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-egret_h5.startGame = function () {
-    var  context = egret.MainContext.instance;
-    context.touchContext = new egret.HTML5TouchContext();
-    context.deviceContext = new egret.HTML5DeviceContext();
-    context.netContext = new egret.HTML5NetContext();
+class TestMask {
 
-    egret.StageDelegate.getInstance().setDesignSize(480, 500);
-    context.stage = new egret.Stage();
-    var scaleMode =  egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.SHOW_ALL : egret.StageScaleMode.NO_SCALE;
-    context.stage.scaleMode = scaleMode;
-
-    //WebGL是egret的Beta特性，默认关闭
-    var rendererType = 0;
-    if (rendererType == 1) {// egret.WebGLUtils.checkCanUseWebGL()) {
-        console.log("使用WebGL模式");
-        context.rendererContext = new egret.WebGLRenderer();
-    }
-    else {
-        context.rendererContext = new egret.HTML5CanvasRenderer();
+    public getDescription():string {
+        return "这个项目展示了遮罩的使用";
     }
 
-    egret.MainContext.instance.rendererContext.texture_scale_factor = 1;
-    context.run();
+    public createExample():void {
+        var bg = this.createBitmapByName("bgImage");
+        bg.width = 480;
+        bg.height = 800;
+        egret.MainContext.instance.stage.addChild(bg);
 
-    var rootClass;
-    if(document_class){
-        rootClass = egret.getDefinitionByName(document_class);
+        var container = new egret.DisplayObjectContainer();
+        var hero = this.createBitmapByName("hero");
+        container.addChild(hero);
+        var mask = this.createBitmapByName("heroMask");
+        var maskX:number = 65;
+        var maskY:number = 8;
+        var maskW:number = mask.width;
+        var maskH:number = mask.height;
+        mask.x = maskX;
+        mask.y = maskY;
+        mask.blendMode = egret.BlendMode.ERASE;
+        container.addChild(mask);
+
+        var texture = new egret.RenderTexture();
+        texture.drawToTexture(container, new egret.Rectangle(maskX, maskY, maskW, maskH));
+        var bitmap = new egret.Bitmap(texture);
+        bitmap.x = 200;
+        egret.MainContext.instance.stage.addChild(bitmap);
+
+        hero.mask = new egret.Rectangle(maskX, maskY, maskW, maskH);
+        egret.MainContext.instance.stage.addChild(hero);
     }
-    if(rootClass) {
-        var rootContainer = new rootClass();
-        if(rootContainer instanceof egret.DisplayObjectContainer){
-            context.stage.addChild(rootContainer);
-        }
-        else{
-            throw new Error("文档类必须是egret.DisplayObjectContainer的子类!");
-        }
+
+    /**
+     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
+     */
+    private createBitmapByName(name:string):egret.Bitmap {
+        var result:egret.Bitmap = new egret.Bitmap();
+        var texture:egret.Texture = RES.getRes(name);
+        result.texture = texture;
+        return result;
     }
-    else{
-        throw new Error("找不到文档类！");
-    }
-};
+}

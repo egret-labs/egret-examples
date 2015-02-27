@@ -4,6 +4,10 @@
 		"keys":"egret_icon_png",
 		"name":"TestBitmap"
 	},
+	  {
+		"keys":"bgImage,hero,heroMask",
+		"name":"TestMask"
+	  },
 	{
 		"keys":"texture_png,skeleton_json,texture_json",
 		"name":"TestArmature"
@@ -45,6 +49,21 @@
 		"name":"TestSound"
 	}],
 	"resources":[
+	  {
+		"name":"bgImage",
+		"type":"image",
+		"url":"bg.jpg"
+	  },
+	  {
+		"name":"heroMask",
+		"type":"image",
+		"url":"heroMask.png"
+	  },
+	  {
+		"name":"hero",
+		"type":"image",
+		"url":"hero.png"
+	  },
 	{
 		"name":"egret_icon_png",
 		"type":"image",
