@@ -58,8 +58,8 @@ class TestMask {
         bitmap.x = 200;
         egret.MainContext.instance.stage.addChild(bitmap);
 
-        var hero2 = this.createBitmapByName("hero");
         // 矩形遮罩，使用 DisplayObject.mask 属性
+        var hero2 = this.createBitmapByName("hero");
         hero2.mask = new egret.Rectangle(maskX, maskY, maskW, maskH);
         egret.MainContext.instance.stage.addChild(hero2);
     }
