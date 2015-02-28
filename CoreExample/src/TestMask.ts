@@ -37,6 +37,8 @@ class TestMask {
         bg.height = 800;
         egret.MainContext.instance.stage.addChild(bg);
 
+        // 不规则遮罩，使用 RenderTexture + BlendMode 实现，这个调用方式在未来会进一步简化
+        // 实现原理： 创建一个 Container，在其中先添加一个图片，然后再添加一个蒙版，并将蒙版的混合模式设置为擦除，然后将这个 Container 通过 RenderTexture 绘制为一个纹理
         var container = new egret.DisplayObjectContainer();
         var hero = this.createBitmapByName("hero");
         container.addChild(hero);
@@ -56,8 +58,10 @@ class TestMask {
         bitmap.x = 200;
         egret.MainContext.instance.stage.addChild(bitmap);
 
-        hero.mask = new egret.Rectangle(maskX, maskY, maskW, maskH);
-        egret.MainContext.instance.stage.addChild(hero);
+        var hero2 = this.createBitmapByName("hero");
+        // 矩形遮罩，使用 DisplayObject.mask 属性
+        hero2.mask = new egret.Rectangle(maskX, maskY, maskW, maskH);
+        egret.MainContext.instance.stage.addChild(hero2);
     }
 
     /**
