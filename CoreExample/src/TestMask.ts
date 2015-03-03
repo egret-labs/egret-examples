@@ -49,10 +49,11 @@ class TestMask {
         var maskH:number = mask.height;
         mask.x = maskX;
         mask.y = maskY;
-        mask.blendMode = egret.BlendMode.ERASE;
+        mask.blendMode = egret.BlendMode.ERASE_REVERSE;
         container.addChild(mask);
 
         var texture = new egret.RenderTexture();
+        //为保证擦除结果正确，传入clipRect参数，规定最终RenderTexture大小只有mask区域大小
         texture.drawToTexture(container, new egret.Rectangle(maskX, maskY, maskW, maskH));
         var bitmap = new egret.Bitmap(texture);
         bitmap.x = 200;
