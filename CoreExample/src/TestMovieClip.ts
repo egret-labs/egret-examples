@@ -28,7 +28,7 @@
 class TestMovieClip {
 
     public getDescription():string {
-        return "MovieClip";
+        return "这个项目展示了MovieClip";
     }
 
     public createExample():void {

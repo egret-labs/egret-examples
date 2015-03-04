@@ -28,7 +28,7 @@
 class TestShape {
 
     public getDescription():string {
-        return "Shape Test";
+        return "这个项目展示了Graphics";
     }
 
     public createExample():void {

@@ -28,7 +28,7 @@
 class TestArmature {
 
     public getDescription():string {
-        return "骨骼动画";
+        return "这个项目展示了骨骼动画";
     }
 
     public createExample():void {

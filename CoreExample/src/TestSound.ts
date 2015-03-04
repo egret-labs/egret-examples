@@ -28,7 +28,7 @@
 class TestSound {
 
     public getDescription():string {
-        return "Sound Test";
+        return "这个项目展示了Sound";
     }
 
     public createExample():void {

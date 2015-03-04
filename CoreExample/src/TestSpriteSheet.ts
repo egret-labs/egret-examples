@@ -28,7 +28,7 @@
 class TestSpriteSheet {
 
     public getDescription():string {
-        return "SpriteSheet";
+        return "这个项目展示了SpriteSheet";
     }
 
     public createExample():void {

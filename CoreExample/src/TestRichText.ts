@@ -28,7 +28,7 @@
 class TestRichText {
 
     public getDescription():string {
-        return "这个项目展示了文本的字号、颜色、自动换行";
+        return "这个项目展示了富文本";
     }
 
     public createExample():void {
