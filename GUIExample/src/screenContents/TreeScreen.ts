@@ -25,7 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-class TreeScreen extends egret.gui.SkinnableContainer {
+class TreeScreen extends egret.gui.SkinnableComponent {
 
     public constructor() {
         super();

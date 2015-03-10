@@ -26,7 +26,7 @@
  */
 
 
-class TabBarScreen extends egret.gui.SkinnableContainer {
+class TabBarScreen extends egret.gui.SkinnableComponent {
 
     public constructor() {
         super();

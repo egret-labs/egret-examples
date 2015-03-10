@@ -1,7 +1,7 @@
 /**
  * Created by yn on 2014/8/28.
  */
-class DropDownListScreen extends egret.gui.SkinnableContainer
+class DropDownListScreen extends egret.gui.SkinnableComponent
 {
     public constructor()
     {

@@ -26,7 +26,7 @@
  */
 
 
-class TitleWindowScreen extends egret.gui.SkinnableContainer {
+class TitleWindowScreen extends egret.gui.SkinnableComponent {
 
     public constructor() {
         super();

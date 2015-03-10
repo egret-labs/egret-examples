@@ -26,7 +26,7 @@
  */
 
 
-class SliderScreen extends egret.gui.SkinnableContainer {
+class SliderScreen extends egret.gui.SkinnableComponent {
 
     private labelDisplay:egret.gui.Label;
 

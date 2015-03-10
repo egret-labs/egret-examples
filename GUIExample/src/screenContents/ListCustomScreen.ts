@@ -26,7 +26,7 @@
  */
 
 
-class ListCustomScreen extends egret.gui.SkinnableContainer {
+class ListCustomScreen extends egret.gui.SkinnableComponent {
 
     private dp:Array<any>=[];
     public constructor() {
