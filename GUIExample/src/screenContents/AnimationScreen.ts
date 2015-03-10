@@ -48,6 +48,8 @@ class AnimationScreen extends egret.gui.Group {
         this.createParallel();
         this.createSequence();
         this.createFade();
+
+        this.createTransition();
     }
 
     public createMove():void
@@ -148,6 +150,41 @@ class AnimationScreen extends egret.gui.Group {
         fade.alphaTo = 0;
         fade.repeatCount = 0;
         fade.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
+    }
+
+    public createTransition():void
+    {
+        var button:egret.gui.Button = new egret.gui.Button();
+        button.includeInLayout = false;
+        button.label = "click";
+        button.x = 300;
+        button.y = 470;
+        this.addElement(button);
+
+        var parallet1:egret.gui.Parallel = new egret.gui.Parallel(button);
+        var scale1:egret.gui.Scale = new egret.gui.Scale();
+        scale1.disableLayout = true;
+        scale1.autoCenterTransform = true;
+        scale1.scaleXFrom = 1;
+        scale1.scaleYFrom = 1;
+        scale1.scaleXTo = 1.5;
+        scale1.scaleYTo = 1.5;
+
+        var rotate1:egret.gui.Rotate = new egret.gui.Rotate();
+        rotate1.disableLayout = true;
+        rotate1.autoCenterTransform = true;
+        rotate1.angleFrom = 0;
+        rotate1.angleTo = 360;
+        parallet1.children = [rotate1,scale1];
+
+        var skin:egret.gui.Skin = button.skin;
+        var transition1:egret.gui.Transition = new egret.gui.Transition();
+        transition1.fromState = "up";
+        transition1.toState = "down";
+        transition1.interruptionBehavior = "stop";
+        transition1.autoReverse = true;
+        transition1.effect = parallet1;
+        skin.transitions = [transition1];
     }
 
     private playingEffect:egret.gui.Effect;
