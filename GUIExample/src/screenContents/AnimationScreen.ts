@@ -93,12 +93,14 @@ class AnimationScreen extends egret.gui.Group {
         var parallel:egret.gui.Parallel = new egret.gui.Parallel();
         var button:egret.gui.Button = this.addButtonTarget("parallelTest",parallel);
         var rotate:egret.gui.Rotate = new egret.gui.Rotate();
+        rotate.easer = new egret.gui.Bounce();
         rotate.autoCenterTransform = true;
         rotate.repeatCount = 0;
         rotate.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
         rotate.angleFrom = 0;
         rotate.angleTo = 180;
         var scale:egret.gui.Scale = new egret.gui.Scale();
+        scale.easer = new egret.gui.Bounce();
         scale.autoCenterTransform = true;
         scale.repeatCount = 0;
         scale.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
