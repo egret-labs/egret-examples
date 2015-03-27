@@ -35,11 +35,27 @@ class TestTicker {
         var container = egret.MainContext.instance.stage;
         var label = new egret.TextField();
         container.addChild(label);
-        label.x = 100;
-        label.y = 100;
-        label.text = "3秒后文字会改变";
+        label.x = 0;
+        label.y = 150;
+        label.text = "setTimeout实现，3秒后文字会改变";
         egret.setTimeout(function (){
-            label.text = "Ticker";
+            label.text = "setTimeout";
         },this,3000);
+
+        var label2 = new egret.TextField();
+        container.addChild(label2);
+        label2.x = 0;
+        label2.y = 300;
+        label2.text = "Ticker实现，3秒后文字会改变";
+
+        var time:number = 0;
+        var func = function (dt:number) {
+            time += dt;
+            if(time >= 3000) {
+                egret.Ticker.getInstance().unregister(this, this);
+                label2.text = "Ticker";
+            }
+        };
+        egret.Ticker.getInstance().register(func, func);
     }
 }
