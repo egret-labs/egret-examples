@@ -208,7 +208,11 @@ class AnimationScreen extends egret.gui.Group {
                 }
                 else
                 {
+                    //先停止之前的效果
+                    this.playingEffect.stop();
+                    //将播放头设置到初始值
                     this.playingEffect.playheadTime = 0;
+                    //设置playheadTime后，动画又将重新播放，这里将动画终止
                     this.playingEffect.stop();
                 }
             }
