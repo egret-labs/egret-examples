@@ -208,8 +208,8 @@ class AnimationScreen extends egret.gui.Group {
                 }
                 else
                 {
-                    this.playingEffect.stop();
                     this.playingEffect.playheadTime = 0;
+                    this.playingEffect.stop();
                 }
             }
             this.playingEffect = this.effectMap[event.currentTarget.hashCode];
