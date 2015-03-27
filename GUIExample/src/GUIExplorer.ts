@@ -184,7 +184,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
     *预定义类，用于对象反射
     * */
     private classDefine:egret.gui.ArrayCollection=new egret.gui.ArrayCollection([
-        AlertScreen,BitmapLabelScreen,ButtonScreen,TogglesScreen,TreeScreen,TitleWindowScreen,PanelScreen,
+        AlertScreen,AnimationScreen,BitmapLabelScreen,ButtonScreen,TogglesScreen,TreeScreen,TitleWindowScreen,PanelScreen,
         LabelScreen,LayoutScreen,ListScreen,ListCustomScreen, ProgressBarScreen,ScrollerScreen,SliderScreen,TabBarScreen,DropDownListScreen
     ]);
     /*
@@ -204,7 +204,7 @@ class GUIExplorer extends egret.DisplayObjectContainer{
                 this.componentGroup.addElement(this.classInstanceCache[className]);
             }else
             {
-                var screenContent:egret.gui.SkinnableContainer = new clazz();
+                var screenContent:egret.gui.IVisualElement = new clazz();
                 screenContent.percentHeight = 100;
                 screenContent.percentWidth = 100;
                 this.componentGroup.addElement(screenContent);
