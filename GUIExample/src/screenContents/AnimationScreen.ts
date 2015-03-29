@@ -92,30 +92,29 @@ class AnimationScreen extends egret.gui.Group {
     {
         var parallel:egret.gui.Parallel = new egret.gui.Parallel();
         var button:egret.gui.Button = this.addButtonTarget("parallelTest",parallel);
+        var move:egret.gui.Move = new egret.gui.Move();
+        move.repeatCount = 0;
+        move.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
+        move.autoCenterTransform = true;
+        move.xFrom = 100;
+        move.yFrom = 100;
+        move.xTo = 200;
+        move.yTo = 200;
         var rotate:egret.gui.Rotate = new egret.gui.Rotate();
         rotate.easer = new egret.gui.Bounce();
-        rotate.autoCenterTransform = true;
         rotate.repeatCount = 0;
         rotate.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
         rotate.angleFrom = 0;
         rotate.angleTo = 180;
         var scale:egret.gui.Scale = new egret.gui.Scale();
         scale.easer = new egret.gui.Bounce();
-        scale.autoCenterTransform = true;
         scale.repeatCount = 0;
         scale.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
         scale.scaleXFrom = 1;
         scale.scaleYFrom = 1;
         scale.scaleXTo = 2;
         scale.scaleYTo = 2;
-        var move:egret.gui.Move = new egret.gui.Move();
-        move.repeatCount = 0;
-        move.repeatBehavior = egret.gui.RepeatBehavior.REVERSE;
-        move.xFrom = 100;
-        move.yFrom = 100;
-        move.xTo = 200;
-        move.yTo = 200;
-        parallel.children = [rotate , scale , move];
+        parallel.children = [move , rotate , scale];
     }
 
     public createSequence():void
