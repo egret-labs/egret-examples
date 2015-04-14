@@ -26,6 +26,6 @@
                  textAlign="center" fontFamily="Tahoma" textColor="0x1e7465"
                  textColor.down="0x1e7465" textColor.disabled="0xcccccc"
                  textColor.downAndSelected="0x1e7465" textColor.upAndSelected="0xeeedec"
-                 textColor.disabledAndSelected="0xcccccc" />
+                 textColor.disabledAndSelected="0xcccccc"  text="切换按钮"/>
     </e:Group>
 </e:Skin>

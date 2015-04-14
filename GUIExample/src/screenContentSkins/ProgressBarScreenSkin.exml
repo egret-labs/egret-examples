@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-    <e:ProgressBar id="hProgressBar1" width="250" height="21" horizontalCenter="120" verticalCenter="-50"/>
-    <e:ProgressBar id="hProgressBar2" width="250" height="21" horizontalCenter="120" verticalCenter="50" direction="rightToLeft"/>
-    <e:ProgressBar id="vProgressBar" width="100" height="250" horizontalCenter="-120" verticalCenter="0"
-    hostComponentKey="VProgressBar" direction="bottomToTop"/>
+	<e:ProgressBar id="hProgressBar1" width="250" height="21" horizontalCenter="120" verticalCenter="-50" value="10"/>
+	<e:ProgressBar id="hProgressBar2" width="250" height="21" horizontalCenter="120" verticalCenter="50" direction="rightToLeft" value="50"/>
+	<e:ProgressBar id="vProgressBar" width="100" height="250" horizontalCenter="-120" verticalCenter="0"
+	               hostComponentKey="VProgressBar" direction="bottomToTop" value="40"/>
 </e:Skin>

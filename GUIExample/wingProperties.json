@@ -3,7 +3,7 @@
 	{
 		"configs":[
 		{
-			"configPath":"resource/resource_ocean.json",
+			"configPath":"resource/resource_simple.json",
 			"relativePath":"resource/"
 		}],
 		"id":"org.egret-labs.resource",
@@ -122,53 +122,8 @@
 			},
 			{
 				"isFolder":false,
-				"key":"dropdownlist_down_png",
-				"name":"dropdownlist_down_png"
-			},
-			{
-				"isFolder":false,
-				"key":"dropdownlist_dropback_png",
-				"name":"dropdownlist_dropback_png"
-			},
-			{
-				"isFolder":false,
-				"key":"dropdownlist_dropbutton_png",
-				"name":"dropdownlist_dropbutton_png"
-			},
-			{
-				"isFolder":false,
-				"key":"dropdownlist_normal_png",
-				"name":"dropdownlist_normal_png"
-			},
-			{
-				"isFolder":false,
 				"key":"dropdownlist_over_png",
 				"name":"dropdownlist_over_png"
-			},
-			{
-				"isFolder":false,
-				"key":"hscrollbar_buttonback_png",
-				"name":"hscrollbar_buttonback_png"
-			},
-			{
-				"isFolder":false,
-				"key":"hscrollbar_leftbuttom_png",
-				"name":"hscrollbar_leftbuttom_png"
-			},
-			{
-				"isFolder":false,
-				"key":"hscrollbar_rightbutton_png",
-				"name":"hscrollbar_rightbutton_png"
-			},
-			{
-				"isFolder":false,
-				"key":"hscrollbar_thumb_png",
-				"name":"hscrollbar_thumb_png"
-			},
-			{
-				"isFolder":false,
-				"key":"hscrollbar_track_png",
-				"name":"hscrollbar_track_png"
 			},
 			{
 				"isFolder":false,
@@ -184,16 +139,6 @@
 				"isFolder":false,
 				"key":"hslider_track_png",
 				"name":"hslider_track_png"
-			},
-			{
-				"isFolder":false,
-				"key":"list_item_normal_png",
-				"name":"list_item_normal_png"
-			},
-			{
-				"isFolder":false,
-				"key":"list_item_select_png",
-				"name":"list_item_select_png"
 			},
 			{
 				"isFolder":false,
@@ -242,11 +187,6 @@
 			},
 			{
 				"isFolder":false,
-				"key":"progressbar_thumb_png",
-				"name":"progressbar_thumb_png"
-			},
-			{
-				"isFolder":false,
 				"key":"progressbar_track_png",
 				"name":"progressbar_track_png"
 			},
@@ -279,31 +219,6 @@
 				"isFolder":false,
 				"key":"radiobutton_unselect_over_png",
 				"name":"radiobutton_unselect_over_png"
-			},
-			{
-				"isFolder":false,
-				"key":"tabbar_over_png",
-				"name":"tabbar_over_png"
-			},
-			{
-				"isFolder":false,
-				"key":"tabbar_select_png",
-				"name":"tabbar_select_png"
-			},
-			{
-				"isFolder":false,
-				"key":"titlewindow_back_png",
-				"name":"titlewindow_back_png"
-			},
-			{
-				"isFolder":false,
-				"key":"titlewindow_close_png",
-				"name":"titlewindow_close_png"
-			},
-			{
-				"isFolder":false,
-				"key":"titlewindow_headback_png",
-				"name":"titlewindow_headback_png"
 			},
 			{
 				"isFolder":false,
@@ -372,31 +287,6 @@
 			},
 			{
 				"isFolder":false,
-				"key":"vscroller_buttonback_png",
-				"name":"vscroller_buttonback_png"
-			},
-			{
-				"isFolder":false,
-				"key":"vscroller_downbutton_png",
-				"name":"vscroller_downbutton_png"
-			},
-			{
-				"isFolder":false,
-				"key":"vscroller_thumb_png",
-				"name":"vscroller_thumb_png"
-			},
-			{
-				"isFolder":false,
-				"key":"vscroller_track_png",
-				"name":"vscroller_track_png"
-			},
-			{
-				"isFolder":false,
-				"key":"vscroller_upbutton_png",
-				"name":"vscroller_upbutton_png"
-			},
-			{
-				"isFolder":false,
 				"key":"vslider_fill_png",
 				"name":"vslider_fill_png"
 			},
@@ -409,8 +299,43 @@
 				"isFolder":false,
 				"key":"vslider_track_png",
 				"name":"vslider_track_png"
+			},
+			{
+				"isFolder":false,
+				"key":"DropDownListButtonSkin_down_png",
+				"name":"DropDownListButtonSkin_down_png"
+			},
+			{
+				"isFolder":false,
+				"key":"DropDownListButtonSkin_up_png",
+				"name":"DropDownListButtonSkin_up_png"
+			},
+			{
+				"isFolder":false,
+				"key":"closebtn_disabledpng",
+				"name":"closebtn_disabledpng"
+			},
+			{
+				"isFolder":false,
+				"key":"closebtn_down_png",
+				"name":"closebtn_down_png"
+			},
+			{
+				"isFolder":false,
+				"key":"closebtn_up_png",
+				"name":"closebtn_up_png"
+			},
+			{
+				"isFolder":false,
+				"key":"dropdownlist_arrow_down_png",
+				"name":"dropdownlist_arrow_down_png"
+			},
+			{
+				"isFolder":false,
+				"key":"dropdownlist_arrow_up_png",
+				"name":"dropdownlist_arrow_up_png"
 			}]
 		}
 	},
-	"theme":"resource/theme/theme_ocean.thm"
+	"theme":"resource/theme/theme_simple.thm"
 }
