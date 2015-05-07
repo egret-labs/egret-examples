@@ -41,9 +41,5 @@ class TestSpriteSheet {
         var bitmap = new egret.Bitmap();
         bitmap.texture = texture;
         container.addChild(bitmap);
-
-        console.log(RES.getRes("activity_10")!=null);
-        RES.destroyRes("TestSpriteSheet");
-        console.log(RES.getRes("activity_10")!=null);
     }
 }
