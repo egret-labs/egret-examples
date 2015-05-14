@@ -306,7 +306,7 @@
 	{
 		"name":"tree_btndisabledselect_png",
 		"type":"image",
-		"url":"asset/ocean/Tree/tree_btnDisabledSelect.png"
+		"url":"asset/ocean/Tree/tree_btnDisabledselect.png"
 	},
 	{
 		"name":"tree_btndown_png",
