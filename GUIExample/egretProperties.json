@@ -8,11 +8,14 @@
 			"name": "core"
 		},
 		{
+			"name": "version_old"
+		},
+		{
 			"name": "res"
 		},
 		{
 			"name": "gui"
 		}
 	],
-	"egret_version": "1.7.2"
+	"egret_version": "1.7.3"
 }
