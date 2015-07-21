@@ -1,4 +1,5 @@
 {
+  	"document_class":"Main",
 	"modules": [
 		{
 			"name": "core"
