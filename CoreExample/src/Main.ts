@@ -59,6 +59,32 @@ class Main extends egret.DisplayObjectContainer {
         new EventPhaseExample();
         new IEventDispatcherExample();
         new IOErrorEventExample();
+        new SoundEventExample();
+        new TextEventExample();
+        new TimerEventExample();
+        new TouchEventExample();
+
+        //geom
+        new MatrixExample();
+        new PointExample();
+        new RectangleExample();
+
+        //media
+        new SoundEventExample();
+
+        //net
+        new URLLoaderExample();
+        new URLLoaderDataFormatExample();
+        new URLRequestExample();
+        new URLRequestHeaderExample();
+        new URLRequestMethodExample();
+        new URLVariablesExample();
+
+        //text
+        new BitmapFontExample();
+        new BitmapTextExample();
+        new HtmlTextParserExample();
+        new TextFieldExample();
     }
 }
 

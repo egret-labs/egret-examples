@@ -1,7 +1,7 @@
 /**
  * 以下示例演示了事件的各个阶段。
  */
-class EventPhaseExample extends egret.Sprite {
+class EventPhaseExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 

@@ -1,7 +1,7 @@
 /**
  * 以下示例使用 IOErrorEventExample 类说明在试图加载不存在的文件时如何调度错误事件对象。该示例执行下列任务：
  */
-class IOErrorEventExample extends egret.Sprite {
+class IOErrorEventExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 

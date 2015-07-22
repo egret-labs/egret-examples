@@ -1,7 +1,7 @@
 /**
  * 以下示例演示了事件的捕获冒泡。
  */
-class EventExample extends egret.Sprite {
+class EventExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 

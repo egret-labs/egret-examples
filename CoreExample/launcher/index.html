@@ -56,9 +56,11 @@
         var support = [].map && document.createElement("canvas").getContext;
         if (support) {
             var list = [
+                //context
                 "ExternalInterface",
                 "localStorage",
                 "Ticker",
+                //display
                 "Bitmap",
                 "BitmapFillMode",
                 "BlendMode",
@@ -73,11 +75,33 @@
                 "Stage",
                 "StageScaleMode",
                 "Texture",
+                //events
                 "Event",
                 "EventDispatcher",
                 "EventPhase",
                 "IEventDispatcher",
-                "IOErrorEvent"
+                "IOErrorEvent",
+                "SoundEvent",
+                "TextEvent",
+                "TimerEvent",
+                //geom
+                "Matrix",
+                "Point",
+                "Rectangle",
+                //media
+                "Sound",
+                //net
+                "URLLoader",
+                "URLLoaderDataFormat",
+                "URLRequest",
+                "URLRequestHeader",
+                "URLRequestMethod",
+                "URLVariables",
+                //text
+                "BitmapFont",
+                "BitmapText",
+                "HtmlTextParser",
+                "TextField"
             ];
             var menu = document.getElementById("examples_menu");
             list.forEach(function (item) {
@@ -86,7 +110,7 @@
                 option.setAttribute("value", item);
                 option.innerText = item;
                 menu.appendChild(option);
-            })
+            });
 
             function onSelectChange(value) {
                 var url = location.href;
@@ -133,7 +157,7 @@
             egret_h5.startLoading();
         }
         else {
-            alert("Egret 不支持您当前的浏览器")
+            alert("Egret 不支持您当前的浏览器");
         }
     </script>
 </body>

@@ -2,7 +2,7 @@
  * 以下示例类来说明如何实现和使用 IEventDispatcher 类。
  * 本示例通过以与 EventDispatcher 相同的方式实现 MyEventDispatcher 的每个方法来完成此任务。
  */
-class IEventDispatcherExample extends egret.Sprite {
+class IEventDispatcherExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 

@@ -1,7 +1,7 @@
 /**
  * 以下示例加载一个 MP3 文件，进行播放，并输出播放该 MP3 文件时所发生的声音事件的相关信息。
  */
-class SoundEventExample extends egret.DisplayObjectContainer {
+class SoundExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
