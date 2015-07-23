@@ -41,6 +41,14 @@ class MovieClipExample extends egret.DisplayObjectContainer {
         //创建 MovieClip，将工厂生成的 MovieClipData 传入参数
         var mc:egret.MovieClip = new egret.MovieClip(mcDataFactory.generateMovieClipData("test"));
         this.addChild(mc);
+        //添加播放完成事件
+        mc.addEventListener(egret.Event.COMPLETE, function (){
+            console.log("COMPLETE");
+        }, this);
+        //添加循环播放完成事件
+        mc.addEventListener(egret.Event.LOOP_COMPLETE, function (){
+            console.log("LOOP_COMPLETE");
+        }, this);
         //播放攻击动画
         mc.gotoAndPlay("attack", -1);
     }
