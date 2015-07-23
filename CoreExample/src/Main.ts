@@ -85,6 +85,17 @@ class Main extends egret.DisplayObjectContainer {
         new BitmapTextExample();
         new HtmlTextParserExample();
         new TextFieldExample();
+
+        //tween
+        new TweenExample();
+
+        //utils
+        new callLaterExample();
+        new getDefinitionByNameExample();
+        new getQualifiedClassNameExample();
+        new getTimerExample();
+        new hasDefinitionExample();
+        new InjectorExample();
     }
 }
 
