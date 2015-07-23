@@ -1,7 +1,7 @@
 ﻿/**
 *   使用以下代码将红色进行进制转换
 */
-class toColorString extends egret.DisplayObjectContainer {
+class toColorStringExample extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();

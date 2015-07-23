@@ -1,7 +1,7 @@
 /**
 *   以下示例使用 RecyclerExample() 方法创建一个象缓存复用类，180帧后删除（稳定在1秒60帧）。
 */
-class Recycler extends egret.DisplayObjectContainer {
+class RecyclerExample extends egret.DisplayObjectContainer {
 
     private intervalRecycler:number = 180; 
 

@@ -20,14 +20,16 @@ class TweenExample extends egret.DisplayObjectContainer {
         })
             .to({rotation: 360}, 2000)//设置2000毫秒内 rotation 属性变为360
             .wait(1000)//设置等待1000毫秒
-            .call(this.onComplete, this);//设置回调函数及作用域，可用于侦听动画完成
+            .call(this.onComplete, this, ["param1", {key: "key", value: 3}]);//设置回调函数及作用域，可用于侦听动画完成
     }
 
     private onChange():void {
         console.log("onChange");
     }
 
-    private onComplete():void {
+    private onComplete(param1:string, param2:any):void {
         console.log("onComplete");
+        console.log(param1);
+        console.log(param2);
     }
 }

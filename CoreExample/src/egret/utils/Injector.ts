@@ -1,5 +1,5 @@
 /**
- * 以下示例演示了使用 callLater 实现过一帧之后改变文本显示。
+ * 以下示例演示了使用 Injector 注入映射规则。
  */
 class InjectorExample extends egret.DisplayObjectContainer {
 	public constructor() {

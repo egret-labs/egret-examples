@@ -1,5 +1,5 @@
 /**
- * 以下示例演示了创建5个正方形，并添加到显示列表。
+ * 以下示例演示了 DisplayObject 的各个事件。
  */
 class DisplayObjectExample extends egret.Sprite {
     public constructor() {

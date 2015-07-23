@@ -1,5 +1,5 @@
 /**
- * 以下示例演示了事件的捕获冒泡。
+ * 以下示例使用 RectangleExample 类创建新 Rectangle 对象，然后使用 console.log() 方法输出各种类方法的结果。
  */
 class RectangleExample extends egret.DisplayObjectContainer {
     public constructor() {

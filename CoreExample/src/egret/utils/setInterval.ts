@@ -1,7 +1,7 @@
 /**
 *   以下示例使用 setInterval() 方法创建一个计时间隔，以 1 秒的固定间隔调用 myRepeatingFunction() 方法。
 */
-class setInterval extends egret.DisplayObjectContainer {
+class setIntervalExample extends egret.DisplayObjectContainer {
 
     private intervalDuration:number = 1000; // duration between intervals, in milliseconds
 

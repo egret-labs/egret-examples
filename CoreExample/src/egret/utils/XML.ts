@@ -1,7 +1,7 @@
 ﻿/**
 *   使用以下代码进行XML到JSON的属性访问
 */
-class XML extends egret.DisplayObjectContainer {
+class XMLExample extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();

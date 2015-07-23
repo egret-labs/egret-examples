@@ -1,5 +1,6 @@
 /**
- * 以下示例演示了将 HTTP 请求标头 header 添加到 requestHeaders 属性的数组中。该标头指出，即使应用程序具有所请求内容的缓存副本，也应当将请求转发给原始服务器。
+ * 以下示例演示了将 HTTP 请求标头 header 添加到 requestHeaders 属性的数组中。
+ * 该标头指出，即使应用程序具有所请求内容的缓存副本，也应当将请求转发给原始服务器。
  */
 class URLRequestHeaderExample extends egret.DisplayObjectContainer {
     public constructor() {

@@ -1,7 +1,7 @@
 /**
 *   以下示例使用 ProfilerExample() 方法打开一个性能分析面板。
 */
-class Profiler extends egret.DisplayObjectContainer {
+class ProfilerExample extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();

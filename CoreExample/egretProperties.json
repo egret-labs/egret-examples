@@ -13,6 +13,9 @@
 		{
 			"name": "gui"
 		},
+	  	{
+			"name": "socket"
+		},
 		{
 			"name": "dragonbones"
 		}

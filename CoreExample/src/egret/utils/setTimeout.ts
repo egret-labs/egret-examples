@@ -1,7 +1,7 @@
 /**
 *   以下示例使用 setTimeout() 方法在指定的延迟期之后调用另一个方法。
 */
-class setTimeout extends egret.DisplayObjectContainer {
+class setTimeoutExample extends egret.DisplayObjectContainer {
 
     private delay:number = 1000; // delay before calling myDelayedFunction
 

@@ -1,5 +1,5 @@
 /**
- * 以下示例演示了使用 Ticker 注册和删除帧函数
+ * 以下示例演示了使用 Ticker 注册和删除帧函数。
  */
 class TickerExample extends egret.DisplayObjectContainer {
     public constructor() {

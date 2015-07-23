@@ -1,7 +1,7 @@
 /**
 *   以下示例使用 Timer 创建计时器,并侦听egret.TimerEvent.TIMER与egret.TimerEvent.TIMER_COMPLETE事件。
 */
-class Timer extends egret.DisplayObjectContainer {
+class TimerExample extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();

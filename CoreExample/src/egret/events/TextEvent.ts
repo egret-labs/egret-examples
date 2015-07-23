@@ -8,7 +8,8 @@ class TextEventExample extends egret.DisplayObjectContainer {
         var linkTxt:egret.TextField = new egret.TextField();
         linkTxt.addEventListener(egret.TextEvent.LINK, this.onLink, this);
         linkTxt.touchEnabled = true;
-        linkTxt.textFlow = new egret.HtmlTextParser().parser(this.createLink("eventText", "Click for link event"));
+        var htmlText:string = this.createLink("eventText", "Click for link event");
+        linkTxt.textFlow = new egret.HtmlTextParser().parser(htmlText);
         this.addChild(linkTxt);
     }
 
