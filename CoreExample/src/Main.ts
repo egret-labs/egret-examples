@@ -107,6 +107,8 @@ class Main extends egret.DisplayObjectContainer {
 
         //socket
         new WebSocketExample();
+        //resource
+        new ResourceExample();
     }
 }
 

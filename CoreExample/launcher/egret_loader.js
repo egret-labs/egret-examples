@@ -34,9 +34,11 @@ egret_h5.startGame = function () {
     context.netContext = new egret.HTML5NetContext();
 
     egret.StageDelegate.getInstance().setDesignSize(480, 800);
-    context.stage = new egret.Stage();
-    var scaleMode =  egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.SHOW_ALL : egret.StageScaleMode.NO_SCALE;
-    context.stage.scaleMode = scaleMode;
+    var stage = new egret.Stage();
+    var scaleMode = egret.MainContext.deviceType == egret.MainContext.DEVICE_MOBILE ? egret.StageScaleMode.SHOW_ALL : egret.StageScaleMode.NO_SCALE;
+    stage.scaleMode = scaleMode;
+    stage.frameRate = 30;
+    context.stage = stage;
 
     //WebGL是egret的Beta特性，默认关闭
     var rendererType = 0;
