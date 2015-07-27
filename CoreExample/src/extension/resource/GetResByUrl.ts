@@ -6,17 +6,16 @@ class GetResByUrlExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        //也可以加载网络上的资源
-        this.getResByUrl("resource/assets/egret_icon.png", RES.ResourceItem.TYPE_IMAGE);
-        this.getResByUrl("resource/assets/icons.json", RES.ResourceItem.TYPE_JSON);
-        this.getResByUrl("resource/assets/sound.mp3", RES.ResourceItem.TYPE_SOUND);
-    }
+        //加载图片资源
+        RES.getResByUrl("resource/assets/egret_icon.png", function (texture:egret.Texture) {
+            //将加载完的资源进行显示
+            this.addChild(new egret.Bitmap(texture));
+        }, this, RES.ResourceItem.TYPE_IMAGE);
 
-    private getResByUrl(url:string, type:string):void {
-        RES.getResByUrl(url, this.onLoadComplete, this, type)
-    }
-
-    private onLoadComplete(data:any):void {
-        console.log("onLoadComplete : " + data);
+        //加载声音资源
+        RES.getResByUrl("resource/assets/sound.mp3", function (sound:egret.Sound) {
+            //播放加载完的声音资源
+            sound.play(true);
+        }, this, RES.ResourceItem.TYPE_SOUND);
     }
 }
