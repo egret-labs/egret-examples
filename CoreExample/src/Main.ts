@@ -32,84 +32,84 @@ class Main extends egret.DisplayObjectContainer {
         super();
 
         //context
-        new ExternalInterfaceExample();
-        new localStorageExample();
-        new TickerExample();
+        ExternalInterfaceExample;
+        localStorageExample;
+        TickerExample;
 
         //display
-        new BitmapExample();
-        new BitmapFillModeExample();
-        new BlendModeExample();
-        new DisplayObjectExample();
-        new DisplayObjectContainerExample();
-        new GraphicsExample();
-        new MovieClipExample();
-        new RenderTextureExample();
-        new ScrollViewExample();
-        new ShapeExample();
-        new SpriteExample();
-        new SpriteSheetExample();
-        new StageExample();
-        new StageScaleModeExample();
-        new TextureExample();
+        BitmapExample;
+        BitmapFillModeExample;
+        BlendModeExample;
+        DisplayObjectExample;
+        DisplayObjectContainerExample;
+        GraphicsExample;
+        MovieClipExample;
+        RenderTextureExample;
+        ScrollViewExample;
+        ShapeExample;
+        SpriteExample;
+        SpriteSheetExample;
+        StageExample;
+        StageScaleModeExample;
+        TextureExample;
 
         //events
-        new EventExample();
-        new EventDispatcherExample();
-        new EventPhaseExample();
-        new IEventDispatcherExample();
-        new IOErrorEventExample();
-        new SoundEventExample();
-        new TextEventExample();
-        new TimerEventExample();
-        new TouchEventExample();
+        EventExample;
+        EventDispatcherExample;
+        EventPhaseExample;
+        IEventDispatcherExample;
+        IOErrorEventExample;
+        SoundEventExample;
+        TextEventExample;
+        TimerEventExample;
+        TouchEventExample;
 
         //geom
-        new MatrixExample();
-        new PointExample();
-        new RectangleExample();
+        MatrixExample;
+        PointExample;
+        RectangleExample;
 
         //media
-        new SoundEventExample();
+        SoundExample;
+        SoundEventExample;
 
         //net
-        new URLLoaderExample();
-        new URLLoaderDataFormatExample();
-        new URLRequestExample();
-        new URLRequestHeaderExample();
-        new URLRequestMethodExample();
-        new URLVariablesExample();
+        URLLoaderExample;
+        URLLoaderDataFormatExample;
+        URLRequestExample;
+        URLRequestHeaderExample;
+        URLRequestMethodExample;
+        URLVariablesExample;
 
         //text
-        new BitmapFontExample();
-        new BitmapTextExample();
-        new HtmlTextParserExample();
-        new TextFieldExample();
+        BitmapFontExample;
+        BitmapTextExample;
+        HtmlTextParserExample;
+        TextFieldExample;
 
         //tween
-        new TweenExample();
+        TweenExample;
 
         //utils
-        new ByteArrayExample();
-        new callLaterExample();
-        new getDefinitionByNameExample();
-        new getQualifiedClassNameExample();
-        new getTimerExample();
-        new hasDefinitionExample();
-        new InjectorExample();
-        new ProfilerExample();
-        new RecyclerExample();
-        new setIntervalExample();
-        new setTimeoutExample();
-        new TimerExample();
-        new toColorStringExample();
-        new XMLExample();
+        ByteArrayExample;
+        callLaterExample;
+        getDefinitionByNameExample;
+        getQualifiedClassNameExample;
+        getTimerExample;
+        hasDefinitionExample;
+        InjectorExample;
+        RecyclerExample;
+        setIntervalExample;
+        setTimeoutExample;
+        TimerExample;
+        toColorStringExample;
+        XMLExample;
 
         //socket
-        new WebSocketExample();
+        WebSocketExample;
         //resource
-        new ResourceExample();
-        new GetResByUrlExample();
+        ResourceExample;
+        GetResByUrlExample;
     }
 }
 

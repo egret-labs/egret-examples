@@ -25,6 +25,10 @@ class MyEventDispatcher extends egret.HashObject implements egret.IEventDispatch
         this.dispatcher = new egret.EventDispatcher(this);
     }
 
+    public once(type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number): void {
+        this.dispatcher.once(type, listener, thisObject, useCapture, priority);
+    }
+
     public addEventListener(type:string, listener:Function, thisObject:any,
                             useCapture:boolean = false, priority:number = 0):void {
         this.dispatcher.addEventListener(type, listener, thisObject, useCapture, priority);
