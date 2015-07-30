@@ -6,7 +6,12 @@ class StageScaleModeExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    private onAddToStage():void {
+        this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
         //设置屏幕适配方式为 EXACT_FIT
-        egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+        this.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
     }
 }
