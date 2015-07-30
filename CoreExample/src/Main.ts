@@ -71,6 +71,7 @@ class Main extends egret.DisplayObjectContainer {
 
         //media
         new SoundEventExample();
+        new SoundExample();
 
         //net
         new URLLoaderExample();
