@@ -111,6 +111,9 @@ class Main extends egret.DisplayObjectContainer {
         //resource
         new ResourceExample();
         new GetResByUrlExample();
+
+        //dragonBones
+        new ArmatureExample();
     }
 }
 
