@@ -8,7 +8,6 @@ class ArmatureExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
         RES.getResByUrl("resource/assets/armature/skeleton.json", this.onLoadSkeletonComplete, this, RES.ResourceItem.TYPE_JSON);
-        this.createExample();
     }
 
     private onLoadSkeletonComplete(data:any):void {
