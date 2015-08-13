@@ -1,0 +1,15 @@
+{
+  "skins":{
+    "swan.Button":"resource/skins/green/ButtonSkin.exml",
+    "swan.CheckBox":"resource/skins/green/CheckBoxSkin.exml",
+    "swan.HScrollBar":"resource/skins/green/HScrollBarSkin.exml",
+    "swan.HSlider":"resource/skins/green/HSliderSkin.exml",
+    "swan.Panel":"resource/skins/green/PanelSkin.exml",
+    "swan.ProgressBar":"resource/skins/green/ProgressBarSkin.exml",
+    "swan.RadioButton":"resource/skins/green/RadioButtonSkin.exml",
+    "swan.Scroller":"resource/skins/green/ScrollerSkin.exml",
+    "swan.ToggleSwitch":"resource/skins/green/ToggleSwitchSkin.exml",
+    "swan.VScrollBar":"resource/skins/green/VScrollBarSkin.exml",
+    "swan.VSlider":"resource/skins/green/VSliderSkin.exml"
+  }
+}
