@@ -1,0 +1,198 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HelloWorld</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <style>
+        body {
+            text-align: center;
+            background: #000000;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        html {
+            -ms-touch-action: none; /* Direct all pointer events to JavaScript code. */
+            overflow: hidden;
+        }
+
+        div, canvas {
+            display: block;
+            position: absolute;
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<div style="float: left;width: 200px;">
+    <select id="examples_menu" style="width:200px;font-size:24px;" onchange="onSelectChange(this.value)"></select>
+</div>
+<div style="position:relative;" id="gameDiv"></div>
+<script>var document_class = "Main";</script>
+<!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
+<!--This part will be replaced during compiling, and to modify the document class, please go to the project directory and edit in the file of egretProperties. Jsonr-->
+<script src="launcher/egret_require.js"></script>
+<script src="launcher/egret_loader.js"></script>
+<script src="launcher/game-min.js"></script>
+<script>
+    var support = [].map && document.createElement("canvas").getContext;
+    if (support) {
+        var list = [
+            //context
+            "ExternalInterface",
+            "localStorage",
+            "Ticker",
+            //display
+            "Bitmap",
+            "BitmapFillMode",
+            "BlendMode",
+            "DisplayObject",
+            "DisplayObjectContainer",
+            "Graphics",
+            "MovieClip",
+            "RenderTexture",
+            "Shape",
+            "Sprite",
+            "SpriteSheet",
+            "Stage",
+            "StageScaleMode",
+            "Texture",
+            //events
+            "Event",
+            "EventDispatcher",
+            "EventPhase",
+            "IEventDispatcher",
+            "IOErrorEvent",
+            "SoundEvent",
+            "TextEvent",
+            "TimerEvent",
+            //geom
+            "Matrix",
+            "Point",
+            "Rectangle",
+            //media
+            "Sound",
+            //net
+            "URLLoader",
+            "URLLoaderDataFormat",
+            "URLRequest",
+            "URLRequestHeader",
+            "URLRequestMethod",
+            "URLVariables",
+            //text
+            "BitmapFont",
+            "BitmapText",
+            "HtmlTextParser",
+            "TextField",
+            //tween
+            "Tween",
+            //utils
+            "callLater",
+            "getDefinitionByName",
+            "getQualifiedClassName",
+            "getTimer",
+            "hasDefinition",
+            "Injector",
+            "Profiler",
+            "Recycler",
+            "setInterval",
+            "setTimeout",
+            "Timer",
+            "toColorString",
+            "XML",
+            //socket
+            "WebSocket",
+            //resource
+            "Resource",
+            "GetResByUrl"
+        ];
+        var menu = document.getElementById("examples_menu");
+        list.forEach(function (item) {
+            var option = document.createElement("option");
+            option.setAttribute("id", item);
+            option.setAttribute("value", item);
+            option.innerText = item;
+            menu.appendChild(option);
+        });
+
+        function onSelectChange(value) {
+            var url = location.href;
+            var index = url.indexOf("?");
+            if (index != -1) {
+                url = url.slice(0, index);
+            }
+            if (url.indexOf(".html") == -1) {
+                url += "index.html";
+            }
+            url += "?test=" + value;
+            location.href = url;
+        }
+
+        function getCurrentTest() {
+            var appFile;
+            var hasTest = false;
+            var str = location.search;
+            str = str.slice(1, str.length);
+            var totalArray = str.split("&");
+            for (var i = 0; i < totalArray.length; i++) {
+                var itemArray = totalArray[i].split("=");
+                if (itemArray.length == 2) {
+                    var key = itemArray[0];
+                    var value = itemArray[1];
+                    if (key == "test") {
+                        appFile = value;
+                        hasTest = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasTest) {
+                appFile = list[0];
+            }
+
+            return appFile;
+        }
+
+        document_class = getCurrentTest();
+        menu.value = document_class;
+        document_class+= "Example";
+
+        var useWebP = false;
+        //WebP_replace
+        var support = [].map && document.createElement("canvas").getContext;
+        if (support) {
+            if (useWebP && (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("MQQBrowser") != -1)) {
+                var img = new Image();
+                img.onload = function () {
+                    egret.Browser.getInstance().webPSupport = true;
+                    egret_h5.startGame();
+                };
+                img.onerror = function () {
+                    egret.Browser.getInstance().webPSupport = false;
+                    egret_h5.startGame();
+                };
+                img.src = "4x4.webp";
+            }
+            else {
+                egret_h5.startGame();
+            }
+        }
+        else {
+            alert("Egret 不支持您当前的浏览器")
+        }
+    }
+</script>
+</body>
+</html>
