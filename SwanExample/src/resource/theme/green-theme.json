@@ -1,0 +1,34 @@
+{
+  "skins": {
+    "eui.Button": "skins/green/ButtonSkin.exml",
+    "eui.CheckBox": "skins/green/CheckBoxSkin.exml",
+    "eui.HScrollBar": "skins/green/HScrollBarSkin.exml",
+    "eui.HSlider": "skins/green/HSliderSkin.exml",
+    "eui.Panel": "skins/green/PanelSkin.exml",
+    "eui.ProgressBar": "skins/green/ProgressBarSkin.exml",
+    "eui.RadioButton": "skins/green/RadioButtonSkin.exml",
+    "eui.Scroller": "skins/green/ScrollerSkin.exml",
+    "eui.ToggleSwitch": "skins/green/ToggleSwitchSkin.exml",
+    "eui.VScrollBar": "skins/green/VScrollBarSkin.exml",
+    "eui.VSlider": "skins/green/VSliderSkin.exml"
+  },
+  "exmls": [
+    "components/CloseButton.exml",
+    "components/green/ListGroup.exml",
+    "components/green/TabBar.exml",
+    "skins/red/ButtonSkin.exml",
+    "components/MainGroup.exml",
+    "skins/green/ButtonSkin.exml",
+    "skins/green/CheckBoxSkin.exml",
+    "skins/green/HScrollBarSkin.exml",
+    "skins/green/HSliderSkin.exml",
+    "skins/green/PanelSkin.exml",
+    "skins/green/ProgressBarSkin.exml",
+    "skins/green/RadioButtonSkin.exml",
+    "skins/green/ScrollerSkin.exml",
+    "skins/green/ToggleSwitchSkin.exml",
+    "skins/green/VScrollBarSkin.exml",
+    "skins/green/VSliderSkin.exml",
+    "skins/MainSkin.exml"
+  ]
+}
