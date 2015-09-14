@@ -55,7 +55,7 @@
        data-frame-rate="60"
        data-content-width="480"
        data-content-height="800"
-       data-show-paint-rect="true"
+       data-show-paint-rect="false"
        data-multi-fingered="2"
        data-show-fps="false" data-show-log="false"
        data-log-filter="" data-log-color="#b0b0b0">
@@ -198,8 +198,6 @@
         var stage = document.getElementById("egret-sample");
         console.log(document_class)
         stage.setAttribute("data-entry-class",document_class);
-        //stage.setAttribute("data-entry-class","Video");
-        //stage.setAttribute("data-entry-class","MyTest");
         egret.runEgret();
     </script>
 </body>
