@@ -3,8 +3,8 @@
 	{
 		"configs":[
 		{
-			"configPath":"resource/resource_simple.json",
-			"relativePath":"resource/"
+			"configPath":"src/resource/resource_simple.json",
+			"relativePath":"src/resource/"
 		}],
 		"id":"org.egret-labs.resource",
 		"library":
