@@ -29,6 +29,10 @@
 
     <script src="libs/game/game.web.js" src-release="libs/game/game.web.min.js"></script>
 
+    <script src="libs/dragonBones/dragonBones.js" src-release="libs/dragonBones/dragonBones.min.js"></script>
+
+    <script src="libs/socket/socket.js" src-release="libs/socket/socket.min.js"></script>
+
     <script src="libs/tween/tween.js" src-release="libs/tween/tween.min.js"></script>
 
     <script src="libs/res/res.js" src-release="libs/res/res.min.js"></script>
@@ -48,7 +52,7 @@
        data-orientation="auto"
        data-scale-mode="noScale"
        data-resolution-mode="retina"
-       data-frame-rate="30"
+       data-frame-rate="60"
        data-content-width="480"
        data-content-height="800"
        data-show-paint-rect="false"
@@ -59,9 +63,32 @@
 
   <script>
           var list = [
-              //res
+              //Dragonbones
+              "Dragonbones",
+              //game-display
+              "MovieClip",
+              "ScrollView",
+              //game-net
+              "URLLoader",
+              "URLLoaderDataFormat",
+              "URLRequest",
+              "URLRequestHeader",
+              "URLRequestMethod",
+              "URLVariables",
+              //game-player
+              "Ticker",
+              //game-tuils
+              "Recycler",
+              "setInterval",
+              "setTimeout",
+              //resource
               "Resource",
-              "GetResByUrl"
+              "GetResByUrl",
+              //socket
+              "WebSocket",
+              //tween
+              "Tween",
+
             ];
             var menu = document.getElementById("examples_menu");
             list.forEach(function (item) {

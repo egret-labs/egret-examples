@@ -13,9 +13,10 @@ class GetResByUrlExample extends egret.DisplayObjectContainer {
         }, this, RES.ResourceItem.TYPE_IMAGE);
 
         //加载声音资源
-        // RES.getResByUrl("resource/assets/sound.mp3", function (sound:egret.Sound) {
-        //     //播放加载完的声音资源
-        //     sound.play(true);
-        // }, this, RES.ResourceItem.TYPE_SOUND);
+        RES.getResByUrl("resource/assets/sound.mp3", function (sound:egret.Sound) {
+            console.log("播放加载完的声音资源")
+            sound.play(0,1);
+
+        }, this, RES.ResourceItem.TYPE_SOUND);
     }
 }
