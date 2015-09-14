@@ -1,0 +1,81 @@
+{
+  "groups": [
+    {
+      "keys": "bgImage,egret_icon",
+      "name": "preload"
+    }
+  ],
+  "resources": [
+    {
+      "name": "bgImage",
+      "type": "image",
+      "url": "bg.jpg"
+    },
+    {
+      "name": "heroMask",
+      "type": "image",
+      "url": "heroMask.png"
+    },
+    {
+      "name": "hero",
+      "type": "image",
+      "url": "hero.png"
+    },
+    {
+      "name": "egret_icon",
+      "type": "image",
+      "url": "egret_icon.png"
+    },
+    {
+      "name": "texture_png",
+      "type": "image",
+      "url": "armature/texture.png"
+    },
+    {
+      "name": "skeleton_json",
+      "type": "json",
+      "url": "armature/skeleton.json"
+    },
+    {
+      "name": "texture_json",
+      "type": "json",
+      "url": "armature/texture.json"
+    },
+    {
+      "name": "button_png",
+      "type": "image",
+      "url": "button.png"
+    },
+    {
+      "name": "chunli_png",
+      "type": "image",
+      "url": "chunli.png"
+    },
+    {
+      "name": "chunli_json",
+      "type": "json",
+      "url": "chunli.json"
+    },
+    {
+      "name": "bitmapFont",
+      "type": "font",
+      "url": "font.fnt"
+    },
+    {
+      "name": "icons",
+      "subkeys": "activity_10,activity_20,activity_24,activity_15,activity_18,activity_3,activity_7,activity_14,activity_17,activity_11,activity_4,activity_13,activity_1,activity_8,activity_5,activity_23,activity_9,activity_12,activity_2,activity_6,activity_16,activity_19,activity_25",
+      "type": "sheet",
+      "url": "icons.json"
+    },
+    {
+      "name": "sound",
+      "type": "sound",
+      "url": "sound.mp3"
+    },
+    {
+      "name": "nothing",
+      "type": "text",
+      "url": "nothing.txt"
+    }
+  ]
+}
