@@ -51,7 +51,7 @@
        data-frame-rate="30"
        data-content-width="480"
        data-content-height="800"
-       data-show-paint-rect="false"
+       data-show-paint-rect="true"
        data-multi-fingered="2"
        data-show-fps="false" data-show-log="false"
        data-log-filter="" data-log-color="#b0b0b0">
@@ -59,6 +59,58 @@
 
   <script>
           var list = [
+              //external
+              "ExternalInterface",
+              //localStorage
+              "localStorage",
+              //"Ticker",
+              //display
+              "Bitmap",
+              "BitmapFillMode",
+              "BlendMode",
+              "DisplayObject",
+              "DisplayObjectContainer",
+              "Graphics",
+              //"MovieClip",
+              "RenderTexture",
+              "Shape",
+              "Sprite",
+              "SpriteSheet",
+              "Stage",
+              "Texture",
+              //player
+              "StageScaleMode",
+              //events
+              "Event",
+              "EventDispatcher",
+              "EventPhase",
+              "IEventDispatcher",
+              "IOErrorEvent",
+              //"SoundEvent",
+              "TextEvent",
+              "TimerEvent",
+              //geom
+              "Matrix",
+              "Point",
+              "Rectangle",
+              //media
+              "Sound",
+              "Video",
+              //net
+              //"URLLoader",
+              //"URLLoaderDataFormat",
+              //"URLRequest",
+              //"URLRequestHeader",
+              //"URLRequestMethod",
+              //"URLVariables",
+              //text
+              "BitmapFont",
+              "BitmapText",
+              "HtmlTextParser",
+              "TextField",
+              //tween
+              "Tween",
+
               //res
               "Resource",
               "GetResByUrl"
@@ -116,6 +168,8 @@
         var stage = document.getElementById("egret-sample");
         console.log(document_class)
         stage.setAttribute("data-entry-class",document_class);
+        //stage.setAttribute("data-entry-class","Video");
+        //stage.setAttribute("data-entry-class","MyTest");
         egret.runEgret();
     </script>
 </body>
