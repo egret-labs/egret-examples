@@ -37,6 +37,8 @@
 
     <script src="libs/res/res.js" src-release="libs/res/res.min.js"></script>
 
+    <script src="libs/version/version.js" src-release="libs/version/version.min.js"></script>
+
 
     <!--这个标签会被替换为项目中所有的 javascript 文件-->
     <!--{{~it.scripts :value:index}}-->
@@ -81,6 +83,7 @@
               "SpriteSheet",
               "Stage",
               "Texture",
+              "Mask",
               //player
               "StageScaleMode",
               //events
@@ -91,6 +94,8 @@
               "IOErrorEvent",
               "TextEvent",
               "TimerEvent",
+              "TouchEvent",
+              "StageOrientationEvent",
               //geom
               "Matrix",
               "Point",
@@ -103,6 +108,10 @@
               "BitmapText",
               "HtmlTextParser",
               "TextField",
+              //sensor
+              "Sensors",
+              //system
+              "Capabilities",
 
               //utils
               "ByteArray",
@@ -144,6 +153,8 @@
               "WebSocket",
               //tween
               "Tween",
+              //version
+              "VersionControl",
             ];
             var menu = document.getElementById("examples_menu");
             list.forEach(function (item) {
