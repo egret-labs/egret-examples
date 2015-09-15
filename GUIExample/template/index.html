@@ -42,7 +42,7 @@
     <!--{{~}}-->
 </head>
 <body >
-    <span>选择主题</span>
+    <span id="examples_label">选择主题</span>
     <select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)"></select>
     <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
          data-entry-class="GUIExplorer"
@@ -113,6 +113,8 @@
 
         if (getOption("mainClass")) {
             document.getElementById("examples_menu").style.display = "none";
+            document.getElementById("examples_label").style.display = "none";
+
         }
         function getOption(key) {
             if (window.location) {
