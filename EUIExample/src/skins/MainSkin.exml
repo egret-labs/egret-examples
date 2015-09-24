@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<s:Skin class="skins.MainSkin" states="normal" xmlns:s="http://ns.egret.com/eui" xmlns:w="http://ns.egret-labs.org/wing">
-	<s:Group height="148" width="292" verticalCenter="2" horizontalCenter="-6">
-		<s:Button id="btnBlue" skinName="skins/blue/ButtonSkin.exml" name="blue" label="蓝色" horizontalCenter="-60" verticalCenter="0"/>
-		<s:Button id="btnGreen" skinName="skins/green/ButtonSkin.exml" name="green" label="绿色" horizontalCenter="60" verticalCenter="0"/>
-		<s:Label text="请选择一个主题" horizontalCenter="0" textColor="0xFFFFFF" size="24"/>
-	</s:Group>
-	
-</s:Skin>

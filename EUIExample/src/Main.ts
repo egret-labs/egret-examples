@@ -33,7 +33,8 @@ class Main extends eui.Component {
 
     constructor() {
         super();
-        this.skinName = "skins/MainSkin.exml";
+        console.log(12312);
+        this.skinName = "resource/skins/MainSkin.exml";
         this.addEventListener(egret.Event.COMPLETE, this.onCompleted, this);
     }
 
@@ -48,7 +49,7 @@ class Main extends eui.Component {
 
     private loadTheme(name: string): void {
         var theme = new eui.Theme(`resource/theme/${name}-theme.json`, this.stage);
-        //theme.addEventListener(egret.Event.COMPLETE, e=> this.addChild(new components.MainGroup()), this);
+        theme.addEventListener(egret.Event.COMPLETE, e=> this.addChild(new components.MainGroup()), this);
         theme.addEventListener(egret.Event.COMPLETE, ()=>{
             var group:eui.Group = new components.MainGroup();
             this.addChild(group);
