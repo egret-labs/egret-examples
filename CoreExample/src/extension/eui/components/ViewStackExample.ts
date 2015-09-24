@@ -9,11 +9,11 @@ class ViewStackExample extends egret.Sprite {
                     <s:layout>
                         <s:HorizontalLayout gap="20"/>
                     </s:layout>
-                    <s:itemRenderer>
-                        <s:ItemRenderer states="up,down" height="50">
+                    <s:itemRendererSkinName>
+                        <s:Skin states="up,down" height="50">
                             <s:Label text="{data}" textColor.down="0xFFFFFF" textColor.up="0x666666" horizontalCenter="0" verticalCenter="0"/>
-                        </s:ItemRenderer>
-                    </s:itemRenderer>
+                        </s:Skin>
+                    </s:itemRendererSkinName>
                 </s:TabBar>
                 <s:ViewStack y="50" id="viewStack">
                     <s:Group name="页面1">
@@ -37,11 +37,11 @@ class ViewStackExample extends egret.Sprite {
                             <s:layout>
                                 <s:VerticalLayout gap="20"/>
                             </s:layout>
-                            <s:itemRenderer>
-                                <s:ItemRenderer states="up,down,disabled" height="50">
+                            <s:itemRendererSkinName>
+                                <s:Skin states="up,down,disabled" height="50">
                                     <s:Label text="{data.label}" textColor="0" horizontalCenter="0" verticalCenter="0"/>
-                                </s:ItemRenderer>
-                            </s:itemRenderer>
+                                </s:Skin>
+                            </s:itemRendererSkinName>
                             <s:ArrayCollection>
                                 <s:Array>
                                     <s:Object label="Text1"/>

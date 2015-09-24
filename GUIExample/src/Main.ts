@@ -40,7 +40,7 @@ class GUIExplorer extends egret.DisplayObjectContainer {
     public onAddToStage(event:egret.Event):void
     {
         //注入自定义的素材解析器
-        egret.gui.registerAdapter("egret.gui.IAssetAdapter",AssetAdapter)
+        egret.gui.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
         //egret.Injector.mapClass("egret.gui.IAssetAdapter",AssetAdapter);
         //console.log(window.getCurrentTest)
         var skintype:string = window["getCurrentTest"]();

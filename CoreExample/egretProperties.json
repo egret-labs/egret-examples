@@ -2,7 +2,7 @@
   "native": {
     "path_ignore": []
   },
-  "egret_version": "2.4.3",
+  "egret_version": "2.5.0",
   "modules": [
     {
       "name": "egret"
@@ -17,7 +17,7 @@
       "name": "res"
     },
     {
-      "name":"Deagonbones"
+      "name":"dragonbones"
     },
     {
       "name":"socket"
@@ -25,5 +25,6 @@
     {
       "name":"eui"
     }
+
   ]
 }
