@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/gui/gui.js" src-release="libs/modules/gui/gui.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件-->
+    <!--game_files_start-->
+	<script egret="game" src="bin-debug/AssetAdapter.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/screenContents/AlertScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/AnimationScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/BitmapLabelScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/ButtonScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/CustomItemRenderer.js"></script>
+	<script egret="game" src="bin-debug/screenContents/DropDownListScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/LabelScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/LayoutScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/ListCustomScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/ListScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/Loading.js"></script>
+	<script egret="game" src="bin-debug/screenContents/PanelScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/ProgressBarScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/ScrollerScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/SliderScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/TabBarScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/TitleWindowScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/TogglesScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContents/TreeScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/AlertScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/BitmapLabelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ButtonScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/DropDownListScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/LabelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/LayoutScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ListCustomScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ListScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/PanelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ProgressBarScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ScrollerScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/SliderScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TabBarScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TitleWindowScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TogglesScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TreeScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/AlertSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/CheckBoxSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/CustomItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/DropDownListItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/DropDownListOpenButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/DropDownListSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/HSliderSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/HSliderThumbSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ListSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/PanelSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ProgressBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/RadioButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ScreenItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/SkinnableContainerSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/SliderThumbSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TabBarButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TabBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TitleWindowSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ToggleButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/ToggleSwitchSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TreeDisclosureButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TreeItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/TreeSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/VProgressBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/VSliderSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/ocean/VSliderThumbSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/AlertSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/CheckBoxSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/CloseButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/CustomItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/DropDownListItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/DropDownListOpenButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/DropDownListSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/HSliderSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/HSliderThumbSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ListSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/PanelSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ProgressBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/RadioButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/SkinnableContainerSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/SliderThumbSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TabBarButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TabBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TitleWindowSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ToggleButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/ToggleSwitchSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TreeDisclosureButtonSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TreeItemRendererSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/TreeSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/VProgressBarSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/VSliderSkin.g.js"></script>
+	<script egret="game" src="bin-debug/skins/simple/VSliderThumbSkin.g.js"></script>
+	<!--game_files_end-->
+</head>
+<body>
+	<span id="examples_label">选择主题</span>
+	<select id="examples_menu" style="width:200px;font-size:24px;" onChange="onSelectChange(this.value)"></select>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="GUIExplorer"
+         data-orientation="auto"
+         data-scale-mode="noScale"
+         data-resolution-mode="retina"
+         data-frame-rate="30"
+         data-content-width="480"
+         data-content-height="800"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-log-filter="" data-show-fps-style="x:0,y:0,size:30">
+    </div>
+	<script>
+		var list = ["ocean","simple"];
+		var menu = document.getElementById("examples_menu");
+		list.forEach(function (item) {
+			var option = document.createElement("option");
+			option.setAttribute("id", item);
+			option.setAttribute("value", item);
+			option.innerText = item;
+			menu.appendChild(option);
+		})
+
+		function onSelectChange(value) {
+			var url = location.href;
+			var index = url.indexOf("?");
+			if (index != -1) {
+				url = url.slice(0, index);
+			}
+			if (url.indexOf(".html") == -1) {
+				url += "index.html";
+			}
+			url += "?test=" + value;
+			location.href = url;
+		}
+
+		function getCurrentTest() {
+			var appFile;
+			var hasTest = false;
+			var str = location.search;
+			str = str.slice(1, str.length);
+			var totalArray = str.split("&");
+			for (var i = 0; i < totalArray.length; i++) {
+				var itemArray = totalArray[i].split("=");
+				if (itemArray.length == 2) {
+					var key = itemArray[0];
+					var value = itemArray[1];
+					if (key == "test") {
+						appFile = value;
+						hasTest = true;
+						break;
+					}
+				}
+			}
+			if (!hasTest) {
+				appFile = list[0];
+			}
+
+			return appFile;
+		}
+		menu.value = getCurrentTest();
+	</script>
+	<script>
+		egret.runEgret();
+
+
+		if (getOption("mainClass")) {
+			document.getElementById("examples_menu").style.display = "none";
+			document.getElementById("examples_label").style.display = "none";
+
+		}
+		function getOption(key) {
+			if (window.location) {
+				var search = location.search;
+				if (search == "") {
+					return "";
+				}
+				search = search.slice(1);
+				var searchArr = search.split("&");
+				var length = searchArr.length;
+				for (var i = 0; i < length; i++) {
+					var str = searchArr[i];
+					var arr = str.split("=");
+					if (arr[0] == key) {
+						return arr[1];
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
