@@ -24,6 +24,7 @@ class DataGroupExample extends egret.Sprite {
         collection.addItem({"label": "3", "color": 0xcc3333});
         collection.addItem({"label": "4", "color": 0xff6666});
         dataGroup.dataProvider = collection;
+
         this.addChild(dataGroup);
         dataGroup.x = 50;
         dataGroup.y = 50;
@@ -35,11 +36,11 @@ class DataGroupExample extends egret.Sprite {
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>
-                <s:itemRenderer>
-                    <s:ItemRenderer>
+                <s:itemRendererSkinName>
+                    <s:Skin>
                      <s:Label text="{data.label}" textColor="{data.color}"/>
-                    </s:ItemRenderer>
-                </s:itemRenderer>
+                    </s:Skin>
+                </s:itemRendererSkinName>
                 <s:ArrayCollection>
                     <s:Array>
                         <s:Object label="a" color="0xcc9999"/>

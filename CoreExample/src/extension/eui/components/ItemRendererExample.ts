@@ -16,11 +16,11 @@ class ItemRendererExample extends egret.Sprite {
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>
-                    <s:itemRenderer>
-                        <s:ItemRenderer>
+                    <s:itemRendererSkinName>
+                        <s:Skin>
                             <s:Label text="{data.label}" textColor="{data.color}"/>
-                        </s:ItemRenderer>
-                    </s:itemRenderer>
+                        </s:Skin>
+                    </s:itemRendererSkinName>
                 <s:ArrayCollection>
                     <s:Array>
                         <s:Object label="a" color="0xcc9999"/>
