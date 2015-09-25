@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=200"/>
+    <title>Egret 测试列表</title>
+
+    <link rel="stylesheet" type="text/css" href="clibs/style-min.css"/>
+</head>
+<body>
+
+<div style="position: absolute; left: 0px; top: 0px; right:0px;">
+    <ul id="items_ul">
+    </ul>
+</div>
+
+<div style="position:fixed;right: 10px;top: 5px;z-index: 999;text-align: right;">
+    <button id="btn">清理</button>
+</div>
+<script src="clibs/Utils.js"></script>
+<script src="examples.js"></script>
+
+<script>
+    btn.onclick = function () {
+        var href = window.location.href;
+        if (href.indexOf("#") >= 0) {
+            href = href.substring(0, href.indexOf("#"));
+        }
+        if (href.indexOf("?") >= 0) {
+            href = href.substring(0, href.indexOf("?"));
+        }
+        window.location.href = href + "?r=" + Math.random();
+    };
+
+    ex();
+
+</script>
+
+</body>
+</html>

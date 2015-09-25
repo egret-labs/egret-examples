@@ -25,11 +25,11 @@ class SoundExample extends egret.DisplayObjectContainer {
         var loader:egret.URLLoader = <egret.URLLoader>event.target;
         //获取加载到的 Sound 对象
         var sound:egret.Sound = <egret.Sound>loader.data;
-        sound.addEventListener(egret.SoundEvent.SOUND_COMPLETE, this.onSoundComplete, this);
-        sound.play(true);
+        var channel:egret.SoundChannel = sound.play(0,1);
+        channel.addEventListener(egret.Event.SOUND_COMPLETE, this.onSoundComplete, this);
     }
 
-    private onSoundComplete(event:egret.SoundEvent):void {
+    private onSoundComplete(event:egret.Event):void {
         console.log("onSoundComplete");
     }
 }

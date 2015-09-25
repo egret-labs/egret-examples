@@ -1,0 +1,21 @@
+{
+  "groups": [
+    {
+      "keys": "sheet1,tree",
+      "name": "preload"
+    }
+  ],
+  "resources": [
+    {
+      "name": "sheet1",
+      "subkeys": "off,on",
+      "type": "sheet",
+      "url": "sheets/sheet1.json"
+    },
+    {
+      "name": "tree",
+      "type": "image",
+      "url": "tree.png"
+    }
+  ]
+}

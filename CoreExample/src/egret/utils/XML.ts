@@ -4,35 +4,43 @@
 class XMLExample extends egret.DisplayObjectContainer {
 
     public constructor() {
-        super();
-        
-        var employees: any = '<employees>' +
-            '<employee ssn="092">' +
-            '<name first="Xin" last="FangKe"/>' +
-            '<address>' +
-            '<city>BeiJing</city>' +
-            '<Level>0</Level>' +
-            '</address>' +
-            '</employee>' +
-            '</employees>';
+      super();
+      var source =
+          '<familys xmlns="http://www.w3.org/2005/Atom">'
+              + '<family doorNumber="1001">'
+                  + '<member relation="father" name="John"/>'
+                  + '<member relation="mather" name="Ada"/>'
+                  + '<member relation="daughter" name="Lucy"/>'
+              + '</family>'
+              + '<family doorNumber="1002">'
+                  + '<member relation="father" name="Jack"/>'
+                  + '<member relation="mather" name="Afra"/>'
+                  + '<member relation="son" name="Jom"/>'
+              + '</family>'
+          + '</familys>';
 
-        var jsonData: any = egret.XML.parse(employees);
-        //employees
-        console.log(jsonData.name);//employees
-        console.log(jsonData.children.length);//1 {employee,employee}
-        console.log(jsonData.children[0].name);//employee
-        console.log(jsonData.children[0].$ssn);//092
-        //employee
-        console.log(jsonData.children[0].children.length);//2 {name,address}
-        console.log(jsonData.children[0].children[0].name);//name
-        console.log(jsonData.children[0].children[0].$first);//Xin
-        console.log(jsonData.children[0].children[0].$last);//FangKe
-        //address
-        console.log(jsonData.children[0].children[1].name);//address
-        console.log(jsonData.children[0].children[1].children.length);//2 {city,Level}
-        console.log(jsonData.children[0].children[1].children[0].name);//city
-        console.log(jsonData.children[0].children[1].children[0].text);//BeiJing
-        console.log(jsonData.children[0].children[1].children[1].name);//Level
-        console.log(jsonData.children[0].children[1].children[1].text);//0
+      var familys = egret.XML.parse(source);
+      console.log(familys.name); //familys
+      console.log(familys.localName); //familys
+      console.log(familys.nodeType); //1
+      console.log(familys.namespace); //http://www.w3.org/2005/Atom
+
+      var children = familys.children;
+      console.log(children.length); //2
+
+      var family1:egret.XML = <egret.XML><any>children[0];
+      console.log(family1.name); //family
+      console.log(family1.localName); //family
+      console.log(family1.nodeType); //1
+      console.log(family1.namespace); //http://www.w3.org/2005/Atom
+      console.log(family1.attributes.doorNumber); //1001
+
+      var father1:egret.XML = <egret.XML><any>family1.children[0];
+      console.log(father1.name); //member
+      console.log(father1.localName); //member
+      console.log(father1.nodeType); //1
+      console.log(father1.namespace); //http://www.w3.org/2005/Atom
+      console.log(father1.attributes.relation); //father
+      console.log(father1.attributes.name); //John
     }
 }

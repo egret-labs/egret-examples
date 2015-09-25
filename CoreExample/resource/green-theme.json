@@ -1,0 +1,7 @@
+{
+  "skins":{
+    "eui.ProgressBar":"resource/ProgressBarSkin.exml",
+    "eui.Panel":"resource/PanelSkin.exml",
+    "eui.Button":"resource/ButtonSkin.exml"
+  }
+}

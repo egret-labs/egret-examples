@@ -1,27 +1,30 @@
 {
-	"document_class": "Main",
-	"modules": [
-		{
-			"name": "core"
-		},
-		{
-			"name": "version_old"
-		},
-		{
-			"name": "res"
-		},
-		{
-			"name": "gui"
-		},
-		{
-			"name": "socket"
-		},
-		{
-			"name": "dragonbones"
-		}
-	],
-	"native": {
-		"path_ignore": []
-	},
-	"egret_version": "2.0.5"
+  "native": {
+    "path_ignore": []
+  },
+  "egret_version": "2.5.0",
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "tween"
+    },
+    {
+      "name": "res"
+    },
+    {
+      "name":"dragonbones"
+    },
+    {
+      "name":"socket"
+    },
+    {
+      "name":"eui"
+    }
+
+  ]
 }

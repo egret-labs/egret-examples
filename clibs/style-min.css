@@ -1,0 +1,42 @@
+﻿html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend{margin:0;padding:0;border:0;outline:0;font-size:110%;vertical-align: middle;color:#ffffff}
+html,body {background:#363e45}
+
+
+ol,ul{list-style:none;}
+.none{display:none!important;}
+.visible{visibility:visible!important;}
+.hidden{visibility:hidden!important;}
+
+a{text-decoration:none;}
+body{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none;background:#000000;}
+body{}
+
+
+.list_title{border-bottom:1px solid #000000;font-size:24px;height:30px;line-height:30px;padding:10px 13px;position:relative;top:0;z-index:10;}
+.list .item_title{border-bottom:1px solid #000000;font-size:16px;font-weight:bold;height:38px;line-height:38px;padding:2px 13px;}
+
+span{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;display:block;float:left;position:absolute;}
+
+.txt1{left:30px;}
+.txt2{left:55px;}
+.txt3{left:80px;}
+.txt4{left:95px;}
+
+.list_div_1_2{background-color:#4D5E6C;background-image: url(arrow2_2.png);background-repeat:no-repeat;background-size:20px 20px;background-position:5px 50%;}
+.list_div_1_1{background-color:#363e45;background-image: url(arrow2_1.png);background-repeat:no-repeat;background-size:20px 20px;background-position:5px 50%;}
+.list_div_1_1:hover{background-color:#4D5E6C;}
+
+.list_div_2_2{background-color:#4D5E6C;background-image: url(arrow2_2.png);background-repeat:no-repeat;background-size:20px 20px;background-position:30px 50%;}
+.list_div_2_1{background-color:#363e45;background-image: url(arrow2_1.png);background-repeat:no-repeat;background-size:20px 20px;background-position:30px 50%;}
+.list_div_2_1:hover{background-color:#4D5E6C;}
+
+.list_div_3_2{background-color:#4D5E6C;background-image: url(arrow2_2.png);background-repeat:no-repeat;background-size:20px 20px;background-position:55px 50%;}
+.list_div_3_1{background-color:#363e45;background-image: url(arrow2_1.png);background-repeat:no-repeat;background-size:20px 20px;background-position:55px 50%;}
+.list_div_3_1:hover{background-color:#4D5E6C;}
+
+.list_div_4_2{background-color:#4D5E6C;}
+.list_div_4_1{background-color:#363e45;}
+.list_div_4_1:hover{background-color:#4D5E6C;}
+
+
+button,select{width:120px;height:40px;border:1px solid;margin:0px 0px 8px 0px;font-size:110%;background-color:#cccccc;font-size: 20px;right:4px}

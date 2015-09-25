@@ -1,21 +1,27 @@
 {
-	"document_class": "GUIExplorer",
-	"native": {
-		"path_ignore": []
-	},
-	"modules": [
-		{
-			"name": "core"
-		},
-		{
-			"name": "version_old"
-		},
-		{
-			"name": "res"
-		},
-		{
-			"name": "gui"
-		}
-	],
-	"egret_version": "2.0.5"
+  "native": {
+    "path_ignore": []
+  },
+  "publish": {
+    "web": 0,
+    "native": 1
+  },
+  "egret_version": "2.5.0",
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "res"
+    },
+    {
+      "name": "gui"
+    },
+    {
+      "name": "tween"
+    }
+  ]
 }
