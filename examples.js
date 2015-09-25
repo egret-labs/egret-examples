@@ -91,13 +91,13 @@ var examples = {
 
 function returnHref(thirdName, forthName) {
     if (thirdName.indexOf("GUI") >= 0) {
-        return "GUIExample/bin-debug/index.html?mainClass=" + forthName + "&test=" + forthName + "&r=" + Math.random();
+        return "GUIExample/index.html?mainClass=" + forthName + "&test=" + forthName + "&r=" + Math.random();
     }
     else if (thirdName.indexOf("EUI") >= 0) {
-        return "EUIExample/bin-debug/index.html?mainClass=" + (forthName) + "&test=" + forthName + "&r=" + Math.random();
+        return "EUIExample/index.html?mainClass=" + (forthName) + "&test=" + forthName + "&r=" + Math.random();
     }
     else {
-        return "CoreExample/bin-debug/index.html?mainClass=" + (forthName + "Example") + "&test=" + forthName + "&r=" + Math.random();
+        return "CoreExample/index.html?mainClass=" + (forthName + "Example") + "&test=" + forthName + "&r=" + Math.random();
     }
 }
 
