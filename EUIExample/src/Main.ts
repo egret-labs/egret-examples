@@ -33,7 +33,6 @@ class Main extends eui.Component {
 
     constructor() {
         super();
-        console.log(12312);
         this.skinName = "resource/skins/MainSkin.exml";
         this.addEventListener(egret.Event.COMPLETE, this.onCompleted, this);
     }
