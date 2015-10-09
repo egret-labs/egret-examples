@@ -34,6 +34,7 @@ class XMLExample extends egret.DisplayObjectContainer {
       console.log(family1.nodeType); //1
       console.log(family1.namespace); //http://www.w3.org/2005/Atom
       console.log(family1.attributes.doorNumber); //1001
+      console.log(family1["$doorNumber"]); //1001
 
       var father1:egret.XML = <egret.XML><any>family1.children[0];
       console.log(father1.name); //member
@@ -41,6 +42,8 @@ class XMLExample extends egret.DisplayObjectContainer {
       console.log(father1.nodeType); //1
       console.log(father1.namespace); //http://www.w3.org/2005/Atom
       console.log(father1.attributes.relation); //father
+      console.log(father1["$relation"]); //father
       console.log(father1.attributes.name); //John
+      console.log(father1["$name"]); //John
     }
 }
