@@ -13,6 +13,7 @@ class VideoExample extends egret.DisplayObjectContainer {
                 video.height = 240;
                 video.fullscreen = i == 0;
                 video.poster = video.fullscreen ? "resource/posterfullscreen.jpg" : "resource/posterinline.jpg";
+                video.touchEnabled = true;
                 video.once(egret.TouchEvent.TOUCH_TAP, this.playVideo, this)
                 video.load("http://media.w3.org/2010/05/sintel/trailer.mp4");
                 this.addChild(video);
