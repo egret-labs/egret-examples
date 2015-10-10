@@ -2,15 +2,11 @@
 var game_file_list = [
     //以下为自动修改，请勿修改
     //----auto game_file_list start----
-	"libs/modules/egret/egret.js"
-	
-	,"libs/modules/egret/egret.native.js"
-	
-	,"libs/modules/eui/eui.js"
-	
-	,"libs/modules/res/res.js"
-	
-	,"bin-debug/Main.js"
+	"libs/modules/egret/egret.js",
+	"libs/modules/egret/egret.native.js",
+	"libs/modules/eui/eui.js",
+	"libs/modules/res/res.js",
+	"bin-debug/Main.js",
 	//----auto game_file_list end----
 ];
 
@@ -38,7 +34,7 @@ egret_native.egretStart = function () {
     var option = {
         //以下为自动修改，请勿修改
         //----auto option start----
-entryClassName: "Main",
+		entryClassName: "Main",
 		frameRate: 30,
 		scaleMode: "showAll",
 		contentWidth: 480,
@@ -50,7 +46,7 @@ entryClassName: "Main",
 		logFilter: "",
 		maxTouches: 2,
 		textureScaleFactor: 1
-//----auto option end----
+		//----auto option end----
     };
 
     egret.native.NativePlayer.option = option;
