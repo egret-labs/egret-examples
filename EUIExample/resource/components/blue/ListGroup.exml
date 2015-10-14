@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group class="components.ListGroup" xmlns:s="http://ns.egret.com/eui">
-    <s:Image width="100%" height="100%" source="resource/assets/blue/Panel/border.png" scale9Grid="2,2,173,43"/>
-    <s:Scroller left="1" right="1" top="1" bottom="1">
-        <s:List id="list">
-            <s:itemRendererSkinName>
-                <s:Skin states="up,down,disabled" height="64">
-                    <s:Image width="100%" height="100%" includeIn="down"
+<e:Group class="components.ListGroup" xmlns:e="http://ns.egret.com/eui">
+    <e:Image width="100%" height="100%" source="resource/assets/blue/Panel/border.png" scale9Grid="2,2,173,43"/>
+    <e:Scroller left="1" right="1" top="1" bottom="1">
+        <e:List id="list">
+            <e:itemRendererSkinName>
+                <e:Skin states="up,down,disabled" height="64">
+                    <e:Image width="100%" height="100%" includeIn="down"
                              source="resource/assets/blue/ItemRenderer/selected.png"/>
-                    <s:Label size="24" fontFamily="Tahoma" text="{data.label}"
+                    <e:Label size="24" fontFamily="Tahoma" text="{data.label}"
                              textColor="0x555555" textColor.down="0x000000" left="32"
                              verticalCenter="0"/>
-                </s:Skin>
-            </s:itemRendererSkinName>
-            <s:ArrayCollection>
-                <s:Array>
-                    <s:Object label="项目1"/>
-                    <s:Object label="项目2"/>
-                    <s:Object label="项目3"/>
-                    <s:Object label="项目4"/>
-                    <s:Object label="项目5"/>
-                    <s:Object label="项目6"/>
-                    <s:Object label="项目7"/>
-                    <s:Object label="项目8"/>
-                    <s:Object label="项目9"/>
-                    <s:Object label="项目10"/>
-                </s:Array>
-            </s:ArrayCollection>
-        </s:List>
-    </s:Scroller>
-</s:Group>
+                </e:Skin>
+            </e:itemRendererSkinName>
+            <e:ArrayCollection>
+                <e:Array>
+                    <e:Object label="项目1"/>
+                    <e:Object label="项目2"/>
+                    <e:Object label="项目3"/>
+                    <e:Object label="项目4"/>
+                    <e:Object label="项目5"/>
+                    <e:Object label="项目6"/>
+                    <e:Object label="项目7"/>
+                    <e:Object label="项目8"/>
+                    <e:Object label="项目9"/>
+                    <e:Object label="项目10"/>
+                </e:Array>
+            </e:ArrayCollection>
+        </e:List>
+    </e:Scroller>
+</e:Group>
