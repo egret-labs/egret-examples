@@ -29,8 +29,11 @@
 class Main extends eui.UILayer {
     constructor() {
         super();
-        var theme = new eui.Theme(`resource/theme/theme.json`,this.stage);
-        theme.addEventListener(egret.Event.COMPLETE,this.onCompleted,this);
+        this.once(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
+    }
+    private onAdded(): void {
+        var theme = new eui.Theme(`resource/theme/theme.json`, this.stage);
+        theme.addEventListener(egret.Event.COMPLETE, this.onCompleted, this);
     }
     protected onCompleted(): void {
         var group: eui.Group = new components.MainGroup();
@@ -38,7 +41,7 @@ class Main extends eui.UILayer {
         this.resize();
         this.stage.addEventListener(egret.Event.RESIZE, this.resize, this);
     }
-    
+
     private resize() {
         this.height = this.stage.stageHeight;
         this.width = this.stage.stageWidth;
