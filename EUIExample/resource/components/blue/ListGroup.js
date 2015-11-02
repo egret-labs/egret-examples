@@ -40,12 +40,14 @@ var components;
 			this.undefined = t;
 			t.height = 64;
 			t.states = up,down,disabled;
-			t.elementsContent = [this.undefined_i()];
+			t.elementsContent = [this.undefined_i(),this.undefined_i()];
 			return t;
 		};
 		_proto.undefined_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
+			t.scale9Grid = new egret.Rectangle(1,3,8,8);
+			t.source = "resource/assets/blue/ItemRenderer/unselected.png";
 			t.percentWidth = 100;
 			return t;
 		};
