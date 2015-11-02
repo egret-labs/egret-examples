@@ -46,7 +46,6 @@ var components;
 		_proto.undefined_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "resource/assets/blue/ItemRenderer/selected.png";
 			t.percentWidth = 100;
 			return t;
 		};

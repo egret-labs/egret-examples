@@ -5,8 +5,9 @@
         <e:List id="list">
             <e:itemRendererSkinName>
                 <e:Skin states="up,down,disabled" height="64">
-                    <e:Image width="100%" height="100%" includeIn="down"
-                             source="resource/assets/blue/ItemRenderer/selected.png"/>
+                    <e:Image width="100%" height="100%" scale9Grid="1,3,8,8"
+                             source="resource/assets/blue/ItemRenderer/unselected.png"
+                             source.down="resource/assets/blue/ItemRenderer/selected.png"/>
                     <e:Label size="24" fontFamily="Tahoma" text="{data.label}"
                              textColor="0x555555" textColor.down="0x000000" left="32"
                              verticalCenter="0"/>
