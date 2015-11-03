@@ -26,36 +26,23 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-class Main extends eui.Component {
-
-    btnBlue: eui.Button;
-    btnGreen: eui.Button;
-
+class Main extends eui.UILayer {
     constructor() {
         super();
-        this.skinName = "resource/skins/MainSkin.exml";
-        this.addEventListener(egret.Event.COMPLETE, this.onCompleted, this);
+        this.once(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
     }
-
+    private onAdded(): void {
+        var theme = new eui.Theme(`resource/theme/theme.json`, this.stage);
+        theme.addEventListener(egret.Event.COMPLETE, this.onCompleted, this);
+    }
     protected onCompleted(): void {
-
-        this.btnBlue.addEventListener(egret.TouchEvent.TOUCH_TAP, e=> this.loadTheme("blue"), this);
-        this.btnGreen.addEventListener(egret.TouchEvent.TOUCH_TAP, e=> this.loadTheme("green"), this);
-
+        var group: eui.Group = new components.MainGroup();
+        this.addChild(group);
         this.resize();
         this.stage.addEventListener(egret.Event.RESIZE, this.resize, this);
     }
 
-    private loadTheme(name: string): void {
-        var theme = new eui.Theme(`resource/theme/${name}-theme.json`, this.stage);
-        theme.addEventListener(egret.Event.COMPLETE, e=> this.addChild(new components.MainGroup()), this);
-        theme.addEventListener(egret.Event.COMPLETE, ()=>{
-            var group:eui.Group = new components.MainGroup();
-            this.addChild(group);
-        }, this);
-    }
-
-    resize() {
+    private resize() {
         this.height = this.stage.stageHeight;
         this.width = this.stage.stageWidth;
     }

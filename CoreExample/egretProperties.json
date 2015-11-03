@@ -1,30 +1,29 @@
 {
-  "native": {
-    "path_ignore": []
-  },
-  "egret_version": "2.5.0",
-  "modules": [
-    {
-      "name": "egret"
-    },
-    {
-      "name": "game"
-    },
-    {
-      "name": "tween"
-    },
-    {
-      "name": "res"
-    },
-    {
-      "name":"dragonbones"
-    },
-    {
-      "name":"socket"
-    },
-    {
-      "name":"eui"
-    }
-
-  ]
+	"native": {
+		"path_ignore": []
+	},
+	"egret_version": "2.5.4",
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "res"
+		},
+		{
+			"name": "dragonbones"
+		},
+		{
+			"name": "socket"
+		},
+		{
+			"name": "eui"
+		}
+	]
 }

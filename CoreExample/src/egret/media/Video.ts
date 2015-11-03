@@ -4,7 +4,6 @@
 class VideoExample extends egret.DisplayObjectContainer {
     constructor() {
             super();
-            
             [0,1].forEach(i=>{
                 var video = new egret.Video();
                 video.x = 50;
@@ -12,9 +11,11 @@ class VideoExample extends egret.DisplayObjectContainer {
                 video.width = 427;
                 video.height = 240;
                 video.fullscreen = i == 0;
+                console.log(video.fullscreen,i == 0)
                 video.poster = video.fullscreen ? "resource/posterfullscreen.jpg" : "resource/posterinline.jpg";
+                video.touchEnabled = true;
                 video.once(egret.TouchEvent.TOUCH_TAP, this.playVideo, this)
-                video.load("http://media.w3.org/2010/05/sintel/trailer.mp4");
+                video.load("resource/video/trailer.mp4");
                 this.addChild(video);
 
                 var text = new egret.TextField();
