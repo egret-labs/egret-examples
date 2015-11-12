@@ -31,6 +31,7 @@ class PanelExample extends egret.Sprite {
         var panel = new clazz();
         panel.width = 600;
         panel.height = 400;
+        panel.y = 100;
         this.addChild(panel);
     }
 }
