@@ -351,7 +351,7 @@
 	},
 	{
 		"name":"app_layout_item_png",
-		"scale9grid":"14,70,132,69",
+		"scale9grid":"30,72,105,68",
 		"type":"image",
 		"url":"asset/app/app_layout_item.png"
 	},
