@@ -12,13 +12,13 @@ class LabelExample extends egret.Sprite {
         super();
 
         var exml =
-            `<s:Group width="600" height="400" xmlns:s="http://ns.egret.com/eui">
-                <s:Label text="LeftTop" left="0" top="0" textColor="0xFFFFFF"/>
-                <s:Label text="RightTop" right="0" top="0" textColor="0xFFFFFF"/>
-                <s:Label text="LeftBottom" left="0" bottom="0" textColor="0xFFFFFF"/>
-                <s:Label text="RightBottom" right="0" bottom="0" textColor="0xFFFFFF"/>
-                <s:Label text="Center" horizontalCenter="0" verticalCenter="0" textColor="0xFFFFFF"/>
-            </s:Group>`;
+            `<e:Group width="600" height="400" xmlns:e="http://ns.egret.com/eui">
+                <e:Label text="LeftTop" left="0" top="0" textColor="0xFFFFFF"/>
+                <e:Label text="RightTop" right="0" top="0" textColor="0xFFFFFF"/>
+                <e:Label text="LeftBottom" left="0" bottom="0" textColor="0xFFFFFF"/>
+                <e:Label text="RightBottom" right="0" bottom="0" textColor="0xFFFFFF"/>
+                <e:Label text="Center" horizontalCenter="0" verticalCenter="0" textColor="0xFFFFFF"/>
+            </e:Group>`;
 
         var clazz = EXML.parse(exml);
         var group:eui.Group = new clazz();

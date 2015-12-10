@@ -5,8 +5,7 @@ class BitmapFontExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        RES.getResByUrl("resource/assets/font.fnt", this.onLoadComplete, this,
-            RES.ResourceItem.TYPE_FONT);
+
     }
 
     private onLoadComplete(font:egret.BitmapFont):void {

@@ -12,13 +12,13 @@ class VSliderExample extends egret.Sprite {
         super();
 
         var exml =
-            `<s:VSlider x="50" y="50" height="300" xmlns:s="http://ns.egret.com/eui">
-                <s:Skin minWidth="20" minHeight="8">
-                    <s:Image id="track" source="resource/slider/track.png"  scale9Grid="1,1,4,4" width="6" height="100%" verticalCenter="0"/>
-                    <s:Image id="trackHighlight" source="resource/slider/tracklight.png" scale9Grid="1,1,4,4" width="6" verticalCenter="0"/>
-                    <s:Image id="thumb" source="resource/slider/thumb.png" rotation="90" x="15"/>
-                </s:Skin>
-            </s:VSlider>`;
+            `<e:VSlider x="50" y="50" height="300" xmlns:e="http://ns.egret.com/eui">
+                <e:Skin minWidth="20" minHeight="8">
+                    <e:Image id="track" source="resource/slider/track.png"  scale9Grid="1,1,4,4" width="6" height="100%" verticalCenter="0"/>
+                    <e:Image id="trackHighlight" source="resource/slider/tracklight.png" scale9Grid="1,1,4,4" width="6" verticalCenter="0"/>
+                    <e:Image id="thumb" source="resource/slider/thumb.png" rotation="90" x="15"/>
+                </e:Skin>
+            </e:VSlider>`;
 
         var clazz = EXML.parse(exml);
         var vslider = new clazz();

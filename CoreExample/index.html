@@ -39,8 +39,6 @@
 
     <!--这个标签会被替换为项目中所有的 javascript 文件-->
     <!--game_files_start-->
-	<script egret="game" src="bin-debug/Loader.js"></script>
-	<script egret="game" src="bin-debug/Main.js"></script>
 	<script egret="game" src="bin-debug/egret/display/Bitmap.js"></script>
 	<script egret="game" src="bin-debug/egret/display/BitmapFillMode.js"></script>
 	<script egret="game" src="bin-debug/egret/display/BlendMode.js"></script>
@@ -82,8 +80,6 @@
 	<script egret="game" src="bin-debug/egret/text/HtmlTextParser.js"></script>
 	<script egret="game" src="bin-debug/egret/text/TextField.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/ByteArray.js"></script>
-	<script egret="game" src="bin-debug/egret/utils/Timer.js"></script>
-	<script egret="game" src="bin-debug/egret/utils/XML.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/callLater.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/getDefinitionByName.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/getOption.js"></script>
@@ -93,11 +89,14 @@
 	<script egret="game" src="bin-debug/egret/utils/hasDefinition.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/is.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/numberUtils.js"></script>
+	<script egret="game" src="bin-debug/egret/utils/Timer.js"></script>
 	<script egret="game" src="bin-debug/egret/utils/toColorString.js"></script>
+	<script egret="game" src="bin-debug/egret/utils/XML.js"></script>
 	<script egret="game" src="bin-debug/extension/dragonbones/Dragonbones.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/binding/BindingExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/binding/WatcherExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/collections/ArrayCollectionExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/BitmapLabelExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/ButtonExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/CheckboxExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/ComponentExample.js"></script>
@@ -114,16 +113,18 @@
 	<script egret="game" src="bin-debug/extension/eui/components/ProgressBarExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/RadioButtonExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/RadioButtonGroupExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/RectExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/ScrollerExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/SkinExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/TabBarExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/ToggleButtonExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/ToggleSwitchExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/VScrollBarExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/VSliderExample.js"></script>
-	<script egret="game" src="bin-debug/extension/eui/components/ViewStackExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/supportClasses/DefaultAssetAdapterExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/components/supportClasses/RangeExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/TabBarExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/TextInputExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/ToggleButtonExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/ToggleSwitchExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/ViewStackExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/VScrollBarExample.js"></script>
+	<script egret="game" src="bin-debug/extension/eui/components/VSliderExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/core/DirectionExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/core/ScrollPolicyExample.js"></script>
 	<script egret="game" src="bin-debug/extension/eui/core/ThemeExample.js"></script>
@@ -155,6 +156,8 @@
 	<script egret="game" src="bin-debug/extension/resource/Resource.js"></script>
 	<script egret="game" src="bin-debug/extension/socket/WebSocket.js"></script>
 	<script egret="game" src="bin-debug/extension/tween/Tween.js"></script>
+	<script egret="game" src="bin-debug/Loader.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
 	<!--game_files_end-->
 </head>
 <body>
@@ -253,6 +256,7 @@
             "DefaultAssetAdapter",
             "Range",
             //eui/components
+            "BitmapLabel",
             "Button",
             "Checkbox",
             "Component",
@@ -269,9 +273,11 @@
             "ProgressBar",
             "RadioButton",
             "RadioButtonGroup",
+            "Rect",
             "Scroller",
             "Skin",
             "TabBar",
+            "TextInput",
             "ToggleButton",
             "ToggleSwitch",
             "ViewStack",

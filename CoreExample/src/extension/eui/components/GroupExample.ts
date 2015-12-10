@@ -12,27 +12,27 @@ class GroupExample extends egret.Sprite {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/eui">
-                <s:layout>
-                 <s:HorizontalLayout gap="20"/>
-                </s:layout>
-                <s:Group>
-                    <s:layout>
-                        <s:VerticalLayout gap="20"/>
-                    </s:layout>
-                    <s:Label text="BeiJIng" textColor="0xFFFFFF"/>
-                    <s:Label text="sunny" textColor="0xFFFFCC"/>
-                    <s:Image source="resource/sunny.png"/>
-                </s:Group>
-                <s:Group>
-                    <s:layout>
-                        <s:VerticalLayout gap="20"/>
-                    </s:layout>
-                    <s:Label text="ShangHai" textColor="0xFFFFFF"/>
-                    <s:Label text="cloudy" textColor="0xFFFFCC"/>
-                    <s:Image source="resource/cloudy.png"/>
-                </s:Group>
-            </s:Group>`;
+            `<e:Group xmlns:e="http://ns.egret.com/eui">
+                <e:layout>
+                 <e:HorizontalLayout gap="20"/>
+                </e:layout>
+                <e:Group>
+                    <e:layout>
+                        <e:VerticalLayout gap="20"/>
+                    </e:layout>
+                    <e:Label text="BeiJIng" textColor="0xFFFFFF"/>
+                    <e:Label text="sunny" textColor="0xFFFFCC"/>
+                    <e:Image source="resource/sunny.png"/>
+                </e:Group>
+                <e:Group>
+                    <e:layout>
+                        <e:VerticalLayout gap="20"/>
+                    </e:layout>
+                    <e:Label text="ShangHai" textColor="0xFFFFFF"/>
+                    <e:Label text="cloudy" textColor="0xFFFFCC"/>
+                    <e:Image source="resource/cloudy.png"/>
+                </e:Group>
+            </e:Group>`;
 
         var clazz = EXML.parse(exml);
         var group:eui.Group = new clazz();

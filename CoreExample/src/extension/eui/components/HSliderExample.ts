@@ -12,11 +12,11 @@ class HSliderExample extends egret.Sprite {
         super();
 
         var exml =
-            `<s:Skin minWidth="20" minHeight="8"  xmlns:s="http://ns.egret.com/eui">
-                <s:Image id="track" source="resource/slider/track.png" scale9Grid="1,1,4,4" width="100%" height="6" verticalCenter="0"/>
-                <s:Image id="trackHighlight" source="resource/slider/tracklight.png" scale9Grid="1,1,4,4" height="6" verticalCenter="0"/>
-                <s:Image id="thumb" source="resource/slider/thumb.png" verticalCenter="0"/>
-            </s:Skin>`;
+            `<e:Skin minWidth="20" minHeight="8"  xmlns:e="http://ns.egret.com/eui">
+                <e:Image id="track" source="resource/slider/track.png" scale9Grid="1,1,4,4" width="100%" height="6" verticalCenter="0"/>
+                <e:Image id="trackHighlight" source="resource/slider/tracklight.png" scale9Grid="1,1,4,4" height="6" verticalCenter="0"/>
+                <e:Image id="thumb" source="resource/slider/thumb.png" verticalCenter="0"/>
+            </e:Skin>`;
 
         var hslider = new eui.HSlider();
         hslider.skinName = exml;

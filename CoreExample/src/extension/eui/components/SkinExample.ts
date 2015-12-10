@@ -12,11 +12,11 @@ class SkinExample extends egret.Sprite {
         super();
 
         var exml =
-            `<s:Button xmlns:s="http://ns.egret.com/eui">
-                <s:Skin states="up,down,disabled">
-                    <s:Image width="50" height="50" source="resource/close.png" scaleX.up="1" scaleX.down="0.95" scaleY.up="1" scaleY.down="0.95"/>
-                </s:Skin>
-            </s:Button>`;
+            `<e:Button xmlns:e="http://ns.egret.com/eui">
+                <e:Skin states="up,down,disabled">
+                    <e:Image width="50" height="50" source="resource/close.png" scaleX.up="1" scaleX.down="0.95" scaleY.up="1" scaleY.down="0.95"/>
+                </e:Skin>
+            </e:Button>`;
 
         var clazz = EXML.parse(exml);
         var button = new clazz();

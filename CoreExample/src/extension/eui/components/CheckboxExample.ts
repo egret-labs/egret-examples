@@ -1,25 +1,32 @@
 ﻿
-
+/**
+ * @language en_US
+ * The following example shows how to use the eui.Checkbox class
+ */
+/**
+ * @language zh_CN
+ * 下面的例子显示了如何使用 eui.Checkbox 类
+ */
 class CheckboxExample extends eui.Group {
     constructor() {
         super();
 
         var checkboxSkin =
-            `<s:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:s="http://ns.egret.com/eui">
-                <s:Group width="100%" height="100%">
-                    <s:layout>
-                        <s:HorizontalLayout verticalAlign="middle"/>
-                    </s:layout>
-                    <s:Image fillMode="scale" alpha="1" alpha.disabled="0.5" alpha.down="0.7"
+            `<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:e="http://ns.egret.com/eui">
+                <e:Group width="100%" height="100%">
+                    <e:layout>
+                        <e:HorizontalLayout verticalAlign="middle"/>
+                    </e:layout>
+                    <e:Image fillMode="scale" alpha="1" alpha.disabled="0.5" alpha.down="0.7"
                              source="resource/CheckBox/checkbox_unselect.png"
                              source.upAndSelected="resource/CheckBox/checkbox_select_up.png"
                              source.downAndSelected="resource/CheckBox/checkbox_select_down.png"
                              source.disabledAndSelected="resource/CheckBox/checkbox_select_disabled.png"/>
-                    <s:Label id="labelDisplay" size="20" textColor="0x707070"
+                    <e:Label id="labelDisplay" size="20" textColor="0x707070"
                              textAlign="center" verticalAlign="middle"
                              fontFamily="Tahoma"/>
-                </s:Group>
-            </s:Skin>`;
+                </e:Group>
+            </e:Skin>`;
 
         var checkbox = new eui.CheckBox();
 

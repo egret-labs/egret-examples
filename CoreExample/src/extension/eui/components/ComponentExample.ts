@@ -18,10 +18,10 @@ class ComponentExample extends egret.Sprite {
         this.addChild(shape);
 
         var exml =
-            `<s:Skin xmlns:s="http://ns.egret.com/eui">
-                <s:Label text="标题" horizontalCenter="0"/>
-                <s:Label text="egret" right="0" bottom="0"/>
-            </s:Skin>`;
+            `<e:Skin xmlns:e="http://ns.egret.com/eui">
+                <e:Label text="标题" horizontalCenter="0"/>
+                <e:Label text="egret" right="0" bottom="0"/>
+            </e:Skin>`;
 
         var component = new eui.Component();
         component.width = 400;

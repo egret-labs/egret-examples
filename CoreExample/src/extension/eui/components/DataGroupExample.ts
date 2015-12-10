@@ -32,24 +32,24 @@ class DataGroupExample extends egret.Sprite {
 
     private createDataGroupByEXML():void {
         var exml =
-            `<s:DataGroup class="Example.DataGroup" xmlns:s="http://ns.egret.com/eui" x="300" y="50">
-                <s:layout>
-                    <s:VerticalLayout gap="20"/>
-                </s:layout>
-                <s:itemRendererSkinName>
-                    <s:Skin>
-                     <s:Label text="{data.label}" textColor="{data.color}"/>
-                    </s:Skin>
-                </s:itemRendererSkinName>
-                <s:ArrayCollection>
-                    <s:Array>
-                        <s:Object label="a" color="0xcc9999"/>
-                        <s:Object label="b" color="0xff9966"/>
-                        <s:Object label="c" color="0xcc3333"/>
-                        <s:Object label="d" color="0xff6666"/>
-                    </s:Array>
-                </s:ArrayCollection>
-            </s:DataGroup>`;
+            `<e:DataGroup class="Example.DataGroup" xmlns:e="http://ns.egret.com/eui" x="300" y="50">
+                <e:layout>
+                    <e:VerticalLayout gap="20"/>
+                </e:layout>
+                <e:itemRendererSkinName>
+                    <e:Skin>
+                     <e:Label text="{data.label}" textColor="{data.color}"/>
+                    </e:Skin>
+                </e:itemRendererSkinName>
+                <e:ArrayCollection>
+                    <e:Array>
+                        <e:Object label="a" color="0xcc9999"/>
+                        <e:Object label="b" color="0xff9966"/>
+                        <e:Object label="c" color="0xcc3333"/>
+                        <e:Object label="d" color="0xff6666"/>
+                    </e:Array>
+                </e:ArrayCollection>
+            </e:DataGroup>`;
         var clazz = EXML.parse(exml);
         var dataGroup2:eui.DataGroup = new clazz();
         this.addChild(dataGroup2);
