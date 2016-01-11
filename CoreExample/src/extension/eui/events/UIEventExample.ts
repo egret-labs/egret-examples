@@ -29,10 +29,14 @@ class UIEventExample extends egret.Sprite {
         scroller.height = 190;
         this.addChild(scroller);
         scroller.addEventListener(eui.UIEvent.CHANGE_START, this.onUIEventHandler, this);
+        scroller.addEventListener(egret.Event.CHANGE, this.onChangeHander, this);
         scroller.addEventListener(eui.UIEvent.CHANGE_END, this.onUIEventHandler, this);
     }
     private onUIEventHandler(e: eui.UIEvent): void {
-        console.log("eui.UIEvent:",e.type)
+        console.log("eui.UIEvent:",e.type);
+    }
+    private onChangeHander(e: egret.Event): void {
+        console.log("egret.Event:",e.type);
     }
     private getPanel(): eui.Panel {
         var exmlButton =
