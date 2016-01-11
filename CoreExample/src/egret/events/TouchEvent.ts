@@ -6,7 +6,7 @@ class TouchEventExample extends egret.DisplayObjectContainer {
         super();
 
         this.touchEventDemo();
-        this.touchCancleDemo();
+        this.touchCancelDemo();
     }
     private touchEventDemo(){
         var container = new egret.Sprite();
@@ -44,36 +44,36 @@ class TouchEventExample extends egret.DisplayObjectContainer {
             console.log("容器捕获侦听，eventPhase：" + event.eventPhase);
         }, this, true);
     }
-    private touchCancleDemo(){
-        //var scroller = new eui.Scroller();
-        //scroller.x = 250;
-        //var list = new eui.List();
-        //var ac = new eui.ArrayCollection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-        //list.dataProvider = ac;
-        //list.itemRendererSkinName = `
-        //<e:Skin states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
-        //        <e:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
-        //                 source="resource/button_up.png"
-        //                 source.down="resource/button_down.png"/>
-        //        <e:Label text="{data}" top="8" bottom="8" left="8" right="8"
-        //                 textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
-        //    </e:Skin>`
-        //
-        //scroller.viewport = list;
-        //scroller.height = 200;
-        //this.addChild(scroller);
-        //scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 Scroller Begin")},this);
-        //list.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 List Begin")},this);
-        //
-        //scroller.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 Scroller END")},this);
-        //list.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 List END")},this);
-        //
-        //scroller.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 Scroller Tap")},this);
-        //list.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 List Tap")},this);
-        //
-        ////scroller 滚动后会触发 touchCancle 事件
-        ////dispatch touchcancle event after scroller move
-        //scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 Scroller cancle")},this);
-        //list.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 List cancle")},this);
+    private touchCancelDemo(){
+        var scroller = new eui.Scroller();
+        scroller.x = 250;
+        var list = new eui.List();
+        var ac = new eui.ArrayCollection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+        list.dataProvider = ac;
+        list.itemRendererSkinName = `
+        <e:Skin states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
+                <e:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
+                         source="resource/button_up.png"
+                         source.down="resource/button_down.png"/>
+                <e:Label text="{data}" top="8" bottom="8" left="8" right="8"
+                         textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+            </e:Skin>`
+
+        scroller.viewport = list;
+        scroller.height = 200;
+        this.addChild(scroller);
+        scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 Scroller Begin")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 List Begin")},this);
+
+        scroller.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 Scroller END")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 List END")},this);
+
+        scroller.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 Scroller Tap")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 List Tap")},this);
+
+        //scroller 滚动后会触发 touchCancel 事件
+        //dispatch touchcancel event after scroller move
+        scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 Scroller cancel")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 List cancel")},this);
     }
 }
