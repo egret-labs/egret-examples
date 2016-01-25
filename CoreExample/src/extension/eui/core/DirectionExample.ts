@@ -61,11 +61,11 @@ class DirectionExample extends egret.Sprite {
     }
     private getProgressBar(): eui.ProgressBar {
         var exml =
-        `<s:Skin class="skins.ProgressBarSkin" xmlns:s="http://ns.egret.com/eui" minWidth="30" minHeight="18">
-            <s:Image source="resource/track.png" scale9Grid="1,1,4,4" width="100%" height="100%" verticalCenter="0"/>
-            <s:Image id="thumb" height="100%" width="100%" source="resource/thumb.png"/>
-            <s:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="15" fontFamily="Tahoma" textColor="0x707070" horizontalCenter="0" verticalCenter="0"/>
-        </s:Skin>`;
+        `<e:Skin class="skins.ProgressBarSkin" xmlns:e="http://ns.egret.com/eui" minWidth="30" minHeight="18">
+            <e:Image source="resource/track.png" scale9Grid="1,1,4,4" width="100%" height="100%" verticalCenter="0"/>
+            <e:Image id="thumb" height="100%" width="100%" source="resource/thumb.png"/>
+            <e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="15" fontFamily="Tahoma" textColor="0x707070" horizontalCenter="0" verticalCenter="0"/>
+        </e:Skin>`;
         var clazz = EXML.parse(exml);
         var bar = new eui.ProgressBar();
         bar.skinName = "skins.ProgressBarSkin";

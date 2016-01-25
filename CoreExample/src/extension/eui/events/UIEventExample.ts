@@ -40,22 +40,22 @@ class UIEventExample extends egret.Sprite {
     }
     private getPanel(): eui.Panel {
         var exmlButton =
-        `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:s="http://ns.egret.com/eui">
-            <s:Image source="resource/button_up.png" source.down="resource/button_down.png" scale9Grid="1,3,8,8" width="100%" height="100%"/>
-            <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
-        </s:Skin>`;
+        `<e:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
+            <e:Image source="resource/button_up.png" source.down="resource/button_down.png" scale9Grid="1,3,8,8" width="100%" height="100%"/>
+            <e:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+        </e:Skin>`;
         EXML.parse(exmlButton);
 
         var exml =
-        `<s:Skin class="skins.PanelSkin" xmlns:s="http://ns.egret.com/eui" minWidth="450" minHeight="25">
-            <s:Image left="0" right="0" bottom="0"  top="0" source="resource/border.png" scale9Grid="2,2,12,12"/>
-            <s:Group id="moveArea" left="0" right="0" top="1" height="45">
-                <s:Image left="0" right="0" bottom="0"  top="0" source="resource/header.png"/>
-                <s:Label id="titleDisplay" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" wordWrap="false" left="15" right="5" verticalCenter="0"/>
-            </s:Group>
-            <s:Group id="contentGroup" width="100%" height="200" top="50" bottom="30"/>
-            <s:Button skinName = "skins.ButtonSkin" id="closeButton" label="close" bottom="5" horizontalCenter="0"/>
-        </s:Skin>`;
+        `<e:Skin class="skins.PanelSkin" xmlns:e="http://ns.egret.com/eui" minWidth="450" minHeight="25">
+            <e:Image left="0" right="0" bottom="0"  top="0" source="resource/border.png" scale9Grid="2,2,12,12"/>
+            <e:Group id="moveArea" left="0" right="0" top="1" height="45">
+                <e:Image left="0" right="0" bottom="0"  top="0" source="resource/header.png"/>
+                <e:Label id="titleDisplay" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" wordWrap="false" left="15" right="5" verticalCenter="0"/>
+            </e:Group>
+            <e:Group id="contentGroup" width="100%" height="200" top="50" bottom="30"/>
+            <e:Button skinName = "skins.ButtonSkin" id="closeButton" label="close" bottom="5" horizontalCenter="0"/>
+        </e:Skin>`;
         var clazz = EXML.parse(exml);
         var panel = new eui.Panel();
         panel.skinName = "skins.PanelSkin";

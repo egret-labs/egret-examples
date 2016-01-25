@@ -12,10 +12,10 @@ class RangeViewerExample extends eui.Range {
     constructor() {
         super();
         this.skinName =
-        `<s:Skin class="skins.RangeViewerSkin" minWidth="30" minHeight="18" xmlns:s="http://ns.egret.com/eui">
-	        <s:Image x="0" y="0" source="resource/range-background.png"/>
-	        <s:Image id="pointer" x="60" y="60" source="resource/pointer.png"/>
-        </s:Skin>`;
+        `<e:Skin class="skins.RangeViewerSkin" minWidth="30" minHeight="18" xmlns:e="http://ns.egret.com/eui">
+	        <e:Image x="0" y="0" source="resource/range-background.png"/>
+	        <e:Image id="pointer" x="60" y="60" source="resource/pointer.png"/>
+        </e:Skin>`;
     }
     protected updateSkinDisplayList() {
         var range = this.maximum - this.minimum;
