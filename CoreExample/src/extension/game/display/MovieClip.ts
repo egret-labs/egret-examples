@@ -8,29 +8,29 @@ class MovieClipExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        var loader:egret.URLLoader = new egret.URLLoader();
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
+        var loader:egret.HttpRequest = new egret.HttpRequest();
+        loader.responseType = egret.HttpResponseType.TEXT;
         loader.addEventListener(egret.Event.COMPLETE, this.onLoadJsonComplete, this);
-        var url:string = "resource/assets/chunli.json";
-        var request:egret.URLRequest = new egret.URLRequest(url);
-        loader.load(request);
+        loader.open("resource/assets/chunli.json", egret.HttpMethod.GET);
+        loader.send();
     }
 
     private onLoadJsonComplete(event:egret.Event):void {
-        var loader:egret.URLLoader = <egret.URLLoader>event.target;
-        this.data = JSON.parse(loader.data);
+        var loader:egret.HttpRequest = <egret.HttpRequest>event.target;
+        this.data = JSON.parse(loader.response);
 
-        var loader:egret.URLLoader = new egret.URLLoader();
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;
-        loader.addEventListener(egret.Event.COMPLETE, this.onLoadTextureComplete, this);
-        var url:string = "resource/assets/chunli.png";
-        var request:egret.URLRequest = new egret.URLRequest(url);
-        loader.load(request);
+        var imageLoader:egret.ImageLoader = new egret.ImageLoader();
+        imageLoader.addEventListener(egret.Event.COMPLETE, this.onLoadTextureComplete, this);
+        imageLoader.load("resource/assets/chunli.png");
     }
 
     private onLoadTextureComplete(event:egret.Event):void {
-        var loader:egret.URLLoader = <egret.URLLoader>event.target;
-        this.texture = <egret.Texture>loader.data;
+        var loader:egret.ImageLoader = <egret.ImageLoader>event.target;
+        //获取加载到的纹理对象
+        var bitmapData:egret.BitmapData = loader.data;
+        //创建纹理对象
+        this.texture = new egret.Texture();
+        this.texture.bitmapData = bitmapData;
 
         this.createMovieClip();
     }

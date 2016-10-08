@@ -5,10 +5,10 @@ class IOErrorEventExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        var loader:egret.URLLoader = new egret.URLLoader();
+        var loader:egret.HttpRequest = new egret.HttpRequest();
         loader.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onIOError, this);
-        var request:egret.URLRequest = new egret.URLRequest("nothing.json");
-        loader.load(request);
+        loader.open("nothing.json", egret.HttpMethod.GET);
+        loader.send();
     }
 
     private onIOError(event:egret.IOErrorEvent):void {

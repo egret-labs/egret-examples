@@ -1,5 +1,5 @@
 /**
- * 以下示例演示了使用 URLLoader 加载图片资源并使用 Bitmap 进行显示。
+ * 以下示例演示了使用 ImageLoader 加载图片资源并使用 Bitmap 进行显示。
  * 还可以配合 RES 模块更便捷的加载。
  */
 class BitmapExample extends egret.DisplayObjectContainer {
@@ -10,22 +10,22 @@ class BitmapExample extends egret.DisplayObjectContainer {
     }
 
     private startLoad():void {
-        //创建 URLLoader 对象
-        var loader:egret.URLLoader = new egret.URLLoader();
-        //设置加载方式为纹理
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;
+        //创建 ImageLoader 对象
+        var loader:egret.ImageLoader = new egret.ImageLoader();
         //添加加载完成侦听
         loader.addEventListener(egret.Event.COMPLETE, this.onLoadComplete, this);
         var url:string = "resource/assets/egret_icon.png";
-        var request:egret.URLRequest = new egret.URLRequest(url);
         //开始加载
-        loader.load(request);
+        loader.load(url);
     }
 
     private onLoadComplete(event:egret.Event):void {
-        var loader:egret.URLLoader = <egret.URLLoader>event.target;
+        var loader:egret.ImageLoader = <egret.ImageLoader>event.target;
         //获取加载到的纹理对象
-        var texture:egret.Texture = <egret.Texture>loader.data;
+        var bitmapData:egret.BitmapData = loader.data;
+        //创建纹理对象
+        var texture = new egret.Texture();
+        texture.bitmapData = bitmapData;
         //创建 Bitmap 进行显示
         this.addChild(new egret.Bitmap(texture));
     }
