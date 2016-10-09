@@ -28,10 +28,10 @@ class URLRequestHeaderExample extends egret.DisplayObjectContainer {
     }
 
     private onLoadComplete(event:egret.Event):void {
-        console.log("onLoadComplete");
+        egret.log("onLoadComplete");
     }
 
     private onLoadError():void {
-        console.log("onLoadError");
+        egret.log("onLoadError");
     }
 }

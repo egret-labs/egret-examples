@@ -24,9 +24,9 @@ class URLLoaderDataFormatExample extends egret.DisplayObjectContainer {
 
     private onLoadComplete(event:egret.Event):void {
         var loader:egret.URLLoader = <egret.URLLoader>event.target;
-        console.log("dataFormat : " + loader.dataFormat);
+        egret.log("dataFormat : " + loader.dataFormat);
         //获取加载到的对象
         var data:any = loader.data;
-        console.log("data : " + data);
+        egret.log("data : " + data);
     }
 }

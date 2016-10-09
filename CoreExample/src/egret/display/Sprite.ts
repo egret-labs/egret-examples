@@ -19,18 +19,18 @@ class SpriteExample extends egret.DisplayObjectContainer {
     }
 
     private onTouchBegin():void {
-        console.log("onTouchBegin");
+        egret.log("onTouchBegin");
     }
 
     private onTouchEnd():void {
-        console.log("onTouchEnd");
+        egret.log("onTouchEnd");
     }
 
     private onTouchMove():void {
-        console.log("onTouchMove");
+        egret.log("onTouchMove");
     }
 
     private onTouchTap():void {
-        console.log("onTouchTap");
+        egret.log("onTouchTap");
     }
 }

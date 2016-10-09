@@ -19,7 +19,7 @@ class StageOrientationEventExample extends egret.DisplayObjectContainer {
     }
 
     private onOrientationChange(e:egret.StageOrientationEvent):void{
-        console.log("onOrientationChange");
+        egret.log("onOrientationChange");
         this.text.text = "onOrientationChange";
     }
 }

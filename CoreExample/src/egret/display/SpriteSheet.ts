@@ -29,9 +29,9 @@ class SpriteSheetExample extends egret.DisplayObjectContainer {
 
         //创建 SpriteSheet 对象
         var spriteSheet:egret.SpriteSheet = new egret.SpriteSheet(texture);
-        console.log(spriteSheet.getTexture("part1"));//null
+        egret.log(spriteSheet.getTexture("part1"));//null
         //创建一个新的 Texture 对象
         spriteSheet.createTexture("part1", 0, 0, 100, 100);
-        console.log(spriteSheet.getTexture("part1"));//egret.Texture
+        egret.log(spriteSheet.getTexture("part1"));//egret.Texture
     }
 }

@@ -17,13 +17,13 @@ class callLaterExample extends egret.DisplayObjectContainer {
         //添加到显示列表
         this.addChild(this.label);
 
-        console.log("beforeCallLater");
+        egret.log("beforeCallLater");
         egret.callLater(this.onCallLater, this);
-        console.log("afterCallLater");
+        egret.log("afterCallLater");
     }
 
     private onCallLater():void {
-        console.log("onCallLater");
+        egret.log("onCallLater");
         this.label.text = "callLater";
     }
 }

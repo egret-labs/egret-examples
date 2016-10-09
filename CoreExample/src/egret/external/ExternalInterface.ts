@@ -6,7 +6,7 @@ class ExternalInterfaceExample extends egret.DisplayObjectContainer {
         super();
 
         egret.ExternalInterface.addCallback("sendToJS", function (message) {
-            console.log("message form native : " + message);//message form native : message from native
+            egret.log("message form native : " + message);//message form native : message from native
         });
         egret.ExternalInterface.call("sendToAndroid", "message from js");
 

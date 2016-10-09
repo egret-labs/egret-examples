@@ -15,16 +15,16 @@ class StageExample extends egret.DisplayObjectContainer {
     }
 
     private activateHandler():void {
-        console.log("activateHandler");
+        egret.log("activateHandler");
     }
 
     private deactivateHandler():void {
-        console.log("deactivateHandler");
+        egret.log("deactivateHandler");
     }
 
     private resizeHandler():void {
-        console.log("resizeHandler");
+        egret.log("resizeHandler");
         var stage:egret.Stage = egret.MainContext.instance.stage;
-        console.log("stageWidth: " + stage.stageWidth + " stageHeight: " + stage.stageHeight);
+        egret.log("stageWidth: " + stage.stageWidth + " stageHeight: " + stage.stageHeight);
     }
 }

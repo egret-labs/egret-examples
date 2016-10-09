@@ -29,8 +29,8 @@ class RadioButtonGroupExample extends egret.Sprite {
         this.addChild(group);
         group.radio1.group.addEventListener(eui.UIEvent.CHANGE, (evt) => { 
             var radioGroup: eui.RadioButtonGroup = evt.target;
-            console.log(radioGroup.selectedValue);
-            console.log(group.radio1.selected);
+            egret.log(radioGroup.selectedValue);
+            egret.log(group.radio1.selected);
         },this)
         group.x = 50;
         group.y = 50;

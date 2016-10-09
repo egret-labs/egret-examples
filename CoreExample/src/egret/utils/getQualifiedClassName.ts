@@ -4,7 +4,7 @@
 class getQualifiedClassNameExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
-        console.log(egret.getQualifiedClassName(egret.DisplayObject));//egret.DisplayObject
-        console.log(egret.getQualifiedClassName(window));//Window
+        egret.log(egret.getQualifiedClassName(egret.DisplayObject));//egret.DisplayObject
+        egret.log(egret.getQualifiedClassName(window));//Window
     }
 }

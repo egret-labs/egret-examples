@@ -7,7 +7,7 @@ class TickerExample extends egret.DisplayObjectContainer {
 
         //注册事件侦听
         egret.Ticker.getInstance().register(this.onTick, this);
-        console.log("register");
+        egret.log("register");
     }
 
     private passTime:number = 0;
@@ -15,11 +15,11 @@ class TickerExample extends egret.DisplayObjectContainer {
     private onTick(dt:number):void {
         //累加时间，dt是帧时间间隔以毫秒为单位
         this.passTime += dt;
-        console.log("onTick");
+        egret.log("onTick");
         //经过5秒后删除帧函数
         if (this.passTime > 5000) {
             egret.Ticker.getInstance().unregister(this.onTick, this);
-            console.log("unregister");
+            egret.log("unregister");
         }
     }
 }

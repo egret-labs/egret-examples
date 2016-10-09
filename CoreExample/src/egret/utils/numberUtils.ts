@@ -4,9 +4,9 @@
 class numberUtilsExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
-        console.log(egret.NumberUtils.isNumber("dd"));//false
-        console.log(egret.NumberUtils.isNumber(3312));//true
-        console.log(egret.NumberUtils.sin(30));
-        console.log(egret.NumberUtils.cos(30));
+        egret.log(egret.NumberUtils.isNumber("dd"));//false
+        egret.log(egret.NumberUtils.isNumber(3312));//true
+        egret.log(egret.NumberUtils.sin(30));
+        egret.log(egret.NumberUtils.cos(30));
     }
 }

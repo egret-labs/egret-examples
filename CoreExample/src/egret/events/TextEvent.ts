@@ -22,6 +22,6 @@ class TextEventExample extends egret.DisplayObjectContainer {
     }
 
     private onLink(event:egret.TextEvent):void {
-        console.log("onLink, event.text : " + event.text);
+        egret.log("onLink, event.text : " + event.text);
     }
 }

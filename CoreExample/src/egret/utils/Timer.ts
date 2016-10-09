@@ -15,7 +15,7 @@ class TimerExample extends egret.DisplayObjectContainer {
     }
 
     private timerFunc(event:egret.TimerEvent) {
-        console.log("timerFunc count" + (<egret.Timer>event.target).currentCount);
+        egret.log("timerFunc count" + (<egret.Timer>event.target).currentCount);
         //timerFunc count1
         //timerFunc count2
         //timerFunc count3
@@ -24,7 +24,7 @@ class TimerExample extends egret.DisplayObjectContainer {
     }
 
     private timerComFunc(event: egret.TimerEvent) {
-        console.log("timerComFunc count" + (<egret.Timer>event.target).currentCount);
+        egret.log("timerComFunc count" + (<egret.Timer>event.target).currentCount);
         ////timerFunc count5
     }
 

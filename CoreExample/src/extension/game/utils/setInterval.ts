@@ -14,7 +14,7 @@ class setIntervalExample extends egret.DisplayObjectContainer {
         var intervalId: number = egret.setInterval(this.myRepeatingFunction,this,this.intervalDuration, ["Hello", "World"]);
     }
     private myRepeatingFunction(obj:any): void {
-        console.log(obj[0] + " " + obj[1]);
+        egret.log(obj[0] + " " + obj[1]);
     }
 
 }

@@ -16,7 +16,7 @@ class setTimeoutExample extends egret.DisplayObjectContainer {
     }
 
     private myDelayedFunction(obj:any): void {
-        console.log(obj[0] + " " + obj[1]);//Hello World
+        egret.log(obj[0] + " " + obj[1]);//Hello World
     }
 
 }

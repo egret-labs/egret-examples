@@ -12,6 +12,6 @@ class IOErrorEventExample extends egret.DisplayObjectContainer {
     }
 
     private onIOError(event:egret.IOErrorEvent):void {
-        console.log("onIOError");
+        egret.log("onIOError");
     }
 }

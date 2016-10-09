@@ -20,30 +20,30 @@ class XMLExample extends egret.DisplayObjectContainer {
           + '</familys>';
 
       var familys = egret.XML.parse(source);
-      console.log(familys.name); //familys
-      console.log(familys.localName); //familys
-      console.log(familys.nodeType); //1
-      console.log(familys.namespace); //http://www.w3.org/2005/Atom
+      egret.log(familys.name); //familys
+      egret.log(familys.localName); //familys
+      egret.log(familys.nodeType); //1
+      egret.log(familys.namespace); //http://www.w3.org/2005/Atom
 
       var children = familys.children;
-      console.log(children.length); //2
+      egret.log(children.length); //2
 
       var family1:egret.XML = <egret.XML><any>children[0];
-      console.log(family1.name); //family
-      console.log(family1.localName); //family
-      console.log(family1.nodeType); //1
-      console.log(family1.namespace); //http://www.w3.org/2005/Atom
-      console.log(family1.attributes.doorNumber); //1001
-      console.log(family1["$doorNumber"]); //1001
+      egret.log(family1.name); //family
+      egret.log(family1.localName); //family
+      egret.log(family1.nodeType); //1
+      egret.log(family1.namespace); //http://www.w3.org/2005/Atom
+      egret.log(family1.attributes.doorNumber); //1001
+      egret.log(family1["$doorNumber"]); //1001
 
       var father1:egret.XML = <egret.XML><any>family1.children[0];
-      console.log(father1.name); //member
-      console.log(father1.localName); //member
-      console.log(father1.nodeType); //1
-      console.log(father1.namespace); //http://www.w3.org/2005/Atom
-      console.log(father1.attributes.relation); //father
-      console.log(father1["$relation"]); //father
-      console.log(father1.attributes.name); //John
-      console.log(father1["$name"]); //John
+      egret.log(father1.name); //member
+      egret.log(father1.localName); //member
+      egret.log(father1.nodeType); //1
+      egret.log(father1.namespace); //http://www.w3.org/2005/Atom
+      egret.log(father1.attributes.relation); //father
+      egret.log(father1["$relation"]); //father
+      egret.log(father1.attributes.name); //John
+      egret.log(father1["$name"]); //John
     }
 }

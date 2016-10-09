@@ -15,7 +15,7 @@ class EventExample extends egret.DisplayObjectContainer {
         this.addChild(left);
         left.touchEnabled = true;
         left.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("点击左侧方块，eventPhase：" + event.eventPhase);
+            egret.log("点击左侧方块，eventPhase：" + event.eventPhase);
         }, left);
 
         var right:egret.Shape = new egret.Shape();
@@ -27,15 +27,15 @@ class EventExample extends egret.DisplayObjectContainer {
         this.addChild(right);
         right.touchEnabled = true;
         right.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("点击右侧方块，eventPhase：" + event.eventPhase);
+            egret.log("点击右侧方块，eventPhase：" + event.eventPhase);
         }, right);
 
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("容器冒泡侦听，eventPhase：" + event.eventPhase);
+            egret.log("容器冒泡侦听，eventPhase：" + event.eventPhase);
         }, this);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("容器捕获侦听，eventPhase：" + event.eventPhase);
+            egret.log("容器捕获侦听，eventPhase：" + event.eventPhase);
         }, this, true);
     }
 }

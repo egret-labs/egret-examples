@@ -5,7 +5,7 @@ class isExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
         var sprite = new egret.Sprite();
-        console.log(egret.is(sprite,"egret.Sprite"));//true
-        console.log(egret.is(sprite,"egret.Shape"));//false
+        egret.log(egret.is(sprite,"egret.Sprite"));//true
+        egret.log(egret.is(sprite,"egret.Shape"));//false
     }
 }

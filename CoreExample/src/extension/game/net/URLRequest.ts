@@ -24,14 +24,14 @@ class URLRequestExample extends egret.DisplayObjectContainer {
     }
 
     private onLoadComplete(event:egret.Event):void {
-        console.log("onLoadComplete");
+        egret.log("onLoadComplete");
         var loader:egret.URLLoader = <egret.URLLoader>event.target;
         //获取加载到的纹理对象
         var texture:egret.Texture = <egret.Texture>loader.data;
-        console.log(texture);
+        egret.log(texture);
     }
 
     private onLoadError():void {
-        console.log("onLoadError");
+        egret.log("onLoadError");
     }
 }

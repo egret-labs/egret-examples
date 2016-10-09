@@ -32,11 +32,11 @@ class BitmapFillModeExample extends egret.DisplayObjectContainer {
         this.addChild(bitmap);
 
         //默认是以拉伸填充区域
-        console.log(bitmap.fillMode);//scale
+        egret.log(bitmap.fillMode);//scale
         //设置重复位图以填充区域
         bitmap.fillMode = egret.BitmapFillMode.REPEAT;
         bitmap.width = 480;
         bitmap.height = 800;
-        console.log(bitmap.fillMode);//repeat
+        egret.log(bitmap.fillMode);//repeat
     }
 }

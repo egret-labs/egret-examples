@@ -32,7 +32,7 @@ class HttpRequestExample extends egret.DisplayObjectContainer {
 
     private onGetComplete(event:egret.Event):void {
         var request = <egret.HttpRequest>event.currentTarget;
-        console.log("get data : ",request.response);
+        egret.log("get data : ",request.response);
         var responseLabel = new egret.TextField();
         responseLabel.size = 18;
         responseLabel.text = "GET response: \n" + request.response.substring(0, 50) + "...";
@@ -43,11 +43,11 @@ class HttpRequestExample extends egret.DisplayObjectContainer {
     }
 
     private onGetIOError(event:egret.IOErrorEvent):void {
-        console.log("get error : " + event);
+        egret.log("get error : " + event);
     }
 
     private onGetProgress(event:egret.ProgressEvent):void {
-        console.log("get progress : " + Math.floor(100*event.bytesLoaded/event.bytesTotal) + "%");
+        egret.log("get progress : " + Math.floor(100*event.bytesLoaded/event.bytesTotal) + "%");
     }
 
     private sendPostRequest() {
@@ -70,7 +70,7 @@ class HttpRequestExample extends egret.DisplayObjectContainer {
 
     private onPostComplete(event:egret.Event):void {
         var request = <egret.HttpRequest>event.currentTarget;
-        console.log("post data : ",request.response);
+        egret.log("post data : ",request.response);
         var responseLabel = new egret.TextField();
         responseLabel.size = 18;
         responseLabel.text = "POST response:\n" + request.response.substring(0, 50) + "...";
@@ -81,10 +81,10 @@ class HttpRequestExample extends egret.DisplayObjectContainer {
     }
 
     private onPostIOError(event:egret.IOErrorEvent):void {
-        console.log("post error : " + event);
+        egret.log("post error : " + event);
     }
 
     private onPostProgress(event:egret.ProgressEvent):void {
-        console.log("post progress : " + Math.floor(100*event.bytesLoaded/event.bytesTotal) + "%");
+        egret.log("post progress : " + Math.floor(100*event.bytesLoaded/event.bytesTotal) + "%");
     }
 }

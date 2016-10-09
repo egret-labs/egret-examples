@@ -4,8 +4,8 @@
 class getDefinitionByNameExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
-        console.log(egret.getDefinitionByName("egret.DisplayObject"));//egret.DisplayObject对象
-        console.log(egret.getDefinitionByName("egret.Nothing"));//null
+        egret.log(egret.getDefinitionByName("egret.DisplayObject"));//egret.DisplayObject对象
+        egret.log(egret.getDefinitionByName("egret.Nothing"));//null
 
 
         var cls:any = egret.getDefinitionByName("egret.Shape");

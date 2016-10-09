@@ -4,6 +4,6 @@
 class getOptionNameExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
-        console.log(egret.getOption("test"));//index.html?test=getOptionName
+        egret.log(egret.getOption("test"));//index.html?test=getOptionName
     }
 }

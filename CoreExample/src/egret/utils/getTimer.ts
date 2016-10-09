@@ -6,7 +6,7 @@ class getTimerExample extends egret.DisplayObjectContainer {
         super();
 
         egret.Tween.get(this, {loop:true}).wait(1000).call(function (){
-            console.log(egret.getTimer());
+            egret.log(egret.getTimer());
         });
     }
 }

@@ -15,7 +15,7 @@ class EventDispatcherExample extends egret.DisplayObjectContainer {
     }
 
     private onAction(event:egret.Event):void {
-        console.log("onAction");
+        egret.log("onAction");
     }
 }
 

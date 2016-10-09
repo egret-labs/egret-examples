@@ -1,5 +1,5 @@
 /**
- * 下面的示例使用 ByteArrayExample 类创建新 ByteArray 对象，然后使用 console.log() 方法输出各种类方法的结果。
+ * 下面的示例使用 ByteArrayExample 类创建新 ByteArray 对象，然后使用 egret.log() 方法输出各种类方法的结果。
  */
 class ByteArrayExample extends egret.DisplayObjectContainer {
     public constructor() {
@@ -12,8 +12,8 @@ class ByteArrayExample extends egret.DisplayObjectContainer {
 
         byteArray.position = 0;
 
-        console.log(byteArray.readUTF());//Hello Egret
-        console.log(byteArray.readBoolean());//false
-        console.log(byteArray.readByte());//32
+        egret.log(byteArray.readUTF());//Hello Egret
+        egret.log(byteArray.readBoolean());//false
+        egret.log(byteArray.readByte());//32
     }
 }

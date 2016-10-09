@@ -34,7 +34,7 @@ class PropertyEventExample extends egret.Sprite {
         this.group.addChild(btn);
     }
     private onChangeHandler(e: eui.PropertyEvent): void {
-        console.log(e.type);
+        egret.log(e.type);
     }
     private getButton(): eui.Button {
         var exml =

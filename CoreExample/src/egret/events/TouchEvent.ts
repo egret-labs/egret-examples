@@ -21,7 +21,7 @@ class TouchEventExample extends egret.DisplayObjectContainer {
         container.addChild(left);
         left.touchEnabled = true;
         left.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("点击左侧方块，eventPhase：" + event.eventPhase);
+            egret.log("点击左侧方块，eventPhase：" + event.eventPhase);
         }, left);
 
         var right:egret.Shape = new egret.Shape();
@@ -33,15 +33,15 @@ class TouchEventExample extends egret.DisplayObjectContainer {
         container.addChild(right);
         right.touchEnabled = true;
         right.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("点击右侧方块，eventPhase：" + event.eventPhase);
+            egret.log("点击右侧方块，eventPhase：" + event.eventPhase);
         }, right);
 
         container.touchEnabled = true;
         container.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("容器冒泡侦听，eventPhase：" + event.eventPhase);
+            egret.log("容器冒泡侦听，eventPhase：" + event.eventPhase);
         }, this);
         container.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
-            console.log("容器捕获侦听，eventPhase：" + event.eventPhase);
+            egret.log("容器捕获侦听，eventPhase：" + event.eventPhase);
         }, this, true);
     }
     private touchCancelDemo(){
@@ -62,18 +62,18 @@ class TouchEventExample extends egret.DisplayObjectContainer {
         scroller.viewport = list;
         scroller.height = 200;
         this.addChild(scroller);
-        scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 Scroller Begin")},this);
-        list.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{console.log("111 List Begin")},this);
+        scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{egret.log("111 Scroller Begin")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_BEGIN,()=>{egret.log("111 List Begin")},this);
 
-        scroller.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 Scroller END")},this);
-        list.addEventListener(egret.TouchEvent.TOUCH_END,()=>{console.log("222 List END")},this);
+        scroller.addEventListener(egret.TouchEvent.TOUCH_END,()=>{egret.log("222 Scroller END")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_END,()=>{egret.log("222 List END")},this);
 
-        scroller.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 Scroller Tap")},this);
-        list.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{console.log("33 List Tap")},this);
+        scroller.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{egret.log("33 Scroller Tap")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{egret.log("33 List Tap")},this);
 
         //scroller 滚动后会触发 touchCancel 事件
         //dispatch touchcancel event after scroller move
-        scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 Scroller cancel")},this);
-        list.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{console.log("44 List cancel")},this);
+        scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{egret.log("44 Scroller cancel")},this);
+        list.addEventListener(egret.TouchEvent.TOUCH_CANCEL,()=>{egret.log("44 List cancel")},this);
     }
 }

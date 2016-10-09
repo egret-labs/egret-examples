@@ -6,16 +6,16 @@ class localStorageExample extends egret.DisplayObjectContainer {
         super();
 
         egret.localStorage.setItem("testKey", "testValue");
-        console.log(egret.localStorage.getItem("testKey"));//testValue
+        egret.log(egret.localStorage.getItem("testKey"));//testValue
         egret.localStorage.removeItem("testKey");
-        console.log(egret.localStorage.getItem("testKey"));//null
+        egret.log(egret.localStorage.getItem("testKey"));//null
 
         egret.localStorage.setItem("testKey", "testValue");
         egret.localStorage.clear();
-        console.log(egret.localStorage.getItem("testKey"));//null
+        egret.log(egret.localStorage.getItem("testKey"));//null
 
         egret.localStorage.setItem("testKey", "testValue");
         egret.localStorage.setItem("testKey", "testValue2");
-        console.log(egret.localStorage.getItem("testKey"));//testValue2
+        egret.log(egret.localStorage.getItem("testKey"));//testValue2
     }
 }

@@ -24,12 +24,12 @@ class TweenExample extends egret.DisplayObjectContainer {
     }
 
     private onChange():void {
-        console.log("onChange");
+        egret.log("onChange");
     }
 
     private onComplete(param1:string, param2:any):void {
-        console.log("onComplete");
-        console.log(param1);
-        console.log(param2);
+        egret.log("onComplete");
+        egret.log(param1);
+        egret.log(param2);
     }
 }

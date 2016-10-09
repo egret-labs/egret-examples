@@ -11,7 +11,7 @@ class VideoExample extends egret.DisplayObjectContainer {
                 video.width = 427;
                 video.height = 240;
                 video.fullscreen = i == 0;
-                console.log(video.fullscreen,i == 0)
+                egret.log(video.fullscreen,i == 0)
                 video.poster = video.fullscreen ? "resource/posterfullscreen.jpg" : "resource/posterinline.jpg";
                 video.touchEnabled = true;
                 video.once(egret.TouchEvent.TOUCH_TAP, this.playVideo, this)
@@ -29,7 +29,7 @@ class VideoExample extends egret.DisplayObjectContainer {
         }
 
         private playVideo(e: egret.TouchEvent) {
-            console.log(this);
+            egret.log(this);
             var video = <egret.Video>e.target;
             video.play();
 

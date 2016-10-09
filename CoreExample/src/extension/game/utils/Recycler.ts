@@ -16,14 +16,14 @@ class RecyclerExample extends egret.DisplayObjectContainer {
         for (var i: number = 0; i <= 20; ++i){
             this.recycler.push(this.creatShape());
         }
-        console.log(this.recycler.length);//21
+        egret.log(this.recycler.length);//21
         var temp:egret.Shape = this.recycler.pop();
         this.addChild(temp);
         this.addEventListener(egret.Event.ENTER_FRAME,this.enterFrameFunction,this);
     }
 
     private enterFrameFunction(event:egret.Event): void {
-        console.log(this.recycler.length);
+        egret.log(this.recycler.length);
         //20
         //20
         //..

@@ -7,7 +7,7 @@ class getQualifiedSuperClassNameExample extends egret.DisplayObjectContainer {
         var sp1 = new egret.Sprite();
         var sp2 = new egret.Shape();
 
-        console.log(egret.getQualifiedSuperclassName(sp1));//egret.DisplayObjectContainer
-        console.log(egret.getQualifiedSuperclassName(sp2));//egret.DisplayObject
+        egret.log(egret.getQualifiedSuperclassName(sp1));//egret.DisplayObjectContainer
+        egret.log(egret.getQualifiedSuperclassName(sp2));//egret.DisplayObject
     }
 }

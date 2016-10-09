@@ -5,7 +5,7 @@ class hasDefinitionExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        console.log(egret.hasDefinition("egret.DisplayObject"));//true
-        console.log(egret.hasDefinition("egret.Nothing"));//false
+        egret.log(egret.hasDefinition("egret.DisplayObject"));//true
+        egret.log(egret.hasDefinition("egret.Nothing"));//false
     }
 }

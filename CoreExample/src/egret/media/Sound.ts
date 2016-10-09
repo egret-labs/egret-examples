@@ -27,6 +27,6 @@ class SoundExample extends egret.DisplayObjectContainer {
     }
 
     private onSoundComplete(event:egret.Event):void {
-        console.log("onSoundComplete");
+        egret.log("onSoundComplete");
     }
 }

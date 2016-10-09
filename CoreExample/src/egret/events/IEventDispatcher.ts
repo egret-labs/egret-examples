@@ -13,7 +13,7 @@ class IEventDispatcherExample extends egret.DisplayObjectContainer {
     }
 
     public onEvent(event:egret.Event):void {
-        console.log("doSomething");
+        egret.log("doSomething");
     }
 }
 

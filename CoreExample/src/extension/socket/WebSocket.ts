@@ -88,6 +88,6 @@ class WebSocketExample extends egret.DisplayObjectContainer {
     private trace(msg:any):void {
         this.text = this.text + "\n" + msg;
         this.stateText.text = this.text;
-        console.log(msg);
+        egret.log(msg);
     }
 }

@@ -21,24 +21,24 @@ class DisplayObjectExample extends egret.Sprite {
     }
 
     private onClick(event:MouseEvent):void {
-        console.log("onClick");
+        egret.log("onClick");
         this.parent.removeChild(this);
     }
 
     private onAdded(event:Event):void {
-        console.log("onAdded");
+        egret.log("onAdded");
     }
 
     private onEnterFrame(event:Event):void {
-        console.log("onEnterFrame");
+        egret.log("onEnterFrame");
         this.removeEventListener("enterFrame", this.onEnterFrame, this);
     }
 
     private onRemoved(event:Event):void {
-        console.log("onRemoved");
+        egret.log("onRemoved");
     }
 
     private onRender(event:Event):void {
-        console.log("onRender");
+        egret.log("onRender");
     }
 }
