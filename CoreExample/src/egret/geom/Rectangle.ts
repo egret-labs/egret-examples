@@ -6,11 +6,11 @@ class RectangleExample extends egret.DisplayObjectContainer {
         super();
 
         var firstRect:egret.Rectangle = new egret.Rectangle();
-        egret.log(firstRect);  // (x=0, y=0, w=0, h=0)
+        egret.log(firstRect.toString());  // (x=0, y=0, w=0, h=0)
         var secondRect:egret.Rectangle = new egret.Rectangle(1, 3, 11, 13);
-        egret.log(secondRect); // (x=1, y=3, w=11, h=13)
+        egret.log(secondRect.toString()); // (x=1, y=3, w=11, h=13)
         var thirdRect:egret.Rectangle = new egret.Rectangle(5, 8, 17, 19);
-        egret.log(thirdRect);  // (x=5, y=8, w=17, h=19)
+        egret.log(thirdRect.toString());  // (x=5, y=8, w=17, h=19)
         var isContained:Boolean = secondRect.containsRect(thirdRect);
         egret.log(isContained); // false
     }

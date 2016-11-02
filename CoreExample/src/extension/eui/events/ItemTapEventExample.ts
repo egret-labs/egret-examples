@@ -17,7 +17,9 @@ class ItemTapEventExample extends egret.Sprite {
         list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onItemTapHandler, this);
     }
     private onItemTapHandler(e: eui.ItemTapEvent): void {
-        egret.log(e.item, e.itemRenderer, e.itemIndex)
+        egret.log(e.item);
+        egret.log(e.itemRenderer);
+        egret.log(e.itemIndex);
     }
 }
 class IR_ItemTapEvent extends eui.ItemRenderer {

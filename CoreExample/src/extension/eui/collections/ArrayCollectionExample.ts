@@ -28,22 +28,22 @@ class ArrayCollectionExample extends egret.Sprite {
     private onCollectionChange(e: eui.CollectionEvent) {
         switch (e.kind) {
             case eui.CollectionEventKind.ADD:
-                egret.log("arrayCollection add", e.currentTarget.source, e.location);
+                egret.log("arrayCollection add" + " " + e.currentTarget.source + " " + e.location);
                 break;
             case eui.CollectionEventKind.REFRESH:
-                egret.log("arrayCollection refersh", e.currentTarget.source, e.location);
+                egret.log("arrayCollection refersh" + " " + e.currentTarget.source + " " + e.location);
                 break;
             case eui.CollectionEventKind.REMOVE:
-                egret.log("arrayCollection remove", e.currentTarget.source, e.location);
+                egret.log("arrayCollection remove" + " " + e.currentTarget.source + " " + e.location);
                 break;
             case eui.CollectionEventKind.REPLACE:
-                egret.log("arrayCollection replace", e.currentTarget.source, e.location);
+                egret.log("arrayCollection replace" + " " + e.currentTarget.source + " " + e.location);
                 break;
             case eui.CollectionEventKind.RESET:
-                egret.log("arrayCollection reset", e.currentTarget.source, e.location);
+                egret.log("arrayCollection reset" + " " + e.currentTarget.source + " " + e.location);
                 break;
             case eui.CollectionEventKind.UPDATE:
-                egret.log("arrayCollection update", e.currentTarget.source, e.location);
+                egret.log("arrayCollection update" + " " + e.currentTarget.source + " " + e.location);
                 break;
         }
     }

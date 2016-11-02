@@ -16,7 +16,7 @@ class ViewStackExample extends egret.Sprite {
                     </e:itemRendererSkinName>
                 </e:TabBar>
                 <e:ViewStack y="50" id="viewStack">
-                    <e:Group name="页面1">
+                    <e:Group name="Page1">
                         <e:Panel width="400" height="300" title="title panel" xmlns:e="http://ns.egret.com/eui" y="50">
                             <e:Skin>
                                 <e:Image width="100%" height="100%" source="resource/track.png" scale9Grid="1,1,4,4"/>
@@ -32,7 +32,7 @@ class ViewStackExample extends egret.Sprite {
                             </e:Skin>
                         </e:Panel>
                     </e:Group>
-                    <e:Group name="页面2">
+                    <e:Group name="Page2">
                         <e:List id="list" width="200" height="400" y="50">
                             <e:layout>
                                 <e:VerticalLayout gap="20"/>

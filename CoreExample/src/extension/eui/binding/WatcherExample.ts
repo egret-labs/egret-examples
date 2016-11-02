@@ -16,6 +16,6 @@
          this.porp = 123;
      }
      public watcherHander(value: any): void {
-         egret.log("watcherHander:", value, this.porp);
+         egret.log("watcherHander:" + " " + value + " " + this.porp);
      }
  }

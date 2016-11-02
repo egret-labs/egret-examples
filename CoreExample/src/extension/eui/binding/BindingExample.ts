@@ -17,6 +17,6 @@ class BindingExample extends egret.Sprite {
         this.porp = 123;
     }
     public watcherHander(value: any): void {
-        egret.log("watcherHander:", value, this.porp, this.porp2);
+        egret.log("watcherHander:" + " " + value + " " +  this.porp + " " +  this.porp2);
     }
 }

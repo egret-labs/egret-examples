@@ -10,6 +10,10 @@ class CapabilitiesExample extends egret.DisplayObjectContainer {
         var language = egret.Capabilities.language;
         var os = egret.Capabilities.os;
         var runtimeType = egret.Capabilities.runtimeType;
+        var engineVersion = egret.Capabilities.engineVersion;
+        var renderMode = egret.Capabilities.renderMode;
+        var boundingClientWidth = egret.Capabilities.boundingClientWidth;
+        var boundingClientHeight = egret.Capabilities.boundingClientHeight;
 
         this.text = new egret.TextField();
         this.text.x = 50;
@@ -17,7 +21,11 @@ class CapabilitiesExample extends egret.DisplayObjectContainer {
         this.text.text = "IsMobile: "+isMobile+"\n"+
             "Language: "+language+"\n"+
             "OS: "+os+"\n"+
-            "RuntimeType: "+runtimeType;
+            "RuntimeType: "+runtimeType+"\n"+
+            "EngineVersion: "+engineVersion+"\n"+
+            "RenderMode: "+renderMode+"\n"+
+            "BoundingClientWidth: "+boundingClientWidth+"\n"+
+            "BoundingClientHeight: "+boundingClientHeight;
         this.addChild(this.text);
     }
 }
