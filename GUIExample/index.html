@@ -25,7 +25,6 @@
 	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
 	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
 	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
-	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
 	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
 	<script egret="lib" src="libs/modules/gui/gui.js" src-release="libs/modules/gui/gui.min.js"></script>
 	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
@@ -33,28 +32,13 @@
 
     <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
     <!--other_libs_files_start-->
+	<script egret="lib" src="polyfill/promise.js" src-release="polyfill/promise.min.js"></script>
     <!--other_libs_files_end-->
 
     <!--这个标签会被替换为项目中所有的 javascript 文件-->
     <!--game_files_start-->
 	<script egret="game" src="bin-debug/skins/ocean/ItemRendererSkin.g.js"></script>
 	<script egret="game" src="bin-debug/AssetAdapter.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/AlertScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/BitmapLabelScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/ButtonScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/DropDownListScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/LabelScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/LayoutScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/ListCustomScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/ListScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/PanelScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/ProgressBarScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/ScrollerScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/SliderScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/TabBarScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/TitleWindowScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/TogglesScreenSkin.g.js"></script>
-	<script egret="game" src="bin-debug/screenContentSkins/TreeScreenSkin.g.js"></script>
 	<script egret="game" src="bin-debug/screenContents/AlertScreen.js"></script>
 	<script egret="game" src="bin-debug/screenContents/AnimationScreen.js"></script>
 	<script egret="game" src="bin-debug/screenContents/BitmapLabelScreen.js"></script>
@@ -74,6 +58,22 @@
 	<script egret="game" src="bin-debug/screenContents/TitleWindowScreen.js"></script>
 	<script egret="game" src="bin-debug/screenContents/TogglesScreen.js"></script>
 	<script egret="game" src="bin-debug/screenContents/TreeScreen.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/AlertScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/BitmapLabelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ButtonScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/DropDownListScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/LabelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/LayoutScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ListCustomScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ListScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/PanelScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ProgressBarScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/ScrollerScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/SliderScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TabBarScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TitleWindowScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TogglesScreenSkin.g.js"></script>
+	<script egret="game" src="bin-debug/screenContentSkins/TreeScreenSkin.g.js"></script>
 	<script egret="game" src="bin-debug/skins/ocean/AlertSkin.g.js"></script>
 	<script egret="game" src="bin-debug/skins/ocean/ButtonSkin.g.js"></script>
 	<script egret="game" src="bin-debug/skins/ocean/CheckBoxSkin.g.js"></script>
