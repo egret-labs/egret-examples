@@ -10,6 +10,7 @@ var game_file_list = [
 	"libs/modules/dragonBones/dragonBones.js",
 	"libs/modules/socket/socket.js",
 	"libs/modules/eui/eui.js",
+	"polyfill/promise.js",
 	"bin-debug/extension/eui/components/CheckboxExample.js",
 	"bin-debug/egret/display/Bitmap.js",
 	"bin-debug/egret/display/BlendMode.js",

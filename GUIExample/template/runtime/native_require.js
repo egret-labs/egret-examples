@@ -8,6 +8,7 @@ var game_file_list = [
 	"libs/modules/res/res.js",
 	"libs/modules/gui/gui.js",
 	"libs/modules/tween/tween.js",
+	"polyfill/promise.js",
 	"bin-debug/skins/ocean/ItemRendererSkin.g.js",
 	"bin-debug/AssetAdapter.js",
 	"bin-debug/screenContents/AlertScreen.js",
