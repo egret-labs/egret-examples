@@ -2,28 +2,35 @@
 	"native": {
 		"path_ignore": []
 	},
-	"egret_version": "4.0.3",
+	"egret_version": "4.1.0",
 	"modules": [
 		{
-			"name": "egret"
+			"name": "egret",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "game"
+			"name": "game",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "tween"
+			"name": "tween",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "res"
+			"name": "res",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "dragonbones"
+			"name": "dragonbones",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "socket"
+			"name": "socket",
+			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "eui"
+			"name": "eui",
+			"path": "${EGRET_DEFAULT}"
 		}
 	]
 }
