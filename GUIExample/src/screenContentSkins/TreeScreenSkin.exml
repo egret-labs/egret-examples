@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin xmlns:e="http://ns.egret-labs.org/egret" xmlns:w="http://ns.egret-labs.org/wing">
-    <e:Tree id="tree" labelField="name" horizontalCenter="0"
-            verticalCenter="0" width="250" height="250"/>
-</e:Skin>
