@@ -7,7 +7,9 @@
 		"libs/modules/res/res.js",
 		"libs/modules/dragonBones/dragonBones.js",
 		"libs/modules/socket/socket.js",
-		"libs/modules/eui/eui.js",
+		"libs/modules/eui/eui.js"
+	],
+	"game": [
 		"bin-debug/extension/eui/components/CheckboxExample.js",
 		"bin-debug/egret/display/Bitmap.js",
 		"bin-debug/egret/display/BlendMode.js",

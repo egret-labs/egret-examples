@@ -30,12 +30,12 @@
              </e:Group>
         </e:Group>
         <e:Group name="Slider"  verticalCenter="0" horizontalCenter="0">
-        	<e:Label text="Value:" verticalCenter="0" left="18" fontFamily="Tahoma" size="20"/>
-        	<e:Label left="78" verticalCenter="0" fontFamily="Tahoma" text="{vSlider.value}" size="20"/>
+        	<e:Label text="Value:" verticalCenter="0" left="18" fontFamily="Tahoma" size="20" textColor="0x000000"/>
+        	<e:Label left="78" verticalCenter="0" fontFamily="Tahoma" text="{vSlider.value}" size="20" textColor="0x000000"/>
         	<e:VSlider id="vSlider" x="105" verticalCenter="0" height="150" maximum="100"/>
         	<e:HSlider id="hSlider" verticalCenter="0.5" maximum="100" left="143" width="150"/>
-        	<e:Label text="Value:" verticalCenter="30" fontFamily="Tahoma" size="20" left="184" width="57"/>
-        	<e:Label verticalCenter="30" fontFamily="Tahoma" size="20" text="{hSlider.value}" left="247" width="53"/>
+        	<e:Label text="Value:" verticalCenter="30" fontFamily="Tahoma" size="20" left="184" width="57" textColor="0x000000"/>
+        	<e:Label verticalCenter="30" fontFamily="Tahoma" size="20" text="{hSlider.value}" left="247" width="53" textColor="0x000000"/>
         </e:Group>
 
         <e:Group name="Progress"  left="0" right="0" top="0" bottom="0">
