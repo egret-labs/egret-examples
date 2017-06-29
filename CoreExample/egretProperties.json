@@ -3,6 +3,7 @@
 		"path_ignore": []
 	},
 	"egret_version": "5.0.1",
+	"template":{},
 	"modules": [
 		{
 			"name": "egret",

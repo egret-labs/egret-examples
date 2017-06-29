@@ -23,7 +23,10 @@
 </head>
 
 <body>
-    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+    <script>var document_class = "Main";</script>
+    <select id="examples_menu" style="width:200px;font-size:24px;" onchange="onSelectChange(this.value)"></select>
+
+    <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;" class="egret-player"
          data-entry-class="Main"
          data-orientation="auto"
          data-scale-mode="showAll"
@@ -35,6 +38,202 @@
          data-show-fps="false" data-show-log="false"
          data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
+    <script>
+        var list = [
+            //display
+            "Bitmap",
+            "BitmapFillMode",
+            "BlendMode",
+            "DisplayObject",
+            "DisplayObjectContainer",
+            "Graphics",
+            "RenderTexture",
+            "Shape",
+            "Sprite",
+            "SpriteSheet",
+            "Stage",
+            "Texture",
+            "Mask",
+            //player
+            "StageScaleMode",
+            //events
+            "Event",
+            "EventDispatcher",
+            "EventPhase",
+            "IEventDispatcher",
+            "IOErrorEvent",
+            "TextEvent",
+            "TimerEvent",
+            "TouchEvent",
+            "StageOrientationEvent",
+            //external
+            "ExternalInterface",
+            //localStorage
+            "localStorage",
+            //geom
+            "Matrix",
+            "Point",
+            "Rectangle",
+            //media
+            "Sound",
+            "Video",
+            //text
+            "BitmapFont",
+            "BitmapText",
+            "HtmlTextParser",
+            "TextField",
+            //sensor
+            "DeviceOrientation",
+            "Geolocation",
+            "Motion",
+            //system
+            "Capabilities",
+            //net
+            "HttpRequest",
+            "ImageLoader",
+            //utils
+            "ByteArray",
+            "callLater",
+            "getDefinitionByName",
+            "getOptionName",
+            "getQualifiedClassName",
+            "getQualifiedSuperClassName",
+            "getTimer",
+            "hasDefinition",
+            "is",
+            "numberUtils",
+            "Timer",
+            "toColorString",
+            "XML",
+            //extension
+            //eui/binding
+            "Binding",
+            "Watcher",
+            //eui/collections
+            "ArrayCollection",
+            //eui/components/supportClasses
+            "DefaultAssetAdapter",
+            "Range",
+            //eui/components
+            "BitmapLabel",
+            "Button",
+            "Checkbox",
+            "Component",
+            "DataGroup",
+            "EditablText",
+            "Group",
+            "HScrollBar",
+            "HSlider",
+            "Image",
+            "ItemRenderer",
+            "Label",
+            "List",
+            "Panel",
+            "ProgressBar",
+            "RadioButton",
+            "RadioButtonGroup",
+            "Rect",
+            "Scroller",
+            "Skin",
+            "TabBar",
+            "TextInput",
+            "ToggleButton",
+            "ToggleSwitch",
+            "ViewStack",
+            "VScrollBar",
+            "VSlider",
+            //eui/core
+            "Direction",
+            "ScrollPolicy",
+            "Theme",
+            //eui/events
+            "CollectionEvent",
+            "ItemTapEvent",
+            "PropertyEvent",
+            "UIEvent",
+            //eui/layout
+            "BasicLayout",
+            "ColumnAlign",
+            "HorizontalLayout",
+            "JustifyAlign",
+            "RowAlign",
+            "TileLayout",
+            "TileOrientation",
+            "VerticalLayout",
+            //Dragonbones
+            "Dragonbones",
+            //game-display
+            "MovieClip",
+            "ScrollView",
+            //game-net
+            "URLLoader",
+            "URLLoaderDataFormat",
+            "URLRequest",
+            "URLRequestHeader",
+            "URLRequestMethod",
+            "URLVariables",
+            //game-player
+            "Ticker",
+            //game-tuils
+            "Recycler",
+            "setInterval",
+            "setTimeout",
+            //resource
+            "Resource",
+            "GetResByUrl",
+            //socket
+            "WebSocket",
+            //tween
+            "Tween",
+        ];
+        var menu = document.getElementById("examples_menu");
+        list.forEach(function (item) {
+            var option = document.createElement("option");
+            option.setAttribute("id", item);
+            option.setAttribute("value", item);
+            option.innerText = item;
+            menu.appendChild(option);
+        });
+        function onSelectChange(value) {
+            var url = location.href;
+            var index = url.indexOf("?");
+            if (index != -1) {
+                url = url.slice(0, index);
+            }
+            if (url.indexOf(".html") == -1) {
+                url += "index.html";
+            }
+            url += "?test=" + value;
+            location.href = url;
+        }
+        function getCurrentTest() {
+            var appFile;
+            var hasTest = false;
+            var str = location.search;
+            str = str.slice(1, str.length);
+            var totalArray = str.split("&");
+            for (var i = 0; i < totalArray.length; i++) {
+                var itemArray = totalArray[i].split("=");
+                if (itemArray.length == 2) {
+                    var key = itemArray[0];
+                    var value = itemArray[1];
+                    if (key == "test") {
+                        appFile = value;
+                        hasTest = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasTest) {
+                appFile = list[0];
+            }
+
+            return appFile;
+        }
+        document_class = getCurrentTest();
+        menu.value = document_class;
+        document_class += "Example";
+    </script>
 <script>
     var loadScript = function (list, callback) {
         var loaded = 0;
@@ -70,15 +269,32 @@
         var manifest = JSON.parse(xhr.response);
         var list = manifest.initial.concat(manifest.game);
         loadScript(list, function () {
-            /**
-             * {
-             * "renderMode":, //引擎渲染模式，"canvas" 或者 "webgl"
-             * "audioType": 0 //使用的音频类型，0:默认，2:web audio，3:audio
-             * "antialias": //WebGL模式下是否开启抗锯齿，true:开启，false:关闭，默认为false
-             * "retina": //是否基于devicePixelRatio缩放画布
-             * }
-             **/
-            egret.runEgret({ renderMode: "webgl", audioType: 0 });
+            var stage = document.getElementById("egret-sample");
+            console.log(document_class);
+            stage.setAttribute("data-entry-class",document_class);
+            egret.runEgret({renderMode:"canvas"});
+
+            if (getOption("mainClass")) {
+                document.getElementById("examples_menu").style.display = "none";
+            }
+            function getOption(key) {
+                if (window.location) {
+                    var search = location.search;
+                    if (search == "") {
+                        return "";
+                    }
+                    search = search.slice(1);
+                    var searchArr = search.split("&");
+                    var length = searchArr.length;
+                    for (var i = 0; i < length; i++) {
+                        var str = searchArr[i];
+                        var arr = str.split("=");
+                        if (arr[0] == key) {
+                            return arr[1];
+                        }
+                    }
+                }
+            }
         });
     });
     xhr.send(null);
