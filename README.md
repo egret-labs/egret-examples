@@ -18,7 +18,7 @@ Egret Examples
 ``` 
 cd {examples}
 egret build CoreExample -e 
-egret build GUIExample -e
+egret build EUIExample -e
 ```
 
 > 注意：不要忽略 ```-e``` 参数
