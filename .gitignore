@@ -3,4 +3,3 @@ bin-debug/
 temp/
 libs/
 egret.d.ts
-tsconfig.json
