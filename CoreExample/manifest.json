@@ -10,8 +10,10 @@
 		"libs/modules/eui/eui.js"
 	],
 	"game": [
-		"bin-debug/extension/eui/components/CheckboxExample.js",
+		"bin-debug/extension/eui/components/BitmapLabelExample.js",
+		"bin-debug/Loader.js",
 		"bin-debug/egret/display/Bitmap.js",
+		"bin-debug/egret/display/BitmapFillMode.js",
 		"bin-debug/egret/display/BlendMode.js",
 		"bin-debug/egret/display/DisplayObject.js",
 		"bin-debug/egret/display/DisplayObjectContainer.js",
@@ -67,9 +69,9 @@
 		"bin-debug/extension/eui/binding/BindingExample.js",
 		"bin-debug/extension/eui/binding/WatcherExample.js",
 		"bin-debug/extension/eui/collections/ArrayCollectionExample.js",
-		"bin-debug/extension/eui/components/BitmapLabelExample.js",
+		"bin-debug/Main.js",
 		"bin-debug/extension/eui/components/ButtonExample.js",
-		"bin-debug/egret/display/BitmapFillMode.js",
+		"bin-debug/extension/eui/components/CheckboxExample.js",
 		"bin-debug/extension/eui/components/ComponentExample.js",
 		"bin-debug/extension/eui/components/DataGroupExample.js",
 		"bin-debug/extension/eui/components/EditablTextExample.js",
@@ -87,8 +89,6 @@
 		"bin-debug/extension/eui/components/RectExample.js",
 		"bin-debug/extension/eui/components/ScrollerExample.js",
 		"bin-debug/extension/eui/components/SkinExample.js",
-		"bin-debug/extension/eui/components/supportClasses/DefaultAssetAdapterExample.js",
-		"bin-debug/extension/eui/components/supportClasses/RangeExample.js",
 		"bin-debug/extension/eui/components/TabBarExample.js",
 		"bin-debug/extension/eui/components/TextInputExample.js",
 		"bin-debug/extension/eui/components/ToggleButtonExample.js",
@@ -96,6 +96,8 @@
 		"bin-debug/extension/eui/components/ViewStackExample.js",
 		"bin-debug/extension/eui/components/VScrollBarExample.js",
 		"bin-debug/extension/eui/components/VSliderExample.js",
+		"bin-debug/extension/eui/components/supportClasses/DefaultAssetAdapterExample.js",
+		"bin-debug/extension/eui/components/supportClasses/RangeExample.js",
 		"bin-debug/extension/eui/core/DirectionExample.js",
 		"bin-debug/extension/eui/core/ScrollPolicyExample.js",
 		"bin-debug/extension/eui/core/ThemeExample.js",
@@ -126,8 +128,6 @@
 		"bin-debug/extension/resource/GetResByUrl.js",
 		"bin-debug/extension/resource/Resource.js",
 		"bin-debug/extension/socket/WebSocket.js",
-		"bin-debug/extension/tween/Tween.js",
-		"bin-debug/Loader.js",
-		"bin-debug/Main.js"
+		"bin-debug/extension/tween/Tween.js"
 	]
 }
