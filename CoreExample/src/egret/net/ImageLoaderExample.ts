@@ -12,7 +12,9 @@ class ImageLoaderExample extends egret.DisplayObjectContainer {
 
     private loadCompleteHandler(event:egret.Event):void {
         var imageLoader = <egret.ImageLoader>event.currentTarget;
-        var bitmap:egret.Bitmap = new egret.Bitmap(imageLoader.data);
+        let texture = new egret.Texture();
+        texture._setBitmapData(imageLoader.data);
+        var bitmap:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(bitmap);
     }
 
