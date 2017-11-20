@@ -2,7 +2,7 @@
 	"native": {
 		"path_ignore": []
 	},
-	"egret_version": "5.0.12",
+	"egret_version": "5.0.13",
 	"template": {},
 	"modules": [
 		{
