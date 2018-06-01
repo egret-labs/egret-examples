@@ -2,7 +2,6 @@
 	"native": {
 		"path_ignore": []
 	},
-	"egret_version": "5.0.14",
 	"template": {},
 	"modules": [
 		{
@@ -22,7 +21,7 @@
 			"path": "${EGRET_DEFAULT}"
 		},
 		{
-			"name": "dragonbones",
+			"name": "dragonBones",
 			"path": "${EGRET_DEFAULT}"
 		},
 		{
@@ -33,5 +32,7 @@
 			"name": "eui",
 			"path": "${EGRET_DEFAULT}"
 		}
-	]
+	],
+	"engineVersion": "5.1.12",
+	"compilerVersion": "5.1.12"
 }
